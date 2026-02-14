@@ -192,12 +192,59 @@ describe('API acceptance', () => {
       .set(headers('requester-01'))
       .send({});
     expect(submitAgain.status).toBe(409);
+    expect(submitAgain.body.message).toContain('request is terminal');
 
     const decideAgain = await request(app)
       .post(`/api/v1/tasks/${taskId}/decide`)
       .set(headers('approver-01'))
       .send({ decision: 'APPROVE', comment: 'retry' });
     expect(decideAgain.status).toBe(409);
+    expect(decideAgain.body.message).toContain('request is terminal');
+  });
+
+  it('AW-AUTH-002: non-assignee cannot decide task', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    await createActiveWorkflow(app, 'wf-api-auth', {
+      workflowId: 'wf-api-auth',
+      name: 'ApiAuth',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: 'USER:approver-01' }]
+    });
+
+    const createReqRes = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Auth Flow',
+      amount: 20000,
+      currency: 'JPY'
+    });
+    const requestId = createReqRes.body.requestId as string;
+    await request(app).post(`/api/v1/requests/${requestId}/submit`).set(headers('requester-01')).send({});
+
+    const pendingRes = await request(app)
+      .get('/api/v1/tasks')
+      .query({ requestId, status: 'PENDING' })
+      .set(headers('admin-01', ['ADMIN']));
+    const taskId = (pendingRes.body as Array<any>)[0]!.taskId as string;
+
+    const forbiddenRes = await request(app)
+      .post(`/api/v1/tasks/${taskId}/decide`)
+      .set(headers('intruder-01'))
+      .send({ decision: 'APPROVE', comment: 'hijack' });
+    expect(forbiddenRes.status).toBe(403);
+    expect(forbiddenRes.body.code).toBe('FORBIDDEN');
+
+    const requestRes = await request(app)
+      .get(`/api/v1/requests/${requestId}`)
+      .set(headers('requester-01'));
+    expect(requestRes.status).toBe(200);
+    expect(requestRes.body.status).toBe('IN_REVIEW');
+
+    const stillPending = await request(app)
+      .get('/api/v1/tasks')
+      .query({ requestId, status: 'PENDING' })
+      .set(headers('admin-01', ['ADMIN']));
+    expect((stillPending.body as Array<any>)).toHaveLength(1);
   });
 
   it('AW-ACC-04: audit logs keep submit to final decision', async () => {
@@ -242,4 +289,3 @@ describe('API acceptance', () => {
     expect(actions).toContain('REQUEST_APPROVE');
   });
 });
-

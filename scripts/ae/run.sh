@@ -129,6 +129,9 @@ phase_property() {
     return 0
   fi
 
+  run_soft property-tests \
+    pnpm --dir "$PROJECT_ROOT" run test:property
+
   run_soft property-harness \
     node "$AE_FRAMEWORK_DIR/scripts/testing/property-harness.mjs"
 }

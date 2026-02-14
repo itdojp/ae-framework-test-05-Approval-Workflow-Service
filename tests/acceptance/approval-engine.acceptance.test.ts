@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ApprovalEngine } from '../../src/domain/engine.js';
-import { ConflictError } from '../../src/domain/errors.js';
+import { ForbiddenError } from '../../src/domain/errors.js';
 import type { ActorContext, CreateWorkflowInput } from '../../src/domain/types.js';
 
 const tenantId = 'tenant-acme';
@@ -177,10 +177,47 @@ describe('Approval Workflow Acceptance', () => {
     const approvedRequest = engine.getRequest(request.requestId, admin);
     expect(approvedRequest.status).toBe('APPROVED');
 
-    await expect(engine.submitRequest(request.requestId, requester)).rejects.toBeInstanceOf(ConflictError);
-    await expect(engine.decideTask(task!.taskId, approver, 'APPROVE', 'retry')).rejects.toBeInstanceOf(
-      ConflictError
+    await expect(engine.submitRequest(request.requestId, requester)).rejects.toMatchObject({
+      message: expect.stringContaining('request is terminal')
+    });
+    await expect(engine.decideTask(task!.taskId, approver, 'APPROVE', 'retry')).rejects.toMatchObject({
+      message: expect.stringContaining('request is terminal')
+    });
+  });
+
+  it('AW-AUTH-002: task decision is denied for non-assignee', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+    const approver = actor('approver-01');
+    const intruder = actor('intruder-01');
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-auth',
+      name: 'AuthGuard',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: `USER:${approver.userId}` }]
+    });
+
+    const request = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'Auth Guard',
+        amount: 12345,
+        currency: 'JPY'
+      },
+      requester
     );
+    await engine.submitRequest(request.requestId, requester);
+
+    const task = engine.listTasks(admin, { requestId: request.requestId, status: 'PENDING' })[0];
+    await expect(engine.decideTask(task!.taskId, intruder, 'APPROVE', 'hijack')).rejects.toBeInstanceOf(
+      ForbiddenError
+    );
+
+    const stillPending = engine.listTasks(admin, { requestId: request.requestId, status: 'PENDING' });
+    expect(stillPending).toHaveLength(1);
+    expect(engine.getRequest(request.requestId, admin).status).toBe('IN_REVIEW');
   });
 
   it('AW-ACC-04: audit log keeps submit to final decision trace', async () => {
@@ -218,4 +255,3 @@ describe('Approval Workflow Acceptance', () => {
     expect(actions).toContain('REQUEST_APPROVE');
   });
 });
-

@@ -1,0 +1,13 @@
+{
+  "runId": "2026-02-14-full-r3",
+  "profile": "full",
+  "createdAt": "2026-02-14T05:31:03Z",
+  "aeFrameworkDir": "../ae-framework",
+  "logDir": "artifacts/runs/2026-02-14-full-r3/logs",
+  "notes": [
+    "dev-fast: spec系中心",
+    "pr-gate: spec + conformance + property",
+    "nightly-deep: formal + mutation",
+    "full: すべて実行"
+  ]
+}

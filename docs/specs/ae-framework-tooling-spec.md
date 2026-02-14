@@ -33,8 +33,8 @@
 | 軽量ゲート | `pnpm run verify:lite` | lint/test/build の最小品質担保 | 実装コード一式 | `artifacts/verify-lite/*` | PRごと |
 | Conformance | `ae conformance verify` | ルール/スキーマ違反検出 | 入力JSON + ルール | `artifacts/conformance/*` | API/ルール更新時 |
 | Formal（重点） | `pnpm run verify:tla`, `pnpm run verify:csp` | 同時決裁競合（AW-ACC-01）の安全性検証 | `spec/formal/*` | `artifacts/formal/*` | 日次または手動 |
-| Property | `node scripts/testing/property-harness.mjs` | 不変条件（AW-INV）検証 | `tests/property/*` | `artifacts/properties/*` | PRごと |
-| Mutation | `pnpm run test:mutation:quick` | テストの欠陥検知能力確認 | 実装/テスト | `artifacts/mutation/*` | 週次 |
+| Property | `pnpm run test:property` + `node scripts/testing/property-harness.mjs` | 不変条件（AW-INV）検証 | `tests/property/*` | `artifacts/properties/*` | PRごと |
+| Mutation | `pnpm run test:mutation:quick` | テストの欠陥検知能力確認（ANY/ALL反転・終端ガード欠落・assigneeガード欠落） | 実装/テスト | `artifacts/mutation/*` | 週次 |
 
 ## 5. 自動化ポリシー
 

@@ -71,4 +71,4 @@
   - conformance は `rule-ids` 指定でサービス固有ルールに限定し、`overall=PASS` を確認。
   - formal はサービス固有モデルで `TLA/CSP` とも `status=ran` を確認。
 - 継続タスク:
-  - mutation を実検証へ移行（現在は report-only）。
+  - MBTモデル（`tests/mbt/*`）の導入と、UI最小実装の段階着手。

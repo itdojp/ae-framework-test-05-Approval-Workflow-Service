@@ -19,6 +19,8 @@
 - AE-Spec入力: `spec/approval-workflow.md`
 - 受入基準テスト: `tests/acceptance/approval-engine.acceptance.test.ts`
 - API統合テスト: `tests/integration/api.acceptance.test.ts`
+- Propertyテスト: `tests/property/approval-engine.property.test.ts`
+- Mutationクイック検証: `scripts/testing/mutation-quick.mjs`
 - Formalモデル: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
 
 ## 実行コマンド
@@ -27,6 +29,8 @@
 pnpm install
 pnpm run test
 pnpm run build
+pnpm run test:property
+pnpm run test:mutation:quick
 ```
 
 ae-framework 連携（外部リポジトリ参照先を指定）:
