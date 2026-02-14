@@ -1,0 +1,15 @@
+{
+  "runId": "2026-02-14-pr-gate-ci-10",
+  "profile": "pr-gate",
+  "createdAt": "2026-02-14T10:53:51Z",
+  "aeFrameworkDir": "/home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service/ae-framework",
+  "logDir": "artifacts/runs/2026-02-14-pr-gate-ci-10/logs",
+  "snapshotDir": "artifacts/runs/2026-02-14-pr-gate-ci-10/snapshots",
+  "auditFile": "artifacts/runs/2026-02-14-pr-gate-ci-10/audit.json",
+  "notes": [
+    "dev-fast: spec + verify-lite",
+    "pr-gate: spec + verify-lite + conformance + mbt + property",
+    "nightly-deep: formal + mutation + trend",
+    "full: verify-lite を含む全フェーズ実行"
+  ]
+}
