@@ -1,0 +1,15 @@
+{
+  "tool": "csp",
+  "file": "spec/formal/approval-any-all.cspm",
+  "backend": "cspx:typecheck",
+  "detailsFile": "artifacts/hermetic-reports/formal/cspx-result.json",
+  "resultStatus": "error",
+  "ran": true,
+  "status": "error",
+  "exitCode": 2,
+  "timestamp": "2026-02-14T04:04:31Z",
+  "output": "cspx schema=0.1 status=error exit_code=2 checks=typecheck:error reason=invalid_input:/home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/spec/formal/approval-any-all.",
+  "ok": null,
+  "timeMs": 3,
+  "outputFile": "artifacts/hermetic-reports/formal/csp-output.txt"
+}

@@ -59,6 +59,8 @@
 
 - タスク定義: `codex/ae.playbook.yaml`
 - 実行ラッパー: `scripts/ae/run.sh`
+- conformance対象ルール: `configs/conformance/rule-ids.txt`
+- formalモデル（サービス固有）: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
 - 実行例:
   - `bash scripts/ae/run.sh dev-fast`
   - `bash scripts/ae/run.sh pr-gate`

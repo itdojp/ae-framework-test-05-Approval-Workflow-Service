@@ -1,0 +1,13 @@
+{
+  "runId": "2026-02-14-pr-gate-r3",
+  "profile": "pr-gate",
+  "createdAt": "2026-02-14T04:04:27Z",
+  "aeFrameworkDir": "../ae-framework",
+  "logDir": "artifacts/runs/2026-02-14-pr-gate-r3/logs",
+  "notes": [
+    "dev-fast: spec系中心",
+    "pr-gate: spec + conformance + property",
+    "nightly-deep: formal + mutation",
+    "full: すべて実行"
+  ]
+}

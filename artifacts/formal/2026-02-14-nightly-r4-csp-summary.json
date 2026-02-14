@@ -1,0 +1,15 @@
+{
+  "tool": "csp",
+  "file": "spec/formal/approval-any-all.cspm",
+  "backend": "cspx:typecheck",
+  "detailsFile": "artifacts/hermetic-reports/formal/cspx-result.json",
+  "resultStatus": "pass",
+  "ran": true,
+  "status": "ran",
+  "exitCode": 0,
+  "timestamp": "2026-02-14T04:05:15Z",
+  "output": "cspx schema=0.1 status=pass exit_code=0 checks=typecheck:pass",
+  "ok": true,
+  "timeMs": 3,
+  "outputFile": "artifacts/hermetic-reports/formal/csp-output.txt"
+}

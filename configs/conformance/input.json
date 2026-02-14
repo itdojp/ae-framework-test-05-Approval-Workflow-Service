@@ -1,4 +1,16 @@
 {
+  "user": {
+    "id": "39f6ef86-95c8-4090-8fc5-cf58fef572ec"
+  },
+  "device": {
+    "signedPreKey": "spk-001"
+  },
+  "session": {
+    "id": "0b6f953d-5f0c-4c5d-a8ab-a0ad89d30720"
+  },
+  "audit": {
+    "entries": []
+  },
   "request": {
     "requestId": "req-sample-001",
     "type": "GENERIC",
@@ -17,4 +29,3 @@
     "submittedAt": "2026-02-14T00:00:00.000Z"
   }
 }
-

@@ -18,6 +18,8 @@
 - OpenAPI契約: `contracts/openapi.yaml`
 - AE-Spec入力: `spec/approval-workflow.md`
 - 受入基準テスト: `tests/acceptance/approval-engine.acceptance.test.ts`
+- API統合テスト: `tests/integration/api.acceptance.test.ts`
+- Formalモデル: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
 
 ## 実行コマンド
 
@@ -33,4 +35,7 @@ ae-framework 連携（外部リポジトリ参照先を指定）:
 AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh dev-fast
 AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh pr-gate
 AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh nightly-deep
+AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh full
 ```
+
+conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定して実行する。

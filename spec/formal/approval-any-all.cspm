@@ -1,0 +1,3 @@
+-- cspx currently supports a narrow subset for typecheck in this pipeline.
+-- Keep this model minimal and use TLA+ model for richer concurrency semantics.
+SYSTEM = STOP

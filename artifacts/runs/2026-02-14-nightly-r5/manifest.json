@@ -1,0 +1,13 @@
+{
+  "runId": "2026-02-14-nightly-r5",
+  "profile": "nightly-deep",
+  "createdAt": "2026-02-14T04:05:57Z",
+  "aeFrameworkDir": "../ae-framework",
+  "logDir": "artifacts/runs/2026-02-14-nightly-r5/logs",
+  "notes": [
+    "dev-fast: spec系中心",
+    "pr-gate: spec + conformance + property",
+    "nightly-deep: formal + mutation",
+    "full: すべて実行"
+  ]
+}

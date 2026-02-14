@@ -1,0 +1,12 @@
+{
+  "engine": "tlc",
+  "file": "spec/formal/ApprovalAnyAll.tla",
+  "ran": true,
+  "status": "ran",
+  "ok": true,
+  "exitCode": 0,
+  "timeMs": 915,
+  "timestamp": "2026-02-14T04:07:05.020Z",
+  "output": "TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)\nWarning: Please run the Java VM which executes TLC with a throughput optimized garbage collector by passing the \"-XX:+UseParallelGC\" property.\n(Use the -nowarning option to disable this warning.)\nRunning breadth-first search Model-Checking with fp 46 and seed -253557972199802021 with 1 worker on 16 cores with 7628MB heap and 64MB offheap memory [pid: 2951182] (Linux 6.6.87.2-microsoft-standard-WSL2 amd64, Eclipse Adoptium 17.0.16 x86_64, MSBDiskFPSet, DiskStateQueue).\nParsing file /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/spec/formal/ApprovalAnyAll.tla\nParsing file /tmp/Naturals.tla\nSemantic processing of module Naturals\nSemantic processing of module ApprovalAnyAll\nStarting... (2026-02-14 13:07:04)\nComputing initial states...\nFinished computing initial states: 1 distinct state generated at 2026-02-14 13:07:04.\nModel checking completed. No error has been found.\n  Estimates of the probability that TLC did not check all reachable states\n  because two distinct states had the same fingerprint:\n  calculated (optimistic):  val = 1.4E-18\n10 states generated, 5 distinct states found, 0 states left on queue.\nThe depth of the complete state graph search is 2.\nThe average outdegree of the complete state graph is 1 (minimum is 0, the maximum 4 and the 95th percentile is 4).\nFinished in 00s at (2026-02-14 13:07:04)\n",
+  "outputFile": "artifacts/hermetic-reports/formal/tla-output.txt"
+}

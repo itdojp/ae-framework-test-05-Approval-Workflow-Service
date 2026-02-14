@@ -1,0 +1,12 @@
+{
+  "engine": "tlc",
+  "file": "../ae-framework-test-05-Approval-Workflow-Service/spec/formal/approval-any-all.tla",
+  "ran": true,
+  "status": "failed",
+  "ok": false,
+  "exitCode": 255,
+  "timeMs": 365,
+  "timestamp": "2026-02-14T04:01:56.379Z",
+  "output": "TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)\nWarning: Please run the Java VM which executes TLC with a throughput optimized garbage collector by passing the \"-XX:+UseParallelGC\" property.\n(Use the -nowarning option to disable this warning.)\nRunning breadth-first search Model-Checking with fp 90 and seed 5830606837729668525 with 1 worker on 16 cores with 7628MB heap and 64MB offheap memory [pid: 2913120] (Linux 6.6.87.2-microsoft-standard-WSL2 amd64, Eclipse Adoptium 17.0.16 x86_64, MSBDiskFPSet, DiskStateQueue).\nError: TLC threw an unexpected exception.\nThis was probably caused by an error in the spec or model.\nSee the User Output or TLC Console for clues to what happened.\nThe exception was a tlc2.tool.ConfigFileException\n: TLC encountered the following error when trying to read the configuration file approval-any-all.cfg:\nFile not found.\nFinished in 00s at (2026-02-14 13:01:56)\n",
+  "outputFile": "artifacts/hermetic-reports/formal/tla-output.txt"
+}

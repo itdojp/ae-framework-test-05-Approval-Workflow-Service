@@ -93,20 +93,34 @@ phase_conformance() {
   local input_file="$PROJECT_ROOT/configs/conformance/input.json"
   local rules_file="$PROJECT_ROOT/configs/conformance/rules.json"
   local context_file="$PROJECT_ROOT/configs/conformance/context.json"
+  local rule_ids_file="$PROJECT_ROOT/configs/conformance/rule-ids.txt"
   if [[ ! -f "$input_file" || ! -f "$rules_file" ]]; then
     log "SKIP: conformance input/rules not found"
     return 0
   fi
 
   local context_args=()
+  local rule_args=()
   if [[ -f "$context_file" ]]; then
     context_args=(--context-file "$context_file")
+  fi
+  if [[ -f "$rule_ids_file" ]]; then
+    local ids=""
+    ids="$(
+      sed -e 's/#.*$//' -e '/^[[:space:]]*$/d' "$rule_ids_file" \
+        | paste -sd ',' -
+    )"
+    if [[ -n "$ids" ]]; then
+      rule_args=(--rule-ids "$ids")
+      log "INFO: conformance rule-ids=$ids"
+    fi
   fi
 
   run_soft conformance-verify \
     pnpm --dir "$AE_FRAMEWORK_DIR" exec tsx src/cli/index.ts \
     conformance verify --input "$input_file" --rules "$rules_file" \
-    "${context_args[@]}" --format json --output "$PROJECT_ROOT/artifacts/conformance/result.json"
+    "${context_args[@]}" "${rule_args[@]}" \
+    --format json --output "$PROJECT_ROOT/artifacts/conformance/result.json"
 }
 
 phase_property() {
@@ -120,16 +134,30 @@ phase_property() {
 }
 
 phase_formal() {
+  local tla_file="$PROJECT_ROOT/spec/formal/ApprovalAnyAll.tla"
+  local csp_file="$PROJECT_ROOT/spec/formal/approval-any-all.cspm"
+  local tla_target="$tla_file"
+  local csp_target="$csp_file"
+  if [[ ! -f "$tla_target" ]]; then
+    tla_target="$AE_FRAMEWORK_DIR/spec/tla/DomainSpec.tla"
+  fi
+  if [[ ! -f "$csp_target" ]]; then
+    csp_target="$AE_FRAMEWORK_DIR/spec/csp/sample.cspm"
+  fi
+
+  local tla_cmd=(node "$AE_FRAMEWORK_DIR/scripts/formal/verify-tla.mjs" --file "$tla_target")
+  local csp_cmd=(node "$AE_FRAMEWORK_DIR/scripts/formal/verify-csp.mjs" --file "$csp_target" --mode typecheck)
+
   run_soft verify-tla \
-    pnpm --dir "$AE_FRAMEWORK_DIR" run verify:tla
+    "${tla_cmd[@]}"
   copy_if_exists \
-    "$AE_FRAMEWORK_DIR/artifacts/hermetic-reports/formal/tla-summary.json" \
+    "$PROJECT_ROOT/artifacts/hermetic-reports/formal/tla-summary.json" \
     "$PROJECT_ROOT/artifacts/formal/${RUN_ID}-tla-summary.json"
 
   run_soft verify-csp \
-    pnpm --dir "$AE_FRAMEWORK_DIR" run verify:csp
+    "${csp_cmd[@]}"
   copy_if_exists \
-    "$AE_FRAMEWORK_DIR/artifacts/hermetic-reports/formal/csp-summary.json" \
+    "$PROJECT_ROOT/artifacts/hermetic-reports/formal/csp-summary.json" \
     "$PROJECT_ROOT/artifacts/formal/${RUN_ID}-csp-summary.json"
 }
 

@@ -1,0 +1,1 @@
+cspx schema=0.1 status=pass exit_code=0 checks=typecheck:pass

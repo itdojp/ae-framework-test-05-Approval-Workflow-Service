@@ -26,6 +26,14 @@ function parseTaskDecision(value: unknown): TaskDecision {
   throw new ValidationError('decision must be APPROVE or REJECT');
 }
 
+type AsyncRoute = (req: Request, res: Response, next: NextFunction) => Promise<void>;
+
+function asyncRoute(fn: AsyncRoute) {
+  return (req: Request, res: Response, next: NextFunction) => {
+    void fn(req, res, next).catch(next);
+  };
+}
+
 export function createApp(engine: ApprovalEngine): express.Express {
   const app = express();
   app.use(express.json({ limit: '1mb' }));
@@ -104,23 +112,23 @@ export function createApp(engine: ApprovalEngine): express.Express {
     res.status(201).json(created);
   });
 
-  app.post('/api/v1/requests/:requestId/submit', async (req, res) => {
+  app.post('/api/v1/requests/:requestId/submit', asyncRoute(async (req, res) => {
     const actor = actorFromRequest(req);
     const request = await engine.submitRequest(req.params.requestId, actor);
     res.status(200).json(request);
-  });
+  }));
 
-  app.post('/api/v1/requests/:requestId/withdraw', async (req, res) => {
+  app.post('/api/v1/requests/:requestId/withdraw', asyncRoute(async (req, res) => {
     const actor = actorFromRequest(req);
     const request = await engine.withdrawRequest(req.params.requestId, actor);
     res.status(200).json(request);
-  });
+  }));
 
-  app.post('/api/v1/requests/:requestId/cancel', async (req, res) => {
+  app.post('/api/v1/requests/:requestId/cancel', asyncRoute(async (req, res) => {
     const actor = actorFromRequest(req);
     const request = await engine.cancelRequest(req.params.requestId, actor);
     res.status(200).json(request);
-  });
+  }));
 
   app.get('/api/v1/requests', (req, res) => {
     const actor = actorFromRequest(req);
@@ -140,7 +148,7 @@ export function createApp(engine: ApprovalEngine): express.Express {
     res.status(200).json(engine.listTasks(actor, { status: status as any, requestId, assigneeUserId }));
   });
 
-  app.post('/api/v1/tasks/:taskId/decide', async (req, res) => {
+  app.post('/api/v1/tasks/:taskId/decide', asyncRoute(async (req, res) => {
     const actor = actorFromRequest(req);
     const result = await engine.decideTask(
       req.params.taskId,
@@ -149,7 +157,7 @@ export function createApp(engine: ApprovalEngine): express.Express {
       req.body.comment
     );
     res.status(200).json(result);
-  });
+  }));
 
   app.get('/api/v1/audit-logs', (req, res) => {
     const actor = actorFromRequest(req);
@@ -171,4 +179,3 @@ export function createApp(engine: ApprovalEngine): express.Express {
 
   return app;
 }
-
