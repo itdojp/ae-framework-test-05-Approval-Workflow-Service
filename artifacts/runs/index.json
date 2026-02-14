@@ -1,11 +1,19 @@
 {
-  "generatedAt": "2026-02-14T15:24:14.799Z",
+  "generatedAt": "2026-02-14T15:27:27.836Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 53,
-  "auditedRuns": 10,
-  "auditPassedRuns": 10,
+  "totalRuns": 54,
+  "auditedRuns": 11,
+  "auditPassedRuns": 11,
   "auditFailedRuns": 0,
   "profileSummary": {
+    "pr-gate": {
+      "totalRuns": 17,
+      "auditedRuns": 5,
+      "auditPassedRuns": 5,
+      "auditFailedRuns": 0,
+      "latestRunId": "2026-02-14-pr-gate-ci-12",
+      "latestCreatedAt": "2026-02-14T15:27:27.000Z"
+    },
     "dev-fast": {
       "totalRuns": 5,
       "auditedRuns": 2,
@@ -21,14 +29,6 @@
       "auditFailedRuns": 0,
       "latestRunId": "2026-02-14-nightly-deep-ci-6",
       "latestCreatedAt": "2026-02-14T11:02:54.000Z"
-    },
-    "pr-gate": {
-      "totalRuns": 16,
-      "auditedRuns": 4,
-      "auditPassedRuns": 4,
-      "auditFailedRuns": 0,
-      "latestRunId": "2026-02-14-pr-gate-ci-11",
-      "latestCreatedAt": "2026-02-14T11:01:12.000Z"
     },
     "full": {
       "totalRuns": 13,
@@ -49,15 +49,27 @@
   },
   "latestRuns": [
     {
+      "runId": "2026-02-14-pr-gate-ci-12",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T15:27:27.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 13,
+      "snapshotFileCount": 17,
+      "runSizeBytes": 75350,
+      "frameworkGapState": null
+    },
+    {
       "runId": "2026-02-14-dev-fast-r7-local",
       "profile": "dev-fast",
       "createdAt": "2026-02-14T15:24:14.000Z",
       "hasAudit": true,
       "auditPassed": true,
       "auditMissingCount": 0,
-      "logFileCount": 8,
+      "logFileCount": 0,
       "snapshotFileCount": 5,
-      "runSizeBytes": 17097,
+      "runSizeBytes": 14774,
       "frameworkGapState": null
     },
     {
@@ -91,9 +103,9 @@
       "hasAudit": true,
       "auditPassed": true,
       "auditMissingCount": 0,
-      "logFileCount": 6,
+      "logFileCount": 0,
       "snapshotFileCount": 10,
-      "runSizeBytes": 61874,
+      "runSizeBytes": 60396,
       "frameworkGapState": "open"
     },
     {
@@ -127,9 +139,9 @@
       "hasAudit": true,
       "auditPassed": true,
       "auditMissingCount": 0,
-      "logFileCount": 5,
+      "logFileCount": 0,
       "snapshotFileCount": 9,
-      "runSizeBytes": 59699,
+      "runSizeBytes": 58576,
       "frameworkGapState": null
     },
     {
@@ -139,9 +151,9 @@
       "hasAudit": true,
       "auditPassed": true,
       "auditMissingCount": 0,
-      "logFileCount": 12,
+      "logFileCount": 0,
       "snapshotFileCount": 17,
-      "runSizeBytes": 73890,
+      "runSizeBytes": 69604,
       "frameworkGapState": null
     },
     {
@@ -151,9 +163,9 @@
       "hasAudit": true,
       "auditPassed": true,
       "auditMissingCount": 0,
-      "logFileCount": 7,
+      "logFileCount": 0,
       "snapshotFileCount": 5,
-      "runSizeBytes": 16873,
+      "runSizeBytes": 14738,
       "frameworkGapState": null
     },
     {
@@ -187,9 +199,9 @@
       "hasAudit": true,
       "auditPassed": true,
       "auditMissingCount": 0,
-      "logFileCount": 11,
+      "logFileCount": 0,
       "snapshotFileCount": 17,
-      "runSizeBytes": 73659,
+      "runSizeBytes": 69537,
       "frameworkGapState": null
     },
     {
@@ -199,9 +211,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 15,
+      "logFileCount": 0,
       "snapshotFileCount": 26,
-      "runSizeBytes": 129678,
+      "runSizeBytes": 124601,
       "frameworkGapState": null
     },
     {
@@ -211,9 +223,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 4,
+      "logFileCount": 0,
       "snapshotFileCount": 9,
-      "runSizeBytes": 55453,
+      "runSizeBytes": 54498,
       "frameworkGapState": null
     },
     {
@@ -247,9 +259,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 3,
+      "logFileCount": 0,
       "snapshotFileCount": 8,
-      "runSizeBytes": 35141,
+      "runSizeBytes": 34514,
       "frameworkGapState": null
     },
     {
@@ -259,9 +271,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 11,
+      "logFileCount": 0,
       "snapshotFileCount": 17,
-      "runSizeBytes": 73406,
+      "runSizeBytes": 69285,
       "frameworkGapState": null
     },
     {
@@ -271,9 +283,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 6,
+      "logFileCount": 0,
       "snapshotFileCount": 5,
-      "runSizeBytes": 16394,
+      "runSizeBytes": 14423,
       "frameworkGapState": null
     },
     {
@@ -307,9 +319,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 11,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4532,
+      "runSizeBytes": 412,
       "frameworkGapState": null
     },
     {
@@ -319,9 +331,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 11,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4533,
+      "runSizeBytes": 412,
       "frameworkGapState": null
     },
     {
@@ -331,9 +343,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 14,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 5153,
+      "runSizeBytes": 405,
       "frameworkGapState": null
     },
     {
@@ -343,9 +355,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 11,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4534,
+      "runSizeBytes": 412,
       "frameworkGapState": null
     },
     {
@@ -355,9 +367,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 6,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 2386,
+      "runSizeBytes": 415,
       "frameworkGapState": null
     },
     {
@@ -367,9 +379,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 10,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4147,
+      "runSizeBytes": 412,
       "frameworkGapState": null
     },
     {
@@ -379,9 +391,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 9,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 3749,
+      "runSizeBytes": 366,
       "frameworkGapState": null
     },
     {
@@ -391,9 +403,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 12,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4370,
+      "runSizeBytes": 359,
       "frameworkGapState": null
     },
     {
@@ -403,9 +415,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 12,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4370,
+      "runSizeBytes": 359,
       "frameworkGapState": null
     },
     {
@@ -415,9 +427,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 12,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4368,
+      "runSizeBytes": 357,
       "frameworkGapState": null
     },
     {
@@ -427,9 +439,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 12,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4368,
+      "runSizeBytes": 357,
       "frameworkGapState": null
     },
     {
@@ -439,9 +451,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 12,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4368,
+      "runSizeBytes": 357,
       "frameworkGapState": null
     },
     {
@@ -451,9 +463,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 12,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4366,
+      "runSizeBytes": 357,
       "frameworkGapState": null
     },
     {
@@ -463,9 +475,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 12,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4367,
+      "runSizeBytes": 357,
       "frameworkGapState": null
     },
     {
@@ -475,9 +487,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 12,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4362,
+      "runSizeBytes": 351,
       "frameworkGapState": null
     },
     {
@@ -487,9 +499,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 11,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 4033,
+      "runSizeBytes": 351,
       "frameworkGapState": null
     },
     {
@@ -499,9 +511,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 10,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 3417,
+      "runSizeBytes": 351,
       "frameworkGapState": null
     },
     {
@@ -511,9 +523,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 3,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 901,
+      "runSizeBytes": 365,
       "frameworkGapState": null
     },
     {
@@ -523,9 +535,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 3,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 904,
+      "runSizeBytes": 365,
       "frameworkGapState": null
     },
     {
@@ -535,9 +547,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 3,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 906,
+      "runSizeBytes": 365,
       "frameworkGapState": null
     },
     {
@@ -547,9 +559,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 3,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 908,
+      "runSizeBytes": 365,
       "frameworkGapState": null
     },
     {
@@ -559,9 +571,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 7,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 2890,
+      "runSizeBytes": 360,
       "frameworkGapState": null
     },
     {
@@ -571,9 +583,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 3,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 1591,
+      "runSizeBytes": 365,
       "frameworkGapState": null
     },
     {
@@ -583,9 +595,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 7,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 3129,
+      "runSizeBytes": 360,
       "frameworkGapState": null
     },
     {
@@ -595,9 +607,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 3,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 1165,
+      "runSizeBytes": 393,
       "frameworkGapState": null
     },
     {
@@ -607,9 +619,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 10,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 5443,
+      "runSizeBytes": 355,
       "frameworkGapState": null
     },
     {
@@ -619,9 +631,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 3,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 1155,
+      "runSizeBytes": 383,
       "frameworkGapState": null
     },
     {
@@ -631,21 +643,9 @@
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,
-      "logFileCount": 1,
+      "logFileCount": 0,
       "snapshotFileCount": 0,
-      "runSizeBytes": 626,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-pr-gate",
-      "profile": "pr-gate",
-      "createdAt": "2026-02-14T00:43:10.000Z",
-      "hasAudit": false,
-      "auditPassed": null,
-      "auditMissingCount": null,
-      "logFileCount": 7,
-      "snapshotFileCount": 0,
-      "runSizeBytes": 4671,
+      "runSizeBytes": 369,
       "frameworkGapState": null
     }
   ]
