@@ -73,5 +73,6 @@
   - MBTテストを追加（`tests/mbt/approval-engine.mbt.test.ts`）し、`pr-gate/full` に統合。
   - 申請編集APIを追加（`PATCH /requests/{requestId}`）し、DRAFT/RETURNED のみ編集可を実装・検証。
   - `RETURN` 決裁と `RETURNED -> submit(resubmit)` を実装し、受入/API/MBTで検証。
+  - 最小UI（`/ui/`）を追加し、申請一覧/作成編集提出/承認受箱/決裁を1画面で操作可能化。
 - 継続タスク:
-  - UI最小実装の段階着手。
+  - `spec-compiler` の `BIZ_001` 警告3件に対する framework側改善提案整理。

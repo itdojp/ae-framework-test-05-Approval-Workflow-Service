@@ -45,6 +45,18 @@ async function createActiveWorkflow(
 }
 
 describe('API acceptance', () => {
+  it('UI-AW-00: serves workflow console static UI', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    const rootRes = await request(app).get('/');
+    expect(rootRes.status).toBe(302);
+    expect(rootRes.headers.location).toBe('/ui/');
+
+    const uiRes = await request(app).get('/ui/');
+    expect(uiRes.status).toBe(200);
+    expect(uiRes.text).toContain('Workflow Console');
+  });
+
   it('AW-ACC-01: ANY step concurrent approve does not duplicate next step tasks', async () => {
     const app = createApp(new ApprovalEngine());
 

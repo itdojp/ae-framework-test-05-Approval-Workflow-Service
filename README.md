@@ -8,6 +8,7 @@
 - 開発開始時の実行環境: <https://github.com/itdojp/ae-framework-test-05-Approval-Workflow-Service/issues/2>
 - 開発計画: `docs/plans/development-plan.md`
 - ae-framework 利用仕様: `docs/specs/ae-framework-tooling-spec.md`
+- ae-framework ギャップ記録（BIZ_001）: `docs/specs/ae-framework-gap-biz001.md`
 - 中間生成物保存仕様: `docs/specs/artifact-retention-spec.md`
 - 自動実行設定: `codex/ae.playbook.yaml`, `scripts/ae/run.sh`
 
@@ -17,6 +18,8 @@
 - API実装: `src/api/app.ts`
   - `PATCH /api/v1/requests/{requestId}`（DRAFT/RETURNED 編集）を含む
   - `POST /api/v1/tasks/{taskId}/decide` の `RETURN` 決裁を含む
+- 最小UI: `src/ui/index.html`, `src/ui/app.js`, `src/ui/styles.css`
+  - 配信先: `/ui/`（`/` は `/ui/` へリダイレクト）
 - OpenAPI契約: `contracts/openapi.yaml`
 - AE-Spec入力: `spec/approval-workflow.md`
 - 受入基準テスト: `tests/acceptance/approval-engine.acceptance.test.ts`
@@ -32,10 +35,13 @@
 pnpm install
 pnpm run test
 pnpm run build
+pnpm run dev
 pnpm run test:mbt
 pnpm run test:property
 pnpm run test:mutation:quick
 ```
+
+`pnpm run dev` 後、`http://localhost:3000/ui/` で最小UIを利用可能。
 
 ae-framework 連携（外部リポジトリ参照先を指定）:
 

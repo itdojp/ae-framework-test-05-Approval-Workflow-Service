@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Approval Workflow Console</title>
+  <link rel="stylesheet" href="/ui/styles.css">
+</head>
+<body>
+  <div class="bg-orb bg-orb-a"></div>
+  <div class="bg-orb bg-orb-b"></div>
+  <main class="shell">
+    <header class="hero panel fade-up">
+      <div class="hero-title-wrap">
+        <p class="kicker">Approval Workflow Service</p>
+        <h1>Workflow Console</h1>
+        <p class="sub">申請者一覧、申請作成/編集/提出、承認受箱、決裁を1画面で運用する最小UI</p>
+      </div>
+      <div class="hero-actions">
+        <button id="btn-seed" class="btn btn-accent">デモ初期化</button>
+        <button id="btn-refresh" class="btn btn-ghost">再読込</button>
+      </div>
+    </header>
+
+    <section class="panel fade-up delay-1">
+      <h2>Actor Context</h2>
+      <form id="actor-form" class="grid-3">
+        <label>
+          Tenant
+          <input id="tenant-id" value="tenant-ui">
+        </label>
+        <label>
+          User
+          <input id="user-id" value="requester-01">
+        </label>
+        <label>
+          Roles (comma)
+          <input id="roles" value="">
+        </label>
+      </form>
+      <p class="hint">例: 管理操作時は user=`admin-01`, roles=`ADMIN` に切替</p>
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+
+    <section class="panel fade-up delay-2">
+      <h2>申請作成 / 編集</h2>
+      <form id="request-form" class="grid-4">
+        <input type="hidden" id="request-id">
+        <label>
+          Type
+          <select id="request-type">
+            <option value="GENERIC">GENERIC</option>
+            <option value="EXPENSE">EXPENSE</option>
+            <option value="PURCHASE">PURCHASE</option>
+          </select>
+        </label>
+        <label>
+          Title
+          <input id="request-title" required>
+        </label>
+        <label>
+          Amount
+          <input id="request-amount" type="number" min="0" step="1" value="10000" required>
+        </label>
+        <label>
+          Currency
+          <input id="request-currency" value="JPY" required>
+        </label>
+        <label class="span-4">
+          Description
+          <textarea id="request-description" rows="2"></textarea>
+        </label>
+        <div class="actions span-4">
+          <button type="submit" class="btn btn-accent">保存</button>
+          <button type="button" id="btn-reset-request" class="btn btn-ghost">フォーム初期化</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel fade-up delay-3">
+      <h2>申請一覧</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Request</th>
+              <th>Status</th>
+              <th>Title</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="requests-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel fade-up delay-4">
+      <h2>承認受箱（PENDING）</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Request</th>
+              <th>Assignee</th>
+              <th>Decision</th>
+            </tr>
+          </thead>
+          <tbody id="tasks-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel fade-up delay-5">
+      <h2>監査ログ（最新20件）</h2>
+      <ul id="audit-list" class="audit-list"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="/ui/app.js"></script>
+</body>
+</html>

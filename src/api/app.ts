@@ -1,4 +1,6 @@
 import express, { type Request, type Response, type NextFunction } from 'express';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { ApprovalEngine } from '../domain/engine.js';
 import { DomainError, ValidationError } from '../domain/errors.js';
 import type { ActorContext, TaskDecision } from '../domain/types.js';
@@ -37,6 +39,14 @@ function asyncRoute(fn: AsyncRoute) {
 export function createApp(engine: ApprovalEngine): express.Express {
   const app = express();
   app.use(express.json({ limit: '1mb' }));
+
+  const uiDir = resolve(process.cwd(), 'src/ui');
+  if (existsSync(uiDir)) {
+    app.use('/ui', express.static(uiDir));
+    app.get('/', (_req, res) => {
+      res.redirect('/ui/');
+    });
+  }
 
   app.get('/healthz', (_req, res) => {
     res.status(200).json({ ok: true });
