@@ -1,0 +1,24 @@
+{
+  "runId": "2026-02-14-init",
+  "createdAt": "2026-02-14T00:30:00Z",
+  "purpose": "開発初期セットアップ（Issue登録・計画策定・ae-framework利用仕様確定）",
+  "relatedIssues": [1, 2],
+  "environment": {
+    "codexCliVersion": "0.101.0",
+    "model": "gpt-5.3-codex",
+    "approvalPolicy": "never",
+    "sandboxPolicy": "danger-full-access"
+  },
+  "outputs": [
+    "README.md",
+    "docs/plans/development-plan.md",
+    "docs/specs/ae-framework-tooling-spec.md",
+    "docs/specs/artifact-retention-spec.md"
+  ],
+  "notes": [
+    "仕様正本は Issue #1。",
+    "実行環境情報は Issue #2。",
+    "本manifestは中間生成物保存ルールの初回サンプル。"
+  ]
+}
+
