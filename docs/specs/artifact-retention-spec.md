@@ -19,6 +19,7 @@
 2. 検証系:
 - `artifacts/verify-lite/*`
 - `artifacts/conformance/*`
+- `artifacts/mbt/*`
 - `artifacts/formal/*`
 - `artifacts/properties/*`
 - `artifacts/mutation/*`
@@ -44,4 +45,3 @@
 
 - 機密情報（トークン、個人情報、秘密鍵）は保存禁止。
 - 一時キャッシュで再現価値がないものは保存対象外。
-

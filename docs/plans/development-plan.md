@@ -70,5 +70,6 @@
   - ae-framework の `dev-fast`, `pr-gate`, `nightly-deep`, `full` を実行し、証跡を `artifacts/runs/*` に保存。
   - conformance は `rule-ids` 指定でサービス固有ルールに限定し、`overall=PASS` を確認。
   - formal はサービス固有モデルで `TLA/CSP` とも `status=ran` を確認。
+  - MBTテストを追加（`tests/mbt/approval-engine.mbt.test.ts`）し、`pr-gate/full` に統合。
 - 継続タスク:
-  - MBTモデル（`tests/mbt/*`）の導入と、UI最小実装の段階着手。
+  - `RETURN/resubmit` を含む状態遷移拡張と、UI最小実装の段階着手。

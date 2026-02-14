@@ -11,7 +11,7 @@ LOG_DIR="$RUN_DIR/logs"
 mkdir -p "$LOG_DIR" "$PROJECT_ROOT/.ae" "$PROJECT_ROOT/artifacts/spec" \
   "$PROJECT_ROOT/artifacts/sim" "$PROJECT_ROOT/artifacts/conformance" \
   "$PROJECT_ROOT/artifacts/formal" "$PROJECT_ROOT/artifacts/properties" \
-  "$PROJECT_ROOT/artifacts/mutation"
+  "$PROJECT_ROOT/artifacts/mutation" "$PROJECT_ROOT/artifacts/mbt"
 
 log() {
   printf '[%s] %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*"
@@ -136,6 +136,16 @@ phase_property() {
     node "$AE_FRAMEWORK_DIR/scripts/testing/property-harness.mjs"
 }
 
+phase_mbt() {
+  if [[ ! -d "$PROJECT_ROOT/tests/mbt" ]]; then
+    log "SKIP: tests/mbt not found"
+    return 0
+  fi
+
+  run_soft mbt-quick \
+    pnpm --dir "$PROJECT_ROOT" run test:mbt:quick
+}
+
 phase_formal() {
   local tla_file="$PROJECT_ROOT/spec/formal/ApprovalAnyAll.tla"
   local csp_file="$PROJECT_ROOT/spec/formal/approval-any-all.cspm"
@@ -184,7 +194,7 @@ write_manifest() {
   "logDir": "artifacts/runs/$RUN_ID/logs",
   "notes": [
     "dev-fast: spec系中心",
-    "pr-gate: spec + conformance + property",
+    "pr-gate: spec + conformance + mbt + property",
     "nightly-deep: formal + mutation",
     "full: すべて実行"
   ]
@@ -202,6 +212,7 @@ main() {
     pr-gate)
       phase_spec
       phase_conformance
+      phase_mbt
       phase_property
       ;;
     nightly-deep)
@@ -211,6 +222,7 @@ main() {
     full)
       phase_spec
       phase_conformance
+      phase_mbt
       phase_property
       phase_formal
       phase_mutation

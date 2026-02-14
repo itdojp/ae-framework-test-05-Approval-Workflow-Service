@@ -13,6 +13,8 @@
     "start": "node dist/server.js",
     "test": "vitest run",
     "test:fast": "vitest run",
+    "test:mbt": "vitest run tests/mbt",
+    "test:mbt:quick": "node scripts/testing/mbt-quick.mjs",
     "test:property": "vitest run tests/property",
     "test:mutation:quick": "node scripts/testing/mutation-quick.mjs",
     "verify:lite": "pnpm run build && pnpm run test:fast"

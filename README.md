@@ -19,6 +19,7 @@
 - AE-Spec入力: `spec/approval-workflow.md`
 - 受入基準テスト: `tests/acceptance/approval-engine.acceptance.test.ts`
 - API統合テスト: `tests/integration/api.acceptance.test.ts`
+- MBTテスト: `tests/mbt/approval-engine.mbt.test.ts`
 - Propertyテスト: `tests/property/approval-engine.property.test.ts`
 - Mutationクイック検証: `scripts/testing/mutation-quick.mjs`
 - Formalモデル: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
@@ -29,6 +30,7 @@
 pnpm install
 pnpm run test
 pnpm run build
+pnpm run test:mbt
 pnpm run test:property
 pnpm run test:mutation:quick
 ```

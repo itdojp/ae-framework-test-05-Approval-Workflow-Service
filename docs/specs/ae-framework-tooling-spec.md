@@ -32,6 +32,7 @@
 | Deterministic実行 | `node scripts/simulation/deterministic-runner.mjs` | 再現性確認 | `replay.json` | `artifacts/sim/sim.json` | PR前 |
 | 軽量ゲート | `pnpm run verify:lite` | lint/test/build の最小品質担保 | 実装コード一式 | `artifacts/verify-lite/*` | PRごと |
 | Conformance | `ae conformance verify` | ルール/スキーマ違反検出 | 入力JSON + ルール | `artifacts/conformance/*` | API/ルール更新時 |
+| MBT | `pnpm run test:mbt:quick` | 状態遷移モデル（12.1）の検証 | `tests/mbt/*` | `artifacts/mbt/*` | PRごと |
 | Formal（重点） | `pnpm run verify:tla`, `pnpm run verify:csp` | 同時決裁競合（AW-ACC-01）の安全性検証 | `spec/formal/*` | `artifacts/formal/*` | 日次または手動 |
 | Property | `pnpm run test:property` + `node scripts/testing/property-harness.mjs` | 不変条件（AW-INV）検証 | `tests/property/*` | `artifacts/properties/*` | PRごと |
 | Mutation | `pnpm run test:mutation:quick` | テストの欠陥検知能力確認（ANY/ALL反転・終端ガード欠落・assigneeガード欠落） | 実装/テスト | `artifacts/mutation/*` | 週次 |
@@ -52,7 +53,7 @@
 | プロファイル | 対象 | 構成 |
 | --- | --- | --- |
 | `dev-fast` | 日常開発 | spec validate/lint, verify-lite |
-| `pr-gate` | PR品質ゲート | verify-lite, conformance, property |
+| `pr-gate` | PR品質ゲート | verify-lite, conformance, mbt, property |
 | `nightly-deep` | 深夜定期検証 | formal(tla/csp), mutation, trend集計 |
 
 ## 6.1 自動実行設定ファイル
@@ -60,6 +61,7 @@
 - タスク定義: `codex/ae.playbook.yaml`
 - 実行ラッパー: `scripts/ae/run.sh`
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
+- MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
 - formalモデル（サービス固有）: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
 - 実行例:
   - `bash scripts/ae/run.sh dev-fast`

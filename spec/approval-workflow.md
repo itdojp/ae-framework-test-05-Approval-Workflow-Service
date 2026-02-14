@@ -40,6 +40,13 @@ Minimal AE-Spec for approval workflow service verification.
 - **status** (string, required) - Activation status
 - **steps** (array, required) - Ordered step definitions
 
+## Business Rules
+
+1. **BR-AW-REQ-001**: ApprovalRequest in terminal status must not transition again.
+2. **BR-AW-REQ-002**: ApprovalRequest can be APPROVED only after all required steps are completed.
+3. **BR-AW-TASK-001**: ApprovalTask can be decided exactly once; repeated decisions must return conflict.
+4. **BR-AW-WF-001**: WorkflowDefinition selected at submit is fixed for the lifecycle of the ApprovalRequest.
+
 ## Use Cases
 
 ### Submit Request
@@ -64,4 +71,3 @@ Minimal AE-Spec for approval workflow service verification.
 - GET /requests - List visible requests
 - GET /tasks - List visible tasks
 - GET /audit-logs - List audit logs
-

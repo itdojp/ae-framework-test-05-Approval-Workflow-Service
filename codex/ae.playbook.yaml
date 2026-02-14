@@ -5,11 +5,10 @@ tasks:
     description: spec validate/lint と軽量チェックを実行する。
   pr-gate:
     run: bash scripts/ae/run.sh pr-gate
-    description: PR向けに spec + conformance + property を実行する。
+    description: PR向けに spec + conformance + mbt + property を実行する。
   nightly-deep:
     run: bash scripts/ae/run.sh nightly-deep
     description: formal と mutation を含む重め検証を実行する。
   full:
     run: bash scripts/ae/run.sh full
     description: 現時点で有効な全フェーズを順次実行する。
-
