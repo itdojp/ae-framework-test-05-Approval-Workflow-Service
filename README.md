@@ -43,6 +43,7 @@ pnpm run test:property
 pnpm run test:mutation:quick
 pnpm run test:conformance:negative
 pnpm run trend:report
+pnpm run artifacts:audit -- --run-id 2026-02-14-pr-gate-r10 --profile pr-gate
 pnpm run verify:lite:report
 ```
 
@@ -61,7 +62,7 @@ AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh full
 
 conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定して実行する。
 
-`scripts/ae/run.sh` は各実行後に `artifacts/runs/<run-id>/snapshots/` へ主要中間生成物を自動複製する。
+`scripts/ae/run.sh` は各実行後に `artifacts/runs/<run-id>/snapshots/` へ主要中間生成物を自動複製し、`artifacts/runs/<run-id>/audit.json` で欠落監査を行う。
 
 ## CI自動化
 

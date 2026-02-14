@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-ART-001`
-- 版: `v0.3`
+- 版: `v0.4`
 - 作成日: `2026-02-14`
 
 ## 2. 目的
@@ -29,6 +29,7 @@
 - `artifacts/trends/*`
 3. 実行メタ:
 - `artifacts/runs/<run-id>/manifest.json`
+- `artifacts/runs/<run-id>/audit.json`
 - 実行ログ（必要に応じて `artifacts/runs/<run-id>/logs/*`）
 - run単位スナップショット: `artifacts/runs/<run-id>/snapshots/**/*`
 
@@ -44,6 +45,7 @@
 
 1. 生成物は実行ごとに `artifacts/runs/<run-id>/` へ集約する。
   - `scripts/ae/run.sh` は終了時に主要成果物を `snapshots/` へ自動複製する。
+  - 同時に `audit.json` を生成し、runごとの欠落有無を記録する。
 2. 生成物を含むコミットメッセージには `run-id` と目的を含める。
 3. PR説明欄に対象 `run-id` を列挙し、追跡可能にする。
 

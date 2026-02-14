@@ -221,6 +221,12 @@ phase_trend() {
     pnpm --dir "$PROJECT_ROOT" run trend:report
 }
 
+phase_artifact_audit() {
+  run_hard artifact-audit \
+    node "$PROJECT_ROOT/scripts/testing/run-artifact-audit.mjs" \
+    --run-id "$RUN_ID" --profile "$PROFILE"
+}
+
 snapshot_spec_outputs() {
   copy_if_exists "$PROJECT_ROOT/.ae/ae-ir.json" \
     "$SNAPSHOT_DIR/.ae/ae-ir.json"
@@ -321,6 +327,7 @@ write_manifest() {
   "aeFrameworkDir": "$AE_FRAMEWORK_DIR",
   "logDir": "artifacts/runs/$RUN_ID/logs",
   "snapshotDir": "artifacts/runs/$RUN_ID/snapshots",
+  "auditFile": "artifacts/runs/$RUN_ID/audit.json",
   "notes": [
     "dev-fast: spec + verify-lite",
     "pr-gate: spec + verify-lite + conformance + mbt + property",
@@ -373,6 +380,7 @@ main() {
     snapshot_trend_outputs
   fi
 
+  phase_artifact_audit
   log "DONE: profile=$PROFILE runId=$RUN_ID"
 }
 

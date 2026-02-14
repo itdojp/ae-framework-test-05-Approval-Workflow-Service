@@ -1,0 +1,10 @@
+{
+  "runId": "2026-02-14-pr-gate-r10",
+  "profile": "pr-gate",
+  "generatedAt": "2026-02-14T10:48:14.450Z",
+  "runDir": "artifacts/runs/2026-02-14-pr-gate-r10",
+  "requiredCount": 15,
+  "missingCount": 0,
+  "passed": true,
+  "missing": []
+}
