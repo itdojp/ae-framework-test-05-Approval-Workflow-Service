@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1",
+  "tool": {
+    "name": "cspx",
+    "version": "0.1.0",
+    "git_sha": "UNKNOWN"
+  },
+  "invocation": {
+    "command": "typecheck",
+    "args": [
+      "/home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/spec/formal/approval-any-all.cspm"
+    ],
+    "format": "json",
+    "timeout_ms": null,
+    "memory_mb": null,
+    "parallel": 1,
+    "deterministic": false,
+    "seed": 0
+  },
+  "inputs": [
+    {
+      "path": "/home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/spec/formal/approval-any-all.cspm",
+      "sha256": "c4ac5e913a9311bdd1b415ed676c9ebde099d52aee3e75c665d78b191d410fb1"
+    }
+  ],
+  "status": "pass",
+  "exit_code": 0,
+  "started_at": "2026-02-14T10:01:53Z",
+  "finished_at": "2026-02-14T10:01:53Z",
+  "duration_ms": 0,
+  "checks": [
+    {
+      "name": "typecheck",
+      "model": null,
+      "target": null,
+      "status": "pass",
+      "counterexample": null,
+      "stats": {
+        "states": 1,
+        "transitions": 0
+      }
+    }
+  ],
+  "metrics": {
+    "states": 1,
+    "transitions": 0,
+    "wall_time_ms": 0,
+    "cpu_time_ms": null,
+    "peak_rss_bytes": null,
+    "disk_bytes": null,
+    "states_per_sec": null,
+    "transitions_per_sec": null,
+    "parallelism": {
+      "threads": 1,
+      "deterministic": false,
+      "seed": 0
+    }
+  }
+}

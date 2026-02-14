@@ -1,0 +1,14 @@
+{
+  "runId": "2026-02-14-nightly-deep-ci-4",
+  "profile": "nightly-deep",
+  "createdAt": "2026-02-14T10:09:03Z",
+  "aeFrameworkDir": "/home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service/ae-framework",
+  "logDir": "artifacts/runs/2026-02-14-nightly-deep-ci-4/logs",
+  "snapshotDir": "artifacts/runs/2026-02-14-nightly-deep-ci-4/snapshots",
+  "notes": [
+    "dev-fast: spec + verify-lite",
+    "pr-gate: spec + verify-lite + conformance + mbt + property",
+    "nightly-deep: formal + mutation + trend",
+    "full: verify-lite を含む全フェーズ実行"
+  ]
+}
