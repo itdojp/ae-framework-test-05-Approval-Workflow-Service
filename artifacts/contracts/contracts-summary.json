@@ -1,0 +1,193 @@
+{
+  "ok": true,
+  "entitiesCount": 3,
+  "endpointsCount": 8,
+  "entities": [
+    {
+      "name": "ApprovalRequest",
+      "fields": [
+        {
+          "name": "requestId",
+          "type": "uuid",
+          "required": true
+        },
+        {
+          "name": "tenantId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "requesterUserId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "workflowId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "submittedAt",
+          "type": "date",
+          "required": false
+        },
+        {
+          "name": "decidedAt",
+          "type": "date",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "ApprovalTask",
+      "fields": [
+        {
+          "name": "taskId",
+          "type": "uuid",
+          "required": true
+        },
+        {
+          "name": "requestId",
+          "type": "uuid",
+          "required": true
+        },
+        {
+          "name": "stepId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "stepIndex",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "assigneeUserId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "decidedAt",
+          "type": "date",
+          "required": false
+        },
+        {
+          "name": "decisionComment",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowDefinition",
+      "fields": [
+        {
+          "name": "workflowId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "version",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "steps",
+          "type": "array",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/workflows",
+      "hasRequest": false,
+      "hasResponse": false
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/:workflowId/activate",
+      "hasRequest": false,
+      "hasResponse": false
+    },
+    {
+      "method": "POST",
+      "path": "/requests",
+      "hasRequest": false,
+      "hasResponse": false
+    },
+    {
+      "method": "POST",
+      "path": "/requests/:requestId/submit",
+      "hasRequest": false,
+      "hasResponse": false
+    },
+    {
+      "method": "POST",
+      "path": "/tasks/:taskId/decide",
+      "hasRequest": false,
+      "hasResponse": false
+    },
+    {
+      "method": "GET",
+      "path": "/requests",
+      "hasRequest": false,
+      "hasResponse": false
+    },
+    {
+      "method": "GET",
+      "path": "/tasks",
+      "hasRequest": false,
+      "hasResponse": false
+    },
+    {
+      "method": "GET",
+      "path": "/audit",
+      "hasRequest": false,
+      "hasResponse": false
+    }
+  ],
+  "timestamp": "2026-02-14T00:44:18.677Z"
+}

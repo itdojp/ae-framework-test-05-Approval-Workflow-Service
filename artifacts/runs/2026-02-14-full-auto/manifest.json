@@ -1,9 +1,9 @@
 {
-  "runId": "2026-02-14-dev-fast",
-  "profile": "dev-fast",
-  "createdAt": "2026-02-14T00:41:38Z",
+  "runId": "2026-02-14-full-auto",
+  "profile": "full",
+  "createdAt": "2026-02-14T00:44:52Z",
   "aeFrameworkDir": "../ae-framework",
-  "logDir": "artifacts/runs/2026-02-14-dev-fast/logs",
+  "logDir": "artifacts/runs/2026-02-14-full-auto/logs",
   "notes": [
     "dev-fast: spec系中心",
     "pr-gate: spec + conformance + property",

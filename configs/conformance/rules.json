@@ -1,0 +1,46 @@
+[
+  {
+    "id": "f5160a23-41fa-4784-a1ca-3a5f335b7ef2",
+    "name": "RequestTitleRequired",
+    "description": "Request title must be present",
+    "category": "data_validation",
+    "severity": "major",
+    "enabled": true,
+    "condition": {
+      "expression": "required",
+      "variables": ["data.request.title"],
+      "constraints": {}
+    },
+    "actions": ["log_violation"],
+    "metadata": {
+      "createdAt": "2026-02-14T00:00:00.000Z",
+      "updatedAt": "2026-02-14T00:00:00.000Z",
+      "version": "1.0.0",
+      "tags": ["request", "title", "required"]
+    }
+  },
+  {
+    "id": "8872f2a2-b89f-4d6d-9ed4-c4835a19576c",
+    "name": "AmountUpperBound",
+    "description": "Amount should not exceed configured threshold",
+    "category": "business_rule",
+    "severity": "minor",
+    "enabled": true,
+    "condition": {
+      "expression": "range",
+      "variables": ["data.request.amount"],
+      "constraints": {
+        "min": 0,
+        "max": 1000000
+      }
+    },
+    "actions": ["log_violation", "metric_increment"],
+    "metadata": {
+      "createdAt": "2026-02-14T00:00:00.000Z",
+      "updatedAt": "2026-02-14T00:00:00.000Z",
+      "version": "1.0.0",
+      "tags": ["amount", "range"]
+    }
+  }
+]
+

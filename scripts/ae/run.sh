@@ -35,6 +35,16 @@ run_soft() {
   return 0
 }
 
+copy_if_exists() {
+  local src="$1"
+  local dst="$2"
+  if [[ -f "$src" ]]; then
+    mkdir -p "$(dirname "$dst")"
+    cp "$src" "$dst"
+    log "COPIED: $src -> $dst"
+  fi
+}
+
 check_ae_framework() {
   if [[ ! -d "$AE_FRAMEWORK_DIR" ]]; then
     log "ERROR: AE_FRAMEWORK_DIR not found: $AE_FRAMEWORK_DIR"
@@ -54,11 +64,11 @@ phase_spec() {
   fi
 
   run_hard spec-validate \
-    pnpm --dir "$AE_FRAMEWORK_DIR" run ae-framework -- \
+    pnpm --dir "$AE_FRAMEWORK_DIR" exec tsx src/cli/index.ts \
     spec validate -i "$spec_file" --output "$PROJECT_ROOT/.ae/ae-ir.json"
 
   run_hard spec-lint \
-    pnpm --dir "$AE_FRAMEWORK_DIR" run ae-framework -- \
+    pnpm --dir "$AE_FRAMEWORK_DIR" exec tsx src/cli/index.ts \
     spec lint -i "$PROJECT_ROOT/.ae/ae-ir.json"
 
   if [[ -f "$PROJECT_ROOT/.ae/ae-ir.json" ]]; then
@@ -82,15 +92,21 @@ phase_spec() {
 phase_conformance() {
   local input_file="$PROJECT_ROOT/configs/conformance/input.json"
   local rules_file="$PROJECT_ROOT/configs/conformance/rules.json"
+  local context_file="$PROJECT_ROOT/configs/conformance/context.json"
   if [[ ! -f "$input_file" || ! -f "$rules_file" ]]; then
     log "SKIP: conformance input/rules not found"
     return 0
   fi
 
+  local context_args=()
+  if [[ -f "$context_file" ]]; then
+    context_args=(--context-file "$context_file")
+  fi
+
   run_soft conformance-verify \
-    pnpm --dir "$AE_FRAMEWORK_DIR" run ae-framework -- \
+    pnpm --dir "$AE_FRAMEWORK_DIR" exec tsx src/cli/index.ts \
     conformance verify --input "$input_file" --rules "$rules_file" \
-    --format json --output "$PROJECT_ROOT/artifacts/conformance/result.json"
+    "${context_args[@]}" --format json --output "$PROJECT_ROOT/artifacts/conformance/result.json"
 }
 
 phase_property() {
@@ -104,16 +120,17 @@ phase_property() {
 }
 
 phase_formal() {
-  if [[ ! -d "$PROJECT_ROOT/spec/formal" ]]; then
-    log "SKIP: spec/formal not found"
-    return 0
-  fi
-
   run_soft verify-tla \
     pnpm --dir "$AE_FRAMEWORK_DIR" run verify:tla
+  copy_if_exists \
+    "$AE_FRAMEWORK_DIR/artifacts/hermetic-reports/formal/tla-summary.json" \
+    "$PROJECT_ROOT/artifacts/formal/${RUN_ID}-tla-summary.json"
 
   run_soft verify-csp \
     pnpm --dir "$AE_FRAMEWORK_DIR" run verify:csp
+  copy_if_exists \
+    "$AE_FRAMEWORK_DIR/artifacts/hermetic-reports/formal/csp-summary.json" \
+    "$PROJECT_ROOT/artifacts/formal/${RUN_ID}-csp-summary.json"
 }
 
 phase_mutation() {
@@ -178,4 +195,3 @@ main() {
 }
 
 main "$@"
-

@@ -1,0 +1,517 @@
+openapi: 3.1.0
+info:
+  title: Approval Workflow Service API
+  version: 0.1.0
+  description: REST API for request submission and approval workflow management.
+servers:
+  - url: /api/v1
+paths:
+  /workflows:
+    post:
+      summary: Create workflow definition
+      tags: [Workflow]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDefinition'
+    get:
+      summary: List workflows
+      tags: [Workflow]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkflowDefinition'
+  /workflows/{workflowId}/activate:
+    post:
+      summary: Activate workflow
+      tags: [Workflow]
+      parameters:
+        - in: path
+          name: workflowId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Activated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDefinition'
+  /workflows/{workflowId}/deactivate:
+    post:
+      summary: Deactivate workflow
+      tags: [Workflow]
+      parameters:
+        - in: path
+          name: workflowId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deactivated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDefinition'
+  /org-relations:
+    post:
+      summary: Upsert organization relation
+      tags: [Org]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrgRelation'
+      responses:
+        '201':
+          description: Upserted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrgRelation'
+  /requests:
+    post:
+      summary: Create approval request (draft)
+      tags: [Request]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRequestRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApprovalRequest'
+    get:
+      summary: List requests
+      tags: [Request]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApprovalRequest'
+  /requests/{requestId}:
+    get:
+      summary: Get request detail
+      tags: [Request]
+      parameters:
+        - in: path
+          name: requestId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApprovalRequest'
+  /requests/{requestId}/submit:
+    post:
+      summary: Submit request and open first review step
+      tags: [Request]
+      parameters:
+        - in: path
+          name: requestId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Submitted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApprovalRequest'
+  /requests/{requestId}/withdraw:
+    post:
+      summary: Withdraw request
+      tags: [Request]
+      parameters:
+        - in: path
+          name: requestId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Withdrawn
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApprovalRequest'
+  /requests/{requestId}/cancel:
+    post:
+      summary: Cancel request
+      tags: [Request]
+      parameters:
+        - in: path
+          name: requestId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cancelled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApprovalRequest'
+  /tasks:
+    get:
+      summary: List tasks
+      tags: [Task]
+      parameters:
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
+            enum: [PENDING, APPROVED, REJECTED, CANCELLED, SKIPPED]
+        - in: query
+          name: requestId
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApprovalTask'
+  /tasks/{taskId}/decide:
+    post:
+      summary: Decide task
+      tags: [Task]
+      parameters:
+        - in: path
+          name: taskId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskDecisionRequest'
+      responses:
+        '200':
+          description: Decision accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request:
+                    $ref: '#/components/schemas/ApprovalRequest'
+                  task:
+                    $ref: '#/components/schemas/ApprovalTask'
+                required: [request, task]
+  /audit-logs:
+    get:
+      summary: List audit logs
+      tags: [Audit]
+      parameters:
+        - in: query
+          name: requestId
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuditLog'
+components:
+  schemas:
+    CreateWorkflowRequest:
+      type: object
+      required: [name, steps]
+      properties:
+        workflowId:
+          type: string
+        name:
+          type: string
+        version:
+          type: integer
+          minimum: 1
+        matchCondition:
+          $ref: '#/components/schemas/WorkflowMatchCondition'
+        steps:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/StepDefinition'
+    WorkflowMatchCondition:
+      type: object
+      properties:
+        amountMin:
+          type: number
+        amountMax:
+          type: number
+        priority:
+          type: integer
+        requestTypes:
+          type: array
+          items:
+            type: string
+            enum: [EXPENSE, PURCHASE, GENERIC]
+    StepDefinition:
+      type: object
+      required: [stepId, name, mode, approverSelector]
+      properties:
+        stepId:
+          type: string
+        name:
+          type: string
+        mode:
+          type: string
+          enum: [ALL, ANY]
+        approverSelector:
+          type: string
+        timeoutSeconds:
+          type: integer
+          nullable: true
+        onTimeout:
+          type: string
+          enum: [ESCALATE, AUTO_REJECT, NOOP]
+    WorkflowDefinition:
+      type: object
+      required:
+        - workflowId
+        - tenantId
+        - name
+        - version
+        - status
+        - matchCondition
+        - steps
+        - createdAt
+        - updatedAt
+      properties:
+        workflowId:
+          type: string
+        tenantId:
+          type: string
+        name:
+          type: string
+        version:
+          type: integer
+        status:
+          type: string
+          enum: [ACTIVE, INACTIVE]
+        matchCondition:
+          $ref: '#/components/schemas/WorkflowMatchCondition'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/StepDefinition'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    CreateRequestRequest:
+      type: object
+      required: [type, title, amount, currency]
+      properties:
+        type:
+          type: string
+          enum: [EXPENSE, PURCHASE, GENERIC]
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        amount:
+          type: number
+          minimum: 0
+        currency:
+          type: string
+    ApprovalRequest:
+      type: object
+      required:
+        - requestId
+        - tenantId
+        - requesterUserId
+        - type
+        - title
+        - amount
+        - currency
+        - status
+        - workflowId
+        - workflowVersion
+        - currentStepIndex
+        - createdAt
+        - updatedAt
+        - submittedAt
+        - decidedAt
+      properties:
+        requestId:
+          type: string
+        tenantId:
+          type: string
+        requesterUserId:
+          type: string
+        type:
+          type: string
+          enum: [EXPENSE, PURCHASE, GENERIC]
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        amount:
+          type: number
+        currency:
+          type: string
+        status:
+          type: string
+          enum: [DRAFT, SUBMITTED, IN_REVIEW, APPROVED, REJECTED, RETURNED, CANCELLED, WITHDRAWN]
+        workflowId:
+          type: string
+          nullable: true
+        workflowVersion:
+          type: integer
+          nullable: true
+        currentStepIndex:
+          type: integer
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        submittedAt:
+          type: string
+          format: date-time
+          nullable: true
+        decidedAt:
+          type: string
+          format: date-time
+          nullable: true
+    TaskDecisionRequest:
+      type: object
+      required: [decision]
+      properties:
+        decision:
+          type: string
+          enum: [APPROVE, REJECT]
+        comment:
+          type: string
+    ApprovalTask:
+      type: object
+      required:
+        - taskId
+        - tenantId
+        - requestId
+        - stepId
+        - stepIndex
+        - assigneeUserId
+        - status
+        - decidedAt
+        - decisionComment
+        - createdAt
+        - updatedAt
+      properties:
+        taskId:
+          type: string
+        tenantId:
+          type: string
+        requestId:
+          type: string
+        stepId:
+          type: string
+        stepIndex:
+          type: integer
+        assigneeUserId:
+          type: string
+        status:
+          type: string
+          enum: [PENDING, APPROVED, REJECTED, CANCELLED, SKIPPED]
+        decidedAt:
+          type: string
+          format: date-time
+          nullable: true
+        decisionComment:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    OrgRelation:
+      type: object
+      required: [userId, roles]
+      properties:
+        userId:
+          type: string
+        managerUserId:
+          type: string
+          nullable: true
+        roles:
+          type: array
+          items:
+            type: string
+    AuditLog:
+      type: object
+      required: [auditId, tenantId, requestId, taskId, actorUserId, action, detail, createdAt]
+      properties:
+        auditId:
+          type: string
+        tenantId:
+          type: string
+        requestId:
+          type: string
+          nullable: true
+        taskId:
+          type: string
+          nullable: true
+        actorUserId:
+          type: string
+        action:
+          type: string
+        detail:
+          type: object
+          additionalProperties: true
+        createdAt:
+          type: string
+          format: date-time
+

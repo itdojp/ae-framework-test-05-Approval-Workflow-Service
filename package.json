@@ -1,0 +1,30 @@
+{
+  "name": "approval-workflow-service",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Approval Workflow Service (Issue #1) with ae-framework aligned verification",
+  "engines": {
+    "node": ">=20.11 <23"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "test": "vitest run",
+    "test:fast": "vitest run",
+    "test:mutation:quick": "node scripts/testing/mutation-quick.mjs",
+    "verify:lite": "pnpm run build && pnpm run test:fast"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
+

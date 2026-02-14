@@ -61,3 +61,14 @@
 - 実装、仕様、検証成果物の参照関係が GitHub 上で追跡できる。
 - 中間生成物を含む実行証跡が本リポジトリに保存されている。
 
+## 8. 進捗（2026-02-14）
+
+- 完了:
+  - Phase 1 の主要成果物を追加（`contracts/openapi.yaml`, `spec/approval-workflow.md`, `schema/*.json`）。
+  - Phase 2 として状態遷移エンジンを実装（`src/domain/engine.ts`）。
+  - AW-ACC-01〜04 を受入テスト化し、`vitest` で全件成功。
+  - ae-framework の `dev-fast`, `pr-gate`, `nightly-deep`, `full` を実行し、証跡を `artifacts/runs/*` に保存。
+- 継続タスク:
+  - `spec/formal/` を本サービス仕様向けに追加し、formal をサービス固有モデルで実行。
+  - conformance を対象ルール限定で運用し、不要なデフォルトルール混入を解消。
+  - mutation を実検証へ移行（現在は report-only）。

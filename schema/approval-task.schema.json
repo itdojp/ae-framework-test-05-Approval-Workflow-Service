@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://itdojp.github.io/approval-workflow/schema/approval-task.schema.json",
+  "title": "ApprovalTask",
+  "type": "object",
+  "required": [
+    "taskId",
+    "tenantId",
+    "requestId",
+    "stepId",
+    "stepIndex",
+    "assigneeUserId",
+    "status",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "taskId": { "type": "string" },
+    "tenantId": { "type": "string" },
+    "requestId": { "type": "string" },
+    "stepId": { "type": "string" },
+    "stepIndex": { "type": "integer", "minimum": 0 },
+    "assigneeUserId": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["PENDING", "APPROVED", "REJECTED", "CANCELLED", "SKIPPED"]
+    },
+    "decidedAt": { "type": ["string", "null"], "format": "date-time" },
+    "decisionComment": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}
+

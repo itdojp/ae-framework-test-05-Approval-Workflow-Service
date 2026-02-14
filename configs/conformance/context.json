@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-02-14T00:00:00.000Z",
+  "executionId": "6e5a906f-82dd-442e-a572-a31f7987d4c8",
+  "environment": "local",
+  "version": "0.1.0",
+  "metadata": {
+    "source": "approval-workflow-service",
+    "purpose": "pr-gate conformance check"
+  }
+}
+

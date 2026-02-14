@@ -1,0 +1,20 @@
+{
+  "request": {
+    "requestId": "req-sample-001",
+    "type": "GENERIC",
+    "title": "Laptop Procurement",
+    "amount": 120000,
+    "currency": "JPY",
+    "status": "IN_REVIEW"
+  },
+  "task": {
+    "taskId": "task-sample-001",
+    "requestId": "req-sample-001",
+    "status": "PENDING",
+    "assigneeUserId": "approver-01"
+  },
+  "meta": {
+    "submittedAt": "2026-02-14T00:00:00.000Z"
+  }
+}
+
