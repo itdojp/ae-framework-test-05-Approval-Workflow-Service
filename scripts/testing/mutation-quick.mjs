@@ -36,6 +36,37 @@ const mutants = [
       '      }\n',
     replace: '',
     testArgs: ['exec', 'vitest', 'run', 'tests/acceptance/approval-engine.acceptance.test.ts', '-t', 'AW-AUTH-002']
+  },
+  {
+    id: 'MUT-AW-WF-PRIORITY-ORDER-BROKEN',
+    description: 'workflow priority 比較順の逆転',
+    find: '          return bp - ap;\n',
+    replace: '          return ap - bp;\n',
+    testArgs: ['exec', 'vitest', 'run', 'tests/acceptance/approval-engine.acceptance.test.ts', '-t', 'AW-WF-002']
+  },
+  {
+    id: 'MUT-AW-WF-NO-APPROVER-GUARD-DROP',
+    description: 'submit時の approver 未解決ガード欠落',
+    find:
+      '        if (firstApprovers.length === 0) {\n' +
+      '          throw new ValidationError(`no approver resolved for step ${firstStep.stepId}`);\n' +
+      '        }\n',
+    replace: '',
+    testArgs: ['exec', 'vitest', 'run', 'tests/acceptance/approval-engine.acceptance.test.ts', '-t', 'AW-WF-010']
+  },
+  {
+    id: 'MUT-AW-RETURN-TO-REJECT',
+    description: 'RETURN 決裁を REJECT 終端に誤変更',
+    find: '        this.returnRequest(request, actor, lockedTask.taskId);\n',
+    replace: '        this.rejectRequest(request, actor, lockedTask.taskId);\n',
+    testArgs: ['exec', 'vitest', 'run', 'tests/acceptance/approval-engine.acceptance.test.ts', '-t', 'AW-REQ-RETURN-01']
+  },
+  {
+    id: 'MUT-AW-RESUBMIT-SKIP-RESET',
+    description: 'RETURNED 再提出時の task reset 欠落',
+    find: '        this.resetTasksForResubmit(request.requestId);\n',
+    replace: "        // mutation: skip reset on resubmit\n",
+    testArgs: ['exec', 'vitest', 'run', 'tests/acceptance/approval-engine.acceptance.test.ts', '-t', 'AW-REQ-RETURN-01']
   }
 ];
 
