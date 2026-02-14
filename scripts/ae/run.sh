@@ -7,6 +7,7 @@ PROFILE="${1:-full}"
 RUN_ID="${RUN_ID:-$(date -u +%Y-%m-%d)-${PROFILE}}"
 RUN_DIR="$PROJECT_ROOT/artifacts/runs/$RUN_ID"
 LOG_DIR="$RUN_DIR/logs"
+SNAPSHOT_DIR="$RUN_DIR/snapshots"
 
 mkdir -p "$LOG_DIR" "$PROJECT_ROOT/.ae" "$PROJECT_ROOT/artifacts/spec" \
   "$PROJECT_ROOT/artifacts/sim" "$PROJECT_ROOT/artifacts/conformance" \
@@ -42,6 +43,17 @@ copy_if_exists() {
   if [[ -f "$src" ]]; then
     mkdir -p "$(dirname "$dst")"
     cp "$src" "$dst"
+    log "COPIED: $src -> $dst"
+  fi
+}
+
+copy_dir_if_exists() {
+  local src="$1"
+  local dst="$2"
+  if [[ -d "$src" ]]; then
+    mkdir -p "$(dirname "$dst")"
+    rm -rf "$dst"
+    cp -R "$src" "$dst"
     log "COPIED: $src -> $dst"
   fi
 }
@@ -199,6 +211,92 @@ phase_mutation() {
     pnpm --dir "$PROJECT_ROOT" run test:mutation:quick
 }
 
+snapshot_spec_outputs() {
+  copy_if_exists "$PROJECT_ROOT/.ae/ae-ir.json" \
+    "$SNAPSHOT_DIR/.ae/ae-ir.json"
+  copy_if_exists "$PROJECT_ROOT/artifacts/spec/contracts.json" \
+    "$SNAPSHOT_DIR/spec/contracts.json"
+  copy_if_exists "$PROJECT_ROOT/artifacts/spec/replay.json" \
+    "$SNAPSHOT_DIR/spec/replay.json"
+  copy_if_exists "$PROJECT_ROOT/artifacts/sim/sim.json" \
+    "$SNAPSHOT_DIR/sim/sim.json"
+  copy_if_exists "$PROJECT_ROOT/artifacts/contracts/contracts-summary.json" \
+    "$SNAPSHOT_DIR/contracts/contracts-summary.json"
+  copy_if_exists "$PROJECT_ROOT/artifacts/domain/replay-fixtures.sample.json" \
+    "$SNAPSHOT_DIR/domain/replay-fixtures.sample.json"
+  copy_if_exists "$PROJECT_ROOT/artifacts/simulation/deterministic-summary.json" \
+    "$SNAPSHOT_DIR/simulation/deterministic-summary.json"
+}
+
+snapshot_verify_lite_outputs() {
+  copy_if_exists "$PROJECT_ROOT/artifacts/verify-lite/summary.json" \
+    "$SNAPSHOT_DIR/verify-lite/summary.json"
+}
+
+snapshot_conformance_outputs() {
+  copy_if_exists "$PROJECT_ROOT/artifacts/conformance/result.json" \
+    "$SNAPSHOT_DIR/conformance/result.json"
+  copy_if_exists "$PROJECT_ROOT/artifacts/conformance/negative-summary.json" \
+    "$SNAPSHOT_DIR/conformance/negative-summary.json"
+  copy_dir_if_exists "$PROJECT_ROOT/artifacts/conformance/negative" \
+    "$SNAPSHOT_DIR/conformance/negative"
+}
+
+snapshot_mbt_outputs() {
+  copy_if_exists "$PROJECT_ROOT/artifacts/mbt/summary.json" \
+    "$SNAPSHOT_DIR/mbt/summary.json"
+}
+
+snapshot_property_outputs() {
+  copy_if_exists "$PROJECT_ROOT/artifacts/properties/summary.json" \
+    "$SNAPSHOT_DIR/properties/summary.json"
+}
+
+snapshot_formal_outputs() {
+  copy_if_exists "$PROJECT_ROOT/artifacts/formal/${RUN_ID}-tla-summary.json" \
+    "$SNAPSHOT_DIR/formal/${RUN_ID}-tla-summary.json"
+  copy_if_exists "$PROJECT_ROOT/artifacts/formal/${RUN_ID}-csp-summary.json" \
+    "$SNAPSHOT_DIR/formal/${RUN_ID}-csp-summary.json"
+  copy_dir_if_exists "$PROJECT_ROOT/artifacts/hermetic-reports/formal" \
+    "$SNAPSHOT_DIR/hermetic-reports/formal"
+}
+
+snapshot_mutation_outputs() {
+  copy_if_exists "$PROJECT_ROOT/artifacts/mutation/summary.json" \
+    "$SNAPSHOT_DIR/mutation/summary.json"
+}
+
+snapshot_outputs() {
+  mkdir -p "$SNAPSHOT_DIR"
+
+  case "$PROFILE" in
+    dev-fast)
+      snapshot_spec_outputs
+      snapshot_verify_lite_outputs
+      ;;
+    pr-gate)
+      snapshot_spec_outputs
+      snapshot_verify_lite_outputs
+      snapshot_conformance_outputs
+      snapshot_mbt_outputs
+      snapshot_property_outputs
+      ;;
+    nightly-deep)
+      snapshot_formal_outputs
+      snapshot_mutation_outputs
+      ;;
+    full)
+      snapshot_spec_outputs
+      snapshot_verify_lite_outputs
+      snapshot_conformance_outputs
+      snapshot_mbt_outputs
+      snapshot_property_outputs
+      snapshot_formal_outputs
+      snapshot_mutation_outputs
+      ;;
+  esac
+}
+
 write_manifest() {
   cat >"$RUN_DIR/manifest.json" <<EOF
 {
@@ -207,6 +305,7 @@ write_manifest() {
   "createdAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "aeFrameworkDir": "$AE_FRAMEWORK_DIR",
   "logDir": "artifacts/runs/$RUN_ID/logs",
+  "snapshotDir": "artifacts/runs/$RUN_ID/snapshots",
   "notes": [
     "dev-fast: spec + verify-lite",
     "pr-gate: spec + verify-lite + conformance + mbt + property",
@@ -251,6 +350,7 @@ main() {
       ;;
   esac
 
+  snapshot_outputs
   write_manifest
   log "DONE: profile=$PROFILE runId=$RUN_ID"
 }

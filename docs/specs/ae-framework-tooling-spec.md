@@ -27,9 +27,9 @@
 | 区分 | 利用コマンド | 目的 | 入力 | 出力（本リポジトリ保存先） | 実行タイミング |
 | --- | --- | --- | --- | --- | --- |
 | 仕様検証 | `ae spec validate` / `ae spec lint` | Issue仕様の機械可読化と静的検査 | `spec/*.md` | `.ae/ae-ir.json`, `artifacts/spec/*` | 各仕様更新時 |
-| 契約生成 | `node scripts/spec/generate-contracts.mjs` | API契約の抽出 | `.ae/ae-ir.json` | `artifacts/spec/contracts.json` | API変更時 |
-| Replay生成 | `node scripts/spec/generate-replay-fixtures.mjs` | 検証用入力固定化 | `contracts.json` | `artifacts/spec/replay.json` | 契約更新時 |
-| Deterministic実行 | `node scripts/simulation/deterministic-runner.mjs` | 再現性確認 | `replay.json` | `artifacts/sim/sim.json` | PR前 |
+| 契約生成 | `node scripts/spec/generate-contracts.mjs` | API契約の抽出 | `.ae/ae-ir.json` | `artifacts/contracts/contracts-summary.json`（補助出力として `artifacts/spec/contracts.json`） | API変更時 |
+| Replay生成 | `node scripts/spec/generate-replay-fixtures.mjs` | 検証用入力固定化 | `contracts-summary.json` | `artifacts/domain/replay-fixtures.sample.json`（補助出力として `artifacts/spec/replay.json`） | 契約更新時 |
+| Deterministic実行 | `node scripts/simulation/deterministic-runner.mjs` | 再現性確認 | `replay-fixtures.sample.json` | `artifacts/simulation/deterministic-summary.json`（補助出力として `artifacts/sim/sim.json`） | PR前 |
 | 軽量ゲート | `pnpm run verify:lite:report` | lint/test/build の最小品質担保と結果保存 | 実装コード一式 | `artifacts/verify-lite/*` | PRごと |
 | Conformance | `ae conformance verify` + `pnpm run test:conformance:negative` | ルール/スキーマ違反検出と異常系での fail 検証（title/amount + request可視性 + tenant分離） | 入力JSON + ルール | `artifacts/conformance/*` | API/ルール更新時 |
 | MBT | `pnpm run test:mbt:quick` | 状態遷移モデル（12.1）の検証 | `tests/mbt/*` | `artifacts/mbt/*` | PRごと |
@@ -79,7 +79,9 @@
 
 - 仕様変換: `.ae/`
 - 検証成果物: `artifacts/<category>/`
+- 仕様補助成果物: `artifacts/contracts/*`, `artifacts/domain/*`, `artifacts/simulation/*`
 - 実行単位のマニフェスト: `artifacts/runs/<run-id>/manifest.json`
+- 実行単位のスナップショット: `artifacts/runs/<run-id>/snapshots/**/*`
 - 仕様書/計画書: `docs/specs/`, `docs/plans/`
 - CI由来の中間生成物は `artifacts/` / `.ae/` の差分として main に保存する
 

@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-ART-001`
-- 版: `v0.1`
+- 版: `v0.2`
 - 作成日: `2026-02-14`
 
 ## 2. 目的
@@ -16,6 +16,9 @@
 - `spec/*.md`
 - `.ae/ae-ir.json`
 - `artifacts/spec/*`
+- `artifacts/contracts/*`
+- `artifacts/domain/*`
+- `artifacts/simulation/*`
 2. 検証系:
 - `artifacts/verify-lite/*`
 - `artifacts/conformance/*`
@@ -26,6 +29,7 @@
 3. 実行メタ:
 - `artifacts/runs/<run-id>/manifest.json`
 - 実行ログ（必要に応じて `artifacts/runs/<run-id>/logs/*`）
+- run単位スナップショット: `artifacts/runs/<run-id>/snapshots/**/*`
 
 ## 4. 命名規則
 
@@ -38,6 +42,7 @@
 ## 5. コミット規則
 
 1. 生成物は実行ごとに `artifacts/runs/<run-id>/` へ集約する。
+  - `scripts/ae/run.sh` は終了時に主要成果物を `snapshots/` へ自動複製する。
 2. 生成物を含むコミットメッセージには `run-id` と目的を含める。
 3. PR説明欄に対象 `run-id` を列挙し、追跡可能にする。
 
