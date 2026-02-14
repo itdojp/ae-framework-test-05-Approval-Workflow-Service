@@ -240,6 +240,12 @@ export class ApprovalEngine {
         throw new ConflictError(`submit not allowed in status: ${request.status}`);
       }
 
+      if (request.status === 'RETURNED') {
+        this.resetTasksForResubmit(request.requestId);
+        request.currentStepIndex = null;
+        request.decidedAt = null;
+      }
+
       const workflow = this.selectWorkflowForRequest(request);
       const now = this.nowIso();
       request.workflowId = workflow.workflowId;
@@ -311,6 +317,16 @@ export class ApprovalEngine {
           detail: { stepId: lockedTask.stepId, comment: lockedTask.decisionComment }
         });
         this.rejectRequest(request, actor, lockedTask.taskId);
+      } else if (decision === 'RETURN') {
+        lockedTask.status = 'REJECTED';
+        this.addAudit({
+          actor,
+          action: 'TASK_REJECT',
+          requestId: request.requestId,
+          taskId: lockedTask.taskId,
+          detail: { stepId: lockedTask.stepId, comment: lockedTask.decisionComment, decision: 'RETURN' }
+        });
+        this.returnRequest(request, actor, lockedTask.taskId);
       } else {
         throw new ValidationError(`unsupported decision: ${decision}`);
       }
@@ -586,6 +602,33 @@ export class ApprovalEngine {
       taskId: decidedTaskId,
       detail: {}
     });
+  }
+
+  private returnRequest(request: ApprovalRequest, actor: ActorContext, decidedTaskId: string): void {
+    request.status = 'RETURNED';
+    request.decidedAt = null;
+    request.currentStepIndex = null;
+    request.updatedAt = this.nowIso();
+    this.closePendingTasks(request.requestId, 'CANCELLED', new Set([decidedTaskId]));
+    this.addAudit({
+      actor,
+      action: 'REQUEST_RETURN',
+      requestId: request.requestId,
+      taskId: decidedTaskId,
+      detail: {}
+    });
+  }
+
+  private resetTasksForResubmit(requestId: string): void {
+    const removeKeys: string[] = [];
+    for (const [taskId, task] of this.tasks.entries()) {
+      if (task.requestId === requestId) {
+        removeKeys.push(taskId);
+      }
+    }
+    for (const taskId of removeKeys) {
+      this.tasks.delete(taskId);
+    }
   }
 
   private closePendingTasks(

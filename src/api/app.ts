@@ -23,7 +23,7 @@ function parseTaskDecision(value: unknown): TaskDecision {
   if (value === 'APPROVE' || value === 'REJECT' || value === 'RETURN') {
     return value;
   }
-  throw new ValidationError('decision must be APPROVE or REJECT');
+  throw new ValidationError('decision must be APPROVE, REJECT or RETURN');
 }
 
 type AsyncRoute = (req: Request, res: Response, next: NextFunction) => Promise<void>;

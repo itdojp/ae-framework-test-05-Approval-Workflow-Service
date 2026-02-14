@@ -269,6 +269,67 @@ describe('Approval Workflow Acceptance', () => {
     ).rejects.toBeInstanceOf(ConflictError);
   });
 
+  it('AW-REQ-RETURN-01: RETURN moves request to RETURNED and resubmit regenerates first-step tasks', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+    const approverA = actor('approver-a');
+    const approverB = actor('approver-b');
+
+    engine.upsertOrgRelation({
+      tenantId,
+      userId: approverA.userId,
+      managerUserId: null,
+      roles: ['APPROVER']
+    });
+    engine.upsertOrgRelation({
+      tenantId,
+      userId: approverB.userId,
+      managerUserId: null,
+      roles: ['APPROVER']
+    });
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-return',
+      name: 'ReturnFlow',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Dual', mode: 'ALL', approverSelector: 'ROLE:APPROVER' }]
+    });
+
+    const created = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'Need correction',
+        amount: 10000,
+        currency: 'JPY'
+      },
+      requester
+    );
+    await engine.submitRequest(created.requestId, requester);
+
+    const pendingBefore = engine.listTasks(admin, { requestId: created.requestId, status: 'PENDING' });
+    expect(pendingBefore).toHaveLength(2);
+    await engine.decideTask(pendingBefore[0]!.taskId, actor(pendingBefore[0]!.assigneeUserId), 'RETURN', 'fix');
+
+    const returned = engine.getRequest(created.requestId, admin);
+    expect(returned.status).toBe('RETURNED');
+    expect(engine.listTasks(admin, { requestId: created.requestId, status: 'PENDING' })).toHaveLength(0);
+    expect(engine.listAuditLogs(admin, created.requestId).map((audit) => audit.action)).toContain('REQUEST_RETURN');
+
+    await engine.updateRequest(
+      created.requestId,
+      {
+        title: 'Need correction v2'
+      },
+      requester
+    );
+    const resubmitted = await engine.submitRequest(created.requestId, requester);
+    expect(resubmitted.status).toBe('IN_REVIEW');
+
+    const pendingAfter = engine.listTasks(admin, { requestId: created.requestId, status: 'PENDING' });
+    expect(pendingAfter).toHaveLength(2);
+  });
+
   it('AW-ACC-04: audit log keeps submit to final decision trace', async () => {
     const engine = new ApprovalEngine();
     const admin = actor('admin-01', ['ADMIN']);

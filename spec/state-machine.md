@@ -9,6 +9,7 @@
 | RETURNED | submit | IN_REVIEW | Request is re-submitted after correction |
 | IN_REVIEW | approve-final | APPROVED | All required steps are completed |
 | IN_REVIEW | reject | REJECTED | Any reject finalizes request |
+| IN_REVIEW | return | RETURNED | Reviewer returns request for correction |
 | SUBMITTED / IN_REVIEW / RETURNED | withdraw | WITHDRAWN | Requester stops review flow |
 | DRAFT / SUBMITTED | cancel | CANCELLED | Requester or admin cancels request |
 

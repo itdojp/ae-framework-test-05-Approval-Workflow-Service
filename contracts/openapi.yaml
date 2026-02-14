@@ -469,7 +469,7 @@ components:
       properties:
         decision:
           type: string
-          enum: [APPROVE, REJECT]
+          enum: [APPROVE, REJECT, RETURN]
         comment:
           type: string
     ApprovalTask:

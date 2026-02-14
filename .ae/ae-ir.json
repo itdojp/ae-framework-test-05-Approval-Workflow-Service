@@ -2,8 +2,8 @@
   "version": "1.0.0",
   "metadata": {
     "name": "ApprovalWorkflowServiceSpec",
-    "created": "2026-02-14T05:54:08.973Z",
-    "updated": "2026-02-14T05:54:08.973Z",
+    "created": "2026-02-14T06:01:00.077Z",
+    "updated": "2026-02-14T06:01:00.077Z",
     "description": "Minimal AE-Spec for approval workflow service verification."
   },
   "glossary": [
@@ -241,7 +241,7 @@
         },
         {
           "step": 2,
-          "description": "Assignee decides approve or reject with optional decision comment.",
+          "description": "Assignee decides approve, reject, or return with optional decision comment.",
           "type": "action"
         },
         {
@@ -252,6 +252,27 @@
         {
           "step": 4,
           "description": "System records audit entries for task decision and request transition.",
+          "type": "action"
+        }
+      ]
+    },
+    {
+      "name": "Resubmit Returned Request",
+      "actor": "User",
+      "steps": [
+        {
+          "step": 1,
+          "description": "Requester fixes returned request fields.",
+          "type": "action"
+        },
+        {
+          "step": 2,
+          "description": "Requester submits request again from RETURNED status.",
+          "type": "action"
+        },
+        {
+          "step": 3,
+          "description": "System recreates first step approval tasks.",
           "type": "action"
         }
       ]

@@ -7,7 +7,7 @@ import type { ActorContext, RequestStatus } from '../../src/domain/types.js';
 const tenantId = 'tenant-mbt';
 const terminalStatuses = new Set<RequestStatus>(['APPROVED', 'REJECTED', 'CANCELLED', 'WITHDRAWN']);
 
-type Operation = 'submit' | 'update' | 'approve' | 'reject' | 'withdraw' | 'cancel';
+type Operation = 'submit' | 'update' | 'approve' | 'reject' | 'return' | 'withdraw' | 'cancel';
 type StepState = 'NONE' | 'STEP1' | 'STEP2' | 'DONE';
 
 interface ModelState {
@@ -83,6 +83,7 @@ function canApply(model: ModelState, operation: Operation): boolean {
       return model.status === 'DRAFT' || model.status === 'RETURNED';
     case 'approve':
     case 'reject':
+    case 'return':
       return model.status === 'IN_REVIEW';
     case 'withdraw':
       return model.status === 'SUBMITTED' || model.status === 'IN_REVIEW' || model.status === 'RETURNED';
@@ -109,6 +110,8 @@ function applyModel(model: ModelState, operation: Operation): ModelState {
       return model;
     case 'reject':
       return { status: 'REJECTED', step: 'DONE' };
+    case 'return':
+      return { status: 'RETURNED', step: 'NONE' };
     case 'withdraw':
       return { status: 'WITHDRAWN', step: 'DONE' };
     case 'cancel':
@@ -158,6 +161,15 @@ async function runOperation(
         await engine.decideTask(task.taskId, actor(task.assigneeUserId), 'REJECT', 'mbt-reject');
         return true;
       }
+      case 'return': {
+        const pending = engine.listTasks(admin, { requestId, status: 'PENDING' });
+        if (pending.length === 0) {
+          throw new ConflictError('no pending task');
+        }
+        const task = pending[0]!;
+        await engine.decideTask(task.taskId, actor(task.assigneeUserId), 'RETURN', 'mbt-return');
+        return true;
+      }
       case 'withdraw':
         await engine.withdrawRequest(requestId, requester);
         return true;
@@ -175,7 +187,7 @@ async function runOperation(
 describe('Approval Workflow MBT', () => {
   it('AW-MBT-01: generated operation sequence follows request state machine', async () => {
     await fc.assert(
-      fc.asyncProperty(fc.array(fc.constantFrom<Operation>('submit', 'update', 'approve', 'reject', 'withdraw', 'cancel'), { minLength: 1, maxLength: 20 }), async (operations) => {
+      fc.asyncProperty(fc.array(fc.constantFrom<Operation>('submit', 'update', 'approve', 'reject', 'return', 'withdraw', 'cancel'), { minLength: 1, maxLength: 20 }), async (operations) => {
         const { engine, admin, requester, requestId } = await setupScenario();
         let model: ModelState = { status: 'DRAFT', step: 'NONE' };
 

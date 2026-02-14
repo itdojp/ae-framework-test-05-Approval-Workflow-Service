@@ -288,6 +288,69 @@ describe('API acceptance', () => {
     expect(patchReview.status).toBe(409);
   });
 
+  it('AW-REQ-RETURN-01: RETURN leads to RETURNED and submit works as resubmit', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    await upsertRelation(app, 'approver-a', ['APPROVER']);
+    await upsertRelation(app, 'approver-b', ['APPROVER']);
+
+    await createActiveWorkflow(app, 'wf-api-return', {
+      workflowId: 'wf-api-return',
+      name: 'ApiReturn',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Dual', mode: 'ALL', approverSelector: 'ROLE:APPROVER' }]
+    });
+
+    const createReqRes = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Need correction',
+      amount: 12000,
+      currency: 'JPY'
+    });
+    const requestId = createReqRes.body.requestId as string;
+
+    await request(app).post(`/api/v1/requests/${requestId}/submit`).set(headers('requester-01')).send({});
+    const pendingRes = await request(app)
+      .get('/api/v1/tasks')
+      .query({ requestId, status: 'PENDING' })
+      .set(headers('admin-01', ['ADMIN']));
+    const pending = pendingRes.body as Array<any>;
+    expect(pending).toHaveLength(2);
+
+    const returnRes = await request(app)
+      .post(`/api/v1/tasks/${pending[0]!.taskId}/decide`)
+      .set(headers(pending[0]!.assigneeUserId))
+      .send({ decision: 'RETURN', comment: 'fix and resubmit' });
+    expect(returnRes.status).toBe(200);
+    expect(returnRes.body.request.status).toBe('RETURNED');
+
+    const patchReturned = await request(app)
+      .patch(`/api/v1/requests/${requestId}`)
+      .set(headers('requester-01'))
+      .send({ title: 'Need correction v2' });
+    expect(patchReturned.status).toBe(200);
+
+    const resubmitRes = await request(app)
+      .post(`/api/v1/requests/${requestId}/submit`)
+      .set(headers('requester-01'))
+      .send({});
+    expect(resubmitRes.status).toBe(200);
+    expect(resubmitRes.body.status).toBe('IN_REVIEW');
+
+    const pendingAfterRes = await request(app)
+      .get('/api/v1/tasks')
+      .query({ requestId, status: 'PENDING' })
+      .set(headers('admin-01', ['ADMIN']));
+    expect((pendingAfterRes.body as Array<any>)).toHaveLength(2);
+
+    const auditRes = await request(app)
+      .get('/api/v1/audit-logs')
+      .query({ requestId })
+      .set(headers('admin-01', ['ADMIN']));
+    const actions = (auditRes.body as Array<any>).map((audit) => audit.action);
+    expect(actions).toContain('REQUEST_RETURN');
+  });
+
   it('AW-ACC-04: audit logs keep submit to final decision', async () => {
     const app = createApp(new ApprovalEngine());
 

@@ -62,9 +62,14 @@ Minimal AE-Spec for approval workflow service verification.
 
 ### Decide Approval Task
 - Assignee opens pending task assigned in current workflow step.
-- Assignee decides approve or reject with optional decision comment.
+- Assignee decides approve, reject, or return with optional decision comment.
 - System updates request status according to ANY or ALL step mode.
 - System records audit entries for task decision and request transition.
+
+### Resubmit Returned Request
+- Requester fixes returned request fields.
+- Requester submits request again from RETURNED status.
+- System recreates first step approval tasks.
 
 ## API
 
