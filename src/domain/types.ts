@@ -100,6 +100,7 @@ export interface AuditLog {
   actorUserId: string;
   action:
     | 'REQUEST_CREATE'
+    | 'REQUEST_UPDATE'
     | 'REQUEST_SUBMIT'
     | 'REQUEST_WITHDRAW'
     | 'REQUEST_CANCEL'
@@ -132,3 +133,10 @@ export interface CreateRequestInput {
   currency: string;
 }
 
+export interface UpdateRequestInput {
+  type?: RequestType;
+  title?: string;
+  description?: string | null;
+  amount?: number;
+  currency?: string;
+}

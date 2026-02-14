@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ApprovalEngine } from '../../src/domain/engine.js';
-import { ForbiddenError } from '../../src/domain/errors.js';
+import { ConflictError, ForbiddenError } from '../../src/domain/errors.js';
 import type { ActorContext, CreateWorkflowInput } from '../../src/domain/types.js';
 
 const tenantId = 'tenant-acme';
@@ -218,6 +218,55 @@ describe('Approval Workflow Acceptance', () => {
     const stillPending = engine.listTasks(admin, { requestId: request.requestId, status: 'PENDING' });
     expect(stillPending).toHaveLength(1);
     expect(engine.getRequest(request.requestId, admin).status).toBe('IN_REVIEW');
+  });
+
+  it('AW-REQ-EDIT-01: request update is allowed in DRAFT and denied in IN_REVIEW', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+    const approver = actor('approver-01');
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-edit',
+      name: 'EditFlow',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: `USER:${approver.userId}` }]
+    });
+
+    const draft = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'Draft before edit',
+        amount: 1000,
+        currency: 'JPY'
+      },
+      requester
+    );
+
+    const updated = await engine.updateRequest(
+      draft.requestId,
+      {
+        title: 'Draft after edit',
+        amount: 2000
+      },
+      requester
+    );
+    expect(updated.title).toBe('Draft after edit');
+    expect(updated.amount).toBe(2000);
+
+    const auditActions = engine.listAuditLogs(admin, draft.requestId).map((audit) => audit.action);
+    expect(auditActions).toContain('REQUEST_UPDATE');
+
+    await engine.submitRequest(draft.requestId, requester);
+    await expect(
+      engine.updateRequest(
+        draft.requestId,
+        {
+          title: 'Edit after submit'
+        },
+        requester
+      )
+    ).rejects.toBeInstanceOf(ConflictError);
   });
 
   it('AW-ACC-04: audit log keeps submit to final decision trace', async () => {

@@ -112,6 +112,22 @@ export function createApp(engine: ApprovalEngine): express.Express {
     res.status(201).json(created);
   });
 
+  app.patch('/api/v1/requests/:requestId', asyncRoute(async (req, res) => {
+    const actor = actorFromRequest(req);
+    const updated = await engine.updateRequest(
+      req.params.requestId,
+      {
+        type: req.body.type,
+        title: req.body.title,
+        description: req.body.description,
+        amount: req.body.amount,
+        currency: req.body.currency
+      },
+      actor
+    );
+    res.status(200).json(updated);
+  }));
+
   app.post('/api/v1/requests/:requestId/submit', asyncRoute(async (req, res) => {
     const actor = actorFromRequest(req);
     const request = await engine.submitRequest(req.params.requestId, actor);

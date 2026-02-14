@@ -132,6 +132,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApprovalRequest'
+    patch:
+      summary: Update draft or returned request
+      tags: [Request]
+      parameters:
+        - in: path
+          name: requestId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRequestRequest'
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApprovalRequest'
   /requests/{requestId}/submit:
     post:
       summary: Submit request and open first review step
@@ -362,6 +384,22 @@ components:
           minimum: 0
         currency:
           type: string
+    UpdateRequestRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [EXPENSE, PURCHASE, GENERIC]
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        amount:
+          type: number
+          minimum: 0
+        currency:
+          type: string
     ApprovalRequest:
       type: object
       required:
@@ -508,10 +546,24 @@ components:
           type: string
         action:
           type: string
+          enum:
+            - REQUEST_CREATE
+            - REQUEST_UPDATE
+            - REQUEST_SUBMIT
+            - REQUEST_WITHDRAW
+            - REQUEST_CANCEL
+            - REQUEST_APPROVE
+            - REQUEST_REJECT
+            - REQUEST_RETURN
+            - TASK_ASSIGN
+            - TASK_APPROVE
+            - TASK_REJECT
+            - WORKFLOW_CREATE
+            - WORKFLOW_ACTIVATE
+            - WORKFLOW_DEACTIVATE
         detail:
           type: object
           additionalProperties: true
         createdAt:
           type: string
           format: date-time
-

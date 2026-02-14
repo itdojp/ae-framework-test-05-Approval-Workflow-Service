@@ -12,6 +12,7 @@ import type {
   RequestStatus,
   TaskDecision,
   TaskStatus,
+  UpdateRequestInput,
   WorkflowDefinition,
   WorkflowMatchCondition
 } from './types.js';
@@ -161,6 +162,69 @@ export class ApprovalEngine {
       detail: { title: request.title, amount: request.amount, currency: request.currency }
     });
     return this.clone(request);
+  }
+
+  async updateRequest(
+    requestId: string,
+    input: UpdateRequestInput,
+    actor: ActorContext
+  ): Promise<ApprovalRequest> {
+    return this.withRequestLock(requestId, async () => {
+      const request = this.requireRequest(requestId);
+      this.assertTenant(actor.tenantId, request.tenantId);
+      this.assertRequesterOrAdmin(request, actor);
+
+      if (TERMINAL_STATUSES.has(request.status)) {
+        throw new ConflictError(`request is terminal: ${request.status}`);
+      }
+      if (request.status !== 'DRAFT' && request.status !== 'RETURNED') {
+        throw new ConflictError(`update not allowed in status: ${request.status}`);
+      }
+
+      if (input.type) {
+        request.type = input.type;
+      }
+      if (typeof input.title === 'string') {
+        const title = input.title.trim();
+        if (!title) {
+          throw new ValidationError('title is required');
+        }
+        request.title = title;
+      }
+      if (typeof input.description === 'string') {
+        request.description = input.description.trim() || null;
+      } else if (input.description === null) {
+        request.description = null;
+      }
+      if (typeof input.amount === 'number') {
+        if (!Number.isFinite(input.amount) || input.amount < 0) {
+          throw new ValidationError('amount must be a non-negative number');
+        }
+        request.amount = input.amount;
+      }
+      if (typeof input.currency === 'string') {
+        const currency = input.currency.trim();
+        if (!currency) {
+          throw new ValidationError('currency is required');
+        }
+        request.currency = currency;
+      }
+
+      request.updatedAt = this.nowIso();
+      this.addAudit({
+        actor,
+        action: 'REQUEST_UPDATE',
+        requestId: request.requestId,
+        taskId: null,
+        detail: {
+          type: request.type,
+          title: request.title,
+          amount: request.amount,
+          currency: request.currency
+        }
+      });
+      return this.clone(request);
+    });
   }
 
   async submitRequest(requestId: string, actor: ActorContext): Promise<ApprovalRequest> {
@@ -710,4 +774,3 @@ export class ApprovalEngine {
     return structuredClone(value);
   }
 }
-

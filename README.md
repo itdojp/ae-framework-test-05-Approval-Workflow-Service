@@ -15,6 +15,7 @@
 
 - ドメイン実装: `src/domain/engine.ts`
 - API実装: `src/api/app.ts`
+  - `PATCH /api/v1/requests/{requestId}`（DRAFT/RETURNED 編集）を含む
 - OpenAPI契約: `contracts/openapi.yaml`
 - AE-Spec入力: `spec/approval-workflow.md`
 - 受入基準テスト: `tests/acceptance/approval-engine.acceptance.test.ts`

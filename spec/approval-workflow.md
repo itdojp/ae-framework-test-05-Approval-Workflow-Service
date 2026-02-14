@@ -55,6 +55,11 @@ Minimal AE-Spec for approval workflow service verification.
 - System creates initial approval tasks from the first workflow step.
 - System transitions request status from draft to in review.
 
+### Update Request
+- Requester updates mutable fields while status is draft or returned.
+- System validates title amount and currency constraints.
+- System rejects update when request is in review or terminal.
+
 ### Decide Approval Task
 - Assignee opens pending task assigned in current workflow step.
 - Assignee decides approve or reject with optional decision comment.
@@ -66,6 +71,7 @@ Minimal AE-Spec for approval workflow service verification.
 - POST /workflows - Create workflow definition
 - POST /workflows/:workflowId/activate - Activate workflow
 - POST /requests - Create draft request
+- PATCH /requests/:requestId - Update draft or returned request
 - POST /requests/:requestId/submit - Submit request
 - POST /tasks/:taskId/decide - Decide assigned task
 - GET /requests - List visible requests

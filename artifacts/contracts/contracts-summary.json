@@ -1,7 +1,7 @@
 {
   "ok": true,
   "entitiesCount": 3,
-  "endpointsCount": 8,
+  "endpointsCount": 9,
   "entities": [
     {
       "name": "ApprovalRequest",
@@ -159,6 +159,12 @@
       "hasResponse": false
     },
     {
+      "method": "PATCH",
+      "path": "/requests/:requestId",
+      "hasRequest": false,
+      "hasResponse": false
+    },
+    {
       "method": "POST",
       "path": "/requests/:requestId/submit",
       "hasRequest": false,
@@ -189,5 +195,5 @@
       "hasResponse": false
     }
   ],
-  "timestamp": "2026-02-14T05:50:23.376Z"
+  "timestamp": "2026-02-14T05:54:10.680Z"
 }

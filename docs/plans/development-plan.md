@@ -71,5 +71,6 @@
   - conformance は `rule-ids` 指定でサービス固有ルールに限定し、`overall=PASS` を確認。
   - formal はサービス固有モデルで `TLA/CSP` とも `status=ran` を確認。
   - MBTテストを追加（`tests/mbt/approval-engine.mbt.test.ts`）し、`pr-gate/full` に統合。
+  - 申請編集APIを追加（`PATCH /requests/{requestId}`）し、DRAFT/RETURNED のみ編集可を実装・検証。
 - 継続タスク:
   - `RETURN/resubmit` を含む状態遷移拡張と、UI最小実装の段階着手。

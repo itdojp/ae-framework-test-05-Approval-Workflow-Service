@@ -247,6 +247,47 @@ describe('API acceptance', () => {
     expect((stillPending.body as Array<any>)).toHaveLength(1);
   });
 
+  it('AW-REQ-EDIT-01: PATCH updates DRAFT and returns 409 after submit', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    await createActiveWorkflow(app, 'wf-api-edit', {
+      workflowId: 'wf-api-edit',
+      name: 'ApiEdit',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: 'USER:approver-01' }]
+    });
+
+    const createReqRes = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Before Edit',
+      amount: 1000,
+      currency: 'JPY'
+    });
+    expect(createReqRes.status).toBe(201);
+    const requestId = createReqRes.body.requestId as string;
+
+    const patchDraft = await request(app).patch(`/api/v1/requests/${requestId}`).set(headers('requester-01')).send({
+      title: 'After Edit',
+      amount: 2000
+    });
+    expect(patchDraft.status).toBe(200);
+    expect(patchDraft.body.title).toBe('After Edit');
+    expect(patchDraft.body.amount).toBe(2000);
+
+    const submitRes = await request(app)
+      .post(`/api/v1/requests/${requestId}/submit`)
+      .set(headers('requester-01'))
+      .send({});
+    expect(submitRes.status).toBe(200);
+    expect(submitRes.body.status).toBe('IN_REVIEW');
+
+    const patchReview = await request(app)
+      .patch(`/api/v1/requests/${requestId}`)
+      .set(headers('requester-01'))
+      .send({ title: 'Edit in review' });
+    expect(patchReview.status).toBe(409);
+  });
+
   it('AW-ACC-04: audit logs keep submit to final decision', async () => {
     const app = createApp(new ApprovalEngine());
 

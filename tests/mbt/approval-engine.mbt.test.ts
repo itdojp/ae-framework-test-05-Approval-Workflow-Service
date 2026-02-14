@@ -7,7 +7,7 @@ import type { ActorContext, RequestStatus } from '../../src/domain/types.js';
 const tenantId = 'tenant-mbt';
 const terminalStatuses = new Set<RequestStatus>(['APPROVED', 'REJECTED', 'CANCELLED', 'WITHDRAWN']);
 
-type Operation = 'submit' | 'approve' | 'reject' | 'withdraw' | 'cancel';
+type Operation = 'submit' | 'update' | 'approve' | 'reject' | 'withdraw' | 'cancel';
 type StepState = 'NONE' | 'STEP1' | 'STEP2' | 'DONE';
 
 interface ModelState {
@@ -79,6 +79,8 @@ function canApply(model: ModelState, operation: Operation): boolean {
   switch (operation) {
     case 'submit':
       return model.status === 'DRAFT' || model.status === 'RETURNED';
+    case 'update':
+      return model.status === 'DRAFT' || model.status === 'RETURNED';
     case 'approve':
     case 'reject':
       return model.status === 'IN_REVIEW';
@@ -95,6 +97,8 @@ function applyModel(model: ModelState, operation: Operation): ModelState {
   switch (operation) {
     case 'submit':
       return { status: 'IN_REVIEW', step: 'STEP1' };
+    case 'update':
+      return model;
     case 'approve':
       if (model.step === 'STEP1') {
         return { status: 'IN_REVIEW', step: 'STEP2' };
@@ -125,6 +129,16 @@ async function runOperation(
     switch (operation) {
       case 'submit':
         await engine.submitRequest(requestId, requester);
+        return true;
+      case 'update':
+        await engine.updateRequest(
+          requestId,
+          {
+            title: `MBT Updated ${Date.now()}`,
+            amount: 46000
+          },
+          requester
+        );
         return true;
       case 'approve': {
         const pending = engine.listTasks(admin, { requestId, status: 'PENDING' });
@@ -161,7 +175,7 @@ async function runOperation(
 describe('Approval Workflow MBT', () => {
   it('AW-MBT-01: generated operation sequence follows request state machine', async () => {
     await fc.assert(
-      fc.asyncProperty(fc.array(fc.constantFrom<Operation>('submit', 'approve', 'reject', 'withdraw', 'cancel'), { minLength: 1, maxLength: 20 }), async (operations) => {
+      fc.asyncProperty(fc.array(fc.constantFrom<Operation>('submit', 'update', 'approve', 'reject', 'withdraw', 'cancel'), { minLength: 1, maxLength: 20 }), async (operations) => {
         const { engine, admin, requester, requestId } = await setupScenario();
         let model: ModelState = { status: 'DRAFT', step: 'NONE' };
 
