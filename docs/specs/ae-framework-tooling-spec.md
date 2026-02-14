@@ -35,7 +35,7 @@
 | MBT | `pnpm run test:mbt:quick` | 状態遷移モデル（12.1）の検証 | `tests/mbt/*` | `artifacts/mbt/*` | PRごと |
 | Formal（重点） | `pnpm run verify:tla`, `pnpm run verify:csp` | 同時決裁競合（AW-ACC-01）の安全性検証 | `spec/formal/*` | `artifacts/formal/*` | 日次または手動 |
 | Property | `pnpm run test:property` + `node scripts/testing/property-harness.mjs` | 不変条件（AW-INV）検証 | `tests/property/*` | `artifacts/properties/*` | PRごと |
-| Mutation | `pnpm run test:mutation:quick` | テストの欠陥検知能力確認（ANY/ALL・終端ガード・assigneeガード・workflow priority・approver未解決・RETURN/resubmit） | 実装/テスト | `artifacts/mutation/*` | 週次 |
+| Mutation | `pnpm run test:mutation:quick` | テストの欠陥検知能力確認（ANY/ALL・終端ガード・assigneeガード・request閲覧ガード・tenant分離ガード・workflow priority・approver未解決・RETURN/resubmit） | 実装/テスト | `artifacts/mutation/*` | 週次 |
 
 ## 5. 自動化ポリシー
 

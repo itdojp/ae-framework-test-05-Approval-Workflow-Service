@@ -185,6 +185,37 @@ describe('Approval Workflow Acceptance', () => {
     });
   });
 
+  it('AW-AUTH-001: request detail is visible only to requester assignee and admin', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+    const approver = actor('approver-01');
+    const intruder = actor('intruder-01');
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-auth-request-view',
+      name: 'AuthRequestView',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: `USER:${approver.userId}` }]
+    });
+
+    const request = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'Request Visibility',
+        amount: 15000,
+        currency: 'JPY'
+      },
+      requester
+    );
+    await engine.submitRequest(request.requestId, requester);
+
+    expect(engine.getRequest(request.requestId, requester).requestId).toBe(request.requestId);
+    expect(engine.getRequest(request.requestId, approver).requestId).toBe(request.requestId);
+    expect(engine.getRequest(request.requestId, admin).requestId).toBe(request.requestId);
+    expect(() => engine.getRequest(request.requestId, intruder)).toThrow(ForbiddenError);
+  });
+
   it('AW-AUTH-002: task decision is denied for non-assignee', async () => {
     const engine = new ApprovalEngine();
     const admin = actor('admin-01', ['ADMIN']);
@@ -218,6 +249,39 @@ describe('Approval Workflow Acceptance', () => {
     const stillPending = engine.listTasks(admin, { requestId: request.requestId, status: 'PENDING' });
     expect(stillPending).toHaveLength(1);
     expect(engine.getRequest(request.requestId, admin).status).toBe('IN_REVIEW');
+  });
+
+  it('AW-TENANT-001: cross-tenant access to request and task is denied', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+    const approver = actor('approver-01');
+    const crossTenantRequester: ActorContext = { tenantId: 'tenant-other', userId: requester.userId, roles: [] };
+    const crossTenantApprover: ActorContext = { tenantId: 'tenant-other', userId: approver.userId, roles: [] };
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-auth-tenant',
+      name: 'AuthTenant',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: `USER:${approver.userId}` }]
+    });
+
+    const request = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'Tenant Guard',
+        amount: 18000,
+        currency: 'JPY'
+      },
+      requester
+    );
+    await engine.submitRequest(request.requestId, requester);
+
+    const pendingTask = engine.listTasks(admin, { requestId: request.requestId, status: 'PENDING' })[0];
+    expect(() => engine.getRequest(request.requestId, crossTenantRequester)).toThrow(ForbiddenError);
+    await expect(
+      engine.decideTask(pendingTask!.taskId, crossTenantApprover, 'APPROVE', 'cross-tenant')
+    ).rejects.toBeInstanceOf(ForbiddenError);
   });
 
   it('AW-REQ-EDIT-01: request update is allowed in DRAFT and denied in IN_REVIEW', async () => {

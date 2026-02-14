@@ -5,9 +5,9 @@ import { ApprovalEngine } from '../../src/domain/engine.js';
 
 const tenantId = 'tenant-api';
 
-function headers(userId: string, roles: string[] = []): Record<string, string> {
+function headers(userId: string, roles: string[] = [], tenant: string = tenantId): Record<string, string> {
   return {
-    'x-tenant-id': tenantId,
+    'x-tenant-id': tenant,
     'x-user-id': userId,
     'x-roles': roles.join(',')
   };
@@ -214,6 +214,39 @@ describe('API acceptance', () => {
     expect(decideAgain.body.message).toContain('request is terminal');
   });
 
+  it('AW-AUTH-001: request detail is visible only to requester assignee and admin', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    await createActiveWorkflow(app, 'wf-api-auth-request-view', {
+      workflowId: 'wf-api-auth-request-view',
+      name: 'ApiAuthRequestView',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: 'USER:approver-01' }]
+    });
+
+    const createReqRes = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Request Visibility',
+      amount: 21000,
+      currency: 'JPY'
+    });
+    const requestId = createReqRes.body.requestId as string;
+    await request(app).post(`/api/v1/requests/${requestId}/submit`).set(headers('requester-01')).send({});
+
+    const requesterView = await request(app).get(`/api/v1/requests/${requestId}`).set(headers('requester-01'));
+    expect(requesterView.status).toBe(200);
+
+    const assigneeView = await request(app).get(`/api/v1/requests/${requestId}`).set(headers('approver-01'));
+    expect(assigneeView.status).toBe(200);
+
+    const adminView = await request(app).get(`/api/v1/requests/${requestId}`).set(headers('admin-01', ['ADMIN']));
+    expect(adminView.status).toBe(200);
+
+    const intruderView = await request(app).get(`/api/v1/requests/${requestId}`).set(headers('intruder-01'));
+    expect(intruderView.status).toBe(403);
+    expect(intruderView.body.code).toBe('FORBIDDEN');
+  });
+
   it('AW-AUTH-002: non-assignee cannot decide task', async () => {
     const app = createApp(new ApprovalEngine());
 
@@ -257,6 +290,45 @@ describe('API acceptance', () => {
       .query({ requestId, status: 'PENDING' })
       .set(headers('admin-01', ['ADMIN']));
     expect((stillPending.body as Array<any>)).toHaveLength(1);
+  });
+
+  it('AW-TENANT-001: cross-tenant access to request and task returns 403', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    await createActiveWorkflow(app, 'wf-api-auth-tenant', {
+      workflowId: 'wf-api-auth-tenant',
+      name: 'ApiAuthTenant',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: 'USER:approver-01' }]
+    });
+
+    const createReqRes = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Tenant Guard',
+      amount: 22000,
+      currency: 'JPY'
+    });
+    const requestId = createReqRes.body.requestId as string;
+    await request(app).post(`/api/v1/requests/${requestId}/submit`).set(headers('requester-01')).send({});
+
+    const pendingRes = await request(app)
+      .get('/api/v1/tasks')
+      .query({ requestId, status: 'PENDING' })
+      .set(headers('admin-01', ['ADMIN']));
+    const taskId = (pendingRes.body as Array<any>)[0]!.taskId as string;
+
+    const crossTenantRequestView = await request(app)
+      .get(`/api/v1/requests/${requestId}`)
+      .set(headers('requester-01', [], 'tenant-other'));
+    expect(crossTenantRequestView.status).toBe(403);
+    expect(crossTenantRequestView.body.code).toBe('FORBIDDEN');
+
+    const crossTenantTaskDecision = await request(app)
+      .post(`/api/v1/tasks/${taskId}/decide`)
+      .set(headers('approver-01', [], 'tenant-other'))
+      .send({ decision: 'APPROVE', comment: 'cross-tenant' });
+    expect(crossTenantTaskDecision.status).toBe(403);
+    expect(crossTenantTaskDecision.body.code).toBe('FORBIDDEN');
   });
 
   it('AW-REQ-EDIT-01: PATCH updates DRAFT and returns 409 after submit', async () => {

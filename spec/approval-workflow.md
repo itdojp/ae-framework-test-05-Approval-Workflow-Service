@@ -48,6 +48,8 @@ Minimal AE-Spec for approval workflow service verification.
 4. **BR-AW-WF-001**: WorkflowDefinition selected at submit is fixed for the lifecycle of the ApprovalRequest.
 5. **BR-AW-WF-002**: If multiple workflows match, the highest priority active workflow is selected.
 6. **BR-AW-WF-010**: Submit is rejected when no approver is resolved for the first step.
+7. **BR-AW-AUTH-001**: Request detail access is limited to requester, assigned approver, or admin.
+8. **BR-AW-TENANT-001**: Cross-tenant access to request and task resources must be denied.
 
 ## Use Cases
 

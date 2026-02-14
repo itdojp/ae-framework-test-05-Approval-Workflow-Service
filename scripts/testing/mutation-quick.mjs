@@ -38,6 +38,32 @@ const mutants = [
     testArgs: ['exec', 'vitest', 'run', 'tests/acceptance/approval-engine.acceptance.test.ts', '-t', 'AW-AUTH-002']
   },
   {
+    id: 'MUT-AW-REQUEST-VIEW-GUARD-DROP',
+    description: 'request閲覧ガードの欠落',
+    find:
+      "      if (!assigned) {\n" +
+      "        throw new ForbiddenError('request access is denied');\n" +
+      '      }\n',
+    replace:
+      "      if (!assigned) {\n" +
+      '        // mutation: allow unauthorized request read\n' +
+      '      }\n',
+    testArgs: ['exec', 'vitest', 'run', 'tests/acceptance/approval-engine.acceptance.test.ts', '-t', 'AW-AUTH-001']
+  },
+  {
+    id: 'MUT-AW-TENANT-GUARD-DROP',
+    description: 'tenant分離ガードの欠落',
+    find:
+      '    if (actorTenantId !== resourceTenantId) {\n' +
+      "      throw new ForbiddenError('cross-tenant access is denied');\n" +
+      '    }\n',
+    replace:
+      '    if (actorTenantId !== resourceTenantId) {\n' +
+      '      // mutation: allow cross-tenant access\n' +
+      '    }\n',
+    testArgs: ['exec', 'vitest', 'run', 'tests/acceptance/approval-engine.acceptance.test.ts', '-t', 'AW-TENANT-001']
+  },
+  {
     id: 'MUT-AW-WF-PRIORITY-ORDER-BROKEN',
     description: 'workflow priority 比較順の逆転',
     find: '          return bp - ap;\n',
