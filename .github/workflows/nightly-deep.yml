@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: nightly-deep
@@ -14,6 +14,7 @@ concurrency:
 
 jobs:
   nightly-deep:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
@@ -62,3 +63,16 @@ jobs:
             artifacts/formal/${{ env.RUN_ID }}-tla-summary.json
             artifacts/formal/${{ env.RUN_ID }}-csp-summary.json
             artifacts/mutation/summary.json
+
+      - name: Persist generated artifacts to repository
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [[ -z "$(git status --porcelain -- artifacts .ae)" ]]; then
+            echo "No artifact changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add artifacts .ae
+          git commit -m "ci: persist nightly-deep artifacts for ${RUN_ID} [skip ci]"
+          git push

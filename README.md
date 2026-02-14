@@ -9,6 +9,7 @@
 - 開発計画: `docs/plans/development-plan.md`
 - ae-framework 利用仕様: `docs/specs/ae-framework-tooling-spec.md`
 - ae-framework ギャップ記録（BIZ_001）: `docs/specs/ae-framework-gap-biz001.md`
+  - upstream issue: <https://github.com/itdojp/ae-framework/issues/1967>
 - 中間生成物保存仕様: `docs/specs/artifact-retention-spec.md`
 - 自動実行設定: `codex/ae.playbook.yaml`, `scripts/ae/run.sh`
 - CI自動実行: `.github/workflows/pr-gate.yml`, `.github/workflows/nightly-deep.yml`
@@ -65,7 +66,9 @@ conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定�
   - Trigger: `pull_request`, `push(main)`
   - 実行: `bash scripts/ae/run.sh pr-gate`
   - 収集: `.ae/ae-ir.json`, `artifacts/conformance/*`（negative含む）, `artifacts/mbt/*`, `artifacts/properties/*`, `artifacts/verify-lite/*`
+  - 保存: `push(main)` 時は `artifacts/` と `.ae/` の差分を自動コミットして main に保存
 - `nightly-deep.yml`:
   - Trigger: `schedule`（毎日 17:00 UTC）, `workflow_dispatch`
   - 実行: `bash scripts/ae/run.sh nightly-deep`
   - 収集: `artifacts/formal/*`, `artifacts/mutation/*`
+  - 保存: 実行後の `artifacts/` と `.ae/` の差分を自動コミットして main に保存

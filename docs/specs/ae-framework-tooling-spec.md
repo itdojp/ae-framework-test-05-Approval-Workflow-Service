@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-AE-TOOL-001`
-- 版: `v0.1`
+- 版: `v0.2`
 - 作成日: `2026-02-14`
 - 対象: Approval Workflow Service（Issue #1）
 
@@ -44,9 +44,11 @@
 - 実行スクリプトは fail-fast（実装品質に直結）と report-only（重検証）を分離する。
 2. CI自動化:
 - PRトリガ: `pr-gate.yml`（`verify-lite + conformance + mbt + property`）
-- 手動/定期トリガ: `nightly-deep.yml`（formal + mutation）
+- main push: `pr-gate.yml` 実行後、`artifacts/` と `.ae/` の差分を自動コミットして保存する。
+- 手動/定期トリガ: `nightly-deep.yml`（formal + mutation）を実行し、同様に差分を自動コミットする。
 3. 証跡保存:
-- 各ジョブで `artifacts/` を更新し、必要に応じてコミットして追跡可能にする。
+- 各ジョブで `actions/upload-artifact` により実行時点の成果物を保存する。
+- `push(main)` / `schedule` / `workflow_dispatch` では `artifacts/` と `.ae/` の更新差分を main に保存する。
 
 ## 6. 実行プロファイル
 
@@ -66,6 +68,7 @@
 - MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
 - formalモデル（サービス固有）: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
 - GitHub Actions: `.github/workflows/pr-gate.yml`, `.github/workflows/nightly-deep.yml`
+- 自動コミット方針: `github-actions[bot]` が `ci: persist ... [skip ci]` で main へ保存
 - 実行例:
   - `bash scripts/ae/run.sh dev-fast`
   - `bash scripts/ae/run.sh pr-gate`
@@ -78,3 +81,8 @@
 - 検証成果物: `artifacts/<category>/`
 - 実行単位のマニフェスト: `artifacts/runs/<run-id>/manifest.json`
 - 仕様書/計画書: `docs/specs/`, `docs/plans/`
+- CI由来の中間生成物は `artifacts/` / `.ae/` の差分として main に保存する
+
+## 8. 既知ギャップ追跡
+
+- `BIZ_001` 警告の恒常発生は `ae-framework` 側 Issue `#1967` で追跡する。

@@ -31,3 +31,11 @@
 1. `parseInvariants` で Entity 名抽出を実装し、`invariants[].entities` を自動補完する。
 2. もしくは `Business Rules` 章の `BR-*` 記述を `invariants` 相当にマッピングする。
 3. いずれも難しい場合、`BIZ_001` メッセージを「Invariants section が必要」に変更して誤解を減らす。
+
+## 6. 外部連携状況
+
+- 起票先: <https://github.com/itdojp/ae-framework/issues/1967>
+- 状態: Open（2026-02-14時点）
+- 本リポジトリ対応:
+  - 当面は `BIZ_001` を known gap として扱い、`pr-gate/nightly-deep/full` の他検証を継続する。
+  - upstream 修正後に `spec validate/lint` を再実行し、警告解消を確認する。

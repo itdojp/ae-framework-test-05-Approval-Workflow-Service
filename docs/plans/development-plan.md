@@ -5,7 +5,7 @@
 - 文書ID: `AW-PLAN-001`
 - 版: `v0.1`
 - 作成日: `2026-02-14`
-- 参照Issue: `#1`（仕様）, `#2`（実行環境）
+- 参照Issue: `#1`（仕様）, `#2`（実行環境）, `itdojp/ae-framework#1967`（BIZ_001）
 
 ## 2. 目的
 
@@ -83,5 +83,7 @@
   - conformance 異常系ハーネスを並列化（`CONF_NEG_CONCURRENCY`、既定2）し、`pr-gate` の待ち時間を短縮。
   - `run.sh` のプロファイルを修正し、`dev-fast/pr-gate/full` で `verify-lite` を必ず実行。
   - GitHub Actions を追加し、`pr-gate.yml`（PR/Push）と `nightly-deep.yml`（schedule/manual）を自動実行化。
+  - GitHub Actions 実行後に `artifacts/` と `.ae/` を自動コミット保存するステップを導入し、CI由来の中間生成物を main へ保存する運用へ変更。
+  - `BIZ_001` 警告ギャップを `ae-framework` 本体 Issue `#1967` として起票した。
 - 継続タスク:
-  - `spec-compiler` の `BIZ_001` 警告3件に対する framework側改善提案整理（`docs/specs/ae-framework-gap-biz001.md`）。
+  - `spec-compiler` の `BIZ_001` 対応状況を `itdojp/ae-framework#1967` で追跡し、修正取り込み後に再検証する。
