@@ -238,6 +238,11 @@ phase_artifact_audit() {
     --run-id "$RUN_ID" --profile "$PROFILE"
 }
 
+phase_run_index() {
+  run_hard run-index \
+    pnpm --dir "$PROJECT_ROOT" run runs:index
+}
+
 snapshot_spec_outputs() {
   copy_if_exists "$PROJECT_ROOT/.ae/ae-ir.json" \
     "$SNAPSHOT_DIR/.ae/ae-ir.json"
@@ -399,6 +404,7 @@ main() {
   fi
 
   phase_artifact_audit
+  phase_run_index
   log "DONE: profile=$PROFILE runId=$RUN_ID"
 }
 

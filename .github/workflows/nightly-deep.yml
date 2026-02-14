@@ -60,6 +60,8 @@ jobs:
           if-no-files-found: error
           path: |
             artifacts/runs/${{ env.RUN_ID }}
+            artifacts/runs/index.json
+            artifacts/runs/index.md
             artifacts/formal/${{ env.RUN_ID }}-tla-summary.json
             artifacts/formal/${{ env.RUN_ID }}-csp-summary.json
             artifacts/mutation/summary.json

@@ -1,0 +1,10 @@
+{
+  "runId": "2026-02-14-dev-fast-r7-local",
+  "profile": "dev-fast",
+  "generatedAt": "2026-02-14T15:24:14.444Z",
+  "runDir": "artifacts/runs/2026-02-14-dev-fast-r7-local",
+  "requiredCount": 7,
+  "missingCount": 0,
+  "passed": true,
+  "missing": []
+}

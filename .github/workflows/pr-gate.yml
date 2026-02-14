@@ -61,6 +61,8 @@ jobs:
           if-no-files-found: error
           path: |
             artifacts/runs/${{ env.RUN_ID }}
+            artifacts/runs/index.json
+            artifacts/runs/index.md
             artifacts/conformance/result.json
             artifacts/conformance/negative-summary.json
             artifacts/conformance/negative

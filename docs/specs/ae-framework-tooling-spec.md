@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-AE-TOOL-001`
-- 版: `v0.5`
+- 版: `v0.6`
 - 作成日: `2026-02-14`
 - 対象: Approval Workflow Service（Issue #1）
 
@@ -39,6 +39,7 @@
 | Trend | `pnpm run trend:report` | run単位の品質推移集計（nightly/full） | `artifacts/runs/*/manifest.json`, `artifacts/runs/*/snapshots/**/*` | `artifacts/trends/summary.json` | nightly-deep/full |
 | Framework Gap Status | `pnpm run framework:gaps:status` | upstream gap issue 状態の定期取得（BIZ_001 追跡） | `configs/framework-gaps/issues.json` | `artifacts/framework-gaps/status.json` | nightly-deep/full |
 | Artifact Audit | `pnpm run artifacts:audit -- --run-id <id> --profile <profile>` | run単位成果物欠落の検知（fail-fast） | `artifacts/runs/<run-id>/` | `artifacts/runs/<run-id>/audit.json` | 各run終了時 |
+| Run Index | `pnpm run runs:index` | run横断インデックス生成（監査/最新run参照） | `artifacts/runs/*/manifest.json`, `artifacts/runs/*/audit.json` | `artifacts/runs/index.json`, `artifacts/runs/index.md` | 各run終了時 |
 
 ## 5. 自動化ポリシー
 
@@ -70,6 +71,7 @@
 - trend集計: `scripts/testing/trend-report.mjs`（`TREND_MAX_RUNS` で走査件数制御）
 - framework gap状態取得: `scripts/testing/framework-gap-status.mjs`
 - 成果物監査: `scripts/testing/run-artifact-audit.mjs`
+- run横断インデックス: `scripts/testing/run-index-report.mjs`
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
 - MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
 - formalモデル（サービス固有）: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
@@ -91,6 +93,7 @@
 - 実行単位のマニフェスト: `artifacts/runs/<run-id>/manifest.json`
 - 実行単位の監査結果: `artifacts/runs/<run-id>/audit.json`
 - 実行単位のスナップショット: `artifacts/runs/<run-id>/snapshots/**/*`
+- run横断インデックス: `artifacts/runs/index.json`, `artifacts/runs/index.md`
 - 仕様書/計画書: `docs/specs/`, `docs/plans/`
 - CI由来の中間生成物は `artifacts/` / `.ae/` の差分として main に保存する
 
