@@ -46,6 +46,8 @@ Minimal AE-Spec for approval workflow service verification.
 2. **BR-AW-REQ-002**: ApprovalRequest can be APPROVED only after all required steps are completed.
 3. **BR-AW-TASK-001**: ApprovalTask can be decided exactly once; repeated decisions must return conflict.
 4. **BR-AW-WF-001**: WorkflowDefinition selected at submit is fixed for the lifecycle of the ApprovalRequest.
+5. **BR-AW-WF-002**: If multiple workflows match, the highest priority active workflow is selected.
+6. **BR-AW-WF-010**: Submit is rejected when no approver is resolved for the first step.
 
 ## Use Cases
 

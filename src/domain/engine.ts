@@ -240,13 +240,25 @@ export class ApprovalEngine {
         throw new ConflictError(`submit not allowed in status: ${request.status}`);
       }
 
+      const workflow = this.selectWorkflowForRequest(request);
+      const firstStep = workflow.steps[0];
+      if (firstStep) {
+        const firstApprovers = this.resolveApprovers(
+          request.tenantId,
+          request.requesterUserId,
+          firstStep.approverSelector
+        );
+        if (firstApprovers.length === 0) {
+          throw new ValidationError(`no approver resolved for step ${firstStep.stepId}`);
+        }
+      }
+
       if (request.status === 'RETURNED') {
         this.resetTasksForResubmit(request.requestId);
         request.currentStepIndex = null;
         request.decidedAt = null;
       }
 
-      const workflow = this.selectWorkflowForRequest(request);
       const now = this.nowIso();
       request.workflowId = workflow.workflowId;
       request.workflowVersion = workflow.version;

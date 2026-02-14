@@ -2,8 +2,8 @@
   "version": "1.0.0",
   "metadata": {
     "name": "ApprovalWorkflowServiceSpec",
-    "created": "2026-02-14T06:08:29.961Z",
-    "updated": "2026-02-14T06:08:29.961Z",
+    "created": "2026-02-14T06:12:56.347Z",
+    "updated": "2026-02-14T06:12:56.347Z",
     "description": "Minimal AE-Spec for approval workflow service verification."
   },
   "glossary": [

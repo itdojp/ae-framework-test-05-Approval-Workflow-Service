@@ -74,5 +74,6 @@
   - 申請編集APIを追加（`PATCH /requests/{requestId}`）し、DRAFT/RETURNED のみ編集可を実装・検証。
   - `RETURN` 決裁と `RETURNED -> submit(resubmit)` を実装し、受入/API/MBTで検証。
   - 最小UI（`/ui/`）を追加し、申請一覧/作成編集提出/承認受箱/決裁を1画面で操作可能化。
+  - `AW-WF-002`（priority選択）と `AW-WF-010`（approver未解決時422）を受入/APIテストで追加検証。
 - 継続タスク:
   - `spec-compiler` の `BIZ_001` 警告3件に対する framework側改善提案整理。

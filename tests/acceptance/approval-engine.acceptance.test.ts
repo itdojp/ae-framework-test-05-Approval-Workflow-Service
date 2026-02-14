@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ApprovalEngine } from '../../src/domain/engine.js';
-import { ConflictError, ForbiddenError } from '../../src/domain/errors.js';
+import { ConflictError, ForbiddenError, ValidationError } from '../../src/domain/errors.js';
 import type { ActorContext, CreateWorkflowInput } from '../../src/domain/types.js';
 
 const tenantId = 'tenant-acme';
@@ -328,6 +328,70 @@ describe('Approval Workflow Acceptance', () => {
 
     const pendingAfter = engine.listTasks(admin, { requestId: created.requestId, status: 'PENDING' });
     expect(pendingAfter).toHaveLength(2);
+  });
+
+  it('AW-WF-002: highest priority active workflow is selected on submit', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+    const lowApprover = actor('low-approver');
+    const highApprover = actor('high-approver');
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-low-priority',
+      name: 'LowPriority',
+      matchCondition: { priority: 10 },
+      steps: [{ stepId: 'step-1', name: 'Low', mode: 'ANY', approverSelector: `USER:${lowApprover.userId}` }]
+    });
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-high-priority',
+      name: 'HighPriority',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'High', mode: 'ANY', approverSelector: `USER:${highApprover.userId}` }]
+    });
+
+    const created = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'Priority check',
+        amount: 15000,
+        currency: 'JPY'
+      },
+      requester
+    );
+    const submitted = await engine.submitRequest(created.requestId, requester);
+    expect(submitted.workflowId).toBe('wf-high-priority');
+
+    const tasks = engine.listTasks(admin, { requestId: created.requestId, status: 'PENDING' });
+    expect(tasks).toHaveLength(1);
+    expect(tasks[0]!.assigneeUserId).toBe(highApprover.userId);
+  });
+
+  it('AW-WF-010: submit is rejected when approver selector resolves no users', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-no-approver',
+      name: 'NoApprover',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'MissingRole', mode: 'ALL', approverSelector: 'ROLE:UNASSIGNED_ROLE' }]
+    });
+
+    const created = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'No approver case',
+        amount: 5000,
+        currency: 'JPY'
+      },
+      requester
+    );
+
+    await expect(engine.submitRequest(created.requestId, requester)).rejects.toBeInstanceOf(ValidationError);
+    expect(engine.getRequest(created.requestId, admin).status).toBe('DRAFT');
+    expect(engine.listTasks(admin, { requestId: created.requestId })).toHaveLength(0);
   });
 
   it('AW-ACC-04: audit log keeps submit to final decision trace', async () => {

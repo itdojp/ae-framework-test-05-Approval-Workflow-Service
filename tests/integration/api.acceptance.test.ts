@@ -363,6 +363,80 @@ describe('API acceptance', () => {
     expect(actions).toContain('REQUEST_RETURN');
   });
 
+  it('AW-WF-002: submit selects highest priority workflow among active matches', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    await createActiveWorkflow(app, 'wf-api-low-priority', {
+      workflowId: 'wf-api-low-priority',
+      name: 'ApiLowPriority',
+      matchCondition: { priority: 10 },
+      steps: [{ stepId: 'step-1', name: 'Low', mode: 'ANY', approverSelector: 'USER:low-approver' }]
+    });
+    await createActiveWorkflow(app, 'wf-api-high-priority', {
+      workflowId: 'wf-api-high-priority',
+      name: 'ApiHighPriority',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'High', mode: 'ANY', approverSelector: 'USER:high-approver' }]
+    });
+
+    const createReqRes = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Priority Selection',
+      amount: 13000,
+      currency: 'JPY'
+    });
+    expect(createReqRes.status).toBe(201);
+    const requestId = createReqRes.body.requestId as string;
+
+    const submitRes = await request(app)
+      .post(`/api/v1/requests/${requestId}/submit`)
+      .set(headers('requester-01'))
+      .send({});
+    expect(submitRes.status).toBe(200);
+    expect(submitRes.body.workflowId).toBe('wf-api-high-priority');
+
+    const pendingRes = await request(app)
+      .get('/api/v1/tasks')
+      .query({ requestId, status: 'PENDING' })
+      .set(headers('admin-01', ['ADMIN']));
+    expect(pendingRes.status).toBe(200);
+    expect((pendingRes.body as Array<any>)).toHaveLength(1);
+    expect((pendingRes.body as Array<any>)[0]!.assigneeUserId).toBe('high-approver');
+  });
+
+  it('AW-WF-010: submit returns 422 when no approver is resolved', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    await createActiveWorkflow(app, 'wf-api-no-approver', {
+      workflowId: 'wf-api-no-approver',
+      name: 'ApiNoApprover',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'MissingRole', mode: 'ALL', approverSelector: 'ROLE:UNASSIGNED_ROLE' }]
+    });
+
+    const createReqRes = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'No Approver',
+      amount: 7000,
+      currency: 'JPY'
+    });
+    expect(createReqRes.status).toBe(201);
+    const requestId = createReqRes.body.requestId as string;
+
+    const submitRes = await request(app)
+      .post(`/api/v1/requests/${requestId}/submit`)
+      .set(headers('requester-01'))
+      .send({});
+    expect(submitRes.status).toBe(422);
+    expect(submitRes.body.message).toContain('no approver resolved');
+
+    const requestRes = await request(app)
+      .get(`/api/v1/requests/${requestId}`)
+      .set(headers('requester-01'));
+    expect(requestRes.status).toBe(200);
+    expect(requestRes.body.status).toBe('DRAFT');
+  });
+
   it('AW-ACC-04: audit logs keep submit to final decision', async () => {
     const app = createApp(new ApprovalEngine());
 
