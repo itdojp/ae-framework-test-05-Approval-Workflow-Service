@@ -2,47 +2,47 @@
   "overall": "fail",
   "results": [
     {
-      "id": "24c0fcaa-512e-48d9-86d7-87c9c73b5745",
+      "id": "14858d94-eafd-45c2-be76-6f222d07cbac",
       "ruleId": "f5160a23-41fa-4784-a1ca-3a5f335b7ef2",
       "status": "pass",
-      "timestamp": "2026-02-14T08:57:18.836Z",
+      "timestamp": "2026-02-14T09:00:27.873Z",
       "duration": 1,
       "context": {
         "timestamp": "2026-02-14T00:00:00.000Z",
-        "executionId": "b5aacf7b-7c99-45eb-aa00-624663c82959",
+        "executionId": "23cf21f6-d98c-4862-9909-d445066629bc",
         "environment": "local",
         "version": "0.1.0",
         "metadata": {
           "source": "approval-workflow-service",
           "purpose": "pr-gate conformance check",
           "engineVersion": "2.2.0",
-          "verificationId": "b5aacf7b-7c99-45eb-aa00-624663c82959"
+          "verificationId": "23cf21f6-d98c-4862-9909-d445066629bc"
         }
       },
       "metrics": {
         "executionTime": 1,
-        "memoryUsage": 54594528,
+        "memoryUsage": 49438816,
         "networkCalls": 0,
         "dbQueries": 0
       },
       "metadata": {}
     },
     {
-      "id": "504b810a-224c-4721-b1da-dfd9970e8ee1",
+      "id": "a7760a69-bdda-43d9-901f-cb48818204db",
       "ruleId": "8872f2a2-b89f-4d6d-9ed4-c4835a19576c",
       "status": "fail",
-      "timestamp": "2026-02-14T08:57:18.836Z",
-      "duration": 1,
+      "timestamp": "2026-02-14T09:00:27.873Z",
+      "duration": 0,
       "context": {
         "timestamp": "2026-02-14T00:00:00.000Z",
-        "executionId": "b5aacf7b-7c99-45eb-aa00-624663c82959",
+        "executionId": "23cf21f6-d98c-4862-9909-d445066629bc",
         "environment": "local",
         "version": "0.1.0",
         "metadata": {
           "source": "approval-workflow-service",
           "purpose": "pr-gate conformance check",
           "engineVersion": "2.2.0",
-          "verificationId": "b5aacf7b-7c99-45eb-aa00-624663c82959"
+          "verificationId": "23cf21f6-d98c-4862-9909-d445066629bc"
         }
       },
       "violation": {
@@ -55,14 +55,14 @@
         "expectedValue": true,
         "context": {
           "timestamp": "2026-02-14T00:00:00.000Z",
-          "executionId": "b5aacf7b-7c99-45eb-aa00-624663c82959",
+          "executionId": "23cf21f6-d98c-4862-9909-d445066629bc",
           "environment": "local",
           "version": "0.1.0",
           "metadata": {
             "source": "approval-workflow-service",
             "purpose": "pr-gate conformance check",
             "engineVersion": "2.2.0",
-            "verificationId": "b5aacf7b-7c99-45eb-aa00-624663c82959"
+            "verificationId": "23cf21f6-d98c-4862-9909-d445066629bc"
           }
         },
         "evidence": {
@@ -119,107 +119,107 @@
         }
       },
       "metrics": {
-        "executionTime": 1,
-        "memoryUsage": 54599312,
+        "executionTime": 0,
+        "memoryUsage": 49443600,
         "networkCalls": 0,
         "dbQueries": 0
       },
       "metadata": {}
     },
     {
-      "id": "392f1e0f-d62b-4af5-a8e5-4a3e0466b38d",
+      "id": "8162e710-f3f6-47cd-9197-6cf9bab6077b",
       "ruleId": "c085fa79-adb6-4392-8ace-3d54ced1ba02",
       "status": "pass",
-      "timestamp": "2026-02-14T08:57:18.836Z",
-      "duration": 1,
-      "context": {
-        "timestamp": "2026-02-14T00:00:00.000Z",
-        "executionId": "b5aacf7b-7c99-45eb-aa00-624663c82959",
-        "environment": "local",
-        "version": "0.1.0",
-        "metadata": {
-          "source": "approval-workflow-service",
-          "purpose": "pr-gate conformance check",
-          "engineVersion": "2.2.0",
-          "verificationId": "b5aacf7b-7c99-45eb-aa00-624663c82959"
-        }
-      },
-      "metrics": {
-        "executionTime": 1,
-        "memoryUsage": 54600776,
-        "networkCalls": 0,
-        "dbQueries": 0
-      },
-      "metadata": {}
-    },
-    {
-      "id": "c5f95903-6e84-4f8c-b3e2-77011532ed19",
-      "ruleId": "c279426c-fb51-4b41-9b7e-4fbada093eba",
-      "status": "pass",
-      "timestamp": "2026-02-14T08:57:18.836Z",
-      "duration": 1,
-      "context": {
-        "timestamp": "2026-02-14T00:00:00.000Z",
-        "executionId": "b5aacf7b-7c99-45eb-aa00-624663c82959",
-        "environment": "local",
-        "version": "0.1.0",
-        "metadata": {
-          "source": "approval-workflow-service",
-          "purpose": "pr-gate conformance check",
-          "engineVersion": "2.2.0",
-          "verificationId": "b5aacf7b-7c99-45eb-aa00-624663c82959"
-        }
-      },
-      "metrics": {
-        "executionTime": 1,
-        "memoryUsage": 54602240,
-        "networkCalls": 0,
-        "dbQueries": 0
-      },
-      "metadata": {}
-    },
-    {
-      "id": "59853c8d-14b5-479e-8162-23df07fa1d98",
-      "ruleId": "6614500d-e37d-44cb-9ad3-13acdc7f74fc",
-      "status": "pass",
-      "timestamp": "2026-02-14T08:57:18.838Z",
-      "duration": 1,
-      "context": {
-        "timestamp": "2026-02-14T00:00:00.000Z",
-        "executionId": "b5aacf7b-7c99-45eb-aa00-624663c82959",
-        "environment": "local",
-        "version": "0.1.0",
-        "metadata": {
-          "source": "approval-workflow-service",
-          "purpose": "pr-gate conformance check",
-          "engineVersion": "2.2.0",
-          "verificationId": "b5aacf7b-7c99-45eb-aa00-624663c82959"
-        }
-      },
-      "metrics": {
-        "executionTime": 1,
-        "memoryUsage": 54717672,
-        "networkCalls": 0,
-        "dbQueries": 0
-      },
-      "metadata": {}
-    },
-    {
-      "id": "332ebee3-4445-4dda-8050-4475efc6f3bd",
-      "ruleId": "invalid-data",
-      "status": "skip",
-      "timestamp": "2026-02-14T08:57:18.838Z",
+      "timestamp": "2026-02-14T09:00:27.873Z",
       "duration": 0,
       "context": {
         "timestamp": "2026-02-14T00:00:00.000Z",
-        "executionId": "b5aacf7b-7c99-45eb-aa00-624663c82959",
+        "executionId": "23cf21f6-d98c-4862-9909-d445066629bc",
         "environment": "local",
         "version": "0.1.0",
         "metadata": {
           "source": "approval-workflow-service",
           "purpose": "pr-gate conformance check",
           "engineVersion": "2.2.0",
-          "verificationId": "b5aacf7b-7c99-45eb-aa00-624663c82959"
+          "verificationId": "23cf21f6-d98c-4862-9909-d445066629bc"
+        }
+      },
+      "metrics": {
+        "executionTime": 0,
+        "memoryUsage": 49445064,
+        "networkCalls": 0,
+        "dbQueries": 0
+      },
+      "metadata": {}
+    },
+    {
+      "id": "c89a8314-1f23-453f-bcb3-6758e5691c54",
+      "ruleId": "c279426c-fb51-4b41-9b7e-4fbada093eba",
+      "status": "pass",
+      "timestamp": "2026-02-14T09:00:27.873Z",
+      "duration": 0,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "23cf21f6-d98c-4862-9909-d445066629bc",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "23cf21f6-d98c-4862-9909-d445066629bc"
+        }
+      },
+      "metrics": {
+        "executionTime": 0,
+        "memoryUsage": 49446528,
+        "networkCalls": 0,
+        "dbQueries": 0
+      },
+      "metadata": {}
+    },
+    {
+      "id": "0fc3e316-55c5-49d5-a1cb-dc9be08ea85c",
+      "ruleId": "54d48648-f052-4535-ad8b-e0d476c58afb",
+      "status": "pass",
+      "timestamp": "2026-02-14T09:00:27.875Z",
+      "duration": 1,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "23cf21f6-d98c-4862-9909-d445066629bc",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "23cf21f6-d98c-4862-9909-d445066629bc"
+        }
+      },
+      "metrics": {
+        "executionTime": 1,
+        "memoryUsage": 49559056,
+        "networkCalls": 0,
+        "dbQueries": 0
+      },
+      "metadata": {}
+    },
+    {
+      "id": "35d3ae7c-b403-4632-a912-cd9083a1ccbf",
+      "ruleId": "invalid-data",
+      "status": "skip",
+      "timestamp": "2026-02-14T09:00:27.876Z",
+      "duration": 0,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "23cf21f6-d98c-4862-9909-d445066629bc",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "23cf21f6-d98c-4862-9909-d445066629bc"
         }
       },
       "metadata": {},
@@ -241,14 +241,14 @@
       "expectedValue": true,
       "context": {
         "timestamp": "2026-02-14T00:00:00.000Z",
-        "executionId": "b5aacf7b-7c99-45eb-aa00-624663c82959",
+        "executionId": "23cf21f6-d98c-4862-9909-d445066629bc",
         "environment": "local",
         "version": "0.1.0",
         "metadata": {
           "source": "approval-workflow-service",
           "purpose": "pr-gate conformance check",
           "engineVersion": "2.2.0",
-          "verificationId": "b5aacf7b-7c99-45eb-aa00-624663c82959"
+          "verificationId": "23cf21f6-d98c-4862-9909-d445066629bc"
         }
       },
       "evidence": {
@@ -312,7 +312,7 @@
     "rulesFailed": 1,
     "rulesSkipped": 1,
     "rulesError": 0,
-    "totalDuration": 5,
+    "totalDuration": 2,
     "violationsBySeverity": {
       "critical": 0,
       "major": 0,
@@ -335,8 +335,8 @@
     }
   },
   "metadata": {
-    "executionId": "68cd823a-08ed-454c-8133-d927f471a166",
-    "timestamp": "2026-02-14T08:57:18.837Z",
+    "executionId": "269356a2-3863-4a7e-86d1-5708430fcaf0",
+    "timestamp": "2026-02-14T09:00:27.874Z",
     "environment": "production",
     "version": "2.2.0"
   }
