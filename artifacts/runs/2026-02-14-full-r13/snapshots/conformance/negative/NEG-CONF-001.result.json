@@ -1,0 +1,348 @@
+{
+  "overall": "fail",
+  "results": [
+    {
+      "id": "3cb85fc5-d081-495e-b1b4-9da86e7ee4c9",
+      "ruleId": "f5160a23-41fa-4784-a1ca-3a5f335b7ef2",
+      "status": "fail",
+      "timestamp": "2026-02-14T10:00:46.580Z",
+      "duration": 2,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "f8fe818f-8181-4390-a04c-5aca42333519",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "f8fe818f-8181-4390-a04c-5aca42333519"
+        }
+      },
+      "violation": {
+        "ruleId": "f5160a23-41fa-4784-a1ca-3a5f335b7ef2",
+        "ruleName": "RequestTitleRequired",
+        "category": "data_validation",
+        "severity": "major",
+        "message": "Rule violation: RequestTitleRequired",
+        "actualValue": false,
+        "expectedValue": true,
+        "context": {
+          "timestamp": "2026-02-14T00:00:00.000Z",
+          "executionId": "f8fe818f-8181-4390-a04c-5aca42333519",
+          "environment": "local",
+          "version": "0.1.0",
+          "metadata": {
+            "source": "approval-workflow-service",
+            "purpose": "pr-gate conformance check",
+            "engineVersion": "2.2.0",
+            "verificationId": "f8fe818f-8181-4390-a04c-5aca42333519"
+          }
+        },
+        "evidence": {
+          "inputData": {
+            "user": {
+              "id": "39f6ef86-95c8-4090-8fc5-cf58fef572ec"
+            },
+            "device": {
+              "signedPreKey": "spk-001"
+            },
+            "session": {
+              "id": "0b6f953d-5f0c-4c5d-a8ab-a0ad89d30720"
+            },
+            "audit": {
+              "entries": []
+            },
+            "request": {
+              "requestId": "req-sample-001",
+              "tenantId": "tenant-api",
+              "requesterUserId": "requester-01",
+              "type": "GENERIC",
+              "title": " ",
+              "amount": 120000,
+              "currency": "JPY",
+              "status": "IN_REVIEW"
+            },
+            "task": {
+              "taskId": "task-sample-001",
+              "tenantId": "tenant-api",
+              "requestId": "req-sample-001",
+              "status": "PENDING",
+              "assigneeUserId": "approver-01"
+            },
+            "actor": {
+              "tenantId": "tenant-api",
+              "userId": "approver-01",
+              "roles": [
+                "APPROVER"
+              ]
+            },
+            "meta": {
+              "submittedAt": "2026-02-14T00:00:00.000Z"
+            }
+          },
+          "stateSnapshot": {},
+          "metrics": {},
+          "logs": [],
+          "traces": []
+        },
+        "remediation": {
+          "suggested": [
+            "Validate input data before processing",
+            "Add type checking and sanitization"
+          ],
+          "automatic": false,
+          "priority": "high"
+        }
+      },
+      "metrics": {
+        "executionTime": 2,
+        "memoryUsage": 55883608,
+        "networkCalls": 0,
+        "dbQueries": 0
+      },
+      "metadata": {}
+    },
+    {
+      "id": "a67cb0a4-5d47-46fc-ab8b-3354ea0d11ac",
+      "ruleId": "8872f2a2-b89f-4d6d-9ed4-c4835a19576c",
+      "status": "pass",
+      "timestamp": "2026-02-14T10:00:46.580Z",
+      "duration": 1,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "f8fe818f-8181-4390-a04c-5aca42333519",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "f8fe818f-8181-4390-a04c-5aca42333519"
+        }
+      },
+      "metrics": {
+        "executionTime": 1,
+        "memoryUsage": 55888376,
+        "networkCalls": 0,
+        "dbQueries": 0
+      },
+      "metadata": {}
+    },
+    {
+      "id": "89da3cc5-8815-437b-9543-fa35ef047c25",
+      "ruleId": "c085fa79-adb6-4392-8ace-3d54ced1ba02",
+      "status": "pass",
+      "timestamp": "2026-02-14T10:00:46.580Z",
+      "duration": 0,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "f8fe818f-8181-4390-a04c-5aca42333519",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "f8fe818f-8181-4390-a04c-5aca42333519"
+        }
+      },
+      "metrics": {
+        "executionTime": 0,
+        "memoryUsage": 55889824,
+        "networkCalls": 0,
+        "dbQueries": 0
+      },
+      "metadata": {}
+    },
+    {
+      "id": "ba0a8b74-cba2-4d4f-bfe0-078155ec7cd2",
+      "ruleId": "c279426c-fb51-4b41-9b7e-4fbada093eba",
+      "status": "pass",
+      "timestamp": "2026-02-14T10:00:46.581Z",
+      "duration": 1,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "f8fe818f-8181-4390-a04c-5aca42333519",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "f8fe818f-8181-4390-a04c-5aca42333519"
+        }
+      },
+      "metrics": {
+        "executionTime": 1,
+        "memoryUsage": 55891272,
+        "networkCalls": 0,
+        "dbQueries": 0
+      },
+      "metadata": {}
+    },
+    {
+      "id": "7f54d3b7-9274-45d1-bca4-2723f4ad2d8a",
+      "ruleId": "a32f6b51-0017-452c-b029-c1162d1be130",
+      "status": "pass",
+      "timestamp": "2026-02-14T10:00:46.583Z",
+      "duration": 2,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "f8fe818f-8181-4390-a04c-5aca42333519",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "f8fe818f-8181-4390-a04c-5aca42333519"
+        }
+      },
+      "metrics": {
+        "executionTime": 2,
+        "memoryUsage": 56003088,
+        "networkCalls": 0,
+        "dbQueries": 0
+      },
+      "metadata": {}
+    },
+    {
+      "id": "e7db354c-a243-4c87-9f31-2fa22fcbef98",
+      "ruleId": "invalid-data",
+      "status": "skip",
+      "timestamp": "2026-02-14T10:00:46.583Z",
+      "duration": 0,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "f8fe818f-8181-4390-a04c-5aca42333519",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "f8fe818f-8181-4390-a04c-5aca42333519"
+        }
+      },
+      "metadata": {},
+      "metrics": {
+        "networkCalls": 0,
+        "dbQueries": 0,
+        "executionTime": 0
+      }
+    }
+  ],
+  "violations": [
+    {
+      "ruleId": "f5160a23-41fa-4784-a1ca-3a5f335b7ef2",
+      "ruleName": "RequestTitleRequired",
+      "category": "data_validation",
+      "severity": "major",
+      "message": "Rule violation: RequestTitleRequired",
+      "actualValue": false,
+      "expectedValue": true,
+      "context": {
+        "timestamp": "2026-02-14T00:00:00.000Z",
+        "executionId": "f8fe818f-8181-4390-a04c-5aca42333519",
+        "environment": "local",
+        "version": "0.1.0",
+        "metadata": {
+          "source": "approval-workflow-service",
+          "purpose": "pr-gate conformance check",
+          "engineVersion": "2.2.0",
+          "verificationId": "f8fe818f-8181-4390-a04c-5aca42333519"
+        }
+      },
+      "evidence": {
+        "inputData": {
+          "user": {
+            "id": "39f6ef86-95c8-4090-8fc5-cf58fef572ec"
+          },
+          "device": {
+            "signedPreKey": "spk-001"
+          },
+          "session": {
+            "id": "0b6f953d-5f0c-4c5d-a8ab-a0ad89d30720"
+          },
+          "audit": {
+            "entries": []
+          },
+          "request": {
+            "requestId": "req-sample-001",
+            "tenantId": "tenant-api",
+            "requesterUserId": "requester-01",
+            "type": "GENERIC",
+            "title": " ",
+            "amount": 120000,
+            "currency": "JPY",
+            "status": "IN_REVIEW"
+          },
+          "task": {
+            "taskId": "task-sample-001",
+            "tenantId": "tenant-api",
+            "requestId": "req-sample-001",
+            "status": "PENDING",
+            "assigneeUserId": "approver-01"
+          },
+          "actor": {
+            "tenantId": "tenant-api",
+            "userId": "approver-01",
+            "roles": [
+              "APPROVER"
+            ]
+          },
+          "meta": {
+            "submittedAt": "2026-02-14T00:00:00.000Z"
+          }
+        },
+        "stateSnapshot": {},
+        "metrics": {},
+        "logs": [],
+        "traces": []
+      },
+      "remediation": {
+        "suggested": [
+          "Validate input data before processing",
+          "Add type checking and sanitization"
+        ],
+        "automatic": false,
+        "priority": "high"
+      }
+    }
+  ],
+  "summary": {
+    "totalRules": 6,
+    "rulesExecuted": 5,
+    "rulesPassed": 4,
+    "rulesFailed": 1,
+    "rulesSkipped": 1,
+    "rulesError": 0,
+    "totalDuration": 6,
+    "violationsBySeverity": {
+      "critical": 0,
+      "major": 1,
+      "minor": 0,
+      "info": 0,
+      "warning": 0
+    },
+    "violationsByCategory": {
+      "data_validation": 1,
+      "api_contract": 0,
+      "business_logic": 0,
+      "security_policy": 0,
+      "performance_constraint": 0,
+      "resource_usage": 0,
+      "state_invariant": 0,
+      "behavioral_constraint": 0,
+      "integration_requirement": 0,
+      "compliance_rule": 0
+    }
+  },
+  "metadata": {
+    "executionId": "8daf1fd4-9844-4691-8104-eed8af3b709c",
+    "timestamp": "2026-02-14T10:00:46.581Z",
+    "environment": "production",
+    "version": "2.2.0"
+  }
+}

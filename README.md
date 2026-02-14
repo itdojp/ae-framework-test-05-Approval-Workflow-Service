@@ -42,6 +42,7 @@ pnpm run test:mbt
 pnpm run test:property
 pnpm run test:mutation:quick
 pnpm run test:conformance:negative
+pnpm run trend:report
 pnpm run verify:lite:report
 ```
 
@@ -72,5 +73,5 @@ conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定�
 - `nightly-deep.yml`:
   - Trigger: `schedule`（毎日 17:00 UTC）, `workflow_dispatch`
   - 実行: `bash scripts/ae/run.sh nightly-deep`
-  - 収集: `artifacts/formal/*`, `artifacts/mutation/*`
+  - 収集: `artifacts/formal/*`, `artifacts/mutation/*`, `artifacts/trends/summary.json`
   - 保存: 実行後の `artifacts/` と `.ae/` の差分を自動コミットして main に保存

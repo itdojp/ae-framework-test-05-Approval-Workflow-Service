@@ -1,0 +1,328 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "name": "ApprovalWorkflowServiceSpec",
+    "created": "2026-02-14T10:00:07.577Z",
+    "updated": "2026-02-14T10:00:07.577Z",
+    "description": "Minimal AE-Spec for approval workflow service verification."
+  },
+  "glossary": [
+    {
+      "term": "ApprovalRequest",
+      "definition": "Business request created by requester and processed through approval steps."
+    },
+    {
+      "term": "ApprovalTask",
+      "definition": "Decision unit assigned to one approver in a specific workflow step."
+    },
+    {
+      "term": "WorkflowDefinition",
+      "definition": "Configurable set of steps that determines how approvals are evaluated."
+    }
+  ],
+  "domain": [
+    {
+      "name": "ApprovalRequest",
+      "fields": [
+        {
+          "name": "requestId",
+          "type": "uuid",
+          "required": true,
+          "description": "Unique request identifier"
+        },
+        {
+          "name": "tenantId",
+          "type": "string",
+          "required": true,
+          "description": "Tenant isolation key"
+        },
+        {
+          "name": "requesterUserId",
+          "type": "string",
+          "required": true,
+          "description": "Request owner user id"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": true,
+          "description": "Request business category"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": "Request title text"
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "required": true,
+          "description": "Requested monetary amount"
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "required": true,
+          "description": "Currency code"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": true,
+          "description": "Current request lifecycle status"
+        },
+        {
+          "name": "workflowId",
+          "type": "string",
+          "required": false,
+          "description": "Bound workflow identifier"
+        },
+        {
+          "name": "submittedAt",
+          "type": "date",
+          "required": false,
+          "description": "Submission timestamp"
+        },
+        {
+          "name": "decidedAt",
+          "type": "date",
+          "required": false,
+          "description": "Final decision timestamp"
+        }
+      ]
+    },
+    {
+      "name": "ApprovalTask",
+      "fields": [
+        {
+          "name": "taskId",
+          "type": "uuid",
+          "required": true,
+          "description": "Unique task identifier"
+        },
+        {
+          "name": "requestId",
+          "type": "uuid",
+          "required": true,
+          "description": "Parent request identifier"
+        },
+        {
+          "name": "stepId",
+          "type": "string",
+          "required": true,
+          "description": "Workflow step identifier"
+        },
+        {
+          "name": "stepIndex",
+          "type": "number",
+          "required": true,
+          "description": "Step position in workflow"
+        },
+        {
+          "name": "assigneeUserId",
+          "type": "string",
+          "required": true,
+          "description": "Assignee user id"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": true,
+          "description": "Current task status"
+        },
+        {
+          "name": "decidedAt",
+          "type": "date",
+          "required": false,
+          "description": "Decision timestamp"
+        },
+        {
+          "name": "decisionComment",
+          "type": "string",
+          "required": false,
+          "description": "Decision reason text"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowDefinition",
+      "fields": [
+        {
+          "name": "workflowId",
+          "type": "string",
+          "required": true,
+          "description": "Workflow identifier"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Workflow display name"
+        },
+        {
+          "name": "version",
+          "type": "number",
+          "required": true,
+          "description": "Workflow version number"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": true,
+          "description": "Activation status"
+        },
+        {
+          "name": "steps",
+          "type": "array",
+          "required": true,
+          "description": "Ordered step definitions"
+        }
+      ]
+    }
+  ],
+  "invariants": [],
+  "usecases": [
+    {
+      "name": "Submit Request",
+      "actor": "User",
+      "steps": [
+        {
+          "step": 1,
+          "description": "Requester creates a draft request with title amount and currency fields.",
+          "type": "action"
+        },
+        {
+          "step": 2,
+          "description": "System selects one active workflow by priority and matching condition.",
+          "type": "action"
+        },
+        {
+          "step": 3,
+          "description": "System creates initial approval tasks from the first workflow step.",
+          "type": "action"
+        },
+        {
+          "step": 4,
+          "description": "System transitions request status from draft to in review.",
+          "type": "action"
+        }
+      ]
+    },
+    {
+      "name": "Update Request",
+      "actor": "User",
+      "steps": [
+        {
+          "step": 1,
+          "description": "Requester updates mutable fields while status is draft or returned.",
+          "type": "action"
+        },
+        {
+          "step": 2,
+          "description": "System validates title amount and currency constraints.",
+          "type": "action"
+        },
+        {
+          "step": 3,
+          "description": "System rejects update when request is in review or terminal.",
+          "type": "action"
+        }
+      ]
+    },
+    {
+      "name": "Decide Approval Task",
+      "actor": "User",
+      "steps": [
+        {
+          "step": 1,
+          "description": "Assignee opens pending task assigned in current workflow step.",
+          "type": "action"
+        },
+        {
+          "step": 2,
+          "description": "Assignee decides approve, reject, or return with optional decision comment.",
+          "type": "action"
+        },
+        {
+          "step": 3,
+          "description": "System updates request status according to ANY or ALL step mode.",
+          "type": "action"
+        },
+        {
+          "step": 4,
+          "description": "System records audit entries for task decision and request transition.",
+          "type": "action"
+        }
+      ]
+    },
+    {
+      "name": "Resubmit Returned Request",
+      "actor": "User",
+      "steps": [
+        {
+          "step": 1,
+          "description": "Requester fixes returned request fields.",
+          "type": "action"
+        },
+        {
+          "step": 2,
+          "description": "Requester submits request again from RETURNED status.",
+          "type": "action"
+        },
+        {
+          "step": 3,
+          "description": "System recreates first step approval tasks.",
+          "type": "action"
+        }
+      ]
+    }
+  ],
+  "api": [
+    {
+      "method": "POST",
+      "path": "/workflows",
+      "summary": "Create workflow definition"
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/:workflowId/activate",
+      "summary": "Activate workflow"
+    },
+    {
+      "method": "POST",
+      "path": "/requests",
+      "summary": "Create draft request"
+    },
+    {
+      "method": "PATCH",
+      "path": "/requests/:requestId",
+      "summary": "Update draft or returned request"
+    },
+    {
+      "method": "POST",
+      "path": "/requests/:requestId/submit",
+      "summary": "Submit request"
+    },
+    {
+      "method": "POST",
+      "path": "/tasks/:taskId/decide",
+      "summary": "Decide assigned task"
+    },
+    {
+      "method": "GET",
+      "path": "/requests",
+      "summary": "List visible requests"
+    },
+    {
+      "method": "GET",
+      "path": "/tasks",
+      "summary": "List visible tasks"
+    },
+    {
+      "method": "GET",
+      "path": "/audit",
+      "summary": "logs - List audit logs"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "startedAt": "2026-02-14T10:00:09.534Z",
+  "generatedAt": "2026-02-14T10:00:13.126Z",
+  "durationMs": 3591,
+  "command": "pnpm run verify:lite",
+  "exitCode": 0,
+  "passed": true,
+  "stdoutTail": "> approval-workflow-service@0.1.0 verify:lite /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service\n> pnpm run build && pnpm run test:fast\n\n\n> approval-workflow-service@0.1.0 build /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service\n> tsc -p tsconfig.json\n\n\n> approval-workflow-service@0.1.0 test:fast /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service\n> vitest run\n\n\n RUN  v3.2.4 /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service\n\n ✓ tests/acceptance/approval-engine.acceptance.test.ts (11 tests) 27ms\n ✓ tests/mbt/approval-engine.mbt.test.ts (1 test) 52ms\n ✓ tests/property/approval-engine.property.test.ts (3 tests) 77ms\n ✓ tests/integration/api.acceptance.test.ts (12 tests) 263ms\n\n Test Files  4 passed (4)\n      Tests  27 passed (27)\n   Start at  19:00:12\n   Duration  853ms (transform 268ms, setup 0ms, collect 691ms, tests 419ms, environment 1ms, prepare 484ms)",
+  "stderrTail": ""
+}

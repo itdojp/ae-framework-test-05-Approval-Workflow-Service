@@ -1,0 +1,14 @@
+{
+  "runId": "2026-02-14-nightly-deep-r4",
+  "profile": "nightly-deep",
+  "createdAt": "2026-02-14T09:59:59Z",
+  "aeFrameworkDir": "../ae-framework",
+  "logDir": "artifacts/runs/2026-02-14-nightly-deep-r4/logs",
+  "snapshotDir": "artifacts/runs/2026-02-14-nightly-deep-r4/snapshots",
+  "notes": [
+    "dev-fast: spec + verify-lite",
+    "pr-gate: spec + verify-lite + conformance + mbt + property",
+    "nightly-deep: formal + mutation + trend",
+    "full: verify-lite を含む全フェーズ実行"
+  ]
+}

@@ -1,0 +1,792 @@
+{
+  "generatedAt": "2026-02-14T09:59:59.743Z",
+  "sourceDir": "artifacts/runs",
+  "maxRuns": 200,
+  "totalRunsScanned": 38,
+  "profiles": {
+    "nightly-deep": {
+      "totalRuns": 12,
+      "runsWithSnapshots": 3,
+      "evaluatedRuns": 3,
+      "passedRuns": 3,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-14-nightly-deep-r4",
+        "profile": "nightly-deep",
+        "createdAt": "2026-02-14T09:59:59.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "mutation",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": 1,
+          "verifyLiteDurationMs": null,
+          "conformanceOverall": null,
+          "conformanceNegativePassed": null,
+          "formal": {
+            "tlaStatus": "ran",
+            "cspStatus": "ran"
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [
+          {
+            "runId": "2026-02-14-nightly-deep-r4",
+            "createdAt": "2026-02-14T09:59:59.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-ci-3",
+            "createdAt": "2026-02-14T09:12:15.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-r3",
+            "createdAt": "2026-02-14T09:07:42.000Z",
+            "mutationScore": 1
+          }
+        ],
+        "verifyLiteDurationMs": []
+      }
+    },
+    "pr-gate": {
+      "totalRuns": 11,
+      "runsWithSnapshots": 2,
+      "evaluatedRuns": 2,
+      "passedRuns": 2,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-14-pr-gate-ci-8",
+        "profile": "pr-gate",
+        "createdAt": "2026-02-14T09:10:52.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          },
+          {
+            "name": "conformance",
+            "passed": true
+          },
+          {
+            "name": "conformance-negative",
+            "passed": true
+          },
+          {
+            "name": "mbt",
+            "passed": true
+          },
+          {
+            "name": "property",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": null,
+          "verifyLiteDurationMs": 3604,
+          "conformanceOverall": "pass",
+          "conformanceNegativePassed": true,
+          "formal": {
+            "tlaStatus": null,
+            "cspStatus": null
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-14-pr-gate-ci-8",
+            "createdAt": "2026-02-14T09:10:52.000Z",
+            "durationMs": 3604
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r9",
+            "createdAt": "2026-02-14T09:07:24.000Z",
+            "durationMs": 3412
+          }
+        ]
+      }
+    },
+    "dev-fast": {
+      "totalRuns": 3,
+      "runsWithSnapshots": 1,
+      "evaluatedRuns": 1,
+      "passedRuns": 1,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-14-dev-fast-r5",
+        "profile": "dev-fast",
+        "createdAt": "2026-02-14T09:05:34.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": null,
+          "verifyLiteDurationMs": 3372,
+          "conformanceOverall": null,
+          "conformanceNegativePassed": null,
+          "formal": {
+            "tlaStatus": null,
+            "cspStatus": null
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-14-dev-fast-r5",
+            "createdAt": "2026-02-14T09:05:34.000Z",
+            "durationMs": 3372
+          }
+        ]
+      }
+    },
+    "full": {
+      "totalRuns": 12,
+      "runsWithSnapshots": 0,
+      "evaluatedRuns": 0,
+      "passedRuns": 0,
+      "passRate": null,
+      "latestRun": {
+        "runId": "2026-02-14-full-r12",
+        "profile": "full",
+        "createdAt": "2026-02-14T08:40:15.000Z",
+        "hasSnapshots": false,
+        "runPassed": null,
+        "checks": [],
+        "highlights": {
+          "mutationScore": null,
+          "verifyLiteDurationMs": null,
+          "conformanceOverall": null,
+          "conformanceNegativePassed": null,
+          "formal": {
+            "tlaStatus": null,
+            "cspStatus": null
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [],
+        "verifyLiteDurationMs": []
+      }
+    }
+  },
+  "latestRuns": [
+    {
+      "runId": "2026-02-14-nightly-deep-r4",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T09:59:59.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "ran",
+          "cspStatus": "ran"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-deep-ci-3",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T09:12:15.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-ci-8",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T09:10:52.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3604,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-deep-r3",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T09:07:42.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "ran",
+          "cspStatus": "ran"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-r9",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T09:07:24.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3412,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-dev-fast-r5",
+      "profile": "dev-fast",
+      "createdAt": "2026-02-14T09:05:34.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3372,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-deep-ci-2",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T09:02:49.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-ci-7",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T09:01:32.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-r8",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T08:58:23.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-r7",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T08:44:37.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r12",
+      "profile": "full",
+      "createdAt": "2026-02-14T08:40:15.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-r6",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T08:27:43.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-dev-fast-r2",
+      "profile": "dev-fast",
+      "createdAt": "2026-02-14T08:20:32.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-r5",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T08:20:00.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-r4",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T06:31:41.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r11",
+      "profile": "full",
+      "createdAt": "2026-02-14T06:27:28.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r10",
+      "profile": "full",
+      "createdAt": "2026-02-14T06:21:01.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r9",
+      "profile": "full",
+      "createdAt": "2026-02-14T06:13:41.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r8",
+      "profile": "full",
+      "createdAt": "2026-02-14T06:09:15.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r7",
+      "profile": "full",
+      "createdAt": "2026-02-14T06:01:43.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r6",
+      "profile": "full",
+      "createdAt": "2026-02-14T05:54:49.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r5",
+      "profile": "full",
+      "createdAt": "2026-02-14T05:51:03.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r4",
+      "profile": "full",
+      "createdAt": "2026-02-14T05:49:59.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r3",
+      "profile": "full",
+      "createdAt": "2026-02-14T05:31:03.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-full-r2",
+      "profile": "full",
+      "createdAt": "2026-02-14T04:07:05.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-r6",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T04:06:18.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-r5",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T04:05:57.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-r4",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T04:05:15.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-r3",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T04:04:32.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-r3",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T04:04:27.000Z",
+      "hasSnapshots": false,
+      "runPassed": null,
+      "checks": [],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    }
+  ]
+}

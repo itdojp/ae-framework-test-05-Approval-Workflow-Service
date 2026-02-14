@@ -13,7 +13,7 @@ mkdir -p "$LOG_DIR" "$PROJECT_ROOT/.ae" "$PROJECT_ROOT/artifacts/spec" \
   "$PROJECT_ROOT/artifacts/sim" "$PROJECT_ROOT/artifacts/conformance" \
   "$PROJECT_ROOT/artifacts/formal" "$PROJECT_ROOT/artifacts/properties" \
   "$PROJECT_ROOT/artifacts/mutation" "$PROJECT_ROOT/artifacts/mbt" \
-  "$PROJECT_ROOT/artifacts/verify-lite"
+  "$PROJECT_ROOT/artifacts/verify-lite" "$PROJECT_ROOT/artifacts/trends"
 
 log() {
   printf '[%s] %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*"
@@ -211,6 +211,16 @@ phase_mutation() {
     pnpm --dir "$PROJECT_ROOT" run test:mutation:quick
 }
 
+phase_trend() {
+  if [[ ! -f "$PROJECT_ROOT/package.json" ]]; then
+    log "SKIP: package.json not found; trend report skipped"
+    return 0
+  fi
+
+  run_soft trend-report \
+    pnpm --dir "$PROJECT_ROOT" run trend:report
+}
+
 snapshot_spec_outputs() {
   copy_if_exists "$PROJECT_ROOT/.ae/ae-ir.json" \
     "$SNAPSHOT_DIR/.ae/ae-ir.json"
@@ -266,6 +276,11 @@ snapshot_mutation_outputs() {
     "$SNAPSHOT_DIR/mutation/summary.json"
 }
 
+snapshot_trend_outputs() {
+  copy_if_exists "$PROJECT_ROOT/artifacts/trends/summary.json" \
+    "$SNAPSHOT_DIR/trends/summary.json"
+}
+
 snapshot_outputs() {
   mkdir -p "$SNAPSHOT_DIR"
 
@@ -309,7 +324,7 @@ write_manifest() {
   "notes": [
     "dev-fast: spec + verify-lite",
     "pr-gate: spec + verify-lite + conformance + mbt + property",
-    "nightly-deep: formal + mutation",
+    "nightly-deep: formal + mutation + trend",
     "full: verify-lite を含む全フェーズ実行"
   ]
 }
@@ -352,6 +367,12 @@ main() {
 
   snapshot_outputs
   write_manifest
+
+  if [[ "$PROFILE" == "nightly-deep" || "$PROFILE" == "full" ]]; then
+    phase_trend
+    snapshot_trend_outputs
+  fi
+
   log "DONE: profile=$PROFILE runId=$RUN_ID"
 }
 

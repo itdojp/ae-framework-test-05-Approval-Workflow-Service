@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-ART-001`
-- 版: `v0.2`
+- 版: `v0.3`
 - 作成日: `2026-02-14`
 
 ## 2. 目的
@@ -26,6 +26,7 @@
 - `artifacts/formal/*`
 - `artifacts/properties/*`
 - `artifacts/mutation/*`
+- `artifacts/trends/*`
 3. 実行メタ:
 - `artifacts/runs/<run-id>/manifest.json`
 - 実行ログ（必要に応じて `artifacts/runs/<run-id>/logs/*`）

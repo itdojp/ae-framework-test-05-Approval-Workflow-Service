@@ -18,6 +18,7 @@
     "test:property": "vitest run tests/property",
     "test:mutation:quick": "node scripts/testing/mutation-quick.mjs",
     "test:conformance:negative": "node scripts/testing/conformance-negative-harness.mjs",
+    "trend:report": "node scripts/testing/trend-report.mjs",
     "verify:lite": "pnpm run build && pnpm run test:fast",
     "verify:lite:report": "node scripts/testing/verify-lite-harness.mjs"
   },
