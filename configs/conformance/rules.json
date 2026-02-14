@@ -7,7 +7,7 @@
     "severity": "major",
     "enabled": true,
     "condition": {
-      "expression": "required",
+      "expression": "typeof data.request.title === 'string' && data.request.title.trim().length > 0",
       "variables": ["data.request.title"],
       "constraints": {}
     },
@@ -27,7 +27,7 @@
     "severity": "minor",
     "enabled": true,
     "condition": {
-      "expression": "range",
+      "expression": "typeof data.request.amount === 'number' && data.request.amount >= 0 && data.request.amount <= 1000000",
       "variables": ["data.request.amount"],
       "constraints": {
         "min": 0,
@@ -41,6 +41,54 @@
       "version": "1.0.0",
       "tags": ["amount", "range"]
     }
+  },
+  {
+    "id": "c085fa79-adb6-4392-8ace-3d54ced1ba02",
+    "name": "RequestVisibilityScope",
+    "description": "Request access must be requester assignee or admin",
+    "category": "security_policy",
+    "severity": "major",
+    "enabled": true,
+    "condition": {
+      "expression": "(data.actor.roles && data.actor.roles.includes('ADMIN')) || data.request.requesterUserId === data.actor.userId || data.task.assigneeUserId === data.actor.userId",
+      "variables": [
+        "data.actor.roles",
+        "data.actor.userId",
+        "data.request.requesterUserId",
+        "data.task.assigneeUserId"
+      ],
+      "constraints": {}
+    },
+    "actions": ["log_violation", "metric_increment"],
+    "metadata": {
+      "createdAt": "2026-02-14T00:00:00.000Z",
+      "updatedAt": "2026-02-14T00:00:00.000Z",
+      "version": "1.0.0",
+      "tags": ["auth", "request", "visibility"]
+    }
+  },
+  {
+    "id": "c279426c-fb51-4b41-9b7e-4fbada093eba",
+    "name": "TenantIsolationGuard",
+    "description": "Actor tenant must match request and task tenant",
+    "category": "security_policy",
+    "severity": "major",
+    "enabled": true,
+    "condition": {
+      "expression": "data.actor.tenantId === data.request.tenantId && data.actor.tenantId === data.task.tenantId",
+      "variables": [
+        "data.actor.tenantId",
+        "data.request.tenantId",
+        "data.task.tenantId"
+      ],
+      "constraints": {}
+    },
+    "actions": ["log_violation", "metric_increment"],
+    "metadata": {
+      "createdAt": "2026-02-14T00:00:00.000Z",
+      "updatedAt": "2026-02-14T00:00:00.000Z",
+      "version": "1.0.0",
+      "tags": ["tenant", "isolation", "authz"]
+    }
   }
 ]
-

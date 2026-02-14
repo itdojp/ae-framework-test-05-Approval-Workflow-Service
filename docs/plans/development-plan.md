@@ -76,6 +76,7 @@
   - 最小UI（`/ui/`）を追加し、申請一覧/作成編集提出/承認受箱/決裁を1画面で操作可能化。
   - `AW-WF-002`（priority選択）と `AW-WF-010`（approver未解決時422）を受入/APIテストで追加検証。
   - `AW-AUTH-001`（request閲覧の可視性）と `AW-TENANT-001`（cross-tenant 403）を受入/APIテストで追加検証。
+  - conformance ルールを式ベースへ更新し、`RequestVisibilityScope` と `TenantIsolationGuard` を追加（rule-id 4件運用）。
   - mutation対象を9系統へ拡張し（request閲覧ガード・tenant分離ガードを追加）、score=1.0を維持。
 - 継続タスク:
-  - `spec-compiler` の `BIZ_001` 警告3件に対する framework側改善提案整理。
+  - `spec-compiler` の `BIZ_001` 警告3件に対する framework側改善提案整理（`docs/specs/ae-framework-gap-biz001.md`）。

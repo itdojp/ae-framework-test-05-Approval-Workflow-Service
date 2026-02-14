@@ -1,28 +1,33 @@
-# ae-framework ギャップ記録（BIZ_001）
+# ae-framework Gap: `BIZ_001` 警告の恒常発生
 
-## 概要
+## 1. 背景
 
-`ae spec validate/lint` 実行時に、`BIZ_001`（Entity has no business rules）が継続して3件出力される。
+- 対象: `ae-framework` の `spec validate` / `spec lint`
+- 対象警告: `BIZ_001`（Entity に business rules が未定義）
+- 観測日: `2026-02-14`
 
-## 再現条件
+## 2. 観測結果
 
-- 対象: `spec/approval-workflow.md`
-- コマンド:
-  - `AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh dev-fast`
-  - または `pnpm --dir ../ae-framework exec tsx src/cli/index.ts spec validate -i spec/approval-workflow.md`
+- 本リポジトリの `spec/approval-workflow.md` では `Business Rules` を定義しているが、以下警告が継続発生する。
+  - `Entity 'ApprovalRequest' has no business rules defined`
+  - `Entity 'ApprovalTask' has no business rules defined`
+  - `Entity 'WorkflowDefinition' has no business rules defined`
+- 再現 run-id:
+  - `2026-02-14-full-r10`
+  - `2026-02-14-full-r11`
 
-## 技術的根拠
+## 3. 技術的観点（根拠）
 
-`ae-framework` の `spec-compiler` 実装（2026-02-14 時点）で以下を確認:
+- `ae-framework/packages/spec-compiler/src/compiler.ts` の `validateBusinessLogic` は、`invariants[].entities` に Entity 名が入っていることを前提に判定している。
+- 同ファイル `parseInvariants` では `entities: []` 固定で生成しており、Markdown から Entity 参照を抽出していない。
+- そのため、仕様側で `Business Rules` を追加しても `BIZ_001` が解消しない。
 
-1. `parseInvariants` が Markdown から invariant を生成する際、`entities` を常に空配列で生成する。
-2. `validateBusinessLogic` は `invariants[].entities` に entity 名が含まれるかのみで `BIZ_001` を判定する。
-3. strict schema は `invariants[].entities` に最低1件を要求する。
+## 4. 暫定対応
 
-結果として、現行 parser のままでは Markdown 記述だけで `BIZ_001` を消し込めない。
+- 本リポジトリでは `BIZ_001` を「frameworkギャップ」として記録し、他の検証（conformance/mbt/property/formal/mutation）を継続する。
 
-## 期待される改善方向（framework側）
+## 5. 改善提案（ae-framework 側）
 
-1. Invariant記法に entity 紐付け構文を追加し parser で `entities` を埋める。
-2. または parser 側で description から entity 名を抽出して `entities` を補完する。
-3. strict schema と parser 仕様の整合を取る（生成される invariant が strict schema を満たすこと）。
+1. `parseInvariants` で Entity 名抽出を実装し、`invariants[].entities` を自動補完する。
+2. もしくは `Business Rules` 章の `BR-*` 記述を `invariants` 相当にマッピングする。
+3. いずれも難しい場合、`BIZ_001` メッセージを「Invariants section が必要」に変更して誤解を減らす。
