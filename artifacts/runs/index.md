@@ -1,19 +1,19 @@
 # Run Index
 
-GeneratedAt: 2026-02-14T15:30:11.539Z
+GeneratedAt: 2026-02-14T17:07:51.219Z
 
 ## Overview
 
-- totalRuns: 55
-- auditedRuns: 12
-- auditPassedRuns: 12
+- totalRuns: 56
+- auditedRuns: 13
+- auditPassedRuns: 13
 - auditFailedRuns: 0
 
 ## Profile Summary
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 18 | 5 | 5 | 0 | 2026-02-14-nightly-deep-ci-7 | 2026-02-14T15:30:10.000Z |
+| nightly-deep | 19 | 6 | 6 | 0 | 2026-02-14-nightly-deep-ci-8 | 2026-02-14T17:07:49.000Z |
 | pr-gate | 17 | 5 | 5 | 0 | 2026-02-14-pr-gate-ci-12 | 2026-02-14T15:27:27.000Z |
 | dev-fast | 5 | 2 | 2 | 0 | 2026-02-14-dev-fast-r7-local | 2026-02-14T15:24:14.000Z |
 | full | 13 | 0 | 0 | 0 | 2026-02-14-full-r13 | 2026-02-14T10:02:07.000Z |
@@ -23,6 +23,7 @@ GeneratedAt: 2026-02-14T15:30:11.539Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | --- |
+| 2026-02-14-nightly-deep-ci-8 | nightly-deep | 2026-02-14T17:07:49.000Z | true | 0 | 10 | open |
 | 2026-02-14-nightly-deep-ci-7 | nightly-deep | 2026-02-14T15:30:10.000Z | true | 0 | 10 | open |
 | 2026-02-14-pr-gate-ci-12 | pr-gate | 2026-02-14T15:27:27.000Z | true | 0 | 17 |  |
 | 2026-02-14-dev-fast-r7-local | dev-fast | 2026-02-14T15:24:14.000Z | true | 0 | 5 |  |
@@ -72,5 +73,4 @@ GeneratedAt: 2026-02-14T15:30:11.539Z
 | 2026-02-14-pr-gate-r2 | pr-gate | 2026-02-14T04:01:48.000Z |  |  | 0 |  |
 | 2026-02-14-nightly-deep-formal-copy | nightly-deep | 2026-02-14T00:45:10.000Z |  |  | 0 |  |
 | 2026-02-14-full-auto | full | 2026-02-14T00:44:52.000Z |  |  | 0 |  |
-| 2026-02-14-nightly-deep-formal | nightly-deep | 2026-02-14T00:43:32.000Z |  |  | 0 |  |
 
