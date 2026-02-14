@@ -1,0 +1,16 @@
+{
+  "runId": "2026-02-14-automation-setup",
+  "createdAt": "2026-02-14T00:40:00Z",
+  "purpose": "ae-framework 自動化設定（playbook + 実行ラッパー）の初期導入",
+  "outputs": [
+    "codex/ae.playbook.yaml",
+    "scripts/ae/run.sh",
+    "docs/specs/ae-framework-tooling-spec.md",
+    "README.md"
+  ],
+  "notes": [
+    "AE_FRAMEWORK_DIR 環境変数で ae-framework 参照先を切り替え可能。",
+    "不足入力時は skip し、実行ログと manifest を残す設計。"
+  ]
+}
+

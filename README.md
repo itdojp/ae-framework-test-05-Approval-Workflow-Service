@@ -9,4 +9,4 @@
 - 開発計画: `docs/plans/development-plan.md`
 - ae-framework 利用仕様: `docs/specs/ae-framework-tooling-spec.md`
 - 中間生成物保存仕様: `docs/specs/artifact-retention-spec.md`
-
+- 自動実行設定: `codex/ae.playbook.yaml`, `scripts/ae/run.sh`

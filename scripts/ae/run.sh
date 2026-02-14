@@ -1,0 +1,181 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+AE_FRAMEWORK_DIR="${AE_FRAMEWORK_DIR:-$PROJECT_ROOT/../ae-framework}"
+PROFILE="${1:-full}"
+RUN_ID="${RUN_ID:-$(date -u +%Y-%m-%d)-${PROFILE}}"
+RUN_DIR="$PROJECT_ROOT/artifacts/runs/$RUN_ID"
+LOG_DIR="$RUN_DIR/logs"
+
+mkdir -p "$LOG_DIR" "$PROJECT_ROOT/.ae" "$PROJECT_ROOT/artifacts/spec" \
+  "$PROJECT_ROOT/artifacts/sim" "$PROJECT_ROOT/artifacts/conformance" \
+  "$PROJECT_ROOT/artifacts/formal" "$PROJECT_ROOT/artifacts/properties" \
+  "$PROJECT_ROOT/artifacts/mutation"
+
+log() {
+  printf '[%s] %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*"
+}
+
+run_hard() {
+  local name="$1"
+  shift
+  log "RUN(hard): $name"
+  "$@" 2>&1 | tee "$LOG_DIR/$name.log"
+}
+
+run_soft() {
+  local name="$1"
+  shift
+  log "RUN(soft): $name"
+  if "$@" 2>&1 | tee "$LOG_DIR/$name.log"; then
+    return 0
+  fi
+  log "WARN: non-blocking step failed: $name"
+  return 0
+}
+
+check_ae_framework() {
+  if [[ ! -d "$AE_FRAMEWORK_DIR" ]]; then
+    log "ERROR: AE_FRAMEWORK_DIR not found: $AE_FRAMEWORK_DIR"
+    exit 1
+  fi
+  if ! command -v pnpm >/dev/null 2>&1; then
+    log "ERROR: pnpm is required"
+    exit 1
+  fi
+}
+
+phase_spec() {
+  local spec_file="$PROJECT_ROOT/spec/approval-workflow.md"
+  if [[ ! -f "$spec_file" ]]; then
+    log "SKIP: spec file not found ($spec_file)"
+    return 0
+  fi
+
+  run_hard spec-validate \
+    pnpm --dir "$AE_FRAMEWORK_DIR" run ae-framework -- \
+    spec validate -i "$spec_file" --output "$PROJECT_ROOT/.ae/ae-ir.json"
+
+  run_hard spec-lint \
+    pnpm --dir "$AE_FRAMEWORK_DIR" run ae-framework -- \
+    spec lint -i "$PROJECT_ROOT/.ae/ae-ir.json"
+
+  if [[ -f "$PROJECT_ROOT/.ae/ae-ir.json" ]]; then
+    run_soft generate-contracts \
+      node "$AE_FRAMEWORK_DIR/scripts/spec/generate-contracts.mjs" \
+      --in "$PROJECT_ROOT/.ae/ae-ir.json" \
+      --out "$PROJECT_ROOT/artifacts/spec/contracts.json"
+
+    run_soft generate-replay \
+      node "$AE_FRAMEWORK_DIR/scripts/spec/generate-replay-fixtures.mjs" \
+      --in "$PROJECT_ROOT/artifacts/spec/contracts.json" \
+      --out "$PROJECT_ROOT/artifacts/spec/replay.json"
+
+    run_soft deterministic-sim \
+      node "$AE_FRAMEWORK_DIR/scripts/simulation/deterministic-runner.mjs" \
+      --in "$PROJECT_ROOT/artifacts/spec/replay.json" \
+      --out "$PROJECT_ROOT/artifacts/sim/sim.json"
+  fi
+}
+
+phase_conformance() {
+  local input_file="$PROJECT_ROOT/configs/conformance/input.json"
+  local rules_file="$PROJECT_ROOT/configs/conformance/rules.json"
+  if [[ ! -f "$input_file" || ! -f "$rules_file" ]]; then
+    log "SKIP: conformance input/rules not found"
+    return 0
+  fi
+
+  run_soft conformance-verify \
+    pnpm --dir "$AE_FRAMEWORK_DIR" run ae-framework -- \
+    conformance verify --input "$input_file" --rules "$rules_file" \
+    --format json --output "$PROJECT_ROOT/artifacts/conformance/result.json"
+}
+
+phase_property() {
+  if [[ ! -d "$PROJECT_ROOT/tests/property" ]]; then
+    log "SKIP: tests/property not found"
+    return 0
+  fi
+
+  run_soft property-harness \
+    node "$AE_FRAMEWORK_DIR/scripts/testing/property-harness.mjs"
+}
+
+phase_formal() {
+  if [[ ! -d "$PROJECT_ROOT/spec/formal" ]]; then
+    log "SKIP: spec/formal not found"
+    return 0
+  fi
+
+  run_soft verify-tla \
+    pnpm --dir "$AE_FRAMEWORK_DIR" run verify:tla
+
+  run_soft verify-csp \
+    pnpm --dir "$AE_FRAMEWORK_DIR" run verify:csp
+}
+
+phase_mutation() {
+  if [[ ! -f "$PROJECT_ROOT/package.json" ]]; then
+    log "SKIP: package.json not found; mutation skipped"
+    return 0
+  fi
+
+  run_soft mutation-quick \
+    pnpm --dir "$PROJECT_ROOT" run test:mutation:quick
+}
+
+write_manifest() {
+  cat >"$RUN_DIR/manifest.json" <<EOF
+{
+  "runId": "$RUN_ID",
+  "profile": "$PROFILE",
+  "createdAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "aeFrameworkDir": "$AE_FRAMEWORK_DIR",
+  "logDir": "artifacts/runs/$RUN_ID/logs",
+  "notes": [
+    "dev-fast: spec系中心",
+    "pr-gate: spec + conformance + property",
+    "nightly-deep: formal + mutation",
+    "full: すべて実行"
+  ]
+}
+EOF
+}
+
+main() {
+  check_ae_framework
+
+  case "$PROFILE" in
+    dev-fast)
+      phase_spec
+      ;;
+    pr-gate)
+      phase_spec
+      phase_conformance
+      phase_property
+      ;;
+    nightly-deep)
+      phase_formal
+      phase_mutation
+      ;;
+    full)
+      phase_spec
+      phase_conformance
+      phase_property
+      phase_formal
+      phase_mutation
+      ;;
+    *)
+      log "ERROR: unknown profile: $PROFILE"
+      exit 1
+      ;;
+  esac
+
+  write_manifest
+  log "DONE: profile=$PROFILE runId=$RUN_ID"
+}
+
+main "$@"
+

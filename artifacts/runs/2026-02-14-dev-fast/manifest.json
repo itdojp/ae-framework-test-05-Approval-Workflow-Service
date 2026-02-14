@@ -1,0 +1,13 @@
+{
+  "runId": "2026-02-14-dev-fast",
+  "profile": "dev-fast",
+  "createdAt": "2026-02-14T00:19:38Z",
+  "aeFrameworkDir": "../ae-framework",
+  "logDir": "artifacts/runs/2026-02-14-dev-fast/logs",
+  "notes": [
+    "dev-fast: spec系中心",
+    "pr-gate: spec + conformance + property",
+    "nightly-deep: formal + mutation",
+    "full: すべて実行"
+  ]
+}

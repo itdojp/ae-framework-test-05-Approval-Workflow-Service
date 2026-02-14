@@ -55,10 +55,19 @@
 | `pr-gate` | PR品質ゲート | verify-lite, conformance, property |
 | `nightly-deep` | 深夜定期検証 | formal(tla/csp), mutation, trend集計 |
 
+## 6.1 自動実行設定ファイル
+
+- タスク定義: `codex/ae.playbook.yaml`
+- 実行ラッパー: `scripts/ae/run.sh`
+- 実行例:
+  - `bash scripts/ae/run.sh dev-fast`
+  - `bash scripts/ae/run.sh pr-gate`
+  - `bash scripts/ae/run.sh nightly-deep`
+  - `bash scripts/ae/run.sh full`
+
 ## 7. 成果物配置ルール
 
 - 仕様変換: `.ae/`
 - 検証成果物: `artifacts/<category>/`
 - 実行単位のマニフェスト: `artifacts/runs/<run-id>/manifest.json`
 - 仕様書/計画書: `docs/specs/`, `docs/plans/`
-
