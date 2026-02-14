@@ -80,6 +80,7 @@
   - mutation対象を9系統へ拡張し（request閲覧ガード・tenant分離ガードを追加）、score=1.0を維持。
   - `verify-lite` 証跡ハーネスを追加（`scripts/testing/verify-lite-harness.mjs`）し、`artifacts/verify-lite/summary.json` を自動生成。
   - conformance 異常系ハーネスを追加（`scripts/testing/conformance-negative-harness.mjs`）し、`artifacts/conformance/negative-summary.json` を生成。
+  - conformance 異常系ハーネスを並列化（`CONF_NEG_CONCURRENCY`、既定2）し、`pr-gate` の待ち時間を短縮。
   - `run.sh` のプロファイルを修正し、`dev-fast/pr-gate/full` で `verify-lite` を必ず実行。
   - GitHub Actions を追加し、`pr-gate.yml`（PR/Push）と `nightly-deep.yml`（schedule/manual）を自動実行化。
 - 継続タスク:

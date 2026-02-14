@@ -1,7 +1,8 @@
 {
   "status": "pass",
-  "startedAt": "2026-02-14T08:37:50.755Z",
-  "generatedAt": "2026-02-14T08:39:58.905Z",
+  "startedAt": "2026-02-14T08:43:31.377Z",
+  "generatedAt": "2026-02-14T08:44:34.754Z",
+  "concurrency": 2,
   "totalScenarios": 4,
   "passedScenarios": 4,
   "failedScenarios": 0,
@@ -15,10 +16,10 @@
       "overall": "fail",
       "expectedRuleStatus": "fail",
       "rulesFailed": 1,
-      "durationMs": 31994,
+      "durationMs": 31658,
       "command": "pnpm --dir ../ae-framework exec tsx src/cli/index.ts conformance verify ...",
       "exitCode": 0,
-      "stdoutTail": "❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 4ms\n\n🚨 Violations Found:\n\n1. RequestTitleRequired\n   Category: data_validation\n   Severity: major\n   Message: Rule violation: RequestTitleRequired\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   major: 1\n\n📂 Violations by Category:\n   data_validation: 1\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-001.result.json",
+      "stdoutTail": "❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 6ms\n\n🚨 Violations Found:\n\n1. RequestTitleRequired\n   Category: data_validation\n   Severity: major\n   Message: Rule violation: RequestTitleRequired\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   major: 1\n\n📂 Violations by Category:\n   data_validation: 1\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-001.result.json",
       "stderrTail": ""
     },
     {
@@ -29,10 +30,10 @@
       "overall": "fail",
       "expectedRuleStatus": "fail",
       "rulesFailed": 1,
-      "durationMs": 32205,
+      "durationMs": 31649,
       "command": "pnpm --dir ../ae-framework exec tsx src/cli/index.ts conformance verify ...",
       "exitCode": 0,
-      "stdoutTail": "✅ Rules Passed: 4\n❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 5ms\n\n🚨 Violations Found:\n\n1. AmountUpperBound\n   Category: business_rule\n   Severity: minor\n   Message: Rule violation: AmountUpperBound\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   minor: 1\n\n📂 Violations by Category:\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-002.result.json",
+      "stdoutTail": "✅ Rules Passed: 4\n❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 4ms\n\n🚨 Violations Found:\n\n1. AmountUpperBound\n   Category: business_rule\n   Severity: minor\n   Message: Rule violation: AmountUpperBound\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   minor: 1\n\n📂 Violations by Category:\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-002.result.json",
       "stderrTail": ""
     },
     {
@@ -43,10 +44,10 @@
       "overall": "fail",
       "expectedRuleStatus": "fail",
       "rulesFailed": 1,
-      "durationMs": 32131,
+      "durationMs": 31721,
       "command": "pnpm --dir ../ae-framework exec tsx src/cli/index.ts conformance verify ...",
       "exitCode": 0,
-      "stdoutTail": "❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 8ms\n\n🚨 Violations Found:\n\n1. RequestVisibilityScope\n   Category: security_policy\n   Severity: major\n   Message: Rule violation: RequestVisibilityScope\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   major: 1\n\n📂 Violations by Category:\n   security_policy: 1\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-003.result.json",
+      "stdoutTail": "❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 6ms\n\n🚨 Violations Found:\n\n1. RequestVisibilityScope\n   Category: security_policy\n   Severity: major\n   Message: Rule violation: RequestVisibilityScope\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   major: 1\n\n📂 Violations by Category:\n   security_policy: 1\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-003.result.json",
       "stderrTail": ""
     },
     {
@@ -57,10 +58,10 @@
       "overall": "fail",
       "expectedRuleStatus": "fail",
       "rulesFailed": 1,
-      "durationMs": 31816,
+      "durationMs": 31697,
       "command": "pnpm --dir ../ae-framework exec tsx src/cli/index.ts conformance verify ...",
       "exitCode": 0,
-      "stdoutTail": "❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 7ms\n\n🚨 Violations Found:\n\n1. TenantIsolationGuard\n   Category: security_policy\n   Severity: major\n   Message: Rule violation: TenantIsolationGuard\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   major: 1\n\n📂 Violations by Category:\n   security_policy: 1\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-004.result.json",
+      "stdoutTail": "❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 6ms\n\n🚨 Violations Found:\n\n1. TenantIsolationGuard\n   Category: security_policy\n   Severity: major\n   Message: Rule violation: TenantIsolationGuard\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   major: 1\n\n📂 Violations by Category:\n   security_policy: 1\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-004.result.json",
       "stderrTail": ""
     }
   ]

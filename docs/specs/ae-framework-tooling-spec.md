@@ -61,7 +61,7 @@
 - タスク定義: `codex/ae.playbook.yaml`
 - 実行ラッパー: `scripts/ae/run.sh`
 - verify-lite証跡化: `scripts/testing/verify-lite-harness.mjs`
-- conformance異常系検証: `scripts/testing/conformance-negative-harness.mjs`
+- conformance異常系検証: `scripts/testing/conformance-negative-harness.mjs`（`CONF_NEG_CONCURRENCY` で並列数制御）
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
 - MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
 - formalモデル（サービス固有）: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`

@@ -44,6 +44,8 @@ pnpm run test:conformance:negative
 pnpm run verify:lite:report
 ```
 
+`test:conformance:negative` は `CONF_NEG_CONCURRENCY` で並列実行数を制御可能（デフォルト: `2`）。
+
 `pnpm run dev` 後、`http://localhost:3000/ui/` で最小UIを利用可能。
 
 ae-framework 連携（外部リポジトリ参照先を指定）:

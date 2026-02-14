@@ -1,0 +1,13 @@
+{
+  "runId": "2026-02-14-pr-gate-r7",
+  "profile": "pr-gate",
+  "createdAt": "2026-02-14T08:44:37Z",
+  "aeFrameworkDir": "../ae-framework",
+  "logDir": "artifacts/runs/2026-02-14-pr-gate-r7/logs",
+  "notes": [
+    "dev-fast: spec + verify-lite",
+    "pr-gate: spec + verify-lite + conformance + mbt + property",
+    "nightly-deep: formal + mutation",
+    "full: verify-lite を含む全フェーズ実行"
+  ]
+}

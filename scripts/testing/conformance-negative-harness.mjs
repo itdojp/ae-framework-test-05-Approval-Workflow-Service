@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { spawnSync } from 'node:child_process';
+import { spawn } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -78,11 +78,29 @@ const scenarios = [
   }
 ];
 
-const startedAt = new Date().toISOString();
-const results = [];
-let passedCount = 0;
+function runCommand(args, cwd) {
+  return new Promise((resolveRun) => {
+    const child = spawn('pnpm', args, {
+      cwd,
+      env: { ...process.env, NO_COLOR: '1' }
+    });
+    let stdout = '';
+    let stderr = '';
 
-for (const scenario of scenarios) {
+    child.stdout.on('data', (chunk) => {
+      stdout += String(chunk);
+    });
+    child.stderr.on('data', (chunk) => {
+      stderr += String(chunk);
+    });
+
+    child.on('close', (code) => {
+      resolveRun({ code: code ?? 1, stdout, stderr });
+    });
+  });
+}
+
+async function runScenario(scenario) {
   const scenarioInput = clone(baseInput);
   scenario.mutate(scenarioInput);
 
@@ -91,8 +109,7 @@ for (const scenario of scenarios) {
   writeFileSync(scenarioInputPath, JSON.stringify(scenarioInput, null, 2), 'utf-8');
 
   const begin = Date.now();
-  const run = spawnSync(
-    'pnpm',
+  const run = await runCommand(
     [
       '--dir',
       aeFrameworkDir,
@@ -114,54 +131,88 @@ for (const scenario of scenarios) {
       '--output',
       scenarioOutputPath
     ],
-    {
-      cwd: projectRoot,
-      encoding: 'utf-8',
-      env: { ...process.env, NO_COLOR: '1' }
-    }
+    projectRoot
   );
   const durationMs = Date.now() - begin;
 
-  const resultPayload = JSON.parse(readFileSync(scenarioOutputPath, 'utf-8'));
-  const matchedRule = (resultPayload.results || []).find((item) => item.ruleId === scenario.expectedRuleId);
-  const scenarioPassed =
-    matchedRule?.status === 'fail' && resultPayload.summary?.rulesFailed >= 1 && resultPayload.overall === 'fail';
-
-  if (scenarioPassed) {
-    passedCount += 1;
+  let resultPayload = null;
+  let matchedRule = null;
+  let scenarioPassed = false;
+  try {
+    resultPayload = JSON.parse(readFileSync(scenarioOutputPath, 'utf-8'));
+    matchedRule = (resultPayload.results || []).find((item) => item.ruleId === scenario.expectedRuleId) || null;
+    scenarioPassed =
+      matchedRule?.status === 'fail' &&
+      resultPayload.summary?.rulesFailed >= 1 &&
+      resultPayload.overall === 'fail';
+  } catch {
+    scenarioPassed = false;
   }
 
-  results.push({
+  return {
     scenarioId: scenario.scenarioId,
     description: scenario.description,
     expectedRuleId: scenario.expectedRuleId,
     passed: scenarioPassed,
-    overall: resultPayload.overall,
+    overall: resultPayload?.overall || null,
     expectedRuleStatus: matchedRule?.status || null,
-    rulesFailed: resultPayload.summary?.rulesFailed || 0,
+    rulesFailed: resultPayload?.summary?.rulesFailed || 0,
     durationMs,
     command: `pnpm --dir ${aeFrameworkDir} exec tsx src/cli/index.ts conformance verify ...`,
-    exitCode: run.status,
+    exitCode: run.code,
     stdoutTail: tailLines(run.stdout),
     stderrTail: tailLines(run.stderr)
-  });
+  };
 }
 
-const passed = passedCount === scenarios.length;
-const summary = {
-  status: passed ? 'pass' : 'fail',
-  startedAt,
-  generatedAt: new Date().toISOString(),
-  totalScenarios: scenarios.length,
-  passedScenarios: passedCount,
-  failedScenarios: scenarios.length - passedCount,
-  passed,
-  scenarios: results
-};
+async function runWithConcurrency(items, concurrency, worker) {
+  const results = new Array(items.length);
+  let index = 0;
 
-writeFileSync(summaryPath, JSON.stringify(summary, null, 2), 'utf-8');
-console.log(`conformance negative summary generated at ${summaryPath}`);
+  async function loop() {
+    while (true) {
+      const current = index;
+      index += 1;
+      if (current >= items.length) {
+        return;
+      }
+      results[current] = await worker(items[current]);
+    }
+  }
 
-if (!passed) {
-  process.exit(1);
+  const workers = Array.from({ length: Math.min(concurrency, items.length) }, () => loop());
+  await Promise.all(workers);
+  return results;
 }
+
+async function main() {
+  const startedAt = new Date().toISOString();
+  const concurrencyRaw = Number(process.env['CONF_NEG_CONCURRENCY'] || 2);
+  const concurrency =
+    Number.isFinite(concurrencyRaw) && concurrencyRaw > 0 ? Math.floor(concurrencyRaw) : 2;
+
+  const results = await runWithConcurrency(scenarios, concurrency, runScenario);
+  const passedCount = results.filter((item) => item.passed).length;
+  const passed = passedCount === scenarios.length;
+
+  const summary = {
+    status: passed ? 'pass' : 'fail',
+    startedAt,
+    generatedAt: new Date().toISOString(),
+    concurrency,
+    totalScenarios: scenarios.length,
+    passedScenarios: passedCount,
+    failedScenarios: scenarios.length - passedCount,
+    passed,
+    scenarios: results
+  };
+
+  writeFileSync(summaryPath, JSON.stringify(summary, null, 2), 'utf-8');
+  console.log(`conformance negative summary generated at ${summaryPath}`);
+
+  if (!passed) {
+    process.exit(1);
+  }
+}
+
+await main();
