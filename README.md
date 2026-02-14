@@ -43,6 +43,7 @@ pnpm run test:property
 pnpm run test:mutation:quick
 pnpm run test:conformance:negative
 pnpm run trend:report
+pnpm run framework:gaps:status
 pnpm run artifacts:audit -- --run-id 2026-02-14-pr-gate-r10 --profile pr-gate
 pnpm run verify:lite:report
 ```
@@ -74,5 +75,5 @@ conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定�
 - `nightly-deep.yml`:
   - Trigger: `schedule`（毎日 17:00 UTC）, `workflow_dispatch`
   - 実行: `bash scripts/ae/run.sh nightly-deep`
-  - 収集: `artifacts/formal/*`, `artifacts/mutation/*`, `artifacts/trends/summary.json`
+  - 収集: `artifacts/formal/*`, `artifacts/mutation/*`, `artifacts/trends/summary.json`, `artifacts/framework-gaps/status.json`
   - 保存: 実行後の `artifacts/` と `.ae/` の差分を自動コミットして main に保存

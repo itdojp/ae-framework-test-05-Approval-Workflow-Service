@@ -64,6 +64,7 @@ jobs:
             artifacts/formal/${{ env.RUN_ID }}-csp-summary.json
             artifacts/mutation/summary.json
             artifacts/trends/summary.json
+            artifacts/framework-gaps/status.json
 
       - name: Persist generated artifacts to repository
         if: github.ref == 'refs/heads/main'

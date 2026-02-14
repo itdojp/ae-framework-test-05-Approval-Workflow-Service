@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-02-14T10:57:58.407Z",
+  "startedAt": "2026-02-14T10:57:57.971Z",
+  "sourceConfig": "configs/framework-gaps/issues.json",
+  "totalIssues": 1,
+  "okIssues": 1,
+  "failedIssues": 0,
+  "status": "pass",
+  "issues": [
+    {
+      "gapId": "BIZ_001",
+      "repo": "itdojp/ae-framework",
+      "issueNumber": 1967,
+      "localDoc": "docs/specs/ae-framework-gap-biz001.md",
+      "ok": true,
+      "issueUrl": "https://github.com/itdojp/ae-framework/issues/1967",
+      "state": "open",
+      "title": "spec-compiler: BIZ_001 warnings persist even with Business Rules defined",
+      "updatedAt": "2026-02-14T08:55:44Z",
+      "closedAt": null,
+      "labels": []
+    }
+  ]
+}

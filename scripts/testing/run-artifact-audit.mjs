@@ -46,7 +46,8 @@ function requiredSnapshotPaths(profile, runId) {
     'snapshots/hermetic-reports/formal/tla-summary.json',
     'snapshots/hermetic-reports/formal/csp-summary.json',
     'snapshots/mutation/summary.json',
-    'snapshots/trends/summary.json'
+    'snapshots/trends/summary.json',
+    'snapshots/framework-gaps/status.json'
   ];
 
   switch (profile) {

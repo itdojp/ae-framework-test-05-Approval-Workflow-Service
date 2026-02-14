@@ -87,6 +87,7 @@
   - `scripts/ae/run.sh` の run完了時に `artifacts/runs/<run-id>/snapshots/` へ主要成果物を自動複製し、run単位での再現性を強化。
   - `scripts/testing/trend-report.mjs` を追加し、`nightly-deep/full` 実行後に `artifacts/trends/summary.json` を自動生成するようにした。
   - `scripts/testing/run-artifact-audit.mjs` を追加し、各run終了時に `artifacts/runs/<run-id>/audit.json` で成果物欠落を自動監査するようにした。
+  - `scripts/testing/framework-gap-status.mjs` と `configs/framework-gaps/issues.json` を追加し、upstreamギャップIssue状態を `artifacts/framework-gaps/status.json` として nightly/full で定期取得するようにした。
   - `BIZ_001` 警告ギャップを `ae-framework` 本体 Issue `#1967` として起票した。
 - 継続タスク:
   - `spec-compiler` の `BIZ_001` 対応状況を `itdojp/ae-framework#1967` で追跡し、修正取り込み後に再検証する。

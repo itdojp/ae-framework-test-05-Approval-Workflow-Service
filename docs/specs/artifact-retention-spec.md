@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-ART-001`
-- 版: `v0.4`
+- 版: `v0.5`
 - 作成日: `2026-02-14`
 
 ## 2. 目的
@@ -27,6 +27,7 @@
 - `artifacts/properties/*`
 - `artifacts/mutation/*`
 - `artifacts/trends/*`
+- `artifacts/framework-gaps/*`
 3. 実行メタ:
 - `artifacts/runs/<run-id>/manifest.json`
 - `artifacts/runs/<run-id>/audit.json`

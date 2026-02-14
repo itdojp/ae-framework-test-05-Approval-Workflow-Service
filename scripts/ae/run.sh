@@ -13,7 +13,8 @@ mkdir -p "$LOG_DIR" "$PROJECT_ROOT/.ae" "$PROJECT_ROOT/artifacts/spec" \
   "$PROJECT_ROOT/artifacts/sim" "$PROJECT_ROOT/artifacts/conformance" \
   "$PROJECT_ROOT/artifacts/formal" "$PROJECT_ROOT/artifacts/properties" \
   "$PROJECT_ROOT/artifacts/mutation" "$PROJECT_ROOT/artifacts/mbt" \
-  "$PROJECT_ROOT/artifacts/verify-lite" "$PROJECT_ROOT/artifacts/trends"
+  "$PROJECT_ROOT/artifacts/verify-lite" "$PROJECT_ROOT/artifacts/trends" \
+  "$PROJECT_ROOT/artifacts/framework-gaps"
 
 log() {
   printf '[%s] %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*"
@@ -221,6 +222,16 @@ phase_trend() {
     pnpm --dir "$PROJECT_ROOT" run trend:report
 }
 
+phase_framework_gaps() {
+  if [[ ! -f "$PROJECT_ROOT/package.json" ]]; then
+    log "SKIP: package.json not found; framework gap status skipped"
+    return 0
+  fi
+
+  run_soft framework-gap-status \
+    pnpm --dir "$PROJECT_ROOT" run framework:gaps:status
+}
+
 phase_artifact_audit() {
   run_hard artifact-audit \
     node "$PROJECT_ROOT/scripts/testing/run-artifact-audit.mjs" \
@@ -285,6 +296,11 @@ snapshot_mutation_outputs() {
 snapshot_trend_outputs() {
   copy_if_exists "$PROJECT_ROOT/artifacts/trends/summary.json" \
     "$SNAPSHOT_DIR/trends/summary.json"
+}
+
+snapshot_framework_gap_outputs() {
+  copy_if_exists "$PROJECT_ROOT/artifacts/framework-gaps/status.json" \
+    "$SNAPSHOT_DIR/framework-gaps/status.json"
 }
 
 snapshot_outputs() {
@@ -378,6 +394,8 @@ main() {
   if [[ "$PROFILE" == "nightly-deep" || "$PROFILE" == "full" ]]; then
     phase_trend
     snapshot_trend_outputs
+    phase_framework_gaps
+    snapshot_framework_gap_outputs
   fi
 
   phase_artifact_audit

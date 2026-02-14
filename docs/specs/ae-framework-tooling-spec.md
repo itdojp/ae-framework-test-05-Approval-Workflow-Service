@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-AE-TOOL-001`
-- 版: `v0.4`
+- 版: `v0.5`
 - 作成日: `2026-02-14`
 - 対象: Approval Workflow Service（Issue #1）
 
@@ -37,6 +37,7 @@
 | Property | `pnpm run test:property` + `node scripts/testing/property-harness.mjs` | 不変条件（AW-INV）検証 | `tests/property/*` | `artifacts/properties/*` | PRごと |
 | Mutation | `pnpm run test:mutation:quick` | テストの欠陥検知能力確認（ANY/ALL・終端ガード・assigneeガード・request閲覧ガード・tenant分離ガード・workflow priority・approver未解決・RETURN/resubmit） | 実装/テスト | `artifacts/mutation/*` | 週次 |
 | Trend | `pnpm run trend:report` | run単位の品質推移集計（nightly/full） | `artifacts/runs/*/manifest.json`, `artifacts/runs/*/snapshots/**/*` | `artifacts/trends/summary.json` | nightly-deep/full |
+| Framework Gap Status | `pnpm run framework:gaps:status` | upstream gap issue 状態の定期取得（BIZ_001 追跡） | `configs/framework-gaps/issues.json` | `artifacts/framework-gaps/status.json` | nightly-deep/full |
 | Artifact Audit | `pnpm run artifacts:audit -- --run-id <id> --profile <profile>` | run単位成果物欠落の検知（fail-fast） | `artifacts/runs/<run-id>/` | `artifacts/runs/<run-id>/audit.json` | 各run終了時 |
 
 ## 5. 自動化ポリシー
@@ -67,6 +68,7 @@
 - verify-lite証跡化: `scripts/testing/verify-lite-harness.mjs`
 - conformance異常系検証: `scripts/testing/conformance-negative-harness.mjs`（`CONF_NEG_CONCURRENCY` で並列数制御）
 - trend集計: `scripts/testing/trend-report.mjs`（`TREND_MAX_RUNS` で走査件数制御）
+- framework gap状態取得: `scripts/testing/framework-gap-status.mjs`
 - 成果物監査: `scripts/testing/run-artifact-audit.mjs`
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
 - MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
@@ -85,6 +87,7 @@
 - 検証成果物: `artifacts/<category>/`
 - 仕様補助成果物: `artifacts/contracts/*`, `artifacts/domain/*`, `artifacts/simulation/*`
 - trend成果物: `artifacts/trends/*`
+- framework gap成果物: `artifacts/framework-gaps/*`
 - 実行単位のマニフェスト: `artifacts/runs/<run-id>/manifest.json`
 - 実行単位の監査結果: `artifacts/runs/<run-id>/audit.json`
 - 実行単位のスナップショット: `artifacts/runs/<run-id>/snapshots/**/*`
