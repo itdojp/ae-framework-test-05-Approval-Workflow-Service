@@ -1,0 +1,67 @@
+{
+  "status": "pass",
+  "startedAt": "2026-02-14T08:27:57.960Z",
+  "generatedAt": "2026-02-14T08:30:08.832Z",
+  "totalScenarios": 4,
+  "passedScenarios": 4,
+  "failedScenarios": 0,
+  "passed": true,
+  "scenarios": [
+    {
+      "scenarioId": "NEG-CONF-001",
+      "description": "request.title missing should fail title rule",
+      "expectedRuleId": "f5160a23-41fa-4784-a1ca-3a5f335b7ef2",
+      "passed": true,
+      "overall": "fail",
+      "expectedRuleStatus": "fail",
+      "rulesFailed": 1,
+      "durationMs": 32615,
+      "command": "pnpm --dir ../ae-framework exec tsx src/cli/index.ts conformance verify ...",
+      "exitCode": 0,
+      "stdoutTail": "❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 6ms\n\n🚨 Violations Found:\n\n1. RequestTitleRequired\n   Category: data_validation\n   Severity: major\n   Message: Rule violation: RequestTitleRequired\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   major: 1\n\n📂 Violations by Category:\n   data_validation: 1\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-001.result.json",
+      "stderrTail": ""
+    },
+    {
+      "scenarioId": "NEG-CONF-002",
+      "description": "request.amount over max should fail range rule",
+      "expectedRuleId": "8872f2a2-b89f-4d6d-9ed4-c4835a19576c",
+      "passed": true,
+      "overall": "fail",
+      "expectedRuleStatus": "fail",
+      "rulesFailed": 1,
+      "durationMs": 31883,
+      "command": "pnpm --dir ../ae-framework exec tsx src/cli/index.ts conformance verify ...",
+      "exitCode": 0,
+      "stdoutTail": "✅ Rules Passed: 4\n❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 4ms\n\n🚨 Violations Found:\n\n1. AmountUpperBound\n   Category: business_rule\n   Severity: minor\n   Message: Rule violation: AmountUpperBound\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   minor: 1\n\n📂 Violations by Category:\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-002.result.json",
+      "stderrTail": ""
+    },
+    {
+      "scenarioId": "NEG-CONF-003",
+      "description": "intruder actor should fail visibility rule",
+      "expectedRuleId": "c085fa79-adb6-4392-8ace-3d54ced1ba02",
+      "passed": true,
+      "overall": "fail",
+      "expectedRuleStatus": "fail",
+      "rulesFailed": 1,
+      "durationMs": 33334,
+      "command": "pnpm --dir ../ae-framework exec tsx src/cli/index.ts conformance verify ...",
+      "exitCode": 0,
+      "stdoutTail": "❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 7ms\n\n🚨 Violations Found:\n\n1. RequestVisibilityScope\n   Category: security_policy\n   Severity: major\n   Message: Rule violation: RequestVisibilityScope\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   major: 1\n\n📂 Violations by Category:\n   security_policy: 1\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-003.result.json",
+      "stderrTail": ""
+    },
+    {
+      "scenarioId": "NEG-CONF-004",
+      "description": "cross-tenant actor should fail tenant isolation rule",
+      "expectedRuleId": "c279426c-fb51-4b41-9b7e-4fbada093eba",
+      "passed": true,
+      "overall": "fail",
+      "expectedRuleStatus": "fail",
+      "rulesFailed": 1,
+      "durationMs": 33036,
+      "command": "pnpm --dir ../ae-framework exec tsx src/cli/index.ts conformance verify ...",
+      "exitCode": 0,
+      "stdoutTail": "❌ Rules Failed: 1\n⏭️  Rules Skipped: 1\n🚨 Rules Error: 0\n⏱️  Total Duration: 9ms\n\n🚨 Violations Found:\n\n1. TenantIsolationGuard\n   Category: security_policy\n   Severity: major\n   Message: Rule violation: TenantIsolationGuard\n   Actual: false\n   Expected: true\n\n📈 Violations by Severity:\n   major: 1\n\n📂 Violations by Category:\n   security_policy: 1\n💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/negative/NEG-CONF-004.result.json",
+      "stderrTail": ""
+    }
+  ]
+}

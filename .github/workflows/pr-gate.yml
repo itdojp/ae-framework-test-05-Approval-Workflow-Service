@@ -62,6 +62,8 @@ jobs:
           path: |
             artifacts/runs/${{ env.RUN_ID }}
             artifacts/conformance/result.json
+            artifacts/conformance/negative-summary.json
+            artifacts/conformance/negative
             artifacts/mbt/summary.json
             artifacts/properties/summary.json
             artifacts/verify-lite/summary.json

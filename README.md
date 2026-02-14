@@ -40,6 +40,7 @@ pnpm run dev
 pnpm run test:mbt
 pnpm run test:property
 pnpm run test:mutation:quick
+pnpm run test:conformance:negative
 pnpm run verify:lite:report
 ```
 
@@ -61,7 +62,7 @@ conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定�
 - `pr-gate.yml`:
   - Trigger: `pull_request`, `push(main)`
   - 実行: `bash scripts/ae/run.sh pr-gate`
-  - 収集: `.ae/ae-ir.json`, `artifacts/conformance/*`, `artifacts/mbt/*`, `artifacts/properties/*`, `artifacts/verify-lite/*`
+  - 収集: `.ae/ae-ir.json`, `artifacts/conformance/*`（negative含む）, `artifacts/mbt/*`, `artifacts/properties/*`, `artifacts/verify-lite/*`
 - `nightly-deep.yml`:
   - Trigger: `schedule`（毎日 17:00 UTC）, `workflow_dispatch`
   - 実行: `bash scripts/ae/run.sh nightly-deep`

@@ -31,7 +31,7 @@
 | Replay生成 | `node scripts/spec/generate-replay-fixtures.mjs` | 検証用入力固定化 | `contracts.json` | `artifacts/spec/replay.json` | 契約更新時 |
 | Deterministic実行 | `node scripts/simulation/deterministic-runner.mjs` | 再現性確認 | `replay.json` | `artifacts/sim/sim.json` | PR前 |
 | 軽量ゲート | `pnpm run verify:lite:report` | lint/test/build の最小品質担保と結果保存 | 実装コード一式 | `artifacts/verify-lite/*` | PRごと |
-| Conformance | `ae conformance verify` | ルール/スキーマ違反検出（title/amountに加えて request可視性・tenant分離を式評価） | 入力JSON + ルール | `artifacts/conformance/*` | API/ルール更新時 |
+| Conformance | `ae conformance verify` + `pnpm run test:conformance:negative` | ルール/スキーマ違反検出と異常系での fail 検証（title/amount + request可視性 + tenant分離） | 入力JSON + ルール | `artifacts/conformance/*` | API/ルール更新時 |
 | MBT | `pnpm run test:mbt:quick` | 状態遷移モデル（12.1）の検証 | `tests/mbt/*` | `artifacts/mbt/*` | PRごと |
 | Formal（重点） | `pnpm run verify:tla`, `pnpm run verify:csp` | 同時決裁競合（AW-ACC-01）の安全性検証 | `spec/formal/*` | `artifacts/formal/*` | 日次または手動 |
 | Property | `pnpm run test:property` + `node scripts/testing/property-harness.mjs` | 不変条件（AW-INV）検証 | `tests/property/*` | `artifacts/properties/*` | PRごと |
@@ -61,6 +61,7 @@
 - タスク定義: `codex/ae.playbook.yaml`
 - 実行ラッパー: `scripts/ae/run.sh`
 - verify-lite証跡化: `scripts/testing/verify-lite-harness.mjs`
+- conformance異常系検証: `scripts/testing/conformance-negative-harness.mjs`
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
 - MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
 - formalモデル（サービス固有）: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`

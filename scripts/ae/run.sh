@@ -122,6 +122,10 @@ phase_conformance() {
     conformance verify --input "$input_file" --rules "$rules_file" \
     "${context_args[@]}" "${rule_args[@]}" \
     --format json --output "$PROJECT_ROOT/artifacts/conformance/result.json"
+
+  run_hard conformance-negative \
+    env AE_FRAMEWORK_DIR="$AE_FRAMEWORK_DIR" \
+    pnpm --dir "$PROJECT_ROOT" run test:conformance:negative
 }
 
 phase_verify_lite() {
