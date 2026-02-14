@@ -11,6 +11,7 @@
 - ae-framework ギャップ記録（BIZ_001）: `docs/specs/ae-framework-gap-biz001.md`
 - 中間生成物保存仕様: `docs/specs/artifact-retention-spec.md`
 - 自動実行設定: `codex/ae.playbook.yaml`, `scripts/ae/run.sh`
+- CI自動実行: `.github/workflows/pr-gate.yml`, `.github/workflows/nightly-deep.yml`
 
 ## 実装（Phase 1/2）
 
@@ -39,6 +40,7 @@ pnpm run dev
 pnpm run test:mbt
 pnpm run test:property
 pnpm run test:mutation:quick
+pnpm run verify:lite:report
 ```
 
 `pnpm run dev` 後、`http://localhost:3000/ui/` で最小UIを利用可能。
@@ -53,3 +55,14 @@ AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh full
 ```
 
 conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定して実行する。
+
+## CI自動化
+
+- `pr-gate.yml`:
+  - Trigger: `pull_request`, `push(main)`
+  - 実行: `bash scripts/ae/run.sh pr-gate`
+  - 収集: `.ae/ae-ir.json`, `artifacts/conformance/*`, `artifacts/mbt/*`, `artifacts/properties/*`, `artifacts/verify-lite/*`
+- `nightly-deep.yml`:
+  - Trigger: `schedule`（毎日 17:00 UTC）, `workflow_dispatch`
+  - 実行: `bash scripts/ae/run.sh nightly-deep`
+  - 収集: `artifacts/formal/*`, `artifacts/mutation/*`

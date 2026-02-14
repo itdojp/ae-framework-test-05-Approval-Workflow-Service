@@ -17,7 +17,8 @@
     "test:mbt:quick": "node scripts/testing/mbt-quick.mjs",
     "test:property": "vitest run tests/property",
     "test:mutation:quick": "node scripts/testing/mutation-quick.mjs",
-    "verify:lite": "pnpm run build && pnpm run test:fast"
+    "verify:lite": "pnpm run build && pnpm run test:fast",
+    "verify:lite:report": "node scripts/testing/verify-lite-harness.mjs"
   },
   "dependencies": {
     "express": "^4.21.2"

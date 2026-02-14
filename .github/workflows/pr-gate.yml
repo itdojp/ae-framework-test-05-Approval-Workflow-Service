@@ -1,0 +1,68 @@
+name: pr-gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout service repository
+        uses: actions/checkout@v4
+
+      - name: Checkout ae-framework repository
+        uses: actions/checkout@v4
+        with:
+          repository: itdojp/ae-framework
+          path: ae-framework
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install service dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install ae-framework dependencies
+        run: pnpm --dir ae-framework install --frozen-lockfile
+
+      - name: Prepare run id
+        run: echo "RUN_ID=$(date -u +%Y-%m-%d)-pr-gate-ci-${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"
+
+      - name: Execute pr-gate profile
+        run: bash scripts/ae/run.sh pr-gate
+        env:
+          AE_FRAMEWORK_DIR: ${{ github.workspace }}/ae-framework
+          RUN_ID: ${{ env.RUN_ID }}
+
+      - name: Upload pr-gate artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-gate-${{ env.RUN_ID }}
+          if-no-files-found: error
+          path: |
+            artifacts/runs/${{ env.RUN_ID }}
+            artifacts/conformance/result.json
+            artifacts/mbt/summary.json
+            artifacts/properties/summary.json
+            artifacts/verify-lite/summary.json
+            .ae/ae-ir.json

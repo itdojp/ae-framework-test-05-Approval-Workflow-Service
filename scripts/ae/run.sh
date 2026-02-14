@@ -11,7 +11,8 @@ LOG_DIR="$RUN_DIR/logs"
 mkdir -p "$LOG_DIR" "$PROJECT_ROOT/.ae" "$PROJECT_ROOT/artifacts/spec" \
   "$PROJECT_ROOT/artifacts/sim" "$PROJECT_ROOT/artifacts/conformance" \
   "$PROJECT_ROOT/artifacts/formal" "$PROJECT_ROOT/artifacts/properties" \
-  "$PROJECT_ROOT/artifacts/mutation" "$PROJECT_ROOT/artifacts/mbt"
+  "$PROJECT_ROOT/artifacts/mutation" "$PROJECT_ROOT/artifacts/mbt" \
+  "$PROJECT_ROOT/artifacts/verify-lite"
 
 log() {
   printf '[%s] %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*"
@@ -123,6 +124,16 @@ phase_conformance() {
     --format json --output "$PROJECT_ROOT/artifacts/conformance/result.json"
 }
 
+phase_verify_lite() {
+  if [[ ! -f "$PROJECT_ROOT/package.json" ]]; then
+    log "SKIP: package.json not found; verify-lite skipped"
+    return 0
+  fi
+
+  run_hard verify-lite \
+    pnpm --dir "$PROJECT_ROOT" run verify:lite:report
+}
+
 phase_property() {
   if [[ ! -d "$PROJECT_ROOT/tests/property" ]]; then
     log "SKIP: tests/property not found"
@@ -193,10 +204,10 @@ write_manifest() {
   "aeFrameworkDir": "$AE_FRAMEWORK_DIR",
   "logDir": "artifacts/runs/$RUN_ID/logs",
   "notes": [
-    "dev-fast: spec系中心",
-    "pr-gate: spec + conformance + mbt + property",
+    "dev-fast: spec + verify-lite",
+    "pr-gate: spec + verify-lite + conformance + mbt + property",
     "nightly-deep: formal + mutation",
-    "full: すべて実行"
+    "full: verify-lite を含む全フェーズ実行"
   ]
 }
 EOF
@@ -208,9 +219,11 @@ main() {
   case "$PROFILE" in
     dev-fast)
       phase_spec
+      phase_verify_lite
       ;;
     pr-gate)
       phase_spec
+      phase_verify_lite
       phase_conformance
       phase_mbt
       phase_property
@@ -221,6 +234,7 @@ main() {
       ;;
     full)
       phase_spec
+      phase_verify_lite
       phase_conformance
       phase_mbt
       phase_property

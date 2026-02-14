@@ -78,5 +78,8 @@
   - `AW-AUTH-001`（request閲覧の可視性）と `AW-TENANT-001`（cross-tenant 403）を受入/APIテストで追加検証。
   - conformance ルールを式ベースへ更新し、`RequestVisibilityScope` と `TenantIsolationGuard` を追加（rule-id 4件運用）。
   - mutation対象を9系統へ拡張し（request閲覧ガード・tenant分離ガードを追加）、score=1.0を維持。
+  - `verify-lite` 証跡ハーネスを追加（`scripts/testing/verify-lite-harness.mjs`）し、`artifacts/verify-lite/summary.json` を自動生成。
+  - `run.sh` のプロファイルを修正し、`dev-fast/pr-gate/full` で `verify-lite` を必ず実行。
+  - GitHub Actions を追加し、`pr-gate.yml`（PR/Push）と `nightly-deep.yml`（schedule/manual）を自動実行化。
 - 継続タスク:
   - `spec-compiler` の `BIZ_001` 警告3件に対する framework側改善提案整理（`docs/specs/ae-framework-gap-biz001.md`）。

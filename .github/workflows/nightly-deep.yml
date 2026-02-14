@@ -1,0 +1,65 @@
+name: nightly-deep
+
+on:
+  schedule:
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nightly-deep
+  cancel-in-progress: false
+
+jobs:
+  nightly-deep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout service repository
+        uses: actions/checkout@v4
+
+      - name: Checkout ae-framework repository
+        uses: actions/checkout@v4
+        with:
+          repository: itdojp/ae-framework
+          path: ae-framework
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install service dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install ae-framework dependencies
+        run: pnpm --dir ae-framework install --frozen-lockfile
+
+      - name: Prepare run id
+        run: echo "RUN_ID=$(date -u +%Y-%m-%d)-nightly-deep-ci-${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"
+
+      - name: Execute nightly-deep profile
+        run: bash scripts/ae/run.sh nightly-deep
+        env:
+          AE_FRAMEWORK_DIR: ${{ github.workspace }}/ae-framework
+          RUN_ID: ${{ env.RUN_ID }}
+
+      - name: Upload nightly-deep artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-deep-${{ env.RUN_ID }}
+          if-no-files-found: error
+          path: |
+            artifacts/runs/${{ env.RUN_ID }}
+            artifacts/formal/${{ env.RUN_ID }}-tla-summary.json
+            artifacts/formal/${{ env.RUN_ID }}-csp-summary.json
+            artifacts/mutation/summary.json

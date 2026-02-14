@@ -30,7 +30,7 @@
 | 契約生成 | `node scripts/spec/generate-contracts.mjs` | API契約の抽出 | `.ae/ae-ir.json` | `artifacts/spec/contracts.json` | API変更時 |
 | Replay生成 | `node scripts/spec/generate-replay-fixtures.mjs` | 検証用入力固定化 | `contracts.json` | `artifacts/spec/replay.json` | 契約更新時 |
 | Deterministic実行 | `node scripts/simulation/deterministic-runner.mjs` | 再現性確認 | `replay.json` | `artifacts/sim/sim.json` | PR前 |
-| 軽量ゲート | `pnpm run verify:lite` | lint/test/build の最小品質担保 | 実装コード一式 | `artifacts/verify-lite/*` | PRごと |
+| 軽量ゲート | `pnpm run verify:lite:report` | lint/test/build の最小品質担保と結果保存 | 実装コード一式 | `artifacts/verify-lite/*` | PRごと |
 | Conformance | `ae conformance verify` | ルール/スキーマ違反検出（title/amountに加えて request可視性・tenant分離を式評価） | 入力JSON + ルール | `artifacts/conformance/*` | API/ルール更新時 |
 | MBT | `pnpm run test:mbt:quick` | 状態遷移モデル（12.1）の検証 | `tests/mbt/*` | `artifacts/mbt/*` | PRごと |
 | Formal（重点） | `pnpm run verify:tla`, `pnpm run verify:csp` | 同時決裁競合（AW-ACC-01）の安全性検証 | `spec/formal/*` | `artifacts/formal/*` | 日次または手動 |
@@ -43,8 +43,8 @@
 - Codex 実行は `approval_policy=never` を基準とする。
 - 実行スクリプトは fail-fast（実装品質に直結）と report-only（重検証）を分離する。
 2. CI自動化:
-- PRトリガ: `verify:lite` + property + conformance（軽量範囲）
-- 手動/定期トリガ: formal + mutation（重検証）
+- PRトリガ: `pr-gate.yml`（`verify-lite + conformance + mbt + property`）
+- 手動/定期トリガ: `nightly-deep.yml`（formal + mutation）
 3. 証跡保存:
 - 各ジョブで `artifacts/` を更新し、必要に応じてコミットして追跡可能にする。
 
@@ -60,9 +60,11 @@
 
 - タスク定義: `codex/ae.playbook.yaml`
 - 実行ラッパー: `scripts/ae/run.sh`
+- verify-lite証跡化: `scripts/testing/verify-lite-harness.mjs`
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
 - MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
 - formalモデル（サービス固有）: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
+- GitHub Actions: `.github/workflows/pr-gate.yml`, `.github/workflows/nightly-deep.yml`
 - 実行例:
   - `bash scripts/ae/run.sh dev-fast`
   - `bash scripts/ae/run.sh pr-gate`
