@@ -1,14 +1,6 @@
 {
-<<<<<<< HEAD
-  "generatedAt": "2026-02-15T17:07:03.263Z",
-  "startedAt": "2026-02-15T17:07:02.965Z",
-||||||| parent of 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
-  "generatedAt": "2026-02-15T08:41:32.156Z",
-  "startedAt": "2026-02-15T08:41:32.060Z",
-=======
-  "generatedAt": "2026-02-15T23:39:16.390Z",
-  "startedAt": "2026-02-15T23:39:15.910Z",
->>>>>>> 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
+  "generatedAt": "2026-02-15T23:40:45.115Z",
+  "startedAt": "2026-02-15T23:40:44.640Z",
   "sourceConfig": "configs/framework-gaps/issues.json",
   "totalIssues": 1,
   "okIssues": 1,
