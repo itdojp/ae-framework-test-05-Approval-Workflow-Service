@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-02-15T08:33:18.285Z
+GeneratedAt: 2026-02-15T08:36:28.386Z
 
 ## Overview
 
-- totalRuns: 56
-- auditedRuns: 13
-- auditPassedRuns: 13
+- totalRuns: 57
+- auditedRuns: 14
+- auditPassedRuns: 14
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,8 +14,8 @@ GeneratedAt: 2026-02-15T08:33:18.285Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| pr-gate | 18 | 6 | 6 | 0 | 6 | 2026-02-15-pr-gate-ci-13 | 2026-02-15T08:36:28.000Z |
 | nightly-deep | 19 | 6 | 6 | 0 | 7 | 2026-02-14-nightly-deep-ci-8 | 2026-02-14T17:07:49.000Z |
-| pr-gate | 17 | 5 | 5 | 0 | 6 | 2026-02-14-pr-gate-ci-12 | 2026-02-14T15:27:27.000Z |
 | dev-fast | 5 | 2 | 2 | 0 | 0 | 2026-02-14-dev-fast-r7-local | 2026-02-14T15:24:14.000Z |
 | full | 13 | 0 | 0 | 0 | 0 | 2026-02-14-full-r13 | 2026-02-14T10:02:07.000Z |
 | unknown | 2 | 0 | 0 | 0 | 2 | 2026-02-14-automation-setup | 2026-02-14T00:40:00.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-02-15T08:33:18.285Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-02-15-pr-gate-ci-13 | pr-gate | 2026-02-15T08:36:28.000Z | true | 0 | 13 | 17 |  |
 | 2026-02-14-nightly-deep-ci-8 | nightly-deep | 2026-02-14T17:07:49.000Z | true | 0 | 0 | 10 | open |
 | 2026-02-14-nightly-deep-ci-7 | nightly-deep | 2026-02-14T15:30:10.000Z | true | 0 | 0 | 10 | open |
 | 2026-02-14-pr-gate-ci-12 | pr-gate | 2026-02-14T15:27:27.000Z | true | 0 | 0 | 17 |  |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-02-15T08:33:18.285Z
 | 2026-02-14-nightly-r2 | nightly-deep | 2026-02-14T04:01:57.000Z |  |  | 3 | 0 |  |
 | 2026-02-14-pr-gate-r2 | pr-gate | 2026-02-14T04:01:48.000Z |  |  | 7 | 0 |  |
 | 2026-02-14-nightly-deep-formal-copy | nightly-deep | 2026-02-14T00:45:10.000Z |  |  | 3 | 0 |  |
-| 2026-02-14-full-auto | full | 2026-02-14T00:44:52.000Z |  |  | 10 | 0 |  |
 
