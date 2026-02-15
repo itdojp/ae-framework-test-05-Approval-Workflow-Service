@@ -3,3 +3,5 @@ dist/
 coverage/
 .DS_Store
 *.log
+!artifacts/runs/**/logs/
+!artifacts/runs/**/logs/*.log

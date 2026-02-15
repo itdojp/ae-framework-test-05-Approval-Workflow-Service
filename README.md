@@ -64,7 +64,7 @@ AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh full
 
 conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定して実行する。
 
-`scripts/ae/run.sh` は各実行後に `artifacts/runs/<run-id>/snapshots/` へ主要中間生成物を自動複製し、`artifacts/runs/<run-id>/audit.json` で欠落監査を行い、`artifacts/runs/index.json` / `artifacts/runs/index.md` を自動更新する。
+`scripts/ae/run.sh` は各実行後に `artifacts/runs/<run-id>/snapshots/` へ主要中間生成物を自動複製し、`artifacts/runs/<run-id>/logs/*.log` を含む実行ログを保存し、`artifacts/runs/<run-id>/audit.json` で欠落監査を行い、`artifacts/runs/index.json` / `artifacts/runs/index.md` を自動更新する。
 
 ## CI自動化
 

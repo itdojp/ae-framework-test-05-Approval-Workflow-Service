@@ -1,0 +1,5 @@
+
+> approval-workflow-service@0.1.0 verify:lite:report /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service
+> node scripts/testing/verify-lite-harness.mjs
+
+verify-lite summary generated at /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/verify-lite/summary.json

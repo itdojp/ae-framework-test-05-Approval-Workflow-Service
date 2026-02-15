@@ -1,0 +1,31 @@
+🔍 Starting conformance verification...
+📄 Loaded input data from /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/configs/conformance/input.json
+📋 Loaded context from /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/configs/conformance/context.json
+📜 Loading 2 custom rules...
+🚀 Engine started, running verification...
+
+📊 Verification Results:
+
+✅ Overall Status: FAIL
+📋 Total Rules: 4
+🔧 Rules Executed: 3
+✅ Rules Passed: 2
+❌ Rules Failed: 1
+⏭️  Rules Skipped: 1
+🚨 Rules Error: 0
+⏱️  Total Duration: 3ms
+
+🚨 Violations Found:
+
+1. User identifier is UUID
+   Category: data_validation
+   Severity: major
+   Message: Data validation failed: Required
+   Expected: "Valid data according to schema"
+
+📈 Violations by Severity:
+   major: 1
+
+📂 Violations by Category:
+   data_validation: 1
+💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/result.json

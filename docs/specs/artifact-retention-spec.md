@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-ART-001`
-- 版: `v0.6`
+- 版: `v0.7`
 - 作成日: `2026-02-14`
 
 ## 2. 目的
@@ -33,7 +33,7 @@
 - `artifacts/runs/<run-id>/audit.json`
 - `artifacts/runs/index.json`
 - `artifacts/runs/index.md`
-- 実行ログ（必要に応じて `artifacts/runs/<run-id>/logs/*`）
+- 実行ログ（必須）: `artifacts/runs/<run-id>/logs/*.log`
 - run単位スナップショット: `artifacts/runs/<run-id>/snapshots/**/*`
 
 ## 4. 命名規則
@@ -48,7 +48,7 @@
 
 1. 生成物は実行ごとに `artifacts/runs/<run-id>/` へ集約する。
   - `scripts/ae/run.sh` は終了時に主要成果物を `snapshots/` へ自動複製する。
-  - 同時に `audit.json` を生成し、runごとの欠落有無を記録する。
+  - 同時に `logs/*.log` と `audit.json` を生成し、runごとの欠落有無を記録する。
   - さらに `index.json` / `index.md` を更新し、run横断で監査結果と最新実行を参照可能にする。
 2. 生成物を含むコミットメッセージには `run-id` と目的を含める。
 3. PR説明欄に対象 `run-id` を列挙し、追跡可能にする。

@@ -1,0 +1,6 @@
+
+> ae-framework@1.0.0 verify:csp /home/devuser/work/CodeX/ae-framework_exp05/ae-framework
+> node scripts/formal/verify-csp.mjs
+
+CSP summary written: artifacts/hermetic-reports/formal/csp-summary.json
+- file=spec/csp/sample.cspm status=ran backend=cspx:typecheck

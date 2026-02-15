@@ -1,0 +1,2 @@
+TLA summary written: artifacts/hermetic-reports/formal/tla-summary.json
+- engine=tlc file=spec/formal/approval-any-all.tla status=failed

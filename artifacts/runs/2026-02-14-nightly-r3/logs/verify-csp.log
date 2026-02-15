@@ -1,0 +1,2 @@
+CSP summary written: artifacts/hermetic-reports/formal/csp-summary.json
+- file=spec/formal/approval-any-all.cspm status=error backend=cspx:typecheck

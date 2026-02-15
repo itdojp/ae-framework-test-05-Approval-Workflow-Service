@@ -1,0 +1,16 @@
+🔍 Linting /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/.ae/ae-ir.json...
+
+📊 Lint Results:
+   ✅ Errors: 0
+   ⚠️  Warnings: 3
+   ℹ️  Info: 0
+
+📋 Issues:
+⚠️  BIZ_001: Entity 'ApprovalRequest' has no business rules defined [domain]
+   💡 Consider adding invariants or constraints for this entity
+⚠️  BIZ_001: Entity 'ApprovalTask' has no business rules defined [domain]
+   💡 Consider adding invariants or constraints for this entity
+⚠️  BIZ_001: Entity 'WorkflowDefinition' has no business rules defined [domain]
+   💡 Consider adding invariants or constraints for this entity
+
+✅ All quality checks passed

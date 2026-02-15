@@ -1,0 +1,91 @@
+🔍 Starting conformance verification...
+📄 Loaded input data from /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/configs/conformance/input.json
+📋 Loaded context from /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/configs/conformance/context.json
+📜 Loading 2 custom rules...
+🚀 Engine started, running verification...
+
+📊 Verification Results:
+
+✅ Overall Status: FAIL
+📋 Total Rules: 23
+🔧 Rules Executed: 22
+✅ Rules Passed: 13
+❌ Rules Failed: 9
+⏭️  Rules Skipped: 1
+🚨 Rules Error: 0
+⏱️  Total Duration: 9ms
+
+🚨 Violations Found:
+
+1. Messages use AES-256-GCM encryption
+   Category: security_policy
+   Severity: critical
+   Message: Rule violation: Messages use AES-256-GCM encryption
+   Actual: false
+   Expected: true
+
+2. Auth tag has expected length
+   Category: security_policy
+   Severity: major
+   Message: Rule violation: Auth tag has expected length
+   Actual: false
+   Expected: true
+
+3. Published one-time pre-keys meet threshold
+   Category: security_policy
+   Severity: major
+   Message: Rule violation: Published one-time pre-keys meet threshold
+   Actual: false
+   Expected: true
+
+4. User retains an active device
+   Category: business_logic
+   Severity: major
+   Message: Rule violation: User retains an active device
+   Actual: false
+   Expected: true
+
+5. Audit log is append-only
+   Category: compliance_rule
+   Severity: major
+   Message: Rule violation: Audit log is append-only
+   Actual: false
+   Expected: true
+
+6. Audit payload matches stored event type
+   Category: compliance_rule
+   Severity: major
+   Message: Rule violation: Audit payload matches stored event type
+   Actual: false
+   Expected: true
+
+7. GDPR retention window satisfied
+   Category: compliance_rule
+   Severity: major
+   Message: Rule violation: GDPR retention window satisfied
+   Actual: false
+   Expected: true
+
+8. Invalid auth tags emit audit events
+   Category: security_policy
+   Severity: major
+   Message: Rule violation: Invalid auth tags emit audit events
+   Actual: false
+   Expected: true
+
+9. User identifier is UUID
+   Category: data_validation
+   Severity: major
+   Message: Data validation failed: Required
+   Expected: "Valid data according to schema"
+
+📈 Violations by Severity:
+   critical: 1
+   major: 8
+
+📂 Violations by Category:
+   data_validation: 1
+   business_logic: 1
+   security_policy: 4
+   compliance_rule: 3
+💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/result.json

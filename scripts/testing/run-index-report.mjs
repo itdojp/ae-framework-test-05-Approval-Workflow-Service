@@ -122,6 +122,7 @@ function summarizeByProfile(runs) {
         auditedRuns: 0,
         auditPassedRuns: 0,
         auditFailedRuns: 0,
+        loglessRuns: 0,
         latestRunId: null,
         latestCreatedAt: null
       };
@@ -135,6 +136,9 @@ function summarizeByProfile(runs) {
       } else if (run.auditPassed === false) {
         item.auditFailedRuns += 1;
       }
+    }
+    if (run.logFileCount === 0) {
+      item.loglessRuns += 1;
     }
     if (!item.latestCreatedAt || (run.createdAt && run.createdAt > item.latestCreatedAt)) {
       item.latestCreatedAt = run.createdAt;
@@ -156,24 +160,25 @@ function buildMarkdown(summary) {
   lines.push(`- auditedRuns: ${summary.auditedRuns}`);
   lines.push(`- auditPassedRuns: ${summary.auditPassedRuns}`);
   lines.push(`- auditFailedRuns: ${summary.auditFailedRuns}`);
+  lines.push(`- loglessRuns: ${summary.loglessRuns}`);
   lines.push('');
   lines.push('## Profile Summary');
   lines.push('');
-  lines.push('| Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | latestRunId | latestCreatedAt |');
-  lines.push('| --- | ---: | ---: | ---: | ---: | --- | --- |');
+  lines.push('| Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |');
+  lines.push('| --- | ---: | ---: | ---: | ---: | ---: | --- | --- |');
   for (const [profile, item] of Object.entries(summary.profileSummary)) {
     lines.push(
-      `| ${profile} | ${item.totalRuns} | ${item.auditedRuns} | ${item.auditPassedRuns} | ${item.auditFailedRuns} | ${item.latestRunId || ''} | ${item.latestCreatedAt || ''} |`
+      `| ${profile} | ${item.totalRuns} | ${item.auditedRuns} | ${item.auditPassedRuns} | ${item.auditFailedRuns} | ${item.loglessRuns} | ${item.latestRunId || ''} | ${item.latestCreatedAt || ''} |`
     );
   }
   lines.push('');
   lines.push('## Latest Runs');
   lines.push('');
-  lines.push('| runId | profile | createdAt | auditPassed | auditMissingCount | snapshotFileCount | frameworkGapState |');
-  lines.push('| --- | --- | --- | --- | ---: | ---: | --- |');
+  lines.push('| runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |');
+  lines.push('| --- | --- | --- | --- | ---: | ---: | ---: | --- |');
   for (const run of summary.latestRuns) {
     lines.push(
-      `| ${run.runId} | ${run.profile || ''} | ${run.createdAt || ''} | ${run.auditPassed === null ? '' : run.auditPassed} | ${run.auditMissingCount ?? ''} | ${run.snapshotFileCount} | ${run.frameworkGapState || ''} |`
+      `| ${run.runId} | ${run.profile || ''} | ${run.createdAt || ''} | ${run.auditPassed === null ? '' : run.auditPassed} | ${run.auditMissingCount ?? ''} | ${run.logFileCount} | ${run.snapshotFileCount} | ${run.frameworkGapState || ''} |`
     );
   }
   lines.push('');
@@ -204,6 +209,7 @@ function main() {
   const auditedRuns = runs.filter((run) => run.hasAudit).length;
   const auditPassedRuns = runs.filter((run) => run.auditPassed === true).length;
   const auditFailedRuns = runs.filter((run) => run.auditPassed === false).length;
+  const loglessRuns = runs.filter((run) => run.logFileCount === 0).length;
 
   const summary = {
     generatedAt: new Date().toISOString(),
@@ -212,6 +218,7 @@ function main() {
     auditedRuns,
     auditPassedRuns,
     auditFailedRuns,
+    loglessRuns,
     profileSummary: summarizeByProfile(runs),
     latestRuns: runs.slice(0, 50)
   };

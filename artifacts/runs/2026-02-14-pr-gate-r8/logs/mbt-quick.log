@@ -1,0 +1,5 @@
+
+> approval-workflow-service@0.1.0 test:mbt:quick /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service
+> node scripts/testing/mbt-quick.mjs
+
+mbt quick summary generated at /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/mbt/summary.json
