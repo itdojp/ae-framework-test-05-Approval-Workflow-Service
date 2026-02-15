@@ -90,6 +90,6 @@
   - `scripts/testing/run-index-report.mjs` を追加し、各run終了時に `artifacts/runs/index.json` / `artifacts/runs/index.md` を自動更新して run横断の監査・参照を可能にした。
   - `.gitignore` の `*.log` 除外を見直し、`artifacts/runs/<run-id>/logs/*.log` をGit保存対象へ変更した。
   - `scripts/testing/framework-gap-status.mjs` と `configs/framework-gaps/issues.json` を追加し、upstreamギャップIssue状態を `artifacts/framework-gaps/status.json` として nightly/full で定期取得するようにした。
+  - framework gap status に `revalidationRequired` 判定を追加し、upstream issue が close された際の再検証要否を機械判定できるようにした。
   - `BIZ_001` 警告ギャップを `ae-framework` 本体 Issue `#1967` として起票した。
-- 継続タスク:
-  - `spec-compiler` の `BIZ_001` 対応状況を `itdojp/ae-framework#1967` で追跡し、修正取り込み後に再検証する。
+  - `itdojp/ae-framework#1967` close 後、`2026-02-15-pr-gate-ci-13` で `spec validate/lint` warnings=0 を確認し、`BIZ_001` 解消を再検証した。

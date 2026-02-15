@@ -1,41 +1,34 @@
-# ae-framework Gap: `BIZ_001` 警告の恒常発生
+# ae-framework Gap: `BIZ_001` 警告（解消記録）
 
 ## 1. 背景
 
 - 対象: `ae-framework` の `spec validate` / `spec lint`
-- 対象警告: `BIZ_001`（Entity に business rules が未定義）
-- 観測日: `2026-02-14`
+- 識別子: `BIZ_001`
+- 起票: <https://github.com/itdojp/ae-framework/issues/1967>
 
-## 2. 観測結果
+## 2. 過去の観測（2026-02-14）
 
-- 本リポジトリの `spec/approval-workflow.md` では `Business Rules` を定義しているが、以下警告が継続発生する。
+- `spec/approval-workflow.md` に `Business Rules` を記述しても、以下警告が継続発生していた。
   - `Entity 'ApprovalRequest' has no business rules defined`
   - `Entity 'ApprovalTask' has no business rules defined`
   - `Entity 'WorkflowDefinition' has no business rules defined`
-- 再現 run-id:
-  - `2026-02-14-full-r10`
-  - `2026-02-14-full-r11`
+- 当時は本ギャップを known gap として扱い、他検証（conformance/mbt/property/formal/mutation）を継続していた。
 
-## 3. 技術的観点（根拠）
+## 3. 現在の状態（2026-02-15）
 
-- `ae-framework/packages/spec-compiler/src/compiler.ts` の `validateBusinessLogic` は、`invariants[].entities` に Entity 名が入っていることを前提に判定している。
-- 同ファイル `parseInvariants` では `entities: []` 固定で生成しており、Markdown から Entity 参照を抽出していない。
-- そのため、仕様側で `Business Rules` を追加しても `BIZ_001` が解消しない。
+- upstream issue `itdojp/ae-framework#1967` は `closed`。
+- 本リポジトリの再検証結果:
+  - run-id: `2026-02-15-pr-gate-ci-13`
+  - `spec-validate.log`: Warnings `0`
+  - `spec-lint.log`: Warnings `0`
+- 判定: `BIZ_001` は本リポジトリ観点で解消確認済み。
 
-## 4. 暫定対応
+## 4. 運用ルール
 
-- 本リポジトリでは `BIZ_001` を「frameworkギャップ」として記録し、他の検証（conformance/mbt/property/formal/mutation）を継続する。
+- `configs/framework-gaps/issues.json` で以下を管理する。
+  - `revalidatedAtRunId`
+  - `revalidatedAt`
+  - `resolutionNote`
+- `scripts/testing/framework-gap-status.mjs` は upstream issue が close かつ `revalidatedAtRunId` 未設定の場合に
+  `revalidationRequired=true` を返す。
 
-## 5. 改善提案（ae-framework 側）
-
-1. `parseInvariants` で Entity 名抽出を実装し、`invariants[].entities` を自動補完する。
-2. もしくは `Business Rules` 章の `BR-*` 記述を `invariants` 相当にマッピングする。
-3. いずれも難しい場合、`BIZ_001` メッセージを「Invariants section が必要」に変更して誤解を減らす。
-
-## 6. 外部連携状況
-
-- 起票先: <https://github.com/itdojp/ae-framework/issues/1967>
-- 状態: Open（2026-02-14時点）
-- 本リポジトリ対応:
-  - 当面は `BIZ_001` を known gap として扱い、`pr-gate/nightly-deep/full` の他検証を継続する。
-  - upstream 修正後に `spec validate/lint` を再実行し、警告解消を確認する。

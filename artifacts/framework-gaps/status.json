@@ -1,10 +1,12 @@
 {
-  "generatedAt": "2026-02-15T08:38:34.982Z",
-  "startedAt": "2026-02-15T08:38:34.668Z",
+  "generatedAt": "2026-02-15T08:41:32.156Z",
+  "startedAt": "2026-02-15T08:41:32.060Z",
   "sourceConfig": "configs/framework-gaps/issues.json",
   "totalIssues": 1,
   "okIssues": 1,
   "failedIssues": 0,
+  "closedIssues": 1,
+  "revalidationRequiredIssues": 0,
   "status": "pass",
   "issues": [
     {
@@ -12,12 +14,19 @@
       "repo": "itdojp/ae-framework",
       "issueNumber": 1967,
       "localDoc": "docs/specs/ae-framework-gap-biz001.md",
+      "revalidatedAtRunId": "2026-02-15-pr-gate-ci-13",
+      "revalidatedAt": "2026-02-15T00:00:00.000Z",
+      "resolutionNote": "spec validate/lint warnings=0 on CI",
       "ok": true,
       "issueUrl": "https://github.com/itdojp/ae-framework/issues/1967",
       "state": "closed",
       "title": "spec-compiler: BIZ_001 warnings persist even with Business Rules defined",
-      "updatedAt": "2026-02-15T07:59:13Z",
-      "closedAt": "2026-02-15T07:59:13Z",
+      "updatedAt": "2026-02-15T07:59:13.000Z",
+      "closedAt": "2026-02-15T07:59:13.000Z",
+      "ageDaysSinceUpdated": 0,
+      "ageDaysSinceClosed": 0,
+      "revalidationRequired": false,
+      "recommendedAction": "archive",
       "labels": []
     }
   ]

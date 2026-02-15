@@ -3,6 +3,9 @@
     "gapId": "BIZ_001",
     "repo": "itdojp/ae-framework",
     "issueNumber": 1967,
-    "localDoc": "docs/specs/ae-framework-gap-biz001.md"
+    "localDoc": "docs/specs/ae-framework-gap-biz001.md",
+    "revalidatedAtRunId": "2026-02-15-pr-gate-ci-13",
+    "revalidatedAt": "2026-02-15",
+    "resolutionNote": "spec validate/lint warnings=0 on CI"
   }
 ]

@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-AE-TOOL-001`
-- 版: `v0.7`
+- 版: `v0.8`
 - 作成日: `2026-02-14`
 - 対象: Approval Workflow Service（Issue #1）
 
@@ -37,7 +37,7 @@
 | Property | `pnpm run test:property` + `node scripts/testing/property-harness.mjs` | 不変条件（AW-INV）検証 | `tests/property/*` | `artifacts/properties/*` | PRごと |
 | Mutation | `pnpm run test:mutation:quick` | テストの欠陥検知能力確認（ANY/ALL・終端ガード・assigneeガード・request閲覧ガード・tenant分離ガード・workflow priority・approver未解決・RETURN/resubmit） | 実装/テスト | `artifacts/mutation/*` | 週次 |
 | Trend | `pnpm run trend:report` | run単位の品質推移集計（nightly/full） | `artifacts/runs/*/manifest.json`, `artifacts/runs/*/snapshots/**/*` | `artifacts/trends/summary.json` | nightly-deep/full |
-| Framework Gap Status | `pnpm run framework:gaps:status` | upstream gap issue 状態の定期取得（BIZ_001 追跡） | `configs/framework-gaps/issues.json` | `artifacts/framework-gaps/status.json` | nightly-deep/full |
+| Framework Gap Status | `pnpm run framework:gaps:status` | upstream gap issue 状態の定期取得（BIZ_001 追跡）と再検証要否の判定 | `configs/framework-gaps/issues.json` | `artifacts/framework-gaps/status.json` | nightly-deep/full |
 | Artifact Audit | `pnpm run artifacts:audit -- --run-id <id> --profile <profile>` | run単位成果物欠落の検知（fail-fast） | `artifacts/runs/<run-id>/` | `artifacts/runs/<run-id>/audit.json` | 各run終了時 |
 | Run Index | `pnpm run runs:index` | run横断インデックス生成（監査/最新run参照・log欠落可視化） | `artifacts/runs/*/manifest.json`, `artifacts/runs/*/audit.json`, `artifacts/runs/*/logs/*.log` | `artifacts/runs/index.json`, `artifacts/runs/index.md` | 各run終了時 |
 
@@ -100,4 +100,5 @@
 
 ## 8. 既知ギャップ追跡
 
-- `BIZ_001` 警告の恒常発生は `ae-framework` 側 Issue `#1967` で追跡する。
+- `BIZ_001` は `ae-framework` 側 Issue `#1967` の close を確認済みで、`2026-02-15-pr-gate-ci-13` で warnings=0 を再検証済み。
+- `framework-gap-status` は close issue に対して `revalidatedAtRunId` が未設定の場合 `revalidationRequired=true` を返す。
