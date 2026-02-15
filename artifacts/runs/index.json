@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-02-15T23:44:20.325Z",
+  "generatedAt": "2026-02-15T23:46:39.990Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 62,
-  "auditedRuns": 19,
-  "auditPassedRuns": 19,
+  "totalRuns": 63,
+  "auditedRuns": 20,
+  "auditPassedRuns": 20,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "nightly-deep": {
+      "totalRuns": 22,
+      "auditedRuns": 9,
+      "auditPassedRuns": 9,
+      "auditFailedRuns": 0,
+      "loglessRuns": 7,
+      "latestRunId": "2026-02-15-nightly-deep-ci-11",
+      "latestCreatedAt": "2026-02-15T23:46:38.000Z"
+    },
     "pr-gate": {
       "totalRuns": 20,
       "auditedRuns": 8,
@@ -24,15 +33,6 @@
       "loglessRuns": 0,
       "latestRunId": "2026-02-15-dev-fast-r9",
       "latestCreatedAt": "2026-02-15T23:39:39.000Z"
-    },
-    "nightly-deep": {
-      "totalRuns": 21,
-      "auditedRuns": 8,
-      "auditPassedRuns": 8,
-      "auditFailedRuns": 0,
-      "loglessRuns": 7,
-      "latestRunId": "2026-02-15-nightly-deep-ci-10",
-      "latestCreatedAt": "2026-02-15T17:07:02.000Z"
     },
     "full": {
       "totalRuns": 13,
@@ -55,6 +55,18 @@
   },
   "latestRuns": [
     {
+      "runId": "2026-02-15-nightly-deep-ci-11",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-15T23:46:38.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 7,
+      "snapshotFileCount": 10,
+      "runSizeBytes": 70876,
+      "frameworkGapState": "closed"
+    },
+    {
       "runId": "2026-02-15-pr-gate-ci-16",
       "profile": "pr-gate",
       "createdAt": "2026-02-15T23:44:19.000Z",
@@ -63,7 +75,7 @@
       "auditMissingCount": 0,
       "logFileCount": 14,
       "snapshotFileCount": 18,
-      "runSizeBytes": 75945,
+      "runSizeBytes": 76257,
       "frameworkGapState": null
     },
     {
@@ -640,18 +652,6 @@
       "logFileCount": 3,
       "snapshotFileCount": 0,
       "runSizeBytes": 904,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-nightly-r4",
-      "profile": "nightly-deep",
-      "createdAt": "2026-02-14T04:05:15.000Z",
-      "hasAudit": false,
-      "auditPassed": null,
-      "auditMissingCount": null,
-      "logFileCount": 3,
-      "snapshotFileCount": 0,
-      "runSizeBytes": 906,
       "frameworkGapState": null
     }
   ]
