@@ -1,0 +1,12 @@
+🔍 Validating /home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service/spec/approval-workflow.md...
+📝 Compiling...
+✅ Compilation successful
+🔍 Linting...
+
+📊 Validation Results:
+   ✅ Errors: 0
+   ✅ Warnings: 0
+   ℹ️  Info: 0
+
+✅ Validation passed successfully
+   AE-IR saved to: /home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service/.ae/ae-ir.json

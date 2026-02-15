@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-02-15T08:38:35.402Z
+GeneratedAt: 2026-02-15T08:44:37.075Z
 
 ## Overview
 
-- totalRuns: 58
-- auditedRuns: 15
-- auditPassedRuns: 15
+- totalRuns: 59
+- auditedRuns: 16
+- auditPassedRuns: 16
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,8 +14,8 @@ GeneratedAt: 2026-02-15T08:38:35.402Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| pr-gate | 19 | 7 | 7 | 0 | 6 | 2026-02-15-pr-gate-ci-14 | 2026-02-15T08:44:36.000Z |
 | nightly-deep | 20 | 7 | 7 | 0 | 7 | 2026-02-15-nightly-deep-ci-9 | 2026-02-15T08:38:34.000Z |
-| pr-gate | 18 | 6 | 6 | 0 | 6 | 2026-02-15-pr-gate-ci-13 | 2026-02-15T08:36:28.000Z |
 | dev-fast | 5 | 2 | 2 | 0 | 0 | 2026-02-14-dev-fast-r7-local | 2026-02-14T15:24:14.000Z |
 | full | 13 | 0 | 0 | 0 | 0 | 2026-02-14-full-r13 | 2026-02-14T10:02:07.000Z |
 | unknown | 2 | 0 | 0 | 0 | 2 | 2026-02-14-automation-setup | 2026-02-14T00:40:00.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-02-15T08:38:35.402Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-02-15-pr-gate-ci-14 | pr-gate | 2026-02-15T08:44:36.000Z | true | 0 | 13 | 17 |  |
 | 2026-02-15-nightly-deep-ci-9 | nightly-deep | 2026-02-15T08:38:34.000Z | true | 0 | 7 | 10 | closed |
 | 2026-02-15-pr-gate-ci-13 | pr-gate | 2026-02-15T08:36:28.000Z | true | 0 | 13 | 17 |  |
 | 2026-02-14-nightly-deep-ci-8 | nightly-deep | 2026-02-14T17:07:49.000Z | true | 0 | 0 | 10 | open |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-02-15T08:38:35.402Z
 | 2026-02-14-nightly-r3 | nightly-deep | 2026-02-14T04:04:32.000Z |  |  | 3 | 0 |  |
 | 2026-02-14-pr-gate-r3 | pr-gate | 2026-02-14T04:04:27.000Z |  |  | 7 | 0 |  |
 | 2026-02-14-nightly-r2 | nightly-deep | 2026-02-14T04:01:57.000Z |  |  | 3 | 0 |  |
-| 2026-02-14-pr-gate-r2 | pr-gate | 2026-02-14T04:01:48.000Z |  |  | 7 | 0 |  |
 
