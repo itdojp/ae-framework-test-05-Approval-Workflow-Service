@@ -22,10 +22,14 @@ jobs:
       - name: Checkout service repository
         uses: actions/checkout@v4
 
+      - name: Load ae-framework fixed ref
+        run: echo "AE_FRAMEWORK_REF=$(cat configs/ae-framework/ref.txt)" >> "$GITHUB_ENV"
+
       - name: Checkout ae-framework repository
         uses: actions/checkout@v4
         with:
           repository: itdojp/ae-framework
+          ref: ${{ env.AE_FRAMEWORK_REF }}
           path: ae-framework
 
       - name: Setup pnpm

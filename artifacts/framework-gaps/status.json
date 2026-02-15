@@ -1,6 +1,14 @@
 {
+<<<<<<< HEAD
   "generatedAt": "2026-02-15T17:07:03.263Z",
   "startedAt": "2026-02-15T17:07:02.965Z",
+||||||| parent of 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
+  "generatedAt": "2026-02-15T08:41:32.156Z",
+  "startedAt": "2026-02-15T08:41:32.060Z",
+=======
+  "generatedAt": "2026-02-15T23:39:16.390Z",
+  "startedAt": "2026-02-15T23:39:15.910Z",
+>>>>>>> 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
   "sourceConfig": "configs/framework-gaps/issues.json",
   "totalIssues": 1,
   "okIssues": 1,
@@ -14,9 +22,12 @@
       "repo": "itdojp/ae-framework",
       "issueNumber": 1967,
       "localDoc": "docs/specs/ae-framework-gap-biz001.md",
-      "revalidatedAtRunId": "2026-02-15-pr-gate-ci-13",
-      "revalidatedAt": "2026-02-15T00:00:00.000Z",
-      "resolutionNote": "spec validate/lint warnings=0 on CI",
+      "trackingMode": "fixed_ref",
+      "frameworkRef": "b68a4014f2827db300cae1f50fa4e1ee17998cab",
+      "expectedSpecLintWarnings": 3,
+      "revalidatedAtRunId": null,
+      "revalidatedAt": null,
+      "resolutionNote": "upstream close は確認したが、評価整合のため fixed ref を継続利用",
       "ok": true,
       "issueUrl": "https://github.com/itdojp/ae-framework/issues/1967",
       "state": "closed",
@@ -26,7 +37,7 @@
       "ageDaysSinceUpdated": 0,
       "ageDaysSinceClosed": 0,
       "revalidationRequired": false,
-      "recommendedAction": "archive",
+      "recommendedAction": "hold_fixed_ref",
       "labels": []
     }
   ]

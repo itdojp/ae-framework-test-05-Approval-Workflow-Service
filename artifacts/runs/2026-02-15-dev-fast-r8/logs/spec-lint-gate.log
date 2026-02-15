@@ -1,0 +1,2 @@
+spec lint gate report written: /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/spec/lint-gate.json
+spec lint warnings=3, max=0, passed=false

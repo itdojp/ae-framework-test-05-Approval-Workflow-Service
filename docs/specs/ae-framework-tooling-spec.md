@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-AE-TOOL-001`
-- 版: `v0.8`
+- 版: `v1.0`
 - 作成日: `2026-02-14`
 - 対象: Approval Workflow Service（Issue #1）
 
@@ -16,6 +16,7 @@
 ## 3. 前提バージョン
 
 - ae-framework（参照元）: <https://github.com/itdojp/ae-framework>
+- 固定利用 ref: `b68a4014f2827db300cae1f50fa4e1ee17998cab`（`configs/ae-framework/ref.txt`）
 - Node.js: `>=20.11 <23`
 - pnpm: `10.x`
 
@@ -27,6 +28,7 @@
 | 区分 | 利用コマンド | 目的 | 入力 | 出力（本リポジトリ保存先） | 実行タイミング |
 | --- | --- | --- | --- | --- | --- |
 | 仕様検証 | `ae spec validate` / `ae spec lint` | Issue仕様の機械可読化と静的検査 | `spec/*.md` | `.ae/ae-ir.json`, `artifacts/spec/*` | 各仕様更新時 |
+| Spec Lint Warning Gate | `pnpm run spec:lint:gate -- --log <file> --max-warnings 3` | lint warning 数の品質ゲート化（fail-fast、fixed ref 基準） | `spec-lint.log` | `artifacts/spec/lint-gate.json` | 各 spec lint 後 |
 | 契約生成 | `node scripts/spec/generate-contracts.mjs` | API契約の抽出 | `.ae/ae-ir.json` | `artifacts/contracts/contracts-summary.json`（補助出力として `artifacts/spec/contracts.json`） | API変更時 |
 | Replay生成 | `node scripts/spec/generate-replay-fixtures.mjs` | 検証用入力固定化 | `contracts-summary.json` | `artifacts/domain/replay-fixtures.sample.json`（補助出力として `artifacts/spec/replay.json`） | 契約更新時 |
 | Deterministic実行 | `node scripts/simulation/deterministic-runner.mjs` | 再現性確認 | `replay-fixtures.sample.json` | `artifacts/simulation/deterministic-summary.json`（補助出力として `artifacts/sim/sim.json`） | PR前 |
@@ -48,6 +50,7 @@
 - 実行スクリプトは fail-fast（実装品質に直結）と report-only（重検証）を分離する。
 2. CI自動化:
 - PRトリガ: `pr-gate.yml`（`verify-lite + conformance + mbt + property`）
+- `pr-gate.yml` / `nightly-deep.yml` は `configs/ae-framework/ref.txt` の固定SHAで `ae-framework` を checkout する。
 - main push: `pr-gate.yml` 実行後、`artifacts/` と `.ae/` の差分を自動コミットして保存する。
 - 手動/定期トリガ: `nightly-deep.yml`（formal + mutation）を実行し、同様に差分を自動コミットする。
 3. 証跡保存:
@@ -72,6 +75,7 @@
 - framework gap状態取得: `scripts/testing/framework-gap-status.mjs`
 - 成果物監査: `scripts/testing/run-artifact-audit.mjs`
 - run横断インデックス: `scripts/testing/run-index-report.mjs`
+- spec lint warning gate: `scripts/testing/spec-lint-warning-gate.mjs`（`SPEC_LINT_MAX_WARNINGS` で閾値制御。既定3）
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
 - MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
 - formalモデル（サービス固有）: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
@@ -100,5 +104,5 @@
 
 ## 8. 既知ギャップ追跡
 
-- `BIZ_001` は `ae-framework` 側 Issue `#1967` の close を確認済みで、`2026-02-15-pr-gate-ci-13` で warnings=0 を再検証済み。
-- `framework-gap-status` は close issue に対して `revalidatedAtRunId` が未設定の場合 `revalidationRequired=true` を返す。
+- `BIZ_001` は upstream issue `#1967` close 後も、fixed ref 運用のため known gap として追跡する。
+- `framework-gap-status` は `trackingMode=fixed_ref` の場合、`recommendedAction=hold_fixed_ref` を返す。

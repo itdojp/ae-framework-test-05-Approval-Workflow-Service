@@ -1,0 +1,17 @@
+{
+  "runId": "2026-02-15-dev-fast-r9",
+  "profile": "dev-fast",
+  "createdAt": "2026-02-15T23:39:39Z",
+  "aeFrameworkDir": "../ae-framework",
+  "aeFrameworkRef": "b68a4014f2827db300cae1f50fa4e1ee17998cab",
+  "specLintMaxWarnings": 3,
+  "logDir": "artifacts/runs/2026-02-15-dev-fast-r9/logs",
+  "snapshotDir": "artifacts/runs/2026-02-15-dev-fast-r9/snapshots",
+  "auditFile": "artifacts/runs/2026-02-15-dev-fast-r9/audit.json",
+  "notes": [
+    "dev-fast: spec + verify-lite",
+    "pr-gate: spec + verify-lite + conformance + mbt + property",
+    "nightly-deep: formal + mutation + trend",
+    "full: verify-lite を含む全フェーズ実行"
+  ]
+}

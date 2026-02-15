@@ -1,10 +1,11 @@
-# ae-framework Gap: `BIZ_001` 警告（解消記録）
+# ae-framework Gap: `BIZ_001` 警告（fixed ref 運用）
 
 ## 1. 背景
 
 - 対象: `ae-framework` の `spec validate` / `spec lint`
 - 識別子: `BIZ_001`
 - 起票: <https://github.com/itdojp/ae-framework/issues/1967>
+- 固定利用 ref: `b68a4014f2827db300cae1f50fa4e1ee17998cab`
 
 ## 2. 過去の観測（2026-02-14）
 
@@ -17,18 +18,18 @@
 ## 3. 現在の状態（2026-02-15）
 
 - upstream issue `itdojp/ae-framework#1967` は `closed`。
-- 本リポジトリの再検証結果:
-  - run-id: `2026-02-15-pr-gate-ci-13`
-  - `spec-validate.log`: Warnings `0`
-  - `spec-lint.log`: Warnings `0`
-- 判定: `BIZ_001` は本リポジトリ観点で解消確認済み。
+- ただし本リポジトリは ae-framework を fixed ref で継続利用する方針のため、upstream 変更は追従しない。
+- fixed ref に対する運用値:
+  - `expectedSpecLintWarnings`: `3`
+  - `SPEC_LINT_MAX_WARNINGS`: `3`（既定）
+- 判定: 本ギャップは「解消版への追従待ち」ではなく、「fixed ref の既知差分」として管理する。
 
 ## 4. 運用ルール
 
 - `configs/framework-gaps/issues.json` で以下を管理する。
-  - `revalidatedAtRunId`
-  - `revalidatedAt`
+  - `trackingMode`（`fixed_ref`）
+  - `frameworkRef`
+  - `expectedSpecLintWarnings`
   - `resolutionNote`
-- `scripts/testing/framework-gap-status.mjs` は upstream issue が close かつ `revalidatedAtRunId` 未設定の場合に
-  `revalidationRequired=true` を返す。
-
+- `scripts/testing/framework-gap-status.mjs` は `trackingMode=fixed_ref` の場合、
+  upstream close 状態でも `revalidationRequired=false` / `recommendedAction=hold_fixed_ref` を返す。

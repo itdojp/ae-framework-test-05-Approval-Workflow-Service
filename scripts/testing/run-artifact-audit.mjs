@@ -24,6 +24,7 @@ function parseArgs(argv) {
 function requiredSnapshotPaths(profile, runId) {
   const commonSpec = [
     'snapshots/.ae/ae-ir.json',
+    'snapshots/spec/lint-gate.json',
     'snapshots/contracts/contracts-summary.json',
     'snapshots/domain/replay-fixtures.sample.json',
     'snapshots/simulation/deterministic-summary.json'

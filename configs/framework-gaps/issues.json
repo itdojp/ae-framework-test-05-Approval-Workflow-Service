@@ -4,8 +4,9 @@
     "repo": "itdojp/ae-framework",
     "issueNumber": 1967,
     "localDoc": "docs/specs/ae-framework-gap-biz001.md",
-    "revalidatedAtRunId": "2026-02-15-pr-gate-ci-13",
-    "revalidatedAt": "2026-02-15",
-    "resolutionNote": "spec validate/lint warnings=0 on CI"
+    "trackingMode": "fixed_ref",
+    "frameworkRef": "b68a4014f2827db300cae1f50fa4e1ee17998cab",
+    "expectedSpecLintWarnings": 3,
+    "resolutionNote": "upstream close は確認したが、評価整合のため fixed ref を継続利用"
   }
 ]

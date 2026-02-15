@@ -42,6 +42,10 @@ function tokenFromEnv() {
   return process.env['GITHUB_TOKEN'] || process.env['GH_TOKEN'] || '';
 }
 
+function normalizeTrackingMode(value) {
+  return typeof value === 'string' && value.trim() !== '' ? value.trim() : 'default';
+}
+
 async function fetchIssue(item) {
   const url = `https://api.github.com/repos/${item.repo}/issues/${item.issueNumber}`;
   const headers = {
@@ -71,22 +75,44 @@ async function fetchIssue(item) {
     const state = body.state || null;
     const updatedAt = toIsoOrNull(body.updated_at || null);
     const closedAt = toIsoOrNull(body.closed_at || null);
+    const trackingMode = normalizeTrackingMode(item.trackingMode);
+    const frameworkRef =
+      typeof item.frameworkRef === 'string' && item.frameworkRef.trim() !== ''
+        ? item.frameworkRef
+        : null;
+    const expectedSpecLintWarnings =
+      Number.isInteger(item.expectedSpecLintWarnings) && item.expectedSpecLintWarnings >= 0
+        ? item.expectedSpecLintWarnings
+        : null;
+
     const revalidatedAtRunId =
       typeof item.revalidatedAtRunId === 'string' && item.revalidatedAtRunId.trim() !== ''
         ? item.revalidatedAtRunId
         : null;
     const revalidatedAt = toIsoOrNull(item.revalidatedAt || null);
-    const revalidationRequired = state === 'closed' && !revalidatedAtRunId;
-    const recommendedAction = revalidationRequired
-      ? 'revalidate'
-      : state === 'closed'
-        ? 'archive'
-        : 'track';
+
+    const revalidationRequired =
+      trackingMode === 'fixed_ref'
+        ? false
+        : state === 'closed' && !revalidatedAtRunId;
+
+    const recommendedAction =
+      trackingMode === 'fixed_ref'
+        ? 'hold_fixed_ref'
+        : revalidationRequired
+          ? 'revalidate'
+          : state === 'closed'
+            ? 'archive'
+            : 'track';
+
     return {
       gapId: item.gapId,
       repo: item.repo,
       issueNumber: item.issueNumber,
       localDoc: item.localDoc || null,
+      trackingMode,
+      frameworkRef,
+      expectedSpecLintWarnings,
       revalidatedAtRunId,
       revalidatedAt,
       resolutionNote: typeof item.resolutionNote === 'string' ? item.resolutionNote : null,

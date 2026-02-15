@@ -1,5 +1,11 @@
 {
+<<<<<<< HEAD
   "generatedAt": "2026-02-15T17:07:03.750Z",
+||||||| parent of 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
+  "generatedAt": "2026-02-15T08:44:37.075Z",
+=======
+  "generatedAt": "2026-02-15T23:39:39.852Z",
+>>>>>>> 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
   "sourceDir": "artifacts/runs",
   "totalRuns": 60,
   "auditedRuns": 17,
@@ -7,6 +13,7 @@
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+<<<<<<< HEAD
     "nightly-deep": {
       "totalRuns": 21,
       "auditedRuns": 8,
@@ -16,6 +23,18 @@
       "latestRunId": "2026-02-15-nightly-deep-ci-10",
       "latestCreatedAt": "2026-02-15T17:07:02.000Z"
     },
+||||||| parent of 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
+=======
+    "dev-fast": {
+      "totalRuns": 6,
+      "auditedRuns": 3,
+      "auditPassedRuns": 3,
+      "auditFailedRuns": 0,
+      "loglessRuns": 0,
+      "latestRunId": "2026-02-15-dev-fast-r9",
+      "latestCreatedAt": "2026-02-15T23:39:39.000Z"
+    },
+>>>>>>> 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
     "pr-gate": {
       "totalRuns": 19,
       "auditedRuns": 7,
@@ -24,6 +43,26 @@
       "loglessRuns": 6,
       "latestRunId": "2026-02-15-pr-gate-ci-14",
       "latestCreatedAt": "2026-02-15T08:44:36.000Z"
+    },
+<<<<<<< HEAD
+    "dev-fast": {
+      "totalRuns": 5,
+      "auditedRuns": 2,
+      "auditPassedRuns": 2,
+      "auditFailedRuns": 0,
+      "loglessRuns": 0,
+      "latestRunId": "2026-02-14-dev-fast-r7-local",
+      "latestCreatedAt": "2026-02-14T15:24:14.000Z"
+    },
+||||||| parent of 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
+    "nightly-deep": {
+      "totalRuns": 20,
+      "auditedRuns": 7,
+      "auditPassedRuns": 7,
+      "auditFailedRuns": 0,
+      "loglessRuns": 7,
+      "latestRunId": "2026-02-15-nightly-deep-ci-9",
+      "latestCreatedAt": "2026-02-15T08:38:34.000Z"
     },
     "dev-fast": {
       "totalRuns": 5,
@@ -34,6 +73,17 @@
       "latestRunId": "2026-02-14-dev-fast-r7-local",
       "latestCreatedAt": "2026-02-14T15:24:14.000Z"
     },
+=======
+    "nightly-deep": {
+      "totalRuns": 20,
+      "auditedRuns": 7,
+      "auditPassedRuns": 7,
+      "auditFailedRuns": 0,
+      "loglessRuns": 7,
+      "latestRunId": "2026-02-15-nightly-deep-ci-9",
+      "latestCreatedAt": "2026-02-15T08:38:34.000Z"
+    },
+>>>>>>> 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
     "full": {
       "totalRuns": 13,
       "auditedRuns": 0,
@@ -55,6 +105,7 @@
   },
   "latestRuns": [
     {
+<<<<<<< HEAD
       "runId": "2026-02-15-nightly-deep-ci-10",
       "profile": "nightly-deep",
       "createdAt": "2026-02-15T17:07:02.000Z",
@@ -67,6 +118,21 @@
       "frameworkGapState": "closed"
     },
     {
+||||||| parent of 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
+=======
+      "runId": "2026-02-15-dev-fast-r9",
+      "profile": "dev-fast",
+      "createdAt": "2026-02-15T23:39:39.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 9,
+      "snapshotFileCount": 6,
+      "runSizeBytes": 17607,
+      "frameworkGapState": null
+    },
+    {
+>>>>>>> 6785520 (feat: pin ae-framework ref and baseline spec lint gate)
       "runId": "2026-02-15-pr-gate-ci-14",
       "profile": "pr-gate",
       "createdAt": "2026-02-15T08:44:36.000Z",

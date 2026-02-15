@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-ART-001`
-- 版: `v0.7`
+- 版: `v0.8`
 - 作成日: `2026-02-14`
 
 ## 2. 目的
@@ -16,6 +16,7 @@
 - `spec/*.md`
 - `.ae/ae-ir.json`
 - `artifacts/spec/*`
+- `artifacts/spec/lint-gate.json`
 - `artifacts/contracts/*`
 - `artifacts/domain/*`
 - `artifacts/simulation/*`
@@ -48,6 +49,7 @@
 
 1. 生成物は実行ごとに `artifacts/runs/<run-id>/` へ集約する。
   - `scripts/ae/run.sh` は終了時に主要成果物を `snapshots/` へ自動複製する。
+  - `spec lint` warning gate 結果（`artifacts/spec/lint-gate.json`）も保存対象とする。
   - 同時に `logs/*.log` と `audit.json` を生成し、runごとの欠落有無を記録する。
   - さらに `index.json` / `index.md` を更新し、run横断で監査結果と最新実行を参照可能にする。
 2. 生成物を含むコミットメッセージには `run-id` と目的を含める。

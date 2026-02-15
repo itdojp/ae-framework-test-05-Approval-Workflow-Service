@@ -21,6 +21,7 @@
     "trend:report": "node scripts/testing/trend-report.mjs",
     "framework:gaps:status": "node scripts/testing/framework-gap-status.mjs",
     "artifacts:audit": "node scripts/testing/run-artifact-audit.mjs",
+    "spec:lint:gate": "node scripts/testing/spec-lint-warning-gate.mjs",
     "runs:index": "node scripts/testing/run-index-report.mjs",
     "verify:lite": "pnpm run build && pnpm run test:fast",
     "verify:lite:report": "node scripts/testing/verify-lite-harness.mjs"

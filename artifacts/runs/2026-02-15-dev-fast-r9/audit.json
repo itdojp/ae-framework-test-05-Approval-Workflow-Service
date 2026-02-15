@@ -1,0 +1,10 @@
+{
+  "runId": "2026-02-15-dev-fast-r9",
+  "profile": "dev-fast",
+  "generatedAt": "2026-02-15T23:39:39.267Z",
+  "runDir": "artifacts/runs/2026-02-15-dev-fast-r9",
+  "requiredCount": 8,
+  "missingCount": 0,
+  "passed": true,
+  "missing": []
+}

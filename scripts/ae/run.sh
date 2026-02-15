@@ -8,6 +8,7 @@ RUN_ID="${RUN_ID:-$(date -u +%Y-%m-%d)-${PROFILE}}"
 RUN_DIR="$PROJECT_ROOT/artifacts/runs/$RUN_ID"
 LOG_DIR="$RUN_DIR/logs"
 SNAPSHOT_DIR="$RUN_DIR/snapshots"
+SPEC_LINT_MAX_WARNINGS="${SPEC_LINT_MAX_WARNINGS:-3}"
 
 mkdir -p "$LOG_DIR" "$PROJECT_ROOT/.ae" "$PROJECT_ROOT/artifacts/spec" \
   "$PROJECT_ROOT/artifacts/sim" "$PROJECT_ROOT/artifacts/conformance" \
@@ -68,6 +69,10 @@ check_ae_framework() {
     log "ERROR: pnpm is required"
     exit 1
   fi
+  if ! [[ "$SPEC_LINT_MAX_WARNINGS" =~ ^[0-9]+$ ]]; then
+    log "ERROR: SPEC_LINT_MAX_WARNINGS must be a non-negative integer (current=$SPEC_LINT_MAX_WARNINGS)"
+    exit 1
+  fi
 }
 
 phase_spec() {
@@ -84,6 +89,12 @@ phase_spec() {
   run_hard spec-lint \
     pnpm --dir "$AE_FRAMEWORK_DIR" exec tsx src/cli/index.ts \
     spec lint -i "$PROJECT_ROOT/.ae/ae-ir.json"
+
+  run_hard spec-lint-gate \
+    node "$PROJECT_ROOT/scripts/testing/spec-lint-warning-gate.mjs" \
+    --log "$LOG_DIR/spec-lint.log" \
+    --max-warnings "$SPEC_LINT_MAX_WARNINGS" \
+    --out "$PROJECT_ROOT/artifacts/spec/lint-gate.json"
 
   if [[ -f "$PROJECT_ROOT/.ae/ae-ir.json" ]]; then
     run_soft generate-contracts \
@@ -248,6 +259,8 @@ snapshot_spec_outputs() {
     "$SNAPSHOT_DIR/.ae/ae-ir.json"
   copy_if_exists "$PROJECT_ROOT/artifacts/spec/contracts.json" \
     "$SNAPSHOT_DIR/spec/contracts.json"
+  copy_if_exists "$PROJECT_ROOT/artifacts/spec/lint-gate.json" \
+    "$SNAPSHOT_DIR/spec/lint-gate.json"
   copy_if_exists "$PROJECT_ROOT/artifacts/spec/replay.json" \
     "$SNAPSHOT_DIR/spec/replay.json"
   copy_if_exists "$PROJECT_ROOT/artifacts/sim/sim.json" \
@@ -340,12 +353,19 @@ snapshot_outputs() {
 }
 
 write_manifest() {
+  local ae_framework_ref="unknown"
+  if git -C "$AE_FRAMEWORK_DIR" rev-parse HEAD >/dev/null 2>&1; then
+    ae_framework_ref="$(git -C "$AE_FRAMEWORK_DIR" rev-parse HEAD)"
+  fi
+
   cat >"$RUN_DIR/manifest.json" <<EOF
 {
   "runId": "$RUN_ID",
   "profile": "$PROFILE",
   "createdAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "aeFrameworkDir": "$AE_FRAMEWORK_DIR",
+  "aeFrameworkRef": "$ae_framework_ref",
+  "specLintMaxWarnings": $SPEC_LINT_MAX_WARNINGS,
   "logDir": "artifacts/runs/$RUN_ID/logs",
   "snapshotDir": "artifacts/runs/$RUN_ID/snapshots",
   "auditFile": "artifacts/runs/$RUN_ID/audit.json",
