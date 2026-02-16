@@ -1,95 +1,19 @@
 {
-  "generatedAt": "2026-02-16T08:35:31.539Z",
+  "generatedAt": "2026-02-16T08:38:57.243Z",
   "sourceDir": "artifacts/runs",
   "maxRuns": 200,
-  "totalRunsScanned": 70,
+  "totalRunsScanned": 71,
   "profiles": {
-    "full": {
-      "totalRuns": 14,
-      "runsWithSnapshots": 2,
-      "evaluatedRuns": 2,
-      "passedRuns": 2,
-      "passRate": 1,
-      "latestRun": {
-        "runId": "2026-02-16-full-ci-2",
-        "profile": "full",
-        "createdAt": "2026-02-16T06:42:05.000Z",
-        "hasSnapshots": true,
-        "runPassed": true,
-        "checks": [
-          {
-            "name": "verify-lite",
-            "passed": true
-          },
-          {
-            "name": "conformance",
-            "passed": true
-          },
-          {
-            "name": "conformance-negative",
-            "passed": true
-          },
-          {
-            "name": "mbt",
-            "passed": true
-          },
-          {
-            "name": "property",
-            "passed": true
-          },
-          {
-            "name": "mutation",
-            "passed": true
-          }
-        ],
-        "highlights": {
-          "mutationScore": 1,
-          "verifyLiteDurationMs": 3347,
-          "conformanceOverall": "pass",
-          "conformanceNegativePassed": true,
-          "formal": {
-            "tlaStatus": "tool_not_available",
-            "cspStatus": "tool_not_available"
-          }
-        }
-      },
-      "trends": {
-        "mutationScore": [
-          {
-            "runId": "2026-02-16-full-ci-2",
-            "createdAt": "2026-02-16T06:42:05.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-02-14-full-r13",
-            "createdAt": "2026-02-14T10:02:07.000Z",
-            "mutationScore": 1
-          }
-        ],
-        "verifyLiteDurationMs": [
-          {
-            "runId": "2026-02-16-full-ci-2",
-            "createdAt": "2026-02-16T06:42:05.000Z",
-            "durationMs": 3347
-          },
-          {
-            "runId": "2026-02-14-full-r13",
-            "createdAt": "2026-02-14T10:02:07.000Z",
-            "durationMs": 3591
-          }
-        ]
-      }
-    },
     "pr-gate": {
-      "totalRuns": 24,
-      "runsWithSnapshots": 15,
-      "evaluatedRuns": 15,
-      "passedRuns": 15,
+      "totalRuns": 25,
+      "runsWithSnapshots": 16,
+      "evaluatedRuns": 16,
+      "passedRuns": 16,
       "passRate": 1,
       "latestRun": {
-        "runId": "2026-02-16-pr-gate-ci-21",
+        "runId": "2026-02-16-pr-gate-ci-22",
         "profile": "pr-gate",
-        "createdAt": "2026-02-16T06:41:55.000Z",
+        "createdAt": "2026-02-16T08:38:54.000Z",
         "hasSnapshots": true,
         "runPassed": true,
         "checks": [
@@ -116,7 +40,7 @@
         ],
         "highlights": {
           "mutationScore": null,
-          "verifyLiteDurationMs": 3828,
+          "verifyLiteDurationMs": 3796,
           "conformanceOverall": "pass",
           "conformanceNegativePassed": true,
           "formal": {
@@ -128,6 +52,11 @@
       "trends": {
         "mutationScore": [],
         "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-16-pr-gate-ci-22",
+            "createdAt": "2026-02-16T08:38:54.000Z",
+            "durationMs": 3796
+          },
           {
             "runId": "2026-02-16-pr-gate-ci-21",
             "createdAt": "2026-02-16T06:41:55.000Z",
@@ -202,6 +131,82 @@
             "runId": "2026-02-14-pr-gate-r9",
             "createdAt": "2026-02-14T09:07:24.000Z",
             "durationMs": 3412
+          }
+        ]
+      }
+    },
+    "full": {
+      "totalRuns": 14,
+      "runsWithSnapshots": 2,
+      "evaluatedRuns": 2,
+      "passedRuns": 2,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-16-full-ci-2",
+        "profile": "full",
+        "createdAt": "2026-02-16T06:42:05.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          },
+          {
+            "name": "conformance",
+            "passed": true
+          },
+          {
+            "name": "conformance-negative",
+            "passed": true
+          },
+          {
+            "name": "mbt",
+            "passed": true
+          },
+          {
+            "name": "property",
+            "passed": true
+          },
+          {
+            "name": "mutation",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": 1,
+          "verifyLiteDurationMs": 3347,
+          "conformanceOverall": "pass",
+          "conformanceNegativePassed": true,
+          "formal": {
+            "tlaStatus": "tool_not_available",
+            "cspStatus": "tool_not_available"
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "mutationScore": 1
+          }
+        ],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "durationMs": 3347
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "durationMs": 3591
           }
         ]
       }
@@ -383,6 +388,45 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-02-16-pr-gate-ci-22",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T08:38:54.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3796,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
     {
       "runId": "2026-02-16-full-ci-2",
       "profile": "full",
@@ -1243,45 +1287,6 @@
         "formal": {
           "tlaStatus": "tool_not_available",
           "cspStatus": "tool_not_available"
-        }
-      }
-    },
-    {
-      "runId": "2026-02-14-pr-gate-ci-9",
-      "profile": "pr-gate",
-      "createdAt": "2026-02-14T10:07:31.000Z",
-      "hasSnapshots": true,
-      "runPassed": true,
-      "checks": [
-        {
-          "name": "verify-lite",
-          "passed": true
-        },
-        {
-          "name": "conformance",
-          "passed": true
-        },
-        {
-          "name": "conformance-negative",
-          "passed": true
-        },
-        {
-          "name": "mbt",
-          "passed": true
-        },
-        {
-          "name": "property",
-          "passed": true
-        }
-      ],
-      "highlights": {
-        "mutationScore": null,
-        "verifyLiteDurationMs": 3669,
-        "conformanceOverall": "pass",
-        "conformanceNegativePassed": true,
-        "formal": {
-          "tlaStatus": null,
-          "cspStatus": null
         }
       }
     }

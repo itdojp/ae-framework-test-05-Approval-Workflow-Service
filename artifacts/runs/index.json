@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-02-16T08:35:31.493Z",
+  "generatedAt": "2026-02-16T08:38:57.193Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 72,
-  "auditedRuns": 29,
-  "auditPassedRuns": 29,
+  "totalRuns": 73,
+  "auditedRuns": 30,
+  "auditPassedRuns": 30,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "pr-gate": {
+      "totalRuns": 25,
+      "auditedRuns": 13,
+      "auditPassedRuns": 13,
+      "auditFailedRuns": 0,
+      "loglessRuns": 6,
+      "latestRunId": "2026-02-16-pr-gate-ci-22",
+      "latestCreatedAt": "2026-02-16T08:38:54.000Z"
+    },
     "full": {
       "totalRuns": 14,
       "auditedRuns": 1,
@@ -15,15 +24,6 @@
       "loglessRuns": 0,
       "latestRunId": "2026-02-16-full-ci-2",
       "latestCreatedAt": "2026-02-16T06:42:05.000Z"
-    },
-    "pr-gate": {
-      "totalRuns": 24,
-      "auditedRuns": 12,
-      "auditPassedRuns": 12,
-      "auditFailedRuns": 0,
-      "loglessRuns": 6,
-      "latestRunId": "2026-02-16-pr-gate-ci-21",
-      "latestCreatedAt": "2026-02-16T06:41:55.000Z"
     },
     "nightly-deep": {
       "totalRuns": 23,
@@ -54,6 +54,18 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-02-16-pr-gate-ci-22",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T08:38:54.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 15,
+      "snapshotFileCount": 19,
+      "runSizeBytes": 77314,
+      "frameworkGapState": null
+    },
     {
       "runId": "2026-02-16-full-ci-2",
       "profile": "full",
@@ -640,18 +652,6 @@
       "logFileCount": 12,
       "snapshotFileCount": 0,
       "runSizeBytes": 4370,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-full-r9",
-      "profile": "full",
-      "createdAt": "2026-02-14T06:13:41.000Z",
-      "hasAudit": false,
-      "auditPassed": null,
-      "auditMissingCount": null,
-      "logFileCount": 12,
-      "snapshotFileCount": 0,
-      "runSizeBytes": 4368,
       "frameworkGapState": null
     }
   ]
