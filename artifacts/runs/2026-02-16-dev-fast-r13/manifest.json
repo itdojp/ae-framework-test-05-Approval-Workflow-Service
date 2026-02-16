@@ -1,0 +1,19 @@
+{
+  "runId": "2026-02-16-dev-fast-r13",
+  "profile": "dev-fast",
+  "createdAt": "2026-02-16T03:05:28Z",
+  "aeFrameworkDir": "/tmp/ae-framework-fixed-7UFk0B",
+  "aeFrameworkRefExpected": "b68a4014f2827db300cae1f50fa4e1ee17998cab",
+  "aeFrameworkRef": "b68a4014f2827db300cae1f50fa4e1ee17998cab",
+  "aeFrameworkRefCheckFile": "artifacts/spec/ae-framework-ref-check.json",
+  "specLintMaxWarnings": 3,
+  "logDir": "artifacts/runs/2026-02-16-dev-fast-r13/logs",
+  "snapshotDir": "artifacts/runs/2026-02-16-dev-fast-r13/snapshots",
+  "auditFile": "artifacts/runs/2026-02-16-dev-fast-r13/audit.json",
+  "notes": [
+    "dev-fast: spec + verify-lite",
+    "pr-gate: spec + verify-lite + conformance + mbt + property",
+    "nightly-deep: formal + mutation + trend",
+    "full: verify-lite を含む全フェーズ実行"
+  ]
+}

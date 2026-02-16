@@ -67,19 +67,21 @@ AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh full
 
 conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定して実行する。
 
-`scripts/ae/run.sh` は起動時に `ae-framework ref guard` を実行し（`configs/ae-framework/ref.txt` と実参照先を照合）、`spec lint` 後に warning gate（既定 `SPEC_LINT_MAX_WARNINGS=3`）を実行し、各実行後に `artifacts/runs/<run-id>/snapshots/` へ主要中間生成物を自動複製し、`artifacts/runs/<run-id>/logs/*.log` を含む実行ログを保存し、`artifacts/runs/<run-id>/audit.json` で欠落監査を行い、`artifacts/runs/index.json` / `artifacts/runs/index.md` を自動更新する。
+`scripts/ae/run.sh` は起動時に `ae-framework ref guard` を実行し（`configs/ae-framework/ref.txt` と実参照先を照合し、かつ `ae-framework` 作業ツリーの tracked 変更がないことを検証）、`spec lint` 後に warning gate（既定 `SPEC_LINT_MAX_WARNINGS=3`）を実行し、各実行後に `artifacts/runs/<run-id>/snapshots/` へ主要中間生成物を自動複製し、`artifacts/runs/<run-id>/logs/*.log` を含む実行ログを保存し、`artifacts/runs/<run-id>/audit.json` で欠落監査を行い、`artifacts/runs/index.json` / `artifacts/runs/index.md` を自動更新する。
 
 ## CI自動化
 
 - `pr-gate.yml`:
   - Trigger: `pull_request`, `push(main)`
   - ae-framework: `configs/ae-framework/ref.txt` の固定SHAを checkout
+  - 依存導入: `pnpm --dir ae-framework install --frozen-lockfile`（lock改変を禁止）
   - 実行: `bash scripts/ae/run.sh pr-gate`
   - 収集: `.ae/ae-ir.json`, `artifacts/runs/index.{json,md}`, `artifacts/conformance/*`（negative含む）, `artifacts/mbt/*`, `artifacts/properties/*`, `artifacts/verify-lite/*`
   - 保存: `push(main)` 時は `artifacts/` と `.ae/` の差分を自動コミットして main に保存
 - `nightly-deep.yml`:
   - Trigger: `schedule`（毎日 17:00 UTC）, `workflow_dispatch`
   - ae-framework: `configs/ae-framework/ref.txt` の固定SHAを checkout
+  - 依存導入: `pnpm --dir ae-framework install --frozen-lockfile`（lock改変を禁止）
   - 実行: `bash scripts/ae/run.sh nightly-deep`
   - 収集: `artifacts/runs/index.{json,md}`, `artifacts/formal/*`, `artifacts/mutation/*`, `artifacts/trends/summary.json`, `artifacts/framework-gaps/status.json`
   - 保存: 実行後の `artifacts/` と `.ae/` の差分を自動コミットして main に保存

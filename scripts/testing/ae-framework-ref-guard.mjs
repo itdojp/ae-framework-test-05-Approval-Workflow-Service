@@ -56,6 +56,21 @@ function readActualRef(repoDir) {
   }
 }
 
+function isWorkingTreeClean(repoDir) {
+  try {
+    const output = execFileSync(
+      'git',
+      ['-C', repoDir, 'status', '--porcelain', '--untracked-files=no'],
+      { encoding: 'utf-8' }
+    );
+    return output.trim().length === 0;
+  } catch (error) {
+    throw new Error(
+      `failed to inspect working tree in ${repoDir}: ${error instanceof Error ? error.message : String(error)}`
+    );
+  }
+}
+
 function main() {
   const args = parseArgs(process.argv);
   if (!args.expectedRefFile || !args.actualDir) {
@@ -69,7 +84,9 @@ function main() {
   const actualDirPath = resolve(projectRoot, args.actualDir);
   const expectedRef = loadExpectedRef(expectedRefPath);
   const actualRef = readActualRef(actualDirPath);
-  const passed = expectedRef === actualRef;
+  const refMatched = expectedRef === actualRef;
+  const workingTreeClean = isWorkingTreeClean(actualDirPath);
+  const passed = refMatched && workingTreeClean;
 
   const report = {
     generatedAt: new Date().toISOString(),
@@ -77,6 +94,8 @@ function main() {
     expectedRef,
     actualDir: args.actualDir,
     actualRef,
+    refMatched,
+    workingTreeClean,
     passed
   };
 
@@ -86,7 +105,9 @@ function main() {
     console.log(`ae-framework ref guard report written: ${outPath}`);
   }
 
-  console.log(`ae-framework ref guard expected=${expectedRef} actual=${actualRef} passed=${passed}`);
+  console.log(
+    `ae-framework ref guard expected=${expectedRef} actual=${actualRef} refMatched=${refMatched} workingTreeClean=${workingTreeClean} passed=${passed}`
+  );
   if (!passed) {
     process.exit(1);
   }
