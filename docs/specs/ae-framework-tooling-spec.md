@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-AE-TOOL-001`
-- 版: `v1.1`
+- 版: `v1.2`
 - 作成日: `2026-02-14`
 - 対象: Approval Workflow Service（Issue #1）
 
@@ -51,11 +51,13 @@
 - 実行スクリプトは fail-fast（実装品質に直結）と report-only（重検証）を分離する。
 2. CI自動化:
 - PRトリガ: `pr-gate.yml`（`verify-lite + conformance + mbt + property`）
-- `pr-gate.yml` / `nightly-deep.yml` は `configs/ae-framework/ref.txt` の固定SHAで `ae-framework` を checkout する。
+- `pr-gate.yml` / `nightly-deep.yml` / `full-regression.yml` は `configs/ae-framework/ref.txt` の固定SHAで `ae-framework` を checkout する。
 - `ae-framework` 依存導入は `pnpm --dir ae-framework install --no-frozen-lockfile` を使用する。
 - lock改変有無は `ae-framework-ref-guard` の `workingTreeClean` 判定で検知し、変更があれば fail-fast とする。
 - main push: `pr-gate.yml` 実行後、`artifacts/` と `.ae/` の差分を自動コミットして保存する。
-- 手動/定期トリガ: `nightly-deep.yml`（formal + mutation）を実行し、同様に差分を自動コミットする。
+- 手動/定期トリガ:
+  - `nightly-deep.yml`（formal + mutation）を実行し、同様に差分を自動コミットする。
+  - `full-regression.yml`（fullプロファイル）を週次（毎週月曜18:00 UTC）/手動で実行し、同様に差分を自動コミットする。
 3. 証跡保存:
 - 各ジョブで `actions/upload-artifact` により実行時点の成果物を保存する。
 - `push(main)` / `schedule` / `workflow_dispatch` では `artifacts/` と `.ae/` の更新差分を main に保存する。
@@ -67,6 +69,7 @@
 | `dev-fast` | 日常開発 | spec validate/lint, verify-lite |
 | `pr-gate` | PR品質ゲート | verify-lite, conformance, mbt, property |
 | `nightly-deep` | 深夜定期検証 | formal(tla/csp), mutation, trend集計 |
+| `full` | 週次総合回帰 | spec, verify-lite, conformance, mbt, property, formal, mutation, trend, framework-gaps |
 
 ## 6.1 自動実行設定ファイル
 
@@ -83,7 +86,7 @@
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
 - MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
 - formalモデル（サービス固有）: `spec/formal/ApprovalAnyAll.tla`, `spec/formal/approval-any-all.cspm`
-- GitHub Actions: `.github/workflows/pr-gate.yml`, `.github/workflows/nightly-deep.yml`
+- GitHub Actions: `.github/workflows/pr-gate.yml`, `.github/workflows/nightly-deep.yml`, `.github/workflows/full-regression.yml`
 - 自動コミット方針: `github-actions[bot]` が `ci: persist ... [skip ci]` で main へ保存
 - 実行例:
   - `bash scripts/ae/run.sh dev-fast`

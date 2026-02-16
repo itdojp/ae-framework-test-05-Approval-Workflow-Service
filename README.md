@@ -13,7 +13,7 @@
   - upstream issue: <https://github.com/itdojp/ae-framework/issues/1967>
 - 中間生成物保存仕様: `docs/specs/artifact-retention-spec.md`
 - 自動実行設定: `codex/ae.playbook.yaml`, `scripts/ae/run.sh`
-- CI自動実行: `.github/workflows/pr-gate.yml`, `.github/workflows/nightly-deep.yml`
+- CI自動実行: `.github/workflows/pr-gate.yml`, `.github/workflows/nightly-deep.yml`, `.github/workflows/full-regression.yml`
 
 ## 実装（Phase 1/2）
 
@@ -86,4 +86,12 @@ conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定�
   - 非改変担保: `run.sh` 起動時の `ae-framework ref guard` が tracked 変更を検知した場合は fail-fast
   - 実行: `bash scripts/ae/run.sh nightly-deep`
   - 収集: `artifacts/runs/index.{json,md}`, `artifacts/formal/*`, `artifacts/mutation/*`, `artifacts/trends/summary.json`, `artifacts/framework-gaps/status.json`
+  - 保存: 実行後の `artifacts/` と `.ae/` の差分を自動コミットして main に保存
+- `full-regression.yml`:
+  - Trigger: `schedule`（毎週月曜 18:00 UTC）, `workflow_dispatch`
+  - ae-framework: `configs/ae-framework/ref.txt` の固定SHAを checkout
+  - 依存導入: `pnpm --dir ae-framework install --no-frozen-lockfile`
+  - 非改変担保: `run.sh` 起動時の `ae-framework ref guard` が tracked 変更を検知した場合は fail-fast
+  - 実行: `bash scripts/ae/run.sh full`
+  - 収集: `artifacts/runs/index.{json,md}`, `.ae/ae-ir.json`, `artifacts/spec/*`, `artifacts/contracts/*`, `artifacts/domain/*`, `artifacts/simulation/*`, `artifacts/verify-lite/*`, `artifacts/conformance/*`, `artifacts/mbt/*`, `artifacts/properties/*`, `artifacts/formal/*`, `artifacts/mutation/*`, `artifacts/trends/summary.json`, `artifacts/framework-gaps/status.json`
   - 保存: 実行後の `artifacts/` と `.ae/` の差分を自動コミットして main に保存

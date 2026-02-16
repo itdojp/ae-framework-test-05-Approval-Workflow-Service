@@ -1,0 +1,94 @@
+name: full-regression
+
+on:
+  schedule:
+    - cron: '0 18 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: full-regression
+  cancel-in-progress: false
+
+jobs:
+  full-regression:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout service repository
+        uses: actions/checkout@v4
+
+      - name: Load ae-framework fixed ref
+        run: echo "AE_FRAMEWORK_REF=$(cat configs/ae-framework/ref.txt)" >> "$GITHUB_ENV"
+
+      - name: Checkout ae-framework repository
+        uses: actions/checkout@v4
+        with:
+          repository: itdojp/ae-framework
+          ref: ${{ env.AE_FRAMEWORK_REF }}
+          path: ae-framework
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install service dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install ae-framework dependencies
+        run: pnpm --dir ae-framework install --no-frozen-lockfile
+
+      - name: Prepare run id
+        run: echo "RUN_ID=$(date -u +%Y-%m-%d)-full-ci-${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"
+
+      - name: Execute full profile
+        run: bash scripts/ae/run.sh full
+        env:
+          AE_FRAMEWORK_DIR: ${{ github.workspace }}/ae-framework
+          RUN_ID: ${{ env.RUN_ID }}
+
+      - name: Upload full-regression artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-regression-${{ env.RUN_ID }}
+          if-no-files-found: error
+          path: |
+            artifacts/runs/${{ env.RUN_ID }}
+            artifacts/runs/index.json
+            artifacts/runs/index.md
+            .ae/ae-ir.json
+            artifacts/spec
+            artifacts/contracts
+            artifacts/domain
+            artifacts/simulation
+            artifacts/verify-lite
+            artifacts/conformance
+            artifacts/mbt
+            artifacts/properties
+            artifacts/formal
+            artifacts/mutation
+            artifacts/trends/summary.json
+            artifacts/framework-gaps/status.json
+
+      - name: Persist generated artifacts to repository
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [[ -z "$(git status --porcelain -- artifacts .ae)" ]]; then
+            echo "No artifact changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add artifacts .ae
+          git commit -m "ci: persist full-regression artifacts for ${RUN_ID} [skip ci]"
+          git push
