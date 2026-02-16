@@ -65,6 +65,7 @@
 ## 8. 進捗（2026-02-14）
 
 - 完了:
+  - 要求ID（AW-REQ/AW-WF/AW-TASK/AW-INV/AW-AUTH/AW-AUD/AW-ACC）のトレーサビリティ表を作成（`docs/specs/requirements-traceability.md`）。
   - Phase 1 の主要成果物を追加（`contracts/openapi.yaml`, `spec/approval-workflow.md`, `schema/*.json`）。
   - Phase 2 として状態遷移エンジンを実装（`src/domain/engine.ts`）。
   - AW-ACC-01〜04 を受入テスト化（ドメイン + API統合）し、`vitest` で全件成功。

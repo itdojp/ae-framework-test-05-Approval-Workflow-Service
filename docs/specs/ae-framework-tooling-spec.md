@@ -81,7 +81,7 @@
 - framework gap状態取得: `scripts/testing/framework-gap-status.mjs`
 - 成果物監査: `scripts/testing/run-artifact-audit.mjs`
 - run横断インデックス: `scripts/testing/run-index-report.mjs`
-- CI成果保存: `scripts/ci/persist-artifacts.sh`（別cloneで最新mainに対して保存、push競合時はrebaseして再試行）
+- CI成果保存: `scripts/ci/persist-artifacts.sh`（別cloneで最新mainに対して保存し、`runs:index`/`trend:report` を再計算してから保存。push競合時はrebaseして再試行）
 - ae-framework固定ref検証: `scripts/testing/ae-framework-ref-guard.mjs`
 - spec lint warning gate: `scripts/testing/spec-lint-warning-gate.mjs`（`SPEC_LINT_MAX_WARNINGS` で閾値制御。既定3）
 - conformance対象ルール: `configs/conformance/rule-ids.txt`

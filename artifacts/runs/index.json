@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-02-16T06:42:07.163Z",
+  "generatedAt": "2026-02-16T08:35:31.493Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 71,
-  "auditedRuns": 28,
-  "auditPassedRuns": 28,
+  "totalRuns": 72,
+  "auditedRuns": 29,
+  "auditPassedRuns": 29,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
@@ -17,13 +17,13 @@
       "latestCreatedAt": "2026-02-16T06:42:05.000Z"
     },
     "pr-gate": {
-      "totalRuns": 23,
-      "auditedRuns": 11,
-      "auditPassedRuns": 11,
+      "totalRuns": 24,
+      "auditedRuns": 12,
+      "auditPassedRuns": 12,
       "auditFailedRuns": 0,
       "loglessRuns": 6,
-      "latestRunId": "2026-02-16-pr-gate-ci-20",
-      "latestCreatedAt": "2026-02-16T06:36:06.000Z"
+      "latestRunId": "2026-02-16-pr-gate-ci-21",
+      "latestCreatedAt": "2026-02-16T06:41:55.000Z"
     },
     "nightly-deep": {
       "totalRuns": 23,
@@ -63,8 +63,20 @@
       "auditMissingCount": 0,
       "logFileCount": 20,
       "snapshotFileCount": 29,
-      "runSizeBytes": 148256,
+      "runSizeBytes": 148568,
       "frameworkGapState": "closed"
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-21",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T06:41:55.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 15,
+      "snapshotFileCount": 19,
+      "runSizeBytes": 77313,
+      "frameworkGapState": null
     },
     {
       "runId": "2026-02-16-pr-gate-ci-20",
@@ -634,18 +646,6 @@
       "runId": "2026-02-14-full-r9",
       "profile": "full",
       "createdAt": "2026-02-14T06:13:41.000Z",
-      "hasAudit": false,
-      "auditPassed": null,
-      "auditMissingCount": null,
-      "logFileCount": 12,
-      "snapshotFileCount": 0,
-      "runSizeBytes": 4368,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-full-r8",
-      "profile": "full",
-      "createdAt": "2026-02-14T06:09:15.000Z",
       "hasAudit": false,
       "auditPassed": null,
       "auditMissingCount": null,

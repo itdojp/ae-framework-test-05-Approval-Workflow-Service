@@ -43,6 +43,10 @@ fi
 
 cd "$PUBLISH_DIR"
 
+# Recompute derived cross-run reports on top of merged artifacts to avoid stale index/trend.
+node scripts/testing/run-index-report.mjs
+node scripts/testing/trend-report.mjs
+
 if [[ -z "$(git status --porcelain -- artifacts .ae)" ]]; then
   echo "No artifact changes to commit."
   exit 0

@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-02-16T06:42:06.188Z",
+  "generatedAt": "2026-02-16T08:35:31.539Z",
   "sourceDir": "artifacts/runs",
   "maxRuns": 200,
-  "totalRunsScanned": 69,
+  "totalRunsScanned": 70,
   "profiles": {
     "full": {
       "totalRuns": 14,
@@ -81,15 +81,15 @@
       }
     },
     "pr-gate": {
-      "totalRuns": 23,
-      "runsWithSnapshots": 14,
-      "evaluatedRuns": 14,
-      "passedRuns": 14,
+      "totalRuns": 24,
+      "runsWithSnapshots": 15,
+      "evaluatedRuns": 15,
+      "passedRuns": 15,
       "passRate": 1,
       "latestRun": {
-        "runId": "2026-02-16-pr-gate-ci-20",
+        "runId": "2026-02-16-pr-gate-ci-21",
         "profile": "pr-gate",
-        "createdAt": "2026-02-16T06:36:06.000Z",
+        "createdAt": "2026-02-16T06:41:55.000Z",
         "hasSnapshots": true,
         "runPassed": true,
         "checks": [
@@ -116,7 +116,7 @@
         ],
         "highlights": {
           "mutationScore": null,
-          "verifyLiteDurationMs": 3801,
+          "verifyLiteDurationMs": 3828,
           "conformanceOverall": "pass",
           "conformanceNegativePassed": true,
           "formal": {
@@ -128,6 +128,11 @@
       "trends": {
         "mutationScore": [],
         "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-16-pr-gate-ci-21",
+            "createdAt": "2026-02-16T06:41:55.000Z",
+            "durationMs": 3828
+          },
           {
             "runId": "2026-02-16-pr-gate-ci-20",
             "createdAt": "2026-02-16T06:36:06.000Z",
@@ -418,6 +423,45 @@
         "formal": {
           "tlaStatus": "tool_not_available",
           "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-21",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T06:41:55.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3828,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
         }
       }
     },
@@ -1233,45 +1277,6 @@
       "highlights": {
         "mutationScore": null,
         "verifyLiteDurationMs": 3669,
-        "conformanceOverall": "pass",
-        "conformanceNegativePassed": true,
-        "formal": {
-          "tlaStatus": null,
-          "cspStatus": null
-        }
-      }
-    },
-    {
-      "runId": "2026-02-14-pr-gate-r10",
-      "profile": "pr-gate",
-      "createdAt": "2026-02-14T10:04:08.000Z",
-      "hasSnapshots": true,
-      "runPassed": true,
-      "checks": [
-        {
-          "name": "verify-lite",
-          "passed": true
-        },
-        {
-          "name": "conformance",
-          "passed": true
-        },
-        {
-          "name": "conformance-negative",
-          "passed": true
-        },
-        {
-          "name": "mbt",
-          "passed": true
-        },
-        {
-          "name": "property",
-          "passed": true
-        }
-      ],
-      "highlights": {
-        "mutationScore": null,
-        "verifyLiteDurationMs": 4105,
         "conformanceOverall": "pass",
         "conformanceNegativePassed": true,
         "formal": {
