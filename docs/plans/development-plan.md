@@ -85,6 +85,7 @@
   - `run.sh` のプロファイルを修正し、`dev-fast/pr-gate/full` で `verify-lite` を必ず実行。
   - GitHub Actions を追加し、`pr-gate.yml`（PR/Push）と `nightly-deep.yml`（schedule/manual）を自動実行化。
   - `full-regression.yml`（weekly/manual）を追加し、`full` プロファイルの定期総合回帰と生成物保存を自動実行化。
+  - CIの生成物保存を `scripts/ci/persist-artifacts.sh` へ共通化し、push競合時の保存失敗を再試行で吸収するようにした。
   - GitHub Actions 実行後に `artifacts/` と `.ae/` を自動コミット保存するステップを導入し、CI由来の中間生成物を main へ保存する運用へ変更。
   - `scripts/ae/run.sh` の run完了時に `artifacts/runs/<run-id>/snapshots/` へ主要成果物を自動複製し、run単位での再現性を強化。
   - `scripts/testing/trend-report.mjs` を追加し、`nightly-deep/full` 実行後に `artifacts/trends/summary.json` を自動生成するようにした。

@@ -13,6 +13,7 @@
   - upstream issue: <https://github.com/itdojp/ae-framework/issues/1967>
 - 中間生成物保存仕様: `docs/specs/artifact-retention-spec.md`
 - 自動実行設定: `codex/ae.playbook.yaml`, `scripts/ae/run.sh`
+- CI成果保存スクリプト: `scripts/ci/persist-artifacts.sh`
 - CI自動実行: `.github/workflows/pr-gate.yml`, `.github/workflows/nightly-deep.yml`, `.github/workflows/full-regression.yml`
 
 ## 実装（Phase 1/2）

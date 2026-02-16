@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-AE-TOOL-001`
-- 版: `v1.2`
+- 版: `v1.3`
 - 作成日: `2026-02-14`
 - 対象: Approval Workflow Service（Issue #1）
 
@@ -54,7 +54,7 @@
 - `pr-gate.yml` / `nightly-deep.yml` / `full-regression.yml` は `configs/ae-framework/ref.txt` の固定SHAで `ae-framework` を checkout する。
 - `ae-framework` 依存導入は `pnpm --dir ae-framework install --no-frozen-lockfile` を使用する。
 - lock改変有無は `ae-framework-ref-guard` の `workingTreeClean` 判定で検知し、変更があれば fail-fast とする。
-- main push: `pr-gate.yml` 実行後、`artifacts/` と `.ae/` の差分を自動コミットして保存する。
+- main push: `pr-gate.yml` 実行後、`scripts/ci/persist-artifacts.sh` で `artifacts/` と `.ae/` の差分を自動コミットして保存する。
 - 手動/定期トリガ:
   - `nightly-deep.yml`（formal + mutation）を実行し、同様に差分を自動コミットする。
   - `full-regression.yml`（fullプロファイル）を週次（毎週月曜18:00 UTC）/手動で実行し、同様に差分を自動コミットする。
@@ -81,6 +81,7 @@
 - framework gap状態取得: `scripts/testing/framework-gap-status.mjs`
 - 成果物監査: `scripts/testing/run-artifact-audit.mjs`
 - run横断インデックス: `scripts/testing/run-index-report.mjs`
+- CI成果保存: `scripts/ci/persist-artifacts.sh`（別cloneで最新mainに対して保存、push競合時はrebaseして再試行）
 - ae-framework固定ref検証: `scripts/testing/ae-framework-ref-guard.mjs`
 - spec lint warning gate: `scripts/testing/spec-lint-warning-gate.mjs`（`SPEC_LINT_MAX_WARNINGS` で閾値制御。既定3）
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
