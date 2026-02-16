@@ -52,7 +52,8 @@
 2. CI自動化:
 - PRトリガ: `pr-gate.yml`（`verify-lite + conformance + mbt + property`）
 - `pr-gate.yml` / `nightly-deep.yml` は `configs/ae-framework/ref.txt` の固定SHAで `ae-framework` を checkout する。
-- `ae-framework` 依存導入は `pnpm --dir ae-framework install --frozen-lockfile` を使用し、lock改変を防止する。
+- `ae-framework` 依存導入は `pnpm --dir ae-framework install --no-frozen-lockfile` を使用する。
+- lock改変有無は `ae-framework-ref-guard` の `workingTreeClean` 判定で検知し、変更があれば fail-fast とする。
 - main push: `pr-gate.yml` 実行後、`artifacts/` と `.ae/` の差分を自動コミットして保存する。
 - 手動/定期トリガ: `nightly-deep.yml`（formal + mutation）を実行し、同様に差分を自動コミットする。
 3. 証跡保存:

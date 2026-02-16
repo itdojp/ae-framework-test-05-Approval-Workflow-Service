@@ -46,7 +46,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install ae-framework dependencies
-        run: pnpm --dir ae-framework install --frozen-lockfile
+        run: pnpm --dir ae-framework install --no-frozen-lockfile
 
       - name: Prepare run id
         run: echo "RUN_ID=$(date -u +%Y-%m-%d)-nightly-deep-ci-${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"

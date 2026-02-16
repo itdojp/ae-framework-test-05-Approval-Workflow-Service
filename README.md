@@ -74,14 +74,16 @@ conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定�
 - `pr-gate.yml`:
   - Trigger: `pull_request`, `push(main)`
   - ae-framework: `configs/ae-framework/ref.txt` の固定SHAを checkout
-  - 依存導入: `pnpm --dir ae-framework install --frozen-lockfile`（lock改変を禁止）
+  - 依存導入: `pnpm --dir ae-framework install --no-frozen-lockfile`
+  - 非改変担保: `run.sh` 起動時の `ae-framework ref guard` が tracked 変更を検知した場合は fail-fast
   - 実行: `bash scripts/ae/run.sh pr-gate`
   - 収集: `.ae/ae-ir.json`, `artifacts/runs/index.{json,md}`, `artifacts/conformance/*`（negative含む）, `artifacts/mbt/*`, `artifacts/properties/*`, `artifacts/verify-lite/*`
   - 保存: `push(main)` 時は `artifacts/` と `.ae/` の差分を自動コミットして main に保存
 - `nightly-deep.yml`:
   - Trigger: `schedule`（毎日 17:00 UTC）, `workflow_dispatch`
   - ae-framework: `configs/ae-framework/ref.txt` の固定SHAを checkout
-  - 依存導入: `pnpm --dir ae-framework install --frozen-lockfile`（lock改変を禁止）
+  - 依存導入: `pnpm --dir ae-framework install --no-frozen-lockfile`
+  - 非改変担保: `run.sh` 起動時の `ae-framework ref guard` が tracked 変更を検知した場合は fail-fast
   - 実行: `bash scripts/ae/run.sh nightly-deep`
   - 収集: `artifacts/runs/index.{json,md}`, `artifacts/formal/*`, `artifacts/mutation/*`, `artifacts/trends/summary.json`, `artifacts/framework-gaps/status.json`
   - 保存: 実行後の `artifacts/` と `.ae/` の差分を自動コミットして main に保存
