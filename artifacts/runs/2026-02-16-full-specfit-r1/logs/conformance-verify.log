@@ -1,0 +1,19 @@
+🔍 Starting conformance verification...
+📄 Loaded input data from /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/configs/conformance/input.json
+📋 Loaded context from /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/configs/conformance/context.json
+📜 Loading 4 custom rules...
+🚀 Engine started, running verification...
+
+📊 Verification Results:
+
+✅ Overall Status: PASS
+📋 Total Rules: 6
+🔧 Rules Executed: 5
+✅ Rules Passed: 5
+❌ Rules Failed: 0
+⏭️  Rules Skipped: 1
+🚨 Rules Error: 0
+⏱️  Total Duration: 3ms
+
+🎉 No violations found - all rules passed!
+💾 Results saved to /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/artifacts/conformance/result.json

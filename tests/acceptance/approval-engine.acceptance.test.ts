@@ -333,6 +333,73 @@ describe('Approval Workflow Acceptance', () => {
     ).rejects.toBeInstanceOf(ConflictError);
   });
 
+  it('AW-REQ-002: submit validates required fields (title/amount/currency)', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+    const approver = actor('approver-01');
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-submit-required',
+      name: 'SubmitRequiredFields',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: `USER:${approver.userId}` }]
+    });
+
+    type MutableRequest = { title: string; amount: number; currency: string };
+    const rawRequests = (engine as unknown as { requests: Map<string, MutableRequest> }).requests;
+
+    const scenarios: Array<{
+      label: string;
+      mutate: (request: MutableRequest) => void;
+      expectedMessage: string;
+    }> = [
+      {
+        label: 'title missing',
+        mutate: (request) => {
+          request.title = '   ';
+        },
+        expectedMessage: 'title is required'
+      },
+      {
+        label: 'amount invalid',
+        mutate: (request) => {
+          request.amount = -1;
+        },
+        expectedMessage: 'amount must be a non-negative number'
+      },
+      {
+        label: 'currency missing',
+        mutate: (request) => {
+          request.currency = '';
+        },
+        expectedMessage: 'currency is required'
+      }
+    ];
+
+    for (const scenario of scenarios) {
+      const created = engine.createRequest(
+        {
+          type: 'GENERIC',
+          title: `Submit required ${scenario.label}`,
+          amount: 5000,
+          currency: 'JPY'
+        },
+        requester
+      );
+
+      const raw = rawRequests.get(created.requestId);
+      expect(raw).toBeDefined();
+      scenario.mutate(raw!);
+
+      await expect(engine.submitRequest(created.requestId, requester)).rejects.toMatchObject({
+        message: expect.stringContaining(scenario.expectedMessage)
+      });
+      expect(engine.getRequest(created.requestId, admin).status).toBe('DRAFT');
+      expect(engine.listTasks(admin, { requestId: created.requestId })).toHaveLength(0);
+    }
+  });
+
   it('AW-REQ-RETURN-01: RETURN moves request to RETURNED and resubmit regenerates first-step tasks', async () => {
     const engine = new ApprovalEngine();
     const admin = actor('admin-01', ['ADMIN']);
@@ -392,6 +459,102 @@ describe('Approval Workflow Acceptance', () => {
 
     const pendingAfter = engine.listTasks(admin, { requestId: created.requestId, status: 'PENDING' });
     expect(pendingAfter).toHaveLength(2);
+  });
+
+  it('AW-WF-003: fixed workflow/version remains unchanged on resubmit after RETURN', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+    const fixedApprover = actor('fixed-approver');
+    const newApprover = actor('new-approver');
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-fixed-v1',
+      name: 'FixedWorkflow',
+      version: 1,
+      matchCondition: { priority: 10 },
+      steps: [{ stepId: 'step-1', name: 'FixedStep', mode: 'ANY', approverSelector: `USER:${fixedApprover.userId}` }]
+    });
+
+    const created = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'Workflow freeze check',
+        amount: 9000,
+        currency: 'JPY'
+      },
+      requester
+    );
+
+    const firstSubmit = await engine.submitRequest(created.requestId, requester);
+    expect(firstSubmit.workflowId).toBe('wf-fixed-v1');
+    expect(firstSubmit.workflowVersion).toBe(1);
+
+    const firstPending = engine.listTasks(admin, { requestId: created.requestId, status: 'PENDING' });
+    expect(firstPending).toHaveLength(1);
+    await engine.decideTask(firstPending[0]!.taskId, fixedApprover, 'RETURN', 'revise');
+    expect(engine.getRequest(created.requestId, admin).status).toBe('RETURNED');
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-new-higher-priority',
+      name: 'NewWorkflow',
+      version: 1,
+      matchCondition: { priority: 999 },
+      steps: [{ stepId: 'step-1', name: 'NewStep', mode: 'ANY', approverSelector: `USER:${newApprover.userId}` }]
+    });
+
+    const resubmitted = await engine.submitRequest(created.requestId, requester);
+    expect(resubmitted.workflowId).toBe('wf-fixed-v1');
+    expect(resubmitted.workflowVersion).toBe(1);
+
+    const pendingAfter = engine.listTasks(admin, { requestId: created.requestId, status: 'PENDING' });
+    expect(pendingAfter).toHaveLength(1);
+    expect(pendingAfter[0]!.assigneeUserId).toBe(fixedApprover.userId);
+  });
+
+  it('AW-AUD-001: withdraw/cancel actions are recorded in audit logs', async () => {
+    const engine = new ApprovalEngine();
+    const admin = actor('admin-01', ['ADMIN']);
+    const requester = actor('requester-01');
+    const approver = actor('approver-01');
+
+    await createAndActivateWorkflow(engine, {
+      workflowId: 'wf-audit-withdraw-cancel',
+      name: 'AuditWithdrawCancel',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: `USER:${approver.userId}` }]
+    });
+
+    const withdrawRequest = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'Withdraw audit',
+        amount: 10000,
+        currency: 'JPY'
+      },
+      requester
+    );
+    await engine.submitRequest(withdrawRequest.requestId, requester);
+    const withdrawn = await engine.withdrawRequest(withdrawRequest.requestId, requester);
+    expect(withdrawn.status).toBe('WITHDRAWN');
+    expect(engine.listTasks(admin, { requestId: withdrawRequest.requestId, status: 'PENDING' })).toHaveLength(0);
+
+    const cancelRequest = engine.createRequest(
+      {
+        type: 'GENERIC',
+        title: 'Cancel audit',
+        amount: 2000,
+        currency: 'JPY'
+      },
+      requester
+    );
+    const cancelled = await engine.cancelRequest(cancelRequest.requestId, requester);
+    expect(cancelled.status).toBe('CANCELLED');
+
+    const withdrawActions = engine.listAuditLogs(admin, withdrawRequest.requestId).map((audit) => audit.action);
+    expect(withdrawActions).toContain('REQUEST_WITHDRAW');
+    const cancelActions = engine.listAuditLogs(admin, cancelRequest.requestId).map((audit) => audit.action);
+    expect(cancelActions).toContain('REQUEST_CANCEL');
   });
 
   it('AW-WF-002: highest priority active workflow is selected on submit', async () => {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-16T08:38:57.193Z",
+  "generatedAt": "2026-02-16T11:11:40.006Z",
   "sourceDir": "artifacts/runs",
   "totalRuns": 73,
   "auditedRuns": 30,
@@ -7,23 +7,23 @@
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
-    "pr-gate": {
-      "totalRuns": 25,
-      "auditedRuns": 13,
-      "auditPassedRuns": 13,
-      "auditFailedRuns": 0,
-      "loglessRuns": 6,
-      "latestRunId": "2026-02-16-pr-gate-ci-22",
-      "latestCreatedAt": "2026-02-16T08:38:54.000Z"
-    },
     "full": {
-      "totalRuns": 14,
-      "auditedRuns": 1,
-      "auditPassedRuns": 1,
+      "totalRuns": 15,
+      "auditedRuns": 2,
+      "auditPassedRuns": 2,
       "auditFailedRuns": 0,
       "loglessRuns": 0,
-      "latestRunId": "2026-02-16-full-ci-2",
-      "latestCreatedAt": "2026-02-16T06:42:05.000Z"
+      "latestRunId": "2026-02-16-full-specfit-r1",
+      "latestCreatedAt": "2026-02-16T11:11:38.000Z"
+    },
+    "pr-gate": {
+      "totalRuns": 24,
+      "auditedRuns": 12,
+      "auditPassedRuns": 12,
+      "auditFailedRuns": 0,
+      "loglessRuns": 6,
+      "latestRunId": "2026-02-16-pr-gate-ci-21",
+      "latestCreatedAt": "2026-02-16T06:41:55.000Z"
     },
     "nightly-deep": {
       "totalRuns": 23,
@@ -55,16 +55,16 @@
   },
   "latestRuns": [
     {
-      "runId": "2026-02-16-pr-gate-ci-22",
-      "profile": "pr-gate",
-      "createdAt": "2026-02-16T08:38:54.000Z",
+      "runId": "2026-02-16-full-specfit-r1",
+      "profile": "full",
+      "createdAt": "2026-02-16T11:11:38.000Z",
       "hasAudit": true,
       "auditPassed": true,
       "auditMissingCount": 0,
-      "logFileCount": 15,
-      "snapshotFileCount": 19,
-      "runSizeBytes": 77314,
-      "frameworkGapState": null
+      "logFileCount": 20,
+      "snapshotFileCount": 29,
+      "runSizeBytes": 147527,
+      "frameworkGapState": "closed"
     },
     {
       "runId": "2026-02-16-full-ci-2",

@@ -1,0 +1,10 @@
+{
+  "runId": "2026-02-16-full-specfit-r1",
+  "profile": "full",
+  "generatedAt": "2026-02-16T11:11:39.562Z",
+  "runDir": "artifacts/runs/2026-02-16-full-specfit-r1",
+  "requiredCount": 24,
+  "missingCount": 0,
+  "passed": true,
+  "missing": []
+}

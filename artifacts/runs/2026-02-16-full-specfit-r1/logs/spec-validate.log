@@ -1,0 +1,17 @@
+🔍 Validating /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/spec/approval-workflow.md...
+📝 Compiling...
+✅ Compilation successful
+🔍 Linting...
+
+📊 Validation Results:
+   ✅ Errors: 0
+   ⚠️  Warnings: 3
+   ℹ️  Info: 0
+
+📋 Top Issues:
+⚠️  Entity 'ApprovalRequest' has no business rules defined
+⚠️  Entity 'ApprovalTask' has no business rules defined
+⚠️  Entity 'WorkflowDefinition' has no business rules defined
+
+✅ Validation passed successfully
+   AE-IR saved to: /home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/.ae/ae-ir.json

@@ -9,6 +9,7 @@
 - 開発計画: `docs/plans/development-plan.md`
 - ae-framework 利用仕様: `docs/specs/ae-framework-tooling-spec.md`
 - 要求IDトレーサビリティ: `docs/specs/requirements-traceability.md`
+- ae-framework 有用性評価: `docs/reports/ae-framework-usefulness-evaluation.md`
 - ae-framework 固定参照: `configs/ae-framework/ref.txt`
 - ae-framework ギャップ記録（BIZ_001）: `docs/specs/ae-framework-gap-biz001.md`
   - upstream issue: <https://github.com/itdojp/ae-framework/issues/1967>

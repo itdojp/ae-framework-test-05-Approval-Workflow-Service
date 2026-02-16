@@ -101,3 +101,11 @@
   - framework gap status に `revalidationRequired` 判定を追加し、upstream issue が close された際の再検証要否を機械判定できるようにした。
   - `BIZ_001` 警告ギャップを `ae-framework` 本体 Issue `#1967` として起票した。
   - `itdojp/ae-framework#1967` close を確認したが、評価整合のため fixed ref 継続方針とし、`BIZ_001` は fixed ref 既知差分として管理する運用に切り替えた。
+
+## 9. 進捗（2026-02-16）
+
+- 完了:
+  - `AW-REQ-002`（submit必須項目）, `AW-WF-003`（workflow固定）, `AW-AUD-001`（withdraw/cancel監査）の不足分を実装・受入/APIテストで補完した。
+  - `docs/specs/requirements-traceability.md` を更新し、Issue #1 要求IDの判定を `達成` に整理した。
+  - fixed ref のクリーンコピーを用いて `RUN_ID=2026-02-16-full-specfit-r1` で `bash scripts/ae/run.sh full` を実行し、全フェーズ完走を確認した。
+  - 有用性評価レポート `docs/reports/ae-framework-usefulness-evaluation.md` を作成し、証跡ファイルを根拠に判定を記録した。

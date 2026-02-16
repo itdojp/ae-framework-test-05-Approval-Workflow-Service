@@ -240,7 +240,8 @@ export class ApprovalEngine {
         throw new ConflictError(`submit not allowed in status: ${request.status}`);
       }
 
-      const workflow = this.selectWorkflowForRequest(request);
+      this.assertRequestSubmitRequiredFields(request);
+      const workflow = this.resolveWorkflowForSubmit(request);
       const firstStep = workflow.steps[0];
       if (firstStep) {
         const firstApprovers = this.resolveApprovers(
@@ -726,6 +727,25 @@ export class ApprovalEngine {
       return condition.requestTypes.includes(request.type);
     }
     return true;
+  }
+
+  private resolveWorkflowForSubmit(request: ApprovalRequest): WorkflowDefinition {
+    if (request.workflowId) {
+      return this.requireWorkflow(request.tenantId, request.workflowId);
+    }
+    return this.selectWorkflowForRequest(request);
+  }
+
+  private assertRequestSubmitRequiredFields(request: ApprovalRequest): void {
+    if (!request.title.trim()) {
+      throw new ValidationError('title is required');
+    }
+    if (!Number.isFinite(request.amount) || request.amount < 0) {
+      throw new ValidationError('amount must be a non-negative number');
+    }
+    if (!request.currency.trim()) {
+      throw new ValidationError('currency is required');
+    }
   }
 
   private requireRequestWorkflow(request: ApprovalRequest): WorkflowDefinition {

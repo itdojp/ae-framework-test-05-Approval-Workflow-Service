@@ -372,6 +372,44 @@ describe('API acceptance', () => {
     expect(patchReview.status).toBe(409);
   });
 
+  it('AW-REQ-002: required fields are validated for create/update requests', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    const missingTitle = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: '   ',
+      amount: 1000,
+      currency: 'JPY'
+    });
+    expect(missingTitle.status).toBe(422);
+    expect(missingTitle.body.message).toContain('title is required');
+
+    const invalidAmount = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Invalid amount',
+      amount: -1,
+      currency: 'JPY'
+    });
+    expect(invalidAmount.status).toBe(422);
+    expect(invalidAmount.body.message).toContain('amount must be a non-negative number');
+
+    const created = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Valid request',
+      amount: 1000,
+      currency: 'JPY'
+    });
+    expect(created.status).toBe(201);
+    const requestId = created.body.requestId as string;
+
+    const emptyCurrencyPatch = await request(app)
+      .patch(`/api/v1/requests/${requestId}`)
+      .set(headers('requester-01'))
+      .send({ currency: '  ' });
+    expect(emptyCurrencyPatch.status).toBe(422);
+    expect(emptyCurrencyPatch.body.message).toContain('currency is required');
+  });
+
   it('AW-REQ-RETURN-01: RETURN leads to RETURNED and submit works as resubmit', async () => {
     const app = createApp(new ApprovalEngine());
 
@@ -433,6 +471,71 @@ describe('API acceptance', () => {
       .set(headers('admin-01', ['ADMIN']));
     const actions = (auditRes.body as Array<any>).map((audit) => audit.action);
     expect(actions).toContain('REQUEST_RETURN');
+  });
+
+  it('AW-WF-003: resubmit keeps initially fixed workflow even after new higher-priority workflow appears', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    await createActiveWorkflow(app, 'wf-api-fixed-v1', {
+      workflowId: 'wf-api-fixed-v1',
+      name: 'ApiFixedV1',
+      version: 1,
+      matchCondition: { priority: 10 },
+      steps: [{ stepId: 'step-1', name: 'Fixed', mode: 'ANY', approverSelector: 'USER:fixed-approver' }]
+    });
+
+    const createReqRes = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Workflow freeze',
+      amount: 14000,
+      currency: 'JPY'
+    });
+    expect(createReqRes.status).toBe(201);
+    const requestId = createReqRes.body.requestId as string;
+
+    const submitRes = await request(app)
+      .post(`/api/v1/requests/${requestId}/submit`)
+      .set(headers('requester-01'))
+      .send({});
+    expect(submitRes.status).toBe(200);
+    expect(submitRes.body.workflowId).toBe('wf-api-fixed-v1');
+    expect(submitRes.body.workflowVersion).toBe(1);
+
+    const pendingRes = await request(app)
+      .get('/api/v1/tasks')
+      .query({ requestId, status: 'PENDING' })
+      .set(headers('admin-01', ['ADMIN']));
+    const taskId = (pendingRes.body as Array<any>)[0]!.taskId as string;
+
+    const returnRes = await request(app)
+      .post(`/api/v1/tasks/${taskId}/decide`)
+      .set(headers('fixed-approver'))
+      .send({ decision: 'RETURN', comment: 'revise' });
+    expect(returnRes.status).toBe(200);
+    expect(returnRes.body.request.status).toBe('RETURNED');
+
+    await createActiveWorkflow(app, 'wf-api-new-high-priority', {
+      workflowId: 'wf-api-new-high-priority',
+      name: 'ApiNewHighPriority',
+      version: 1,
+      matchCondition: { priority: 999 },
+      steps: [{ stepId: 'step-1', name: 'New', mode: 'ANY', approverSelector: 'USER:new-approver' }]
+    });
+
+    const resubmitRes = await request(app)
+      .post(`/api/v1/requests/${requestId}/submit`)
+      .set(headers('requester-01'))
+      .send({});
+    expect(resubmitRes.status).toBe(200);
+    expect(resubmitRes.body.workflowId).toBe('wf-api-fixed-v1');
+    expect(resubmitRes.body.workflowVersion).toBe(1);
+
+    const pendingAfterRes = await request(app)
+      .get('/api/v1/tasks')
+      .query({ requestId, status: 'PENDING' })
+      .set(headers('admin-01', ['ADMIN']));
+    expect((pendingAfterRes.body as Array<any>)).toHaveLength(1);
+    expect((pendingAfterRes.body as Array<any>)[0]!.assigneeUserId).toBe('fixed-approver');
   });
 
   it('AW-WF-002: submit selects highest priority workflow among active matches', async () => {
@@ -549,5 +652,65 @@ describe('API acceptance', () => {
     expect(actions).toContain('TASK_ASSIGN');
     expect(actions).toContain('TASK_APPROVE');
     expect(actions).toContain('REQUEST_APPROVE');
+  });
+
+  it('AW-AUD-001: audit logs include REQUEST_WITHDRAW and REQUEST_CANCEL actions', async () => {
+    const app = createApp(new ApprovalEngine());
+
+    await createActiveWorkflow(app, 'wf-api-audit-withdraw-cancel', {
+      workflowId: 'wf-api-audit-withdraw-cancel',
+      name: 'ApiAuditWithdrawCancel',
+      matchCondition: { priority: 100 },
+      steps: [{ stepId: 'step-1', name: 'Single', mode: 'ANY', approverSelector: 'USER:approver-01' }]
+    });
+
+    const createWithdrawReq = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Withdraw me',
+      amount: 16000,
+      currency: 'JPY'
+    });
+    expect(createWithdrawReq.status).toBe(201);
+    const withdrawRequestId = createWithdrawReq.body.requestId as string;
+
+    await request(app).post(`/api/v1/requests/${withdrawRequestId}/submit`).set(headers('requester-01')).send({});
+    const withdrawRes = await request(app)
+      .post(`/api/v1/requests/${withdrawRequestId}/withdraw`)
+      .set(headers('requester-01'))
+      .send({});
+    expect(withdrawRes.status).toBe(200);
+    expect(withdrawRes.body.status).toBe('WITHDRAWN');
+
+    const withdrawAuditRes = await request(app)
+      .get('/api/v1/audit-logs')
+      .query({ requestId: withdrawRequestId })
+      .set(headers('admin-01', ['ADMIN']));
+    expect(withdrawAuditRes.status).toBe(200);
+    const withdrawActions = (withdrawAuditRes.body as Array<any>).map((audit) => audit.action);
+    expect(withdrawActions).toContain('REQUEST_WITHDRAW');
+
+    const createCancelReq = await request(app).post('/api/v1/requests').set(headers('requester-01')).send({
+      type: 'GENERIC',
+      title: 'Cancel me',
+      amount: 17000,
+      currency: 'JPY'
+    });
+    expect(createCancelReq.status).toBe(201);
+    const cancelRequestId = createCancelReq.body.requestId as string;
+
+    const cancelRes = await request(app)
+      .post(`/api/v1/requests/${cancelRequestId}/cancel`)
+      .set(headers('requester-01'))
+      .send({});
+    expect(cancelRes.status).toBe(200);
+    expect(cancelRes.body.status).toBe('CANCELLED');
+
+    const cancelAuditRes = await request(app)
+      .get('/api/v1/audit-logs')
+      .query({ requestId: cancelRequestId })
+      .set(headers('admin-01', ['ADMIN']));
+    expect(cancelAuditRes.status).toBe(200);
+    const cancelActions = (cancelAuditRes.body as Array<any>).map((audit) => audit.action);
+    expect(cancelActions).toContain('REQUEST_CANCEL');
   });
 });
