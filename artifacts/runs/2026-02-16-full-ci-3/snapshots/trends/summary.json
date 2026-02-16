@@ -1,0 +1,1364 @@
+{
+  "generatedAt": "2026-02-16T18:11:26.785Z",
+  "sourceDir": "artifacts/runs",
+  "maxRuns": 200,
+  "totalRunsScanned": 75,
+  "profiles": {
+    "full": {
+      "totalRuns": 16,
+      "runsWithSnapshots": 4,
+      "evaluatedRuns": 4,
+      "passedRuns": 4,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-16-full-ci-3",
+        "profile": "full",
+        "createdAt": "2026-02-16T18:11:26.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          },
+          {
+            "name": "conformance",
+            "passed": true
+          },
+          {
+            "name": "conformance-negative",
+            "passed": true
+          },
+          {
+            "name": "mbt",
+            "passed": true
+          },
+          {
+            "name": "property",
+            "passed": true
+          },
+          {
+            "name": "mutation",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": 1,
+          "verifyLiteDurationMs": 3701,
+          "conformanceOverall": "pass",
+          "conformanceNegativePassed": true,
+          "formal": {
+            "tlaStatus": "tool_not_available",
+            "cspStatus": "tool_not_available"
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [
+          {
+            "runId": "2026-02-16-full-ci-3",
+            "createdAt": "2026-02-16T18:11:26.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-specfit-r1",
+            "createdAt": "2026-02-16T11:11:38.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "mutationScore": 1
+          }
+        ],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-16-full-ci-3",
+            "createdAt": "2026-02-16T18:11:26.000Z",
+            "durationMs": 3701
+          },
+          {
+            "runId": "2026-02-16-full-specfit-r1",
+            "createdAt": "2026-02-16T11:11:38.000Z",
+            "durationMs": 4242
+          },
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "durationMs": 3347
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "durationMs": 3591
+          }
+        ]
+      }
+    },
+    "nightly-deep": {
+      "totalRuns": 24,
+      "runsWithSnapshots": 15,
+      "evaluatedRuns": 15,
+      "passedRuns": 15,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-16-nightly-deep-ci-13",
+        "profile": "nightly-deep",
+        "createdAt": "2026-02-16T17:15:37.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "mutation",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": 1,
+          "verifyLiteDurationMs": null,
+          "conformanceOverall": null,
+          "conformanceNegativePassed": null,
+          "formal": {
+            "tlaStatus": "tool_not_available",
+            "cspStatus": "tool_not_available"
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [
+          {
+            "runId": "2026-02-16-nightly-deep-ci-13",
+            "createdAt": "2026-02-16T17:15:37.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-nightly-deep-ci-12",
+            "createdAt": "2026-02-16T03:12:08.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-15-nightly-deep-ci-11",
+            "createdAt": "2026-02-15T23:46:38.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-15-nightly-deep-ci-10",
+            "createdAt": "2026-02-15T17:07:02.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-15-nightly-deep-ci-9",
+            "createdAt": "2026-02-15T08:38:34.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-ci-8",
+            "createdAt": "2026-02-14T17:07:49.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-ci-7",
+            "createdAt": "2026-02-14T15:30:10.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-ci-6",
+            "createdAt": "2026-02-14T11:02:54.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-r6",
+            "createdAt": "2026-02-14T10:57:57.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-ci-5",
+            "createdAt": "2026-02-14T10:55:22.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-r5",
+            "createdAt": "2026-02-14T10:50:38.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-ci-4",
+            "createdAt": "2026-02-14T10:09:03.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-r4",
+            "createdAt": "2026-02-14T09:59:59.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-ci-3",
+            "createdAt": "2026-02-14T09:12:15.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-nightly-deep-r3",
+            "createdAt": "2026-02-14T09:07:42.000Z",
+            "mutationScore": 1
+          }
+        ],
+        "verifyLiteDurationMs": []
+      }
+    },
+    "pr-gate": {
+      "totalRuns": 26,
+      "runsWithSnapshots": 17,
+      "evaluatedRuns": 17,
+      "passedRuns": 17,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-16-pr-gate-ci-23",
+        "profile": "pr-gate",
+        "createdAt": "2026-02-16T11:18:38.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          },
+          {
+            "name": "conformance",
+            "passed": true
+          },
+          {
+            "name": "conformance-negative",
+            "passed": true
+          },
+          {
+            "name": "mbt",
+            "passed": true
+          },
+          {
+            "name": "property",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": null,
+          "verifyLiteDurationMs": 3656,
+          "conformanceOverall": "pass",
+          "conformanceNegativePassed": true,
+          "formal": {
+            "tlaStatus": null,
+            "cspStatus": null
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-16-pr-gate-ci-23",
+            "createdAt": "2026-02-16T11:18:38.000Z",
+            "durationMs": 3656
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-22",
+            "createdAt": "2026-02-16T08:38:54.000Z",
+            "durationMs": 3796
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-21",
+            "createdAt": "2026-02-16T06:41:55.000Z",
+            "durationMs": 3828
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-20",
+            "createdAt": "2026-02-16T06:36:06.000Z",
+            "durationMs": 3801
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-19",
+            "createdAt": "2026-02-16T03:10:24.000Z",
+            "durationMs": 3660
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-17",
+            "createdAt": "2026-02-16T03:02:00.000Z",
+            "durationMs": 3555
+          },
+          {
+            "runId": "2026-02-15-pr-gate-ci-16",
+            "createdAt": "2026-02-15T23:44:19.000Z",
+            "durationMs": 3398
+          },
+          {
+            "runId": "2026-02-15-pr-gate-ci-14",
+            "createdAt": "2026-02-15T08:44:36.000Z",
+            "durationMs": 3611
+          },
+          {
+            "runId": "2026-02-15-pr-gate-ci-13",
+            "createdAt": "2026-02-15T08:36:28.000Z",
+            "durationMs": 3840
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-12",
+            "createdAt": "2026-02-14T15:27:27.000Z",
+            "durationMs": 3686
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-11",
+            "createdAt": "2026-02-14T11:01:12.000Z",
+            "durationMs": 3681
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-10",
+            "createdAt": "2026-02-14T10:53:51.000Z",
+            "durationMs": 3639
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r11",
+            "createdAt": "2026-02-14T10:50:20.000Z",
+            "durationMs": 4847
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-9",
+            "createdAt": "2026-02-14T10:07:31.000Z",
+            "durationMs": 3669
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r10",
+            "createdAt": "2026-02-14T10:04:08.000Z",
+            "durationMs": 4105
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-8",
+            "createdAt": "2026-02-14T09:10:52.000Z",
+            "durationMs": 3604
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r9",
+            "createdAt": "2026-02-14T09:07:24.000Z",
+            "durationMs": 3412
+          }
+        ]
+      }
+    },
+    "dev-fast": {
+      "totalRuns": 9,
+      "runsWithSnapshots": 7,
+      "evaluatedRuns": 7,
+      "passedRuns": 7,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-16-dev-fast-r13",
+        "profile": "dev-fast",
+        "createdAt": "2026-02-16T03:05:28.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": null,
+          "verifyLiteDurationMs": 3451,
+          "conformanceOverall": null,
+          "conformanceNegativePassed": null,
+          "formal": {
+            "tlaStatus": null,
+            "cspStatus": null
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-16-dev-fast-r13",
+            "createdAt": "2026-02-16T03:05:28.000Z",
+            "durationMs": 3451
+          },
+          {
+            "runId": "2026-02-16-dev-fast-r12",
+            "createdAt": "2026-02-16T03:04:00.000Z",
+            "durationMs": 3656
+          },
+          {
+            "runId": "2026-02-16-dev-fast-r10",
+            "createdAt": "2026-02-16T02:58:43.000Z",
+            "durationMs": 4143
+          },
+          {
+            "runId": "2026-02-15-dev-fast-r9",
+            "createdAt": "2026-02-15T23:39:39.000Z",
+            "durationMs": 4284
+          },
+          {
+            "runId": "2026-02-14-dev-fast-r7-local",
+            "createdAt": "2026-02-14T15:24:14.000Z",
+            "durationMs": 3576
+          },
+          {
+            "runId": "2026-02-14-dev-fast-r6",
+            "createdAt": "2026-02-14T10:48:25.000Z",
+            "durationMs": 3619
+          },
+          {
+            "runId": "2026-02-14-dev-fast-r5",
+            "createdAt": "2026-02-14T09:05:34.000Z",
+            "durationMs": 3372
+          }
+        ]
+      }
+    }
+  },
+  "latestRuns": [
+    {
+      "runId": "2026-02-16-full-ci-3",
+      "profile": "full",
+      "createdAt": "2026-02-16T18:11:26.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        },
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": 3701,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-nightly-deep-ci-13",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-16T17:15:37.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-23",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T11:18:38.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3656,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-full-specfit-r1",
+      "profile": "full",
+      "createdAt": "2026-02-16T11:11:38.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        },
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": 4242,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": "ran",
+          "cspStatus": "ran"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-22",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T08:38:54.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3796,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-full-ci-2",
+      "profile": "full",
+      "createdAt": "2026-02-16T06:42:05.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        },
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": 3347,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-21",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T06:41:55.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3828,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-20",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T06:36:06.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3801,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-nightly-deep-ci-12",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-16T03:12:08.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-19",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T03:10:24.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3660,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-dev-fast-r13",
+      "profile": "dev-fast",
+      "createdAt": "2026-02-16T03:05:28.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3451,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-dev-fast-r12",
+      "profile": "dev-fast",
+      "createdAt": "2026-02-16T03:04:00.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3656,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-17",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T03:02:00.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3555,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-dev-fast-r10",
+      "profile": "dev-fast",
+      "createdAt": "2026-02-16T02:58:43.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 4143,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-15-nightly-deep-ci-11",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-15T23:46:38.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-15-pr-gate-ci-16",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-15T23:44:19.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3398,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-15-dev-fast-r9",
+      "profile": "dev-fast",
+      "createdAt": "2026-02-15T23:39:39.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 4284,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-15-nightly-deep-ci-10",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-15T17:07:02.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-15-pr-gate-ci-14",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-15T08:44:36.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3611,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-15-nightly-deep-ci-9",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-15T08:38:34.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-15-pr-gate-ci-13",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-15T08:36:28.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3840,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-deep-ci-8",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T17:07:49.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-deep-ci-7",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T15:30:10.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-ci-12",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T15:27:27.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3686,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-dev-fast-r7-local",
+      "profile": "dev-fast",
+      "createdAt": "2026-02-14T15:24:14.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3576,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-deep-ci-6",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T11:02:54.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-ci-11",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T11:01:12.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3681,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-deep-r6",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T10:57:57.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "ran",
+          "cspStatus": "ran"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-nightly-deep-ci-5",
+      "profile": "nightly-deep",
+      "createdAt": "2026-02-14T10:55:22.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-14-pr-gate-ci-10",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-14T10:53:51.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3639,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    }
+  ]
+}

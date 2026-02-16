@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-02-16T17:15:40.111Z
+GeneratedAt: 2026-02-16T18:11:30.427Z
 
 ## Overview
 
-- totalRuns: 76
-- auditedRuns: 33
-- auditPassedRuns: 33
+- totalRuns: 77
+- auditedRuns: 34
+- auditPassedRuns: 34
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,9 +14,9 @@ GeneratedAt: 2026-02-16T17:15:40.111Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| full | 16 | 3 | 3 | 0 | 0 | 2026-02-16-full-ci-3 | 2026-02-16T18:11:26.000Z |
 | nightly-deep | 24 | 11 | 11 | 0 | 7 | 2026-02-16-nightly-deep-ci-13 | 2026-02-16T17:15:37.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
-| full | 15 | 2 | 2 | 0 | 0 | 2026-02-16-full-specfit-r1 | 2026-02-16T11:11:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
 | unknown | 2 | 0 | 0 | 0 | 2 | 2026-02-14-automation-setup | 2026-02-14T00:40:00.000Z |
 
@@ -24,6 +24,7 @@ GeneratedAt: 2026-02-16T17:15:40.111Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-02-16-full-ci-3 | full | 2026-02-16T18:11:26.000Z | true | 0 | 20 | 29 | closed |
 | 2026-02-16-nightly-deep-ci-13 | nightly-deep | 2026-02-16T17:15:37.000Z | true | 0 | 8 | 11 | closed |
 | 2026-02-16-pr-gate-ci-23 | pr-gate | 2026-02-16T11:18:38.000Z | true | 0 | 15 | 19 |  |
 | 2026-02-16-full-specfit-r1 | full | 2026-02-16T11:11:38.000Z | true | 0 | 20 | 29 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-02-16T17:15:40.111Z
 | 2026-02-14-full-r12 | full | 2026-02-14T08:40:15.000Z |  |  | 14 | 0 |  |
 | 2026-02-14-pr-gate-r6 | pr-gate | 2026-02-14T08:27:43.000Z |  |  | 11 | 0 |  |
 | 2026-02-14-dev-fast-r2 | dev-fast | 2026-02-14T08:20:32.000Z |  |  | 6 | 0 |  |
-| 2026-02-14-pr-gate-r5 | pr-gate | 2026-02-14T08:20:00.000Z |  |  | 10 | 0 |  |
 
