@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-02-15T23:46:39.990Z
+GeneratedAt: 2026-02-16T02:58:44.090Z
 
 ## Overview
 
-- totalRuns: 63
-- auditedRuns: 20
-- auditPassedRuns: 20
+- totalRuns: 64
+- auditedRuns: 21
+- auditPassedRuns: 21
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,9 +14,9 @@ GeneratedAt: 2026-02-15T23:46:39.990Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| dev-fast | 7 | 4 | 4 | 0 | 0 | 2026-02-16-dev-fast-r10 | 2026-02-16T02:58:43.000Z |
 | nightly-deep | 22 | 9 | 9 | 0 | 7 | 2026-02-15-nightly-deep-ci-11 | 2026-02-15T23:46:38.000Z |
 | pr-gate | 20 | 8 | 8 | 0 | 6 | 2026-02-15-pr-gate-ci-16 | 2026-02-15T23:44:19.000Z |
-| dev-fast | 6 | 3 | 3 | 0 | 0 | 2026-02-15-dev-fast-r9 | 2026-02-15T23:39:39.000Z |
 | full | 13 | 0 | 0 | 0 | 0 | 2026-02-14-full-r13 | 2026-02-14T10:02:07.000Z |
 | unknown | 2 | 0 | 0 | 0 | 2 | 2026-02-14-automation-setup | 2026-02-14T00:40:00.000Z |
 
@@ -24,6 +24,7 @@ GeneratedAt: 2026-02-15T23:46:39.990Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-02-16-dev-fast-r10 | dev-fast | 2026-02-16T02:58:43.000Z | true | 0 | 10 | 7 |  |
 | 2026-02-15-nightly-deep-ci-11 | nightly-deep | 2026-02-15T23:46:38.000Z | true | 0 | 7 | 10 | closed |
 | 2026-02-15-pr-gate-ci-16 | pr-gate | 2026-02-15T23:44:19.000Z | true | 0 | 14 | 18 |  |
 | 2026-02-15-dev-fast-r9 | dev-fast | 2026-02-15T23:39:39.000Z | true | 0 | 9 | 6 |  |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-02-15T23:46:39.990Z
 | 2026-02-14-full-r3 | full | 2026-02-14T05:31:03.000Z |  |  | 11 | 0 |  |
 | 2026-02-14-full-r2 | full | 2026-02-14T04:07:05.000Z |  |  | 10 | 0 |  |
 | 2026-02-14-nightly-r6 | nightly-deep | 2026-02-14T04:06:18.000Z |  |  | 3 | 0 |  |
-| 2026-02-14-nightly-r5 | nightly-deep | 2026-02-14T04:05:57.000Z |  |  | 3 | 0 |  |
 

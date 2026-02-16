@@ -22,6 +22,8 @@ function parseArgs(argv) {
 }
 
 function requiredSnapshotPaths(profile, runId) {
+  const commonMeta = ['snapshots/spec/ae-framework-ref-check.json'];
+
   const commonSpec = [
     'snapshots/.ae/ae-ir.json',
     'snapshots/spec/lint-gate.json',
@@ -53,13 +55,13 @@ function requiredSnapshotPaths(profile, runId) {
 
   switch (profile) {
     case 'dev-fast':
-      return [...commonSpec, ...verifyLite];
+      return [...commonMeta, ...commonSpec, ...verifyLite];
     case 'pr-gate':
-      return [...commonSpec, ...verifyLite, ...prGateExtras];
+      return [...commonMeta, ...commonSpec, ...verifyLite, ...prGateExtras];
     case 'nightly-deep':
-      return [...nightlyExtras];
+      return [...commonMeta, ...nightlyExtras];
     case 'full':
-      return [...commonSpec, ...verifyLite, ...prGateExtras, ...nightlyExtras];
+      return [...commonMeta, ...commonSpec, ...verifyLite, ...prGateExtras, ...nightlyExtras];
     default:
       return [];
   }

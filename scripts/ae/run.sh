@@ -3,6 +3,7 @@ set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 AE_FRAMEWORK_DIR="${AE_FRAMEWORK_DIR:-$PROJECT_ROOT/../ae-framework}"
+AE_FRAMEWORK_REF_FILE="$PROJECT_ROOT/configs/ae-framework/ref.txt"
 PROFILE="${1:-full}"
 RUN_ID="${RUN_ID:-$(date -u +%Y-%m-%d)-${PROFILE}}"
 RUN_DIR="$PROJECT_ROOT/artifacts/runs/$RUN_ID"
@@ -249,6 +250,14 @@ phase_artifact_audit() {
     --run-id "$RUN_ID" --profile "$PROFILE"
 }
 
+phase_ae_framework_ref_guard() {
+  run_hard ae-framework-ref-guard \
+    node "$PROJECT_ROOT/scripts/testing/ae-framework-ref-guard.mjs" \
+    --expected-ref-file "$AE_FRAMEWORK_REF_FILE" \
+    --actual-dir "$AE_FRAMEWORK_DIR" \
+    --out "$PROJECT_ROOT/artifacts/spec/ae-framework-ref-check.json"
+}
+
 phase_run_index() {
   run_hard run-index \
     pnpm --dir "$PROJECT_ROOT" run runs:index
@@ -271,6 +280,11 @@ snapshot_spec_outputs() {
     "$SNAPSHOT_DIR/domain/replay-fixtures.sample.json"
   copy_if_exists "$PROJECT_ROOT/artifacts/simulation/deterministic-summary.json" \
     "$SNAPSHOT_DIR/simulation/deterministic-summary.json"
+}
+
+snapshot_ref_guard_outputs() {
+  copy_if_exists "$PROJECT_ROOT/artifacts/spec/ae-framework-ref-check.json" \
+    "$SNAPSHOT_DIR/spec/ae-framework-ref-check.json"
 }
 
 snapshot_verify_lite_outputs() {
@@ -323,6 +337,7 @@ snapshot_framework_gap_outputs() {
 
 snapshot_outputs() {
   mkdir -p "$SNAPSHOT_DIR"
+  snapshot_ref_guard_outputs
 
   case "$PROFILE" in
     dev-fast)
@@ -354,8 +369,12 @@ snapshot_outputs() {
 
 write_manifest() {
   local ae_framework_ref="unknown"
+  local ae_framework_ref_expected="unknown"
   if git -C "$AE_FRAMEWORK_DIR" rev-parse HEAD >/dev/null 2>&1; then
     ae_framework_ref="$(git -C "$AE_FRAMEWORK_DIR" rev-parse HEAD)"
+  fi
+  if [[ -f "$AE_FRAMEWORK_REF_FILE" ]]; then
+    ae_framework_ref_expected="$(tr -d '[:space:]' < "$AE_FRAMEWORK_REF_FILE")"
   fi
 
   cat >"$RUN_DIR/manifest.json" <<EOF
@@ -364,7 +383,9 @@ write_manifest() {
   "profile": "$PROFILE",
   "createdAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "aeFrameworkDir": "$AE_FRAMEWORK_DIR",
+  "aeFrameworkRefExpected": "$ae_framework_ref_expected",
   "aeFrameworkRef": "$ae_framework_ref",
+  "aeFrameworkRefCheckFile": "artifacts/spec/ae-framework-ref-check.json",
   "specLintMaxWarnings": $SPEC_LINT_MAX_WARNINGS,
   "logDir": "artifacts/runs/$RUN_ID/logs",
   "snapshotDir": "artifacts/runs/$RUN_ID/snapshots",
@@ -381,6 +402,7 @@ EOF
 
 main() {
   check_ae_framework
+  phase_ae_framework_ref_guard
 
   case "$PROFILE" in
     dev-fast)

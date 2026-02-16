@@ -20,6 +20,7 @@
     "test:conformance:negative": "node scripts/testing/conformance-negative-harness.mjs",
     "trend:report": "node scripts/testing/trend-report.mjs",
     "framework:gaps:status": "node scripts/testing/framework-gap-status.mjs",
+    "ae:ref:guard": "node scripts/testing/ae-framework-ref-guard.mjs",
     "artifacts:audit": "node scripts/testing/run-artifact-audit.mjs",
     "spec:lint:gate": "node scripts/testing/spec-lint-warning-gate.mjs",
     "runs:index": "node scripts/testing/run-index-report.mjs",

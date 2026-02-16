@@ -43,6 +43,7 @@ pnpm run test:mbt
 pnpm run test:property
 pnpm run test:mutation:quick
 pnpm run test:conformance:negative
+pnpm run ae:ref:guard -- --expected-ref-file configs/ae-framework/ref.txt --actual-dir ../ae-framework --out artifacts/spec/ae-framework-ref-check.json
 pnpm run spec:lint:gate -- --log artifacts/runs/2026-02-15-pr-gate-ci-14/logs/spec-lint.log --max-warnings 3
 pnpm run trend:report
 pnpm run framework:gaps:status
@@ -66,7 +67,7 @@ AE_FRAMEWORK_DIR=../ae-framework bash scripts/ae/run.sh full
 
 conformance は `configs/conformance/rule-ids.txt` で対象ルールを限定して実行する。
 
-`scripts/ae/run.sh` は `spec lint` 後に warning gate（既定 `SPEC_LINT_MAX_WARNINGS=3`）を実行し、各実行後に `artifacts/runs/<run-id>/snapshots/` へ主要中間生成物を自動複製し、`artifacts/runs/<run-id>/logs/*.log` を含む実行ログを保存し、`artifacts/runs/<run-id>/audit.json` で欠落監査を行い、`artifacts/runs/index.json` / `artifacts/runs/index.md` を自動更新する。
+`scripts/ae/run.sh` は起動時に `ae-framework ref guard` を実行し（`configs/ae-framework/ref.txt` と実参照先を照合）、`spec lint` 後に warning gate（既定 `SPEC_LINT_MAX_WARNINGS=3`）を実行し、各実行後に `artifacts/runs/<run-id>/snapshots/` へ主要中間生成物を自動複製し、`artifacts/runs/<run-id>/logs/*.log` を含む実行ログを保存し、`artifacts/runs/<run-id>/audit.json` で欠落監査を行い、`artifacts/runs/index.json` / `artifacts/runs/index.md` を自動更新する。
 
 ## CI自動化
 

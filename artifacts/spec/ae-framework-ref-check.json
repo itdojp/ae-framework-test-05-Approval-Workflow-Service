@@ -1,0 +1,8 @@
+{
+  "generatedAt": "2026-02-16T02:58:35.326Z",
+  "expectedRefFile": "/home/devuser/work/CodeX/ae-framework_exp05/ae-framework-test-05-Approval-Workflow-Service/configs/ae-framework/ref.txt",
+  "expectedRef": "b68a4014f2827db300cae1f50fa4e1ee17998cab",
+  "actualDir": "../ae-framework",
+  "actualRef": "b68a4014f2827db300cae1f50fa4e1ee17998cab",
+  "passed": true
+}

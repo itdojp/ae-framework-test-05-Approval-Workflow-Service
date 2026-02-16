@@ -92,6 +92,7 @@
   - `.gitignore` の `*.log` 除外を見直し、`artifacts/runs/<run-id>/logs/*.log` をGit保存対象へ変更した。
   - `spec lint` warning を fail-fast でゲート化する `spec-lint-warning-gate` を追加し、fixed ref 基準で `SPEC_LINT_MAX_WARNINGS=3` を既定運用にした。
   - `pr-gate` / `nightly-deep` で参照する `ae-framework` を `configs/ae-framework/ref.txt` の固定SHA checkoutへ変更した。
+  - `ae-framework-ref-guard` を追加し、run開始時に fixed ref 実使用を fail-fast 検証するようにした。
   - `scripts/testing/framework-gap-status.mjs` と `configs/framework-gaps/issues.json` を追加し、upstreamギャップIssue状態を `artifacts/framework-gaps/status.json` として nightly/full で定期取得するようにした。
   - framework gap status に `revalidationRequired` 判定を追加し、upstream issue が close された際の再検証要否を機械判定できるようにした。
   - `BIZ_001` 警告ギャップを `ae-framework` 本体 Issue `#1967` として起票した。

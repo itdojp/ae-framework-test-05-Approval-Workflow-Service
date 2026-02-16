@@ -3,7 +3,7 @@
 ## 1. 文書メタ
 
 - 文書ID: `AW-AE-TOOL-001`
-- 版: `v1.0`
+- 版: `v1.1`
 - 作成日: `2026-02-14`
 - 対象: Approval Workflow Service（Issue #1）
 
@@ -28,6 +28,7 @@
 | 区分 | 利用コマンド | 目的 | 入力 | 出力（本リポジトリ保存先） | 実行タイミング |
 | --- | --- | --- | --- | --- | --- |
 | 仕様検証 | `ae spec validate` / `ae spec lint` | Issue仕様の機械可読化と静的検査 | `spec/*.md` | `.ae/ae-ir.json`, `artifacts/spec/*` | 各仕様更新時 |
+| AE Framework Ref Guard | `pnpm run ae:ref:guard -- --expected-ref-file <file> --actual-dir <dir>` | fixed ref の実使用確認（fail-fast） | `configs/ae-framework/ref.txt`, `AE_FRAMEWORK_DIR` | `artifacts/spec/ae-framework-ref-check.json` | 各run開始時 |
 | Spec Lint Warning Gate | `pnpm run spec:lint:gate -- --log <file> --max-warnings 3` | lint warning 数の品質ゲート化（fail-fast、fixed ref 基準） | `spec-lint.log` | `artifacts/spec/lint-gate.json` | 各 spec lint 後 |
 | 契約生成 | `node scripts/spec/generate-contracts.mjs` | API契約の抽出 | `.ae/ae-ir.json` | `artifacts/contracts/contracts-summary.json`（補助出力として `artifacts/spec/contracts.json`） | API変更時 |
 | Replay生成 | `node scripts/spec/generate-replay-fixtures.mjs` | 検証用入力固定化 | `contracts-summary.json` | `artifacts/domain/replay-fixtures.sample.json`（補助出力として `artifacts/spec/replay.json`） | 契約更新時 |
@@ -75,6 +76,7 @@
 - framework gap状態取得: `scripts/testing/framework-gap-status.mjs`
 - 成果物監査: `scripts/testing/run-artifact-audit.mjs`
 - run横断インデックス: `scripts/testing/run-index-report.mjs`
+- ae-framework固定ref検証: `scripts/testing/ae-framework-ref-guard.mjs`
 - spec lint warning gate: `scripts/testing/spec-lint-warning-gate.mjs`（`SPEC_LINT_MAX_WARNINGS` で閾値制御。既定3）
 - conformance対象ルール: `configs/conformance/rule-ids.txt`
 - MBT: `tests/mbt/approval-engine.mbt.test.ts`, `scripts/testing/mbt-quick.mjs`
