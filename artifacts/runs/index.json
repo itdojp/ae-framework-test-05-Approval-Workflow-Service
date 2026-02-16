@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-02-16T03:05:28.877Z",
+  "generatedAt": "2026-02-16T03:10:24.406Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 67,
-  "auditedRuns": 24,
-  "auditPassedRuns": 24,
+  "totalRuns": 68,
+  "auditedRuns": 25,
+  "auditPassedRuns": 25,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "pr-gate": {
+      "totalRuns": 22,
+      "auditedRuns": 10,
+      "auditPassedRuns": 10,
+      "auditFailedRuns": 0,
+      "loglessRuns": 6,
+      "latestRunId": "2026-02-16-pr-gate-ci-19",
+      "latestCreatedAt": "2026-02-16T03:10:24.000Z"
+    },
     "dev-fast": {
       "totalRuns": 9,
       "auditedRuns": 6,
@@ -15,15 +24,6 @@
       "loglessRuns": 0,
       "latestRunId": "2026-02-16-dev-fast-r13",
       "latestCreatedAt": "2026-02-16T03:05:28.000Z"
-    },
-    "pr-gate": {
-      "totalRuns": 21,
-      "auditedRuns": 9,
-      "auditPassedRuns": 9,
-      "auditFailedRuns": 0,
-      "loglessRuns": 6,
-      "latestRunId": "2026-02-16-pr-gate-ci-17",
-      "latestCreatedAt": "2026-02-16T03:02:00.000Z"
     },
     "nightly-deep": {
       "totalRuns": 22,
@@ -55,6 +55,18 @@
   },
   "latestRuns": [
     {
+      "runId": "2026-02-16-pr-gate-ci-19",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T03:10:24.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 15,
+      "snapshotFileCount": 19,
+      "runSizeBytes": 77002,
+      "frameworkGapState": null
+    },
+    {
       "runId": "2026-02-16-dev-fast-r13",
       "profile": "dev-fast",
       "createdAt": "2026-02-16T03:05:28.000Z",
@@ -63,7 +75,7 @@
       "auditMissingCount": 0,
       "logFileCount": 10,
       "snapshotFileCount": 7,
-      "runSizeBytes": 18548,
+      "runSizeBytes": 18818,
       "frameworkGapState": null
     },
     {
@@ -640,18 +652,6 @@
       "logFileCount": 12,
       "snapshotFileCount": 0,
       "runSizeBytes": 4367,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-full-r4",
-      "profile": "full",
-      "createdAt": "2026-02-14T05:49:59.000Z",
-      "hasAudit": false,
-      "auditPassed": null,
-      "auditMissingCount": null,
-      "logFileCount": 12,
-      "snapshotFileCount": 0,
-      "runSizeBytes": 4362,
       "frameworkGapState": null
     }
   ]
