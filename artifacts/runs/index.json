@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-02-16T11:11:40.006Z",
+  "generatedAt": "2026-02-16T11:18:40.421Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 73,
-  "auditedRuns": 30,
-  "auditPassedRuns": 30,
+  "totalRuns": 75,
+  "auditedRuns": 32,
+  "auditPassedRuns": 32,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "pr-gate": {
+      "totalRuns": 26,
+      "auditedRuns": 14,
+      "auditPassedRuns": 14,
+      "auditFailedRuns": 0,
+      "loglessRuns": 6,
+      "latestRunId": "2026-02-16-pr-gate-ci-23",
+      "latestCreatedAt": "2026-02-16T11:18:38.000Z"
+    },
     "full": {
       "totalRuns": 15,
       "auditedRuns": 2,
@@ -15,15 +24,6 @@
       "loglessRuns": 0,
       "latestRunId": "2026-02-16-full-specfit-r1",
       "latestCreatedAt": "2026-02-16T11:11:38.000Z"
-    },
-    "pr-gate": {
-      "totalRuns": 24,
-      "auditedRuns": 12,
-      "auditPassedRuns": 12,
-      "auditFailedRuns": 0,
-      "loglessRuns": 6,
-      "latestRunId": "2026-02-16-pr-gate-ci-21",
-      "latestCreatedAt": "2026-02-16T06:41:55.000Z"
     },
     "nightly-deep": {
       "totalRuns": 23,
@@ -55,6 +55,18 @@
   },
   "latestRuns": [
     {
+      "runId": "2026-02-16-pr-gate-ci-23",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T11:18:38.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 15,
+      "snapshotFileCount": 19,
+      "runSizeBytes": 77312,
+      "frameworkGapState": null
+    },
+    {
       "runId": "2026-02-16-full-specfit-r1",
       "profile": "full",
       "createdAt": "2026-02-16T11:11:38.000Z",
@@ -63,8 +75,20 @@
       "auditMissingCount": 0,
       "logFileCount": 20,
       "snapshotFileCount": 29,
-      "runSizeBytes": 147527,
+      "runSizeBytes": 147797,
       "frameworkGapState": "closed"
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-22",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T08:38:54.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 15,
+      "snapshotFileCount": 19,
+      "runSizeBytes": 77314,
+      "frameworkGapState": null
     },
     {
       "runId": "2026-02-16-full-ci-2",
@@ -628,30 +652,6 @@
       "logFileCount": 9,
       "snapshotFileCount": 0,
       "runSizeBytes": 3749,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-full-r11",
-      "profile": "full",
-      "createdAt": "2026-02-14T06:27:28.000Z",
-      "hasAudit": false,
-      "auditPassed": null,
-      "auditMissingCount": null,
-      "logFileCount": 12,
-      "snapshotFileCount": 0,
-      "runSizeBytes": 4370,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-full-r10",
-      "profile": "full",
-      "createdAt": "2026-02-14T06:21:01.000Z",
-      "hasAudit": false,
-      "auditPassed": null,
-      "auditMissingCount": null,
-      "logFileCount": 12,
-      "snapshotFileCount": 0,
-      "runSizeBytes": 4370,
       "frameworkGapState": null
     }
   ]

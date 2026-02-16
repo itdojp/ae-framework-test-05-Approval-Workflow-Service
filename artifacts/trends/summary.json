@@ -1,9 +1,145 @@
 {
-  "generatedAt": "2026-02-16T11:11:38.619Z",
+  "generatedAt": "2026-02-16T11:18:40.468Z",
   "sourceDir": "artifacts/runs",
   "maxRuns": 200,
-  "totalRunsScanned": 71,
+  "totalRunsScanned": 73,
   "profiles": {
+    "pr-gate": {
+      "totalRuns": 26,
+      "runsWithSnapshots": 17,
+      "evaluatedRuns": 17,
+      "passedRuns": 17,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-16-pr-gate-ci-23",
+        "profile": "pr-gate",
+        "createdAt": "2026-02-16T11:18:38.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          },
+          {
+            "name": "conformance",
+            "passed": true
+          },
+          {
+            "name": "conformance-negative",
+            "passed": true
+          },
+          {
+            "name": "mbt",
+            "passed": true
+          },
+          {
+            "name": "property",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": null,
+          "verifyLiteDurationMs": 3656,
+          "conformanceOverall": "pass",
+          "conformanceNegativePassed": true,
+          "formal": {
+            "tlaStatus": null,
+            "cspStatus": null
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-16-pr-gate-ci-23",
+            "createdAt": "2026-02-16T11:18:38.000Z",
+            "durationMs": 3656
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-22",
+            "createdAt": "2026-02-16T08:38:54.000Z",
+            "durationMs": 3796
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-21",
+            "createdAt": "2026-02-16T06:41:55.000Z",
+            "durationMs": 3828
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-20",
+            "createdAt": "2026-02-16T06:36:06.000Z",
+            "durationMs": 3801
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-19",
+            "createdAt": "2026-02-16T03:10:24.000Z",
+            "durationMs": 3660
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-17",
+            "createdAt": "2026-02-16T03:02:00.000Z",
+            "durationMs": 3555
+          },
+          {
+            "runId": "2026-02-15-pr-gate-ci-16",
+            "createdAt": "2026-02-15T23:44:19.000Z",
+            "durationMs": 3398
+          },
+          {
+            "runId": "2026-02-15-pr-gate-ci-14",
+            "createdAt": "2026-02-15T08:44:36.000Z",
+            "durationMs": 3611
+          },
+          {
+            "runId": "2026-02-15-pr-gate-ci-13",
+            "createdAt": "2026-02-15T08:36:28.000Z",
+            "durationMs": 3840
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-12",
+            "createdAt": "2026-02-14T15:27:27.000Z",
+            "durationMs": 3686
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-11",
+            "createdAt": "2026-02-14T11:01:12.000Z",
+            "durationMs": 3681
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-10",
+            "createdAt": "2026-02-14T10:53:51.000Z",
+            "durationMs": 3639
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r11",
+            "createdAt": "2026-02-14T10:50:20.000Z",
+            "durationMs": 4847
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-9",
+            "createdAt": "2026-02-14T10:07:31.000Z",
+            "durationMs": 3669
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r10",
+            "createdAt": "2026-02-14T10:04:08.000Z",
+            "durationMs": 4105
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-8",
+            "createdAt": "2026-02-14T09:10:52.000Z",
+            "durationMs": 3604
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r9",
+            "createdAt": "2026-02-14T09:07:24.000Z",
+            "durationMs": 3412
+          }
+        ]
+      }
+    },
     "full": {
       "totalRuns": 15,
       "runsWithSnapshots": 3,
@@ -86,132 +222,6 @@
             "runId": "2026-02-14-full-r13",
             "createdAt": "2026-02-14T10:02:07.000Z",
             "durationMs": 3591
-          }
-        ]
-      }
-    },
-    "pr-gate": {
-      "totalRuns": 24,
-      "runsWithSnapshots": 15,
-      "evaluatedRuns": 15,
-      "passedRuns": 15,
-      "passRate": 1,
-      "latestRun": {
-        "runId": "2026-02-16-pr-gate-ci-21",
-        "profile": "pr-gate",
-        "createdAt": "2026-02-16T06:41:55.000Z",
-        "hasSnapshots": true,
-        "runPassed": true,
-        "checks": [
-          {
-            "name": "verify-lite",
-            "passed": true
-          },
-          {
-            "name": "conformance",
-            "passed": true
-          },
-          {
-            "name": "conformance-negative",
-            "passed": true
-          },
-          {
-            "name": "mbt",
-            "passed": true
-          },
-          {
-            "name": "property",
-            "passed": true
-          }
-        ],
-        "highlights": {
-          "mutationScore": null,
-          "verifyLiteDurationMs": 3828,
-          "conformanceOverall": "pass",
-          "conformanceNegativePassed": true,
-          "formal": {
-            "tlaStatus": null,
-            "cspStatus": null
-          }
-        }
-      },
-      "trends": {
-        "mutationScore": [],
-        "verifyLiteDurationMs": [
-          {
-            "runId": "2026-02-16-pr-gate-ci-21",
-            "createdAt": "2026-02-16T06:41:55.000Z",
-            "durationMs": 3828
-          },
-          {
-            "runId": "2026-02-16-pr-gate-ci-20",
-            "createdAt": "2026-02-16T06:36:06.000Z",
-            "durationMs": 3801
-          },
-          {
-            "runId": "2026-02-16-pr-gate-ci-19",
-            "createdAt": "2026-02-16T03:10:24.000Z",
-            "durationMs": 3660
-          },
-          {
-            "runId": "2026-02-16-pr-gate-ci-17",
-            "createdAt": "2026-02-16T03:02:00.000Z",
-            "durationMs": 3555
-          },
-          {
-            "runId": "2026-02-15-pr-gate-ci-16",
-            "createdAt": "2026-02-15T23:44:19.000Z",
-            "durationMs": 3398
-          },
-          {
-            "runId": "2026-02-15-pr-gate-ci-14",
-            "createdAt": "2026-02-15T08:44:36.000Z",
-            "durationMs": 3611
-          },
-          {
-            "runId": "2026-02-15-pr-gate-ci-13",
-            "createdAt": "2026-02-15T08:36:28.000Z",
-            "durationMs": 3840
-          },
-          {
-            "runId": "2026-02-14-pr-gate-ci-12",
-            "createdAt": "2026-02-14T15:27:27.000Z",
-            "durationMs": 3686
-          },
-          {
-            "runId": "2026-02-14-pr-gate-ci-11",
-            "createdAt": "2026-02-14T11:01:12.000Z",
-            "durationMs": 3681
-          },
-          {
-            "runId": "2026-02-14-pr-gate-ci-10",
-            "createdAt": "2026-02-14T10:53:51.000Z",
-            "durationMs": 3639
-          },
-          {
-            "runId": "2026-02-14-pr-gate-r11",
-            "createdAt": "2026-02-14T10:50:20.000Z",
-            "durationMs": 4847
-          },
-          {
-            "runId": "2026-02-14-pr-gate-ci-9",
-            "createdAt": "2026-02-14T10:07:31.000Z",
-            "durationMs": 3669
-          },
-          {
-            "runId": "2026-02-14-pr-gate-r10",
-            "createdAt": "2026-02-14T10:04:08.000Z",
-            "durationMs": 4105
-          },
-          {
-            "runId": "2026-02-14-pr-gate-ci-8",
-            "createdAt": "2026-02-14T09:10:52.000Z",
-            "durationMs": 3604
-          },
-          {
-            "runId": "2026-02-14-pr-gate-r9",
-            "createdAt": "2026-02-14T09:07:24.000Z",
-            "durationMs": 3412
           }
         ]
       }
@@ -394,6 +404,45 @@
   },
   "latestRuns": [
     {
+      "runId": "2026-02-16-pr-gate-ci-23",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T11:18:38.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3656,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
+        }
+      }
+    },
+    {
       "runId": "2026-02-16-full-specfit-r1",
       "profile": "full",
       "createdAt": "2026-02-16T11:11:38.000Z",
@@ -433,6 +482,45 @@
         "formal": {
           "tlaStatus": "ran",
           "cspStatus": "ran"
+        }
+      }
+    },
+    {
+      "runId": "2026-02-16-pr-gate-ci-22",
+      "profile": "pr-gate",
+      "createdAt": "2026-02-16T08:38:54.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": null,
+        "verifyLiteDurationMs": 3796,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": null,
+          "cspStatus": null
         }
       }
     },
@@ -1250,52 +1338,6 @@
         "formal": {
           "tlaStatus": null,
           "cspStatus": null
-        }
-      }
-    },
-    {
-      "runId": "2026-02-14-dev-fast-r6",
-      "profile": "dev-fast",
-      "createdAt": "2026-02-14T10:48:25.000Z",
-      "hasSnapshots": true,
-      "runPassed": true,
-      "checks": [
-        {
-          "name": "verify-lite",
-          "passed": true
-        }
-      ],
-      "highlights": {
-        "mutationScore": null,
-        "verifyLiteDurationMs": 3619,
-        "conformanceOverall": null,
-        "conformanceNegativePassed": null,
-        "formal": {
-          "tlaStatus": null,
-          "cspStatus": null
-        }
-      }
-    },
-    {
-      "runId": "2026-02-14-nightly-deep-ci-4",
-      "profile": "nightly-deep",
-      "createdAt": "2026-02-14T10:09:03.000Z",
-      "hasSnapshots": true,
-      "runPassed": true,
-      "checks": [
-        {
-          "name": "mutation",
-          "passed": true
-        }
-      ],
-      "highlights": {
-        "mutationScore": 1,
-        "verifyLiteDurationMs": null,
-        "conformanceOverall": null,
-        "conformanceNegativePassed": null,
-        "formal": {
-          "tlaStatus": "tool_not_available",
-          "cspStatus": "tool_not_available"
         }
       }
     }
