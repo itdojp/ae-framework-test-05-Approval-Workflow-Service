@@ -1,0 +1,19 @@
+{
+  "runId": "2026-02-20-nightly-deep-ci-17",
+  "profile": "nightly-deep",
+  "createdAt": "2026-02-20T17:14:28Z",
+  "aeFrameworkDir": "/home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service/ae-framework",
+  "aeFrameworkRefExpected": "b68a4014f2827db300cae1f50fa4e1ee17998cab",
+  "aeFrameworkRef": "b68a4014f2827db300cae1f50fa4e1ee17998cab",
+  "aeFrameworkRefCheckFile": "artifacts/spec/ae-framework-ref-check.json",
+  "specLintMaxWarnings": 3,
+  "logDir": "artifacts/runs/2026-02-20-nightly-deep-ci-17/logs",
+  "snapshotDir": "artifacts/runs/2026-02-20-nightly-deep-ci-17/snapshots",
+  "auditFile": "artifacts/runs/2026-02-20-nightly-deep-ci-17/audit.json",
+  "notes": [
+    "dev-fast: spec + verify-lite",
+    "pr-gate: spec + verify-lite + conformance + mbt + property",
+    "nightly-deep: formal + mutation + trend",
+    "full: verify-lite を含む全フェーズ実行"
+  ]
+}
