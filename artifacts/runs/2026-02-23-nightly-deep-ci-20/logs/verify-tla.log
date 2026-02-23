@@ -1,0 +1,2 @@
+TLA summary written: artifacts/hermetic-reports/formal/tla-summary.json
+- engine=tlc file=spec/formal/ApprovalAnyAll.tla status=tool_not_available
