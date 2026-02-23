@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-02-23T17:24:40.541Z
+GeneratedAt: 2026-02-23T18:20:41.207Z
 
 ## Overview
 
-- totalRuns: 84
-- auditedRuns: 41
-- auditPassedRuns: 41
+- totalRuns: 85
+- auditedRuns: 42
+- auditPassedRuns: 42
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,8 +14,8 @@ GeneratedAt: 2026-02-23T17:24:40.541Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| full | 17 | 4 | 4 | 0 | 0 | 2026-02-23-full-ci-4 | 2026-02-23T18:20:37.000Z |
 | nightly-deep | 31 | 18 | 18 | 0 | 7 | 2026-02-23-nightly-deep-ci-20 | 2026-02-23T17:24:37.000Z |
-| full | 16 | 3 | 3 | 0 | 0 | 2026-02-16-full-ci-3 | 2026-02-16T18:11:26.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
 | unknown | 2 | 0 | 0 | 0 | 2 | 2026-02-14-automation-setup | 2026-02-14T00:40:00.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-02-23T17:24:40.541Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-02-23-full-ci-4 | full | 2026-02-23T18:20:37.000Z | true | 0 | 20 | 29 | closed |
 | 2026-02-23-nightly-deep-ci-20 | nightly-deep | 2026-02-23T17:24:37.000Z | true | 0 | 8 | 11 | closed |
 | 2026-02-22-nightly-deep-ci-19 | nightly-deep | 2026-02-22T17:07:16.000Z | true | 0 | 8 | 11 | closed |
 | 2026-02-21-nightly-deep-ci-18 | nightly-deep | 2026-02-21T17:07:07.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-02-23T17:24:40.541Z
 | 2026-02-14-pr-gate-ci-8 | pr-gate | 2026-02-14T09:10:52.000Z |  |  | 0 | 17 |  |
 | 2026-02-14-nightly-deep-r3 | nightly-deep | 2026-02-14T09:07:42.000Z |  |  | 3 | 8 |  |
 | 2026-02-14-pr-gate-r9 | pr-gate | 2026-02-14T09:07:24.000Z |  |  | 11 | 17 |  |
-| 2026-02-14-dev-fast-r5 | dev-fast | 2026-02-14T09:05:34.000Z |  |  | 6 | 5 |  |
 

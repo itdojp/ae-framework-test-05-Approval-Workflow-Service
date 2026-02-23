@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-02-23T17:24:40.541Z",
+  "generatedAt": "2026-02-23T18:20:41.207Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 84,
-  "auditedRuns": 41,
-  "auditPassedRuns": 41,
+  "totalRuns": 85,
+  "auditedRuns": 42,
+  "auditPassedRuns": 42,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "full": {
+      "totalRuns": 17,
+      "auditedRuns": 4,
+      "auditPassedRuns": 4,
+      "auditFailedRuns": 0,
+      "loglessRuns": 0,
+      "latestRunId": "2026-02-23-full-ci-4",
+      "latestCreatedAt": "2026-02-23T18:20:37.000Z"
+    },
     "nightly-deep": {
       "totalRuns": 31,
       "auditedRuns": 18,
@@ -15,15 +24,6 @@
       "loglessRuns": 7,
       "latestRunId": "2026-02-23-nightly-deep-ci-20",
       "latestCreatedAt": "2026-02-23T17:24:37.000Z"
-    },
-    "full": {
-      "totalRuns": 16,
-      "auditedRuns": 3,
-      "auditPassedRuns": 3,
-      "auditFailedRuns": 0,
-      "loglessRuns": 0,
-      "latestRunId": "2026-02-16-full-ci-3",
-      "latestCreatedAt": "2026-02-16T18:11:26.000Z"
     },
     "pr-gate": {
       "totalRuns": 26,
@@ -54,6 +54,18 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-02-23-full-ci-4",
+      "profile": "full",
+      "createdAt": "2026-02-23T18:20:37.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 20,
+      "snapshotFileCount": 29,
+      "runSizeBytes": 154321,
+      "frameworkGapState": "closed"
+    },
     {
       "runId": "2026-02-23-nightly-deep-ci-20",
       "profile": "nightly-deep",
@@ -640,18 +652,6 @@
       "logFileCount": 11,
       "snapshotFileCount": 17,
       "runSizeBytes": 73406,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-dev-fast-r5",
-      "profile": "dev-fast",
-      "createdAt": "2026-02-14T09:05:34.000Z",
-      "hasAudit": false,
-      "auditPassed": null,
-      "auditMissingCount": null,
-      "logFileCount": 6,
-      "snapshotFileCount": 5,
-      "runSizeBytes": 16394,
       "frameworkGapState": null
     }
   ]

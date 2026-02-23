@@ -1,9 +1,115 @@
 {
-  "generatedAt": "2026-02-23T17:24:40.588Z",
+  "generatedAt": "2026-02-23T18:20:41.253Z",
   "sourceDir": "artifacts/runs",
   "maxRuns": 200,
-  "totalRunsScanned": 82,
+  "totalRunsScanned": 83,
   "profiles": {
+    "full": {
+      "totalRuns": 17,
+      "runsWithSnapshots": 5,
+      "evaluatedRuns": 5,
+      "passedRuns": 5,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-23-full-ci-4",
+        "profile": "full",
+        "createdAt": "2026-02-23T18:20:37.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          },
+          {
+            "name": "conformance",
+            "passed": true
+          },
+          {
+            "name": "conformance-negative",
+            "passed": true
+          },
+          {
+            "name": "mbt",
+            "passed": true
+          },
+          {
+            "name": "property",
+            "passed": true
+          },
+          {
+            "name": "mutation",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": 1,
+          "verifyLiteDurationMs": 3360,
+          "conformanceOverall": "pass",
+          "conformanceNegativePassed": true,
+          "formal": {
+            "tlaStatus": "tool_not_available",
+            "cspStatus": "tool_not_available"
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [
+          {
+            "runId": "2026-02-23-full-ci-4",
+            "createdAt": "2026-02-23T18:20:37.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-ci-3",
+            "createdAt": "2026-02-16T18:11:26.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-specfit-r1",
+            "createdAt": "2026-02-16T11:11:38.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "mutationScore": 1
+          }
+        ],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-23-full-ci-4",
+            "createdAt": "2026-02-23T18:20:37.000Z",
+            "durationMs": 3360
+          },
+          {
+            "runId": "2026-02-16-full-ci-3",
+            "createdAt": "2026-02-16T18:11:26.000Z",
+            "durationMs": 3701
+          },
+          {
+            "runId": "2026-02-16-full-specfit-r1",
+            "createdAt": "2026-02-16T11:11:38.000Z",
+            "durationMs": 4242
+          },
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "durationMs": 3347
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "durationMs": 3591
+          }
+        ]
+      }
+    },
     "nightly-deep": {
       "totalRuns": 31,
       "runsWithSnapshots": 22,
@@ -137,102 +243,6 @@
           }
         ],
         "verifyLiteDurationMs": []
-      }
-    },
-    "full": {
-      "totalRuns": 16,
-      "runsWithSnapshots": 4,
-      "evaluatedRuns": 4,
-      "passedRuns": 4,
-      "passRate": 1,
-      "latestRun": {
-        "runId": "2026-02-16-full-ci-3",
-        "profile": "full",
-        "createdAt": "2026-02-16T18:11:26.000Z",
-        "hasSnapshots": true,
-        "runPassed": true,
-        "checks": [
-          {
-            "name": "verify-lite",
-            "passed": true
-          },
-          {
-            "name": "conformance",
-            "passed": true
-          },
-          {
-            "name": "conformance-negative",
-            "passed": true
-          },
-          {
-            "name": "mbt",
-            "passed": true
-          },
-          {
-            "name": "property",
-            "passed": true
-          },
-          {
-            "name": "mutation",
-            "passed": true
-          }
-        ],
-        "highlights": {
-          "mutationScore": 1,
-          "verifyLiteDurationMs": 3701,
-          "conformanceOverall": "pass",
-          "conformanceNegativePassed": true,
-          "formal": {
-            "tlaStatus": "tool_not_available",
-            "cspStatus": "tool_not_available"
-          }
-        }
-      },
-      "trends": {
-        "mutationScore": [
-          {
-            "runId": "2026-02-16-full-ci-3",
-            "createdAt": "2026-02-16T18:11:26.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-02-16-full-specfit-r1",
-            "createdAt": "2026-02-16T11:11:38.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-02-16-full-ci-2",
-            "createdAt": "2026-02-16T06:42:05.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-02-14-full-r13",
-            "createdAt": "2026-02-14T10:02:07.000Z",
-            "mutationScore": 1
-          }
-        ],
-        "verifyLiteDurationMs": [
-          {
-            "runId": "2026-02-16-full-ci-3",
-            "createdAt": "2026-02-16T18:11:26.000Z",
-            "durationMs": 3701
-          },
-          {
-            "runId": "2026-02-16-full-specfit-r1",
-            "createdAt": "2026-02-16T11:11:38.000Z",
-            "durationMs": 4242
-          },
-          {
-            "runId": "2026-02-16-full-ci-2",
-            "createdAt": "2026-02-16T06:42:05.000Z",
-            "durationMs": 3347
-          },
-          {
-            "runId": "2026-02-14-full-r13",
-            "createdAt": "2026-02-14T10:02:07.000Z",
-            "durationMs": 3591
-          }
-        ]
       }
     },
     "pr-gate": {
@@ -443,6 +453,49 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-02-23-full-ci-4",
+      "profile": "full",
+      "createdAt": "2026-02-23T18:20:37.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        },
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": 3360,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
     {
       "runId": "2026-02-23-nightly-deep-ci-20",
       "profile": "nightly-deep",
@@ -1295,29 +1348,6 @@
       "runId": "2026-02-14-nightly-deep-ci-8",
       "profile": "nightly-deep",
       "createdAt": "2026-02-14T17:07:49.000Z",
-      "hasSnapshots": true,
-      "runPassed": true,
-      "checks": [
-        {
-          "name": "mutation",
-          "passed": true
-        }
-      ],
-      "highlights": {
-        "mutationScore": 1,
-        "verifyLiteDurationMs": null,
-        "conformanceOverall": null,
-        "conformanceNegativePassed": null,
-        "formal": {
-          "tlaStatus": "tool_not_available",
-          "cspStatus": "tool_not_available"
-        }
-      }
-    },
-    {
-      "runId": "2026-02-14-nightly-deep-ci-7",
-      "profile": "nightly-deep",
-      "createdAt": "2026-02-14T15:30:10.000Z",
       "hasSnapshots": true,
       "runPassed": true,
       "checks": [
