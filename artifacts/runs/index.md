@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-02T17:17:04.485Z
+GeneratedAt: 2026-03-02T18:12:21.005Z
 
 ## Overview
 
-- totalRuns: 92
-- auditedRuns: 49
-- auditPassedRuns: 49
+- totalRuns: 93
+- auditedRuns: 50
+- auditPassedRuns: 50
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,8 +14,8 @@ GeneratedAt: 2026-03-02T17:17:04.485Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| full | 18 | 5 | 5 | 0 | 0 | 2026-03-02-full-ci-5 | 2026-03-02T18:12:17.000Z |
 | nightly-deep | 38 | 25 | 25 | 0 | 7 | 2026-03-02-nightly-deep-ci-27 | 2026-03-02T17:17:00.000Z |
-| full | 17 | 4 | 4 | 0 | 0 | 2026-02-23-full-ci-4 | 2026-02-23T18:20:37.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
 | unknown | 2 | 0 | 0 | 0 | 2 | 2026-02-14-automation-setup | 2026-02-14T00:40:00.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-02T17:17:04.485Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-02-full-ci-5 | full | 2026-03-02T18:12:17.000Z | true | 0 | 20 | 29 | closed |
 | 2026-03-02-nightly-deep-ci-27 | nightly-deep | 2026-03-02T17:17:00.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-01-nightly-deep-ci-26 | nightly-deep | 2026-03-01T17:05:50.000Z | true | 0 | 8 | 11 | closed |
 | 2026-02-28-nightly-deep-ci-25 | nightly-deep | 2026-02-28T17:04:16.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-02T17:17:04.485Z
 | 2026-02-14-pr-gate-r11 | pr-gate | 2026-02-14T10:50:20.000Z | true | 0 | 12 | 17 |  |
 | 2026-02-14-dev-fast-r6 | dev-fast | 2026-02-14T10:48:25.000Z | true | 0 | 7 | 5 |  |
 | 2026-02-14-nightly-deep-ci-4 | nightly-deep | 2026-02-14T10:09:03.000Z |  |  | 0 | 9 |  |
-| 2026-02-14-pr-gate-ci-9 | pr-gate | 2026-02-14T10:07:31.000Z |  |  | 0 | 17 |  |
 

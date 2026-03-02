@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-03-02T17:17:04.485Z",
+  "generatedAt": "2026-03-02T18:12:21.005Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 92,
-  "auditedRuns": 49,
-  "auditPassedRuns": 49,
+  "totalRuns": 93,
+  "auditedRuns": 50,
+  "auditPassedRuns": 50,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "full": {
+      "totalRuns": 18,
+      "auditedRuns": 5,
+      "auditPassedRuns": 5,
+      "auditFailedRuns": 0,
+      "loglessRuns": 0,
+      "latestRunId": "2026-03-02-full-ci-5",
+      "latestCreatedAt": "2026-03-02T18:12:17.000Z"
+    },
     "nightly-deep": {
       "totalRuns": 38,
       "auditedRuns": 25,
@@ -15,15 +24,6 @@
       "loglessRuns": 7,
       "latestRunId": "2026-03-02-nightly-deep-ci-27",
       "latestCreatedAt": "2026-03-02T17:17:00.000Z"
-    },
-    "full": {
-      "totalRuns": 17,
-      "auditedRuns": 4,
-      "auditPassedRuns": 4,
-      "auditFailedRuns": 0,
-      "loglessRuns": 0,
-      "latestRunId": "2026-02-23-full-ci-4",
-      "latestCreatedAt": "2026-02-23T18:20:37.000Z"
     },
     "pr-gate": {
       "totalRuns": 26,
@@ -54,6 +54,18 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-03-02-full-ci-5",
+      "profile": "full",
+      "createdAt": "2026-03-02T18:12:17.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 20,
+      "snapshotFileCount": 29,
+      "runSizeBytes": 154224,
+      "frameworkGapState": "closed"
+    },
     {
       "runId": "2026-03-02-nightly-deep-ci-27",
       "profile": "nightly-deep",
@@ -640,18 +652,6 @@
       "logFileCount": 0,
       "snapshotFileCount": 9,
       "runSizeBytes": 60163,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-pr-gate-ci-9",
-      "profile": "pr-gate",
-      "createdAt": "2026-02-14T10:07:31.000Z",
-      "hasAudit": false,
-      "auditPassed": null,
-      "auditMissingCount": null,
-      "logFileCount": 0,
-      "snapshotFileCount": 17,
-      "runSizeBytes": 70033,
       "frameworkGapState": null
     }
   ]
