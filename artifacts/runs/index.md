@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-05T17:43:12.617Z
+GeneratedAt: 2026-03-06T17:13:27.584Z
 
 ## Overview
 
-- totalRuns: 96
-- auditedRuns: 53
-- auditPassedRuns: 53
+- totalRuns: 97
+- auditedRuns: 54
+- auditPassedRuns: 54
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-03-05T17:43:12.617Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 41 | 28 | 28 | 0 | 7 | 2026-03-05-nightly-deep-ci-30 | 2026-03-05T17:43:09.000Z |
+| nightly-deep | 42 | 29 | 29 | 0 | 7 | 2026-03-06-nightly-deep-ci-31 | 2026-03-06T17:13:23.000Z |
 | full | 18 | 5 | 5 | 0 | 0 | 2026-03-02-full-ci-5 | 2026-03-02T18:12:17.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-05T17:43:12.617Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-06-nightly-deep-ci-31 | nightly-deep | 2026-03-06T17:13:23.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-05-nightly-deep-ci-30 | nightly-deep | 2026-03-05T17:43:09.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-04-nightly-deep-ci-29 | nightly-deep | 2026-03-04T17:14:45.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-03-nightly-deep-ci-28 | nightly-deep | 2026-03-03T17:16:54.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-05T17:43:12.617Z
 | 2026-02-14-nightly-deep-r6 | nightly-deep | 2026-02-14T10:57:57.000Z | true | 0 | 6 | 10 | open |
 | 2026-02-14-nightly-deep-ci-5 | nightly-deep | 2026-02-14T10:55:22.000Z | true | 0 | 0 | 9 |  |
 | 2026-02-14-pr-gate-ci-10 | pr-gate | 2026-02-14T10:53:51.000Z | true | 0 | 0 | 17 |  |
-| 2026-02-14-nightly-deep-r5 | nightly-deep | 2026-02-14T10:50:38.000Z | true | 0 | 5 | 9 |  |
 
