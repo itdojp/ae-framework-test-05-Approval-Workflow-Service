@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-09T17:18:39.907Z
+GeneratedAt: 2026-03-09T18:15:01.598Z
 
 ## Overview
 
-- totalRuns: 100
-- auditedRuns: 57
-- auditPassedRuns: 57
+- totalRuns: 101
+- auditedRuns: 58
+- auditPassedRuns: 58
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,8 +14,8 @@ GeneratedAt: 2026-03-09T17:18:39.907Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| full | 19 | 6 | 6 | 0 | 0 | 2026-03-09-full-ci-6 | 2026-03-09T18:14:58.000Z |
 | nightly-deep | 45 | 32 | 32 | 0 | 7 | 2026-03-09-nightly-deep-ci-34 | 2026-03-09T17:18:36.000Z |
-| full | 18 | 5 | 5 | 0 | 0 | 2026-03-02-full-ci-5 | 2026-03-02T18:12:17.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
 | unknown | 2 | 0 | 0 | 0 | 2 | 2026-02-14-automation-setup | 2026-02-14T00:40:00.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-09T17:18:39.907Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-09-full-ci-6 | full | 2026-03-09T18:14:58.000Z | true | 0 | 20 | 29 | closed |
 | 2026-03-09-nightly-deep-ci-34 | nightly-deep | 2026-03-09T17:18:36.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-08-nightly-deep-ci-33 | nightly-deep | 2026-03-08T17:06:04.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-07-nightly-deep-ci-32 | nightly-deep | 2026-03-07T17:05:15.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-09T17:18:39.907Z
 | 2026-02-14-pr-gate-ci-12 | pr-gate | 2026-02-14T15:27:27.000Z | true | 0 | 0 | 17 |  |
 | 2026-02-14-dev-fast-r7-local | dev-fast | 2026-02-14T15:24:14.000Z | true | 0 | 8 | 5 |  |
 | 2026-02-14-nightly-deep-ci-6 | nightly-deep | 2026-02-14T11:02:54.000Z | true | 0 | 0 | 10 | open |
-| 2026-02-14-pr-gate-ci-11 | pr-gate | 2026-02-14T11:01:12.000Z | true | 0 | 0 | 17 |  |
 
