@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-03-09T18:15:01.598Z",
+  "generatedAt": "2026-03-10T17:17:23.812Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 101,
-  "auditedRuns": 58,
-  "auditPassedRuns": 58,
+  "totalRuns": 102,
+  "auditedRuns": 59,
+  "auditPassedRuns": 59,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "nightly-deep": {
+      "totalRuns": 46,
+      "auditedRuns": 33,
+      "auditPassedRuns": 33,
+      "auditFailedRuns": 0,
+      "loglessRuns": 7,
+      "latestRunId": "2026-03-10-nightly-deep-ci-35",
+      "latestCreatedAt": "2026-03-10T17:17:21.000Z"
+    },
     "full": {
       "totalRuns": 19,
       "auditedRuns": 6,
@@ -15,15 +24,6 @@
       "loglessRuns": 0,
       "latestRunId": "2026-03-09-full-ci-6",
       "latestCreatedAt": "2026-03-09T18:14:58.000Z"
-    },
-    "nightly-deep": {
-      "totalRuns": 45,
-      "auditedRuns": 32,
-      "auditPassedRuns": 32,
-      "auditFailedRuns": 0,
-      "loglessRuns": 7,
-      "latestRunId": "2026-03-09-nightly-deep-ci-34",
-      "latestCreatedAt": "2026-03-09T17:18:36.000Z"
     },
     "pr-gate": {
       "totalRuns": 26,
@@ -54,6 +54,18 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-03-10-nightly-deep-ci-35",
+      "profile": "nightly-deep",
+      "createdAt": "2026-03-10T17:17:21.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 8,
+      "snapshotFileCount": 11,
+      "runSizeBytes": 79060,
+      "frameworkGapState": "closed"
+    },
     {
       "runId": "2026-03-09-full-ci-6",
       "profile": "full",
@@ -641,18 +653,6 @@
       "snapshotFileCount": 5,
       "runSizeBytes": 17367,
       "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-14-nightly-deep-ci-6",
-      "profile": "nightly-deep",
-      "createdAt": "2026-02-14T11:02:54.000Z",
-      "hasAudit": true,
-      "auditPassed": true,
-      "auditMissingCount": 0,
-      "logFileCount": 0,
-      "snapshotFileCount": 10,
-      "runSizeBytes": 64216,
-      "frameworkGapState": "open"
     }
   ]
 }
