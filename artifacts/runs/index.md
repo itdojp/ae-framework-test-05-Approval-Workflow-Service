@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-10T17:17:23.812Z
+GeneratedAt: 2026-03-11T17:19:03.166Z
 
 ## Overview
 
-- totalRuns: 102
-- auditedRuns: 59
-- auditPassedRuns: 59
+- totalRuns: 103
+- auditedRuns: 60
+- auditPassedRuns: 60
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-03-10T17:17:23.812Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 46 | 33 | 33 | 0 | 7 | 2026-03-10-nightly-deep-ci-35 | 2026-03-10T17:17:21.000Z |
+| nightly-deep | 47 | 34 | 34 | 0 | 7 | 2026-03-11-nightly-deep-ci-36 | 2026-03-11T17:18:59.000Z |
 | full | 19 | 6 | 6 | 0 | 0 | 2026-03-09-full-ci-6 | 2026-03-09T18:14:58.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-10T17:17:23.812Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-11-nightly-deep-ci-36 | nightly-deep | 2026-03-11T17:18:59.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-10-nightly-deep-ci-35 | nightly-deep | 2026-03-10T17:17:21.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-09-full-ci-6 | full | 2026-03-09T18:14:58.000Z | true | 0 | 20 | 29 | closed |
 | 2026-03-09-nightly-deep-ci-34 | nightly-deep | 2026-03-09T17:18:36.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-10T17:17:23.812Z
 | 2026-02-14-nightly-deep-ci-8 | nightly-deep | 2026-02-14T17:07:49.000Z | true | 0 | 0 | 10 | open |
 | 2026-02-14-nightly-deep-ci-7 | nightly-deep | 2026-02-14T15:30:10.000Z | true | 0 | 0 | 10 | open |
 | 2026-02-14-pr-gate-ci-12 | pr-gate | 2026-02-14T15:27:27.000Z | true | 0 | 0 | 17 |  |
-| 2026-02-14-dev-fast-r7-local | dev-fast | 2026-02-14T15:24:14.000Z | true | 0 | 8 | 5 |  |
 
