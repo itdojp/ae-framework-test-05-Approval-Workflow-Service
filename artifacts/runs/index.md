@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-12T17:19:22.254Z
+GeneratedAt: 2026-03-13T17:13:18.089Z
 
 ## Overview
 
-- totalRuns: 104
-- auditedRuns: 61
-- auditPassedRuns: 61
+- totalRuns: 105
+- auditedRuns: 62
+- auditPassedRuns: 62
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-03-12T17:19:22.254Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 48 | 35 | 35 | 0 | 7 | 2026-03-12-nightly-deep-ci-37 | 2026-03-12T17:19:18.000Z |
+| nightly-deep | 49 | 36 | 36 | 0 | 7 | 2026-03-13-nightly-deep-ci-38 | 2026-03-13T17:13:14.000Z |
 | full | 19 | 6 | 6 | 0 | 0 | 2026-03-09-full-ci-6 | 2026-03-09T18:14:58.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-12T17:19:22.254Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-13-nightly-deep-ci-38 | nightly-deep | 2026-03-13T17:13:14.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-12-nightly-deep-ci-37 | nightly-deep | 2026-03-12T17:19:18.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-11-nightly-deep-ci-36 | nightly-deep | 2026-03-11T17:18:59.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-10-nightly-deep-ci-35 | nightly-deep | 2026-03-10T17:17:21.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-12T17:19:22.254Z
 | 2026-02-15-nightly-deep-ci-9 | nightly-deep | 2026-02-15T08:38:34.000Z | true | 0 | 7 | 10 | closed |
 | 2026-02-15-pr-gate-ci-13 | pr-gate | 2026-02-15T08:36:28.000Z | true | 0 | 13 | 17 |  |
 | 2026-02-14-nightly-deep-ci-8 | nightly-deep | 2026-02-14T17:07:49.000Z | true | 0 | 0 | 10 | open |
-| 2026-02-14-nightly-deep-ci-7 | nightly-deep | 2026-02-14T15:30:10.000Z | true | 0 | 0 | 10 | open |
 
