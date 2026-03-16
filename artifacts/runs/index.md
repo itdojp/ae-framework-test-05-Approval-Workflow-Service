@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-15T17:07:18.036Z
+GeneratedAt: 2026-03-16T17:23:30.680Z
 
 ## Overview
 
-- totalRuns: 107
-- auditedRuns: 64
-- auditPassedRuns: 64
+- totalRuns: 108
+- auditedRuns: 65
+- auditPassedRuns: 65
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-03-15T17:07:18.036Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 51 | 38 | 38 | 0 | 7 | 2026-03-15-nightly-deep-ci-40 | 2026-03-15T17:07:14.000Z |
+| nightly-deep | 52 | 39 | 39 | 0 | 7 | 2026-03-16-nightly-deep-ci-41 | 2026-03-16T17:23:27.000Z |
 | full | 19 | 6 | 6 | 0 | 0 | 2026-03-09-full-ci-6 | 2026-03-09T18:14:58.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-15T17:07:18.036Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-16-nightly-deep-ci-41 | nightly-deep | 2026-03-16T17:23:27.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-15-nightly-deep-ci-40 | nightly-deep | 2026-03-15T17:07:14.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-14-nightly-deep-ci-39 | nightly-deep | 2026-03-14T17:07:28.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-13-nightly-deep-ci-38 | nightly-deep | 2026-03-13T17:13:14.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-15T17:07:18.036Z
 | 2026-02-15-dev-fast-r9 | dev-fast | 2026-02-15T23:39:39.000Z | true | 0 | 9 | 6 |  |
 | 2026-02-15-nightly-deep-ci-10 | nightly-deep | 2026-02-15T17:07:02.000Z | true | 0 | 7 | 10 | closed |
 | 2026-02-15-pr-gate-ci-14 | pr-gate | 2026-02-15T08:44:36.000Z | true | 0 | 13 | 17 |  |
-| 2026-02-15-nightly-deep-ci-9 | nightly-deep | 2026-02-15T08:38:34.000Z | true | 0 | 7 | 10 | closed |
 
