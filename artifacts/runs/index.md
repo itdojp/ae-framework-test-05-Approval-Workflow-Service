@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-17T17:23:43.790Z
+GeneratedAt: 2026-03-18T17:23:20.321Z
 
 ## Overview
 
-- totalRuns: 110
-- auditedRuns: 67
-- auditPassedRuns: 67
+- totalRuns: 111
+- auditedRuns: 68
+- auditPassedRuns: 68
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-03-17T17:23:43.790Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 53 | 40 | 40 | 0 | 7 | 2026-03-17-nightly-deep-ci-42 | 2026-03-17T17:23:39.000Z |
+| nightly-deep | 54 | 41 | 41 | 0 | 7 | 2026-03-18-nightly-deep-ci-43 | 2026-03-18T17:23:17.000Z |
 | full | 20 | 7 | 7 | 0 | 0 | 2026-03-16-full-ci-7 | 2026-03-16T18:18:31.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-17T17:23:43.790Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-18-nightly-deep-ci-43 | nightly-deep | 2026-03-18T17:23:17.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-17-nightly-deep-ci-42 | nightly-deep | 2026-03-17T17:23:39.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-16-full-ci-7 | full | 2026-03-16T18:18:31.000Z | true | 0 | 20 | 29 | closed |
 | 2026-03-16-nightly-deep-ci-41 | nightly-deep | 2026-03-16T17:23:27.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-17T17:23:43.790Z
 | 2026-02-16-dev-fast-r10 | dev-fast | 2026-02-16T02:58:43.000Z | true | 0 | 10 | 7 |  |
 | 2026-02-15-nightly-deep-ci-11 | nightly-deep | 2026-02-15T23:46:38.000Z | true | 0 | 7 | 10 | closed |
 | 2026-02-15-pr-gate-ci-16 | pr-gate | 2026-02-15T23:44:19.000Z | true | 0 | 14 | 18 |  |
-| 2026-02-15-dev-fast-r9 | dev-fast | 2026-02-15T23:39:39.000Z | true | 0 | 9 | 6 |  |
 
