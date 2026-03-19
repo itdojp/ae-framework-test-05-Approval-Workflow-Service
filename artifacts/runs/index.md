@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-18T17:23:20.321Z
+GeneratedAt: 2026-03-19T17:21:31.957Z
 
 ## Overview
 
-- totalRuns: 111
-- auditedRuns: 68
-- auditPassedRuns: 68
+- totalRuns: 112
+- auditedRuns: 69
+- auditPassedRuns: 69
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-03-18T17:23:20.321Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 54 | 41 | 41 | 0 | 7 | 2026-03-18-nightly-deep-ci-43 | 2026-03-18T17:23:17.000Z |
+| nightly-deep | 55 | 42 | 42 | 0 | 7 | 2026-03-19-nightly-deep-ci-44 | 2026-03-19T17:21:27.000Z |
 | full | 20 | 7 | 7 | 0 | 0 | 2026-03-16-full-ci-7 | 2026-03-16T18:18:31.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-18T17:23:20.321Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-19-nightly-deep-ci-44 | nightly-deep | 2026-03-19T17:21:27.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-18-nightly-deep-ci-43 | nightly-deep | 2026-03-18T17:23:17.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-17-nightly-deep-ci-42 | nightly-deep | 2026-03-17T17:23:39.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-16-full-ci-7 | full | 2026-03-16T18:18:31.000Z | true | 0 | 20 | 29 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-18T17:23:20.321Z
 | 2026-02-16-pr-gate-ci-17 | pr-gate | 2026-02-16T03:02:00.000Z | true | 0 | 15 | 19 |  |
 | 2026-02-16-dev-fast-r10 | dev-fast | 2026-02-16T02:58:43.000Z | true | 0 | 10 | 7 |  |
 | 2026-02-15-nightly-deep-ci-11 | nightly-deep | 2026-02-15T23:46:38.000Z | true | 0 | 7 | 10 | closed |
-| 2026-02-15-pr-gate-ci-16 | pr-gate | 2026-02-15T23:44:19.000Z | true | 0 | 14 | 18 |  |
 
