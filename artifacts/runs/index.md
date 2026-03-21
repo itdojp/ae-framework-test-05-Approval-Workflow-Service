@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-20T17:15:12.451Z
+GeneratedAt: 2026-03-21T17:07:07.432Z
 
 ## Overview
 
-- totalRuns: 113
-- auditedRuns: 70
-- auditPassedRuns: 70
+- totalRuns: 114
+- auditedRuns: 71
+- auditPassedRuns: 71
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-03-20T17:15:12.451Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 56 | 43 | 43 | 0 | 7 | 2026-03-20-nightly-deep-ci-45 | 2026-03-20T17:15:09.000Z |
+| nightly-deep | 57 | 44 | 44 | 0 | 7 | 2026-03-21-nightly-deep-ci-46 | 2026-03-21T17:07:03.000Z |
 | full | 20 | 7 | 7 | 0 | 0 | 2026-03-16-full-ci-7 | 2026-03-16T18:18:31.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-20T17:15:12.451Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-21-nightly-deep-ci-46 | nightly-deep | 2026-03-21T17:07:03.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-20-nightly-deep-ci-45 | nightly-deep | 2026-03-20T17:15:09.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-19-nightly-deep-ci-44 | nightly-deep | 2026-03-19T17:21:27.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-18-nightly-deep-ci-43 | nightly-deep | 2026-03-18T17:23:17.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-20T17:15:12.451Z
 | 2026-02-16-dev-fast-r13 | dev-fast | 2026-02-16T03:05:28.000Z | true | 0 | 10 | 7 |  |
 | 2026-02-16-dev-fast-r12 | dev-fast | 2026-02-16T03:04:00.000Z | true | 0 | 10 | 7 |  |
 | 2026-02-16-pr-gate-ci-17 | pr-gate | 2026-02-16T03:02:00.000Z | true | 0 | 15 | 19 |  |
-| 2026-02-16-dev-fast-r10 | dev-fast | 2026-02-16T02:58:43.000Z | true | 0 | 10 | 7 |  |
 
