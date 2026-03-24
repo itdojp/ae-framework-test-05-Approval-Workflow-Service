@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-23T18:15:58.814Z
+GeneratedAt: 2026-03-24T17:21:30.008Z
 
 ## Overview
 
-- totalRuns: 117
-- auditedRuns: 74
-- auditPassedRuns: 74
+- totalRuns: 118
+- auditedRuns: 75
+- auditPassedRuns: 75
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,8 +14,8 @@ GeneratedAt: 2026-03-23T18:15:58.814Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| nightly-deep | 60 | 47 | 47 | 0 | 7 | 2026-03-24-nightly-deep-ci-49 | 2026-03-24T17:21:26.000Z |
 | full | 21 | 8 | 8 | 0 | 0 | 2026-03-23-full-ci-8 | 2026-03-23T18:15:55.000Z |
-| nightly-deep | 59 | 46 | 46 | 0 | 7 | 2026-03-23-nightly-deep-ci-48 | 2026-03-23T17:19:08.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
 | unknown | 2 | 0 | 0 | 0 | 2 | 2026-02-14-automation-setup | 2026-02-14T00:40:00.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-23T18:15:58.814Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-24-nightly-deep-ci-49 | nightly-deep | 2026-03-24T17:21:26.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-23-full-ci-8 | full | 2026-03-23T18:15:55.000Z | true | 0 | 20 | 29 |  |
 | 2026-03-23-nightly-deep-ci-48 | nightly-deep | 2026-03-23T17:19:08.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-22-nightly-deep-ci-47 | nightly-deep | 2026-03-22T17:06:30.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-23T18:15:58.814Z
 | 2026-02-16-pr-gate-ci-21 | pr-gate | 2026-02-16T06:41:55.000Z | true | 0 | 15 | 19 |  |
 | 2026-02-16-pr-gate-ci-20 | pr-gate | 2026-02-16T06:36:06.000Z | true | 0 | 15 | 19 |  |
 | 2026-02-16-nightly-deep-ci-12 | nightly-deep | 2026-02-16T03:12:08.000Z | true | 0 | 8 | 11 | closed |
-| 2026-02-16-pr-gate-ci-19 | pr-gate | 2026-02-16T03:10:24.000Z | true | 0 | 15 | 19 |  |
 

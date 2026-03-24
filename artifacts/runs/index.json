@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-03-23T18:15:58.814Z",
+  "generatedAt": "2026-03-24T17:21:30.008Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 117,
-  "auditedRuns": 74,
-  "auditPassedRuns": 74,
+  "totalRuns": 118,
+  "auditedRuns": 75,
+  "auditPassedRuns": 75,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "nightly-deep": {
+      "totalRuns": 60,
+      "auditedRuns": 47,
+      "auditPassedRuns": 47,
+      "auditFailedRuns": 0,
+      "loglessRuns": 7,
+      "latestRunId": "2026-03-24-nightly-deep-ci-49",
+      "latestCreatedAt": "2026-03-24T17:21:26.000Z"
+    },
     "full": {
       "totalRuns": 21,
       "auditedRuns": 8,
@@ -15,15 +24,6 @@
       "loglessRuns": 0,
       "latestRunId": "2026-03-23-full-ci-8",
       "latestCreatedAt": "2026-03-23T18:15:55.000Z"
-    },
-    "nightly-deep": {
-      "totalRuns": 59,
-      "auditedRuns": 46,
-      "auditPassedRuns": 46,
-      "auditFailedRuns": 0,
-      "loglessRuns": 7,
-      "latestRunId": "2026-03-23-nightly-deep-ci-48",
-      "latestCreatedAt": "2026-03-23T17:19:08.000Z"
     },
     "pr-gate": {
       "totalRuns": 26,
@@ -54,6 +54,18 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-03-24-nightly-deep-ci-49",
+      "profile": "nightly-deep",
+      "createdAt": "2026-03-24T17:21:26.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 8,
+      "snapshotFileCount": 11,
+      "runSizeBytes": 78762,
+      "frameworkGapState": "closed"
+    },
     {
       "runId": "2026-03-23-full-ci-8",
       "profile": "full",
@@ -641,18 +653,6 @@
       "snapshotFileCount": 11,
       "runSizeBytes": 73273,
       "frameworkGapState": "closed"
-    },
-    {
-      "runId": "2026-02-16-pr-gate-ci-19",
-      "profile": "pr-gate",
-      "createdAt": "2026-02-16T03:10:24.000Z",
-      "hasAudit": true,
-      "auditPassed": true,
-      "auditMissingCount": 0,
-      "logFileCount": 15,
-      "snapshotFileCount": 19,
-      "runSizeBytes": 77314,
-      "frameworkGapState": null
     }
   ]
 }
