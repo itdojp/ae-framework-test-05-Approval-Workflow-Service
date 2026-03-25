@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-24T17:21:30.008Z
+GeneratedAt: 2026-03-25T17:22:41.192Z
 
 ## Overview
 
-- totalRuns: 118
-- auditedRuns: 75
-- auditPassedRuns: 75
+- totalRuns: 119
+- auditedRuns: 76
+- auditPassedRuns: 76
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-03-24T17:21:30.008Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 60 | 47 | 47 | 0 | 7 | 2026-03-24-nightly-deep-ci-49 | 2026-03-24T17:21:26.000Z |
+| nightly-deep | 61 | 48 | 48 | 0 | 7 | 2026-03-25-nightly-deep-ci-50 | 2026-03-25T17:22:38.000Z |
 | full | 21 | 8 | 8 | 0 | 0 | 2026-03-23-full-ci-8 | 2026-03-23T18:15:55.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-24T17:21:30.008Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-25-nightly-deep-ci-50 | nightly-deep | 2026-03-25T17:22:38.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-24-nightly-deep-ci-49 | nightly-deep | 2026-03-24T17:21:26.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-23-full-ci-8 | full | 2026-03-23T18:15:55.000Z | true | 0 | 20 | 29 |  |
 | 2026-03-23-nightly-deep-ci-48 | nightly-deep | 2026-03-23T17:19:08.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-24T17:21:30.008Z
 | 2026-02-16-full-ci-2 | full | 2026-02-16T06:42:05.000Z | true | 0 | 20 | 29 | closed |
 | 2026-02-16-pr-gate-ci-21 | pr-gate | 2026-02-16T06:41:55.000Z | true | 0 | 15 | 19 |  |
 | 2026-02-16-pr-gate-ci-20 | pr-gate | 2026-02-16T06:36:06.000Z | true | 0 | 15 | 19 |  |
-| 2026-02-16-nightly-deep-ci-12 | nightly-deep | 2026-02-16T03:12:08.000Z | true | 0 | 8 | 11 | closed |
 
