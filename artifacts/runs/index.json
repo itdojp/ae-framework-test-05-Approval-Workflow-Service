@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-03-25T17:22:41.192Z",
+  "generatedAt": "2026-03-26T17:24:01.716Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 119,
-  "auditedRuns": 76,
-  "auditPassedRuns": 76,
+  "totalRuns": 120,
+  "auditedRuns": 77,
+  "auditPassedRuns": 77,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
     "nightly-deep": {
-      "totalRuns": 61,
-      "auditedRuns": 48,
-      "auditPassedRuns": 48,
+      "totalRuns": 62,
+      "auditedRuns": 49,
+      "auditPassedRuns": 49,
       "auditFailedRuns": 0,
       "loglessRuns": 7,
-      "latestRunId": "2026-03-25-nightly-deep-ci-50",
-      "latestCreatedAt": "2026-03-25T17:22:38.000Z"
+      "latestRunId": "2026-03-26-nightly-deep-ci-51",
+      "latestCreatedAt": "2026-03-26T17:23:58.000Z"
     },
     "full": {
       "totalRuns": 21,
@@ -54,6 +54,18 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-03-26-nightly-deep-ci-51",
+      "profile": "nightly-deep",
+      "createdAt": "2026-03-26T17:23:58.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 8,
+      "snapshotFileCount": 11,
+      "runSizeBytes": 78762,
+      "frameworkGapState": "closed"
+    },
     {
       "runId": "2026-03-25-nightly-deep-ci-50",
       "profile": "nightly-deep",
@@ -640,18 +652,6 @@
       "logFileCount": 15,
       "snapshotFileCount": 19,
       "runSizeBytes": 77313,
-      "frameworkGapState": null
-    },
-    {
-      "runId": "2026-02-16-pr-gate-ci-20",
-      "profile": "pr-gate",
-      "createdAt": "2026-02-16T06:36:06.000Z",
-      "hasAudit": true,
-      "auditPassed": true,
-      "auditMissingCount": 0,
-      "logFileCount": 15,
-      "snapshotFileCount": 19,
-      "runSizeBytes": 77314,
       "frameworkGapState": null
     }
   ]
