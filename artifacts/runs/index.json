@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-03-30T17:19:31.828Z",
+  "generatedAt": "2026-03-30T18:17:58.728Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 124,
-  "auditedRuns": 81,
-  "auditPassedRuns": 81,
+  "totalRuns": 125,
+  "auditedRuns": 82,
+  "auditPassedRuns": 82,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "full": {
+      "totalRuns": 22,
+      "auditedRuns": 9,
+      "auditPassedRuns": 9,
+      "auditFailedRuns": 0,
+      "loglessRuns": 0,
+      "latestRunId": "2026-03-30-full-ci-9",
+      "latestCreatedAt": "2026-03-30T18:17:55.000Z"
+    },
     "nightly-deep": {
       "totalRuns": 66,
       "auditedRuns": 53,
@@ -15,15 +24,6 @@
       "loglessRuns": 7,
       "latestRunId": "2026-03-30-nightly-deep-ci-55",
       "latestCreatedAt": "2026-03-30T17:19:28.000Z"
-    },
-    "full": {
-      "totalRuns": 21,
-      "auditedRuns": 8,
-      "auditPassedRuns": 8,
-      "auditFailedRuns": 0,
-      "loglessRuns": 0,
-      "latestRunId": "2026-03-23-full-ci-8",
-      "latestCreatedAt": "2026-03-23T18:15:55.000Z"
     },
     "pr-gate": {
       "totalRuns": 26,
@@ -54,6 +54,18 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-03-30-full-ci-9",
+      "profile": "full",
+      "createdAt": "2026-03-30T18:17:55.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 20,
+      "snapshotFileCount": 29,
+      "runSizeBytes": 153539,
+      "frameworkGapState": "closed"
+    },
     {
       "runId": "2026-03-30-nightly-deep-ci-55",
       "profile": "nightly-deep",
@@ -641,18 +653,6 @@
       "snapshotFileCount": 11,
       "runSizeBytes": 78387,
       "frameworkGapState": "closed"
-    },
-    {
-      "runId": "2026-02-16-pr-gate-ci-23",
-      "profile": "pr-gate",
-      "createdAt": "2026-02-16T11:18:38.000Z",
-      "hasAudit": true,
-      "auditPassed": true,
-      "auditMissingCount": 0,
-      "logFileCount": 15,
-      "snapshotFileCount": 19,
-      "runSizeBytes": 77312,
-      "frameworkGapState": null
     }
   ]
 }

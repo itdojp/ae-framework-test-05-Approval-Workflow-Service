@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-30T17:19:31.828Z
+GeneratedAt: 2026-03-30T18:17:58.728Z
 
 ## Overview
 
-- totalRuns: 124
-- auditedRuns: 81
-- auditPassedRuns: 81
+- totalRuns: 125
+- auditedRuns: 82
+- auditPassedRuns: 82
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,8 +14,8 @@ GeneratedAt: 2026-03-30T17:19:31.828Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| full | 22 | 9 | 9 | 0 | 0 | 2026-03-30-full-ci-9 | 2026-03-30T18:17:55.000Z |
 | nightly-deep | 66 | 53 | 53 | 0 | 7 | 2026-03-30-nightly-deep-ci-55 | 2026-03-30T17:19:28.000Z |
-| full | 21 | 8 | 8 | 0 | 0 | 2026-03-23-full-ci-8 | 2026-03-23T18:15:55.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
 | unknown | 2 | 0 | 0 | 0 | 2 | 2026-02-14-automation-setup | 2026-02-14T00:40:00.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-30T17:19:31.828Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-03-30-full-ci-9 | full | 2026-03-30T18:17:55.000Z | true | 0 | 20 | 29 | closed |
 | 2026-03-30-nightly-deep-ci-55 | nightly-deep | 2026-03-30T17:19:28.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-29-nightly-deep-ci-54 | nightly-deep | 2026-03-29T17:09:00.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-28-nightly-deep-ci-53 | nightly-deep | 2026-03-28T17:08:28.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-30T17:19:31.828Z
 | 2026-02-17-nightly-deep-ci-14 | nightly-deep | 2026-02-17T17:22:54.000Z | true | 0 | 8 | 11 | closed |
 | 2026-02-16-full-ci-3 | full | 2026-02-16T18:11:26.000Z | true | 0 | 20 | 29 | closed |
 | 2026-02-16-nightly-deep-ci-13 | nightly-deep | 2026-02-16T17:15:37.000Z | true | 0 | 8 | 11 | closed |
-| 2026-02-16-pr-gate-ci-23 | pr-gate | 2026-02-16T11:18:38.000Z | true | 0 | 15 | 19 |  |
 
