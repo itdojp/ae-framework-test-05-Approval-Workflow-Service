@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-03-31T17:21:53.788Z
+GeneratedAt: 2026-04-01T17:19:23.720Z
 
 ## Overview
 
-- totalRuns: 126
-- auditedRuns: 83
-- auditPassedRuns: 83
+- totalRuns: 127
+- auditedRuns: 84
+- auditPassedRuns: 84
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-03-31T17:21:53.788Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 67 | 54 | 54 | 0 | 7 | 2026-03-31-nightly-deep-ci-56 | 2026-03-31T17:21:50.000Z |
+| nightly-deep | 68 | 55 | 55 | 0 | 7 | 2026-04-01-nightly-deep-ci-57 | 2026-04-01T17:19:20.000Z |
 | full | 22 | 9 | 9 | 0 | 0 | 2026-03-30-full-ci-9 | 2026-03-30T18:17:55.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-03-31T17:21:53.788Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-04-01-nightly-deep-ci-57 | nightly-deep | 2026-04-01T17:19:20.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-31-nightly-deep-ci-56 | nightly-deep | 2026-03-31T17:21:50.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-30-full-ci-9 | full | 2026-03-30T18:17:55.000Z | true | 0 | 20 | 29 | closed |
 | 2026-03-30-nightly-deep-ci-55 | nightly-deep | 2026-03-30T17:19:28.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-03-31T17:21:53.788Z
 | 2026-02-19-nightly-deep-ci-16 | nightly-deep | 2026-02-19T17:20:43.000Z | true | 0 | 8 | 11 | closed |
 | 2026-02-18-nightly-deep-ci-15 | nightly-deep | 2026-02-18T17:24:37.000Z | true | 0 | 8 | 11 | closed |
 | 2026-02-17-nightly-deep-ci-14 | nightly-deep | 2026-02-17T17:22:54.000Z | true | 0 | 8 | 11 | closed |
-| 2026-02-16-full-ci-3 | full | 2026-02-16T18:11:26.000Z | true | 0 | 20 | 29 | closed |
 
