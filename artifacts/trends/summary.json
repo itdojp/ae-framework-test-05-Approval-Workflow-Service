@@ -1,9 +1,175 @@
 {
-  "generatedAt": "2026-04-06T17:17:59.323Z",
+  "generatedAt": "2026-04-06T18:17:13.917Z",
   "sourceDir": "artifacts/runs",
   "maxRuns": 200,
-  "totalRunsScanned": 130,
+  "totalRunsScanned": 131,
   "profiles": {
+    "full": {
+      "totalRuns": 23,
+      "runsWithSnapshots": 11,
+      "evaluatedRuns": 11,
+      "passedRuns": 11,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-04-06-full-ci-10",
+        "profile": "full",
+        "createdAt": "2026-04-06T18:17:09.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          },
+          {
+            "name": "conformance",
+            "passed": true
+          },
+          {
+            "name": "conformance-negative",
+            "passed": true
+          },
+          {
+            "name": "mbt",
+            "passed": true
+          },
+          {
+            "name": "property",
+            "passed": true
+          },
+          {
+            "name": "mutation",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": 1,
+          "verifyLiteDurationMs": 3833,
+          "conformanceOverall": "pass",
+          "conformanceNegativePassed": true,
+          "formal": {
+            "tlaStatus": "tool_not_available",
+            "cspStatus": "tool_not_available"
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [
+          {
+            "runId": "2026-04-06-full-ci-10",
+            "createdAt": "2026-04-06T18:17:09.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-30-full-ci-9",
+            "createdAt": "2026-03-30T18:17:55.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-23-full-ci-8",
+            "createdAt": "2026-03-23T18:15:55.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-16-full-ci-7",
+            "createdAt": "2026-03-16T18:18:31.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-09-full-ci-6",
+            "createdAt": "2026-03-09T18:14:58.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-02-full-ci-5",
+            "createdAt": "2026-03-02T18:12:17.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-23-full-ci-4",
+            "createdAt": "2026-02-23T18:20:37.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-ci-3",
+            "createdAt": "2026-02-16T18:11:26.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-specfit-r1",
+            "createdAt": "2026-02-16T11:11:38.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "mutationScore": 1
+          }
+        ],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-04-06-full-ci-10",
+            "createdAt": "2026-04-06T18:17:09.000Z",
+            "durationMs": 3833
+          },
+          {
+            "runId": "2026-03-30-full-ci-9",
+            "createdAt": "2026-03-30T18:17:55.000Z",
+            "durationMs": 3587
+          },
+          {
+            "runId": "2026-03-23-full-ci-8",
+            "createdAt": "2026-03-23T18:15:55.000Z",
+            "durationMs": 3601
+          },
+          {
+            "runId": "2026-03-16-full-ci-7",
+            "createdAt": "2026-03-16T18:18:31.000Z",
+            "durationMs": 3696
+          },
+          {
+            "runId": "2026-03-09-full-ci-6",
+            "createdAt": "2026-03-09T18:14:58.000Z",
+            "durationMs": 3746
+          },
+          {
+            "runId": "2026-03-02-full-ci-5",
+            "createdAt": "2026-03-02T18:12:17.000Z",
+            "durationMs": 3664
+          },
+          {
+            "runId": "2026-02-23-full-ci-4",
+            "createdAt": "2026-02-23T18:20:37.000Z",
+            "durationMs": 3360
+          },
+          {
+            "runId": "2026-02-16-full-ci-3",
+            "createdAt": "2026-02-16T18:11:26.000Z",
+            "durationMs": 3701
+          },
+          {
+            "runId": "2026-02-16-full-specfit-r1",
+            "createdAt": "2026-02-16T11:11:38.000Z",
+            "durationMs": 4242
+          },
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "durationMs": 3347
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "durationMs": 3591
+          }
+        ]
+      }
+    },
     "nightly-deep": {
       "totalRuns": 73,
       "runsWithSnapshots": 64,
@@ -137,162 +303,6 @@
           }
         ],
         "verifyLiteDurationMs": []
-      }
-    },
-    "full": {
-      "totalRuns": 22,
-      "runsWithSnapshots": 10,
-      "evaluatedRuns": 10,
-      "passedRuns": 10,
-      "passRate": 1,
-      "latestRun": {
-        "runId": "2026-03-30-full-ci-9",
-        "profile": "full",
-        "createdAt": "2026-03-30T18:17:55.000Z",
-        "hasSnapshots": true,
-        "runPassed": true,
-        "checks": [
-          {
-            "name": "verify-lite",
-            "passed": true
-          },
-          {
-            "name": "conformance",
-            "passed": true
-          },
-          {
-            "name": "conformance-negative",
-            "passed": true
-          },
-          {
-            "name": "mbt",
-            "passed": true
-          },
-          {
-            "name": "property",
-            "passed": true
-          },
-          {
-            "name": "mutation",
-            "passed": true
-          }
-        ],
-        "highlights": {
-          "mutationScore": 1,
-          "verifyLiteDurationMs": 3587,
-          "conformanceOverall": "pass",
-          "conformanceNegativePassed": true,
-          "formal": {
-            "tlaStatus": "tool_not_available",
-            "cspStatus": "tool_not_available"
-          }
-        }
-      },
-      "trends": {
-        "mutationScore": [
-          {
-            "runId": "2026-03-30-full-ci-9",
-            "createdAt": "2026-03-30T18:17:55.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-03-23-full-ci-8",
-            "createdAt": "2026-03-23T18:15:55.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-03-16-full-ci-7",
-            "createdAt": "2026-03-16T18:18:31.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-03-09-full-ci-6",
-            "createdAt": "2026-03-09T18:14:58.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-03-02-full-ci-5",
-            "createdAt": "2026-03-02T18:12:17.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-02-23-full-ci-4",
-            "createdAt": "2026-02-23T18:20:37.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-02-16-full-ci-3",
-            "createdAt": "2026-02-16T18:11:26.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-02-16-full-specfit-r1",
-            "createdAt": "2026-02-16T11:11:38.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-02-16-full-ci-2",
-            "createdAt": "2026-02-16T06:42:05.000Z",
-            "mutationScore": 1
-          },
-          {
-            "runId": "2026-02-14-full-r13",
-            "createdAt": "2026-02-14T10:02:07.000Z",
-            "mutationScore": 1
-          }
-        ],
-        "verifyLiteDurationMs": [
-          {
-            "runId": "2026-03-30-full-ci-9",
-            "createdAt": "2026-03-30T18:17:55.000Z",
-            "durationMs": 3587
-          },
-          {
-            "runId": "2026-03-23-full-ci-8",
-            "createdAt": "2026-03-23T18:15:55.000Z",
-            "durationMs": 3601
-          },
-          {
-            "runId": "2026-03-16-full-ci-7",
-            "createdAt": "2026-03-16T18:18:31.000Z",
-            "durationMs": 3696
-          },
-          {
-            "runId": "2026-03-09-full-ci-6",
-            "createdAt": "2026-03-09T18:14:58.000Z",
-            "durationMs": 3746
-          },
-          {
-            "runId": "2026-03-02-full-ci-5",
-            "createdAt": "2026-03-02T18:12:17.000Z",
-            "durationMs": 3664
-          },
-          {
-            "runId": "2026-02-23-full-ci-4",
-            "createdAt": "2026-02-23T18:20:37.000Z",
-            "durationMs": 3360
-          },
-          {
-            "runId": "2026-02-16-full-ci-3",
-            "createdAt": "2026-02-16T18:11:26.000Z",
-            "durationMs": 3701
-          },
-          {
-            "runId": "2026-02-16-full-specfit-r1",
-            "createdAt": "2026-02-16T11:11:38.000Z",
-            "durationMs": 4242
-          },
-          {
-            "runId": "2026-02-16-full-ci-2",
-            "createdAt": "2026-02-16T06:42:05.000Z",
-            "durationMs": 3347
-          },
-          {
-            "runId": "2026-02-14-full-r13",
-            "createdAt": "2026-02-14T10:02:07.000Z",
-            "durationMs": 3591
-          }
-        ]
       }
     },
     "pr-gate": {
@@ -503,6 +513,49 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-04-06-full-ci-10",
+      "profile": "full",
+      "createdAt": "2026-04-06T18:17:09.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        },
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": 3833,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
     {
       "runId": "2026-04-06-nightly-deep-ci-62",
       "profile": "nightly-deep",
@@ -1211,29 +1264,6 @@
       "runId": "2026-03-12-nightly-deep-ci-37",
       "profile": "nightly-deep",
       "createdAt": "2026-03-12T17:19:18.000Z",
-      "hasSnapshots": true,
-      "runPassed": true,
-      "checks": [
-        {
-          "name": "mutation",
-          "passed": true
-        }
-      ],
-      "highlights": {
-        "mutationScore": 1,
-        "verifyLiteDurationMs": null,
-        "conformanceOverall": null,
-        "conformanceNegativePassed": null,
-        "formal": {
-          "tlaStatus": "tool_not_available",
-          "cspStatus": "tool_not_available"
-        }
-      }
-    },
-    {
-      "runId": "2026-03-11-nightly-deep-ci-36",
-      "profile": "nightly-deep",
-      "createdAt": "2026-03-11T17:18:59.000Z",
       "hasSnapshots": true,
       "runPassed": true,
       "checks": [
