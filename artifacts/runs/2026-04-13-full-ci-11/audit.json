@@ -1,0 +1,10 @@
+{
+  "runId": "2026-04-13-full-ci-11",
+  "profile": "full",
+  "generatedAt": "2026-04-13T18:23:37.992Z",
+  "runDir": "artifacts/runs/2026-04-13-full-ci-11",
+  "requiredCount": 24,
+  "missingCount": 0,
+  "passed": true,
+  "missing": []
+}
