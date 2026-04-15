@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-04-14T17:25:54.733Z
+GeneratedAt: 2026-04-15T17:24:45.925Z
 
 ## Overview
 
-- totalRuns: 142
-- auditedRuns: 99
-- auditPassedRuns: 99
+- totalRuns: 143
+- auditedRuns: 100
+- auditPassedRuns: 100
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-04-14T17:25:54.733Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 81 | 68 | 68 | 0 | 7 | 2026-04-14-nightly-deep-ci-70 | 2026-04-14T17:25:51.000Z |
+| nightly-deep | 82 | 69 | 69 | 0 | 7 | 2026-04-15-nightly-deep-ci-71 | 2026-04-15T17:24:41.000Z |
 | full | 24 | 11 | 11 | 0 | 0 | 2026-04-13-full-ci-11 | 2026-04-13T18:23:36.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-04-14T17:25:54.733Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-04-15-nightly-deep-ci-71 | nightly-deep | 2026-04-15T17:24:41.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-14-nightly-deep-ci-70 | nightly-deep | 2026-04-14T17:25:51.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-13-full-ci-11 | full | 2026-04-13T18:23:36.000Z | true | 0 | 20 | 29 | closed |
 | 2026-04-13-nightly-deep-ci-69 | nightly-deep | 2026-04-13T17:24:10.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-04-14T17:25:54.733Z
 | 2026-03-05-nightly-deep-ci-30 | nightly-deep | 2026-03-05T17:43:09.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-04-nightly-deep-ci-29 | nightly-deep | 2026-03-04T17:14:45.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-03-nightly-deep-ci-28 | nightly-deep | 2026-03-03T17:16:54.000Z | true | 0 | 8 | 11 | closed |
-| 2026-03-02-full-ci-5 | full | 2026-03-02T18:12:17.000Z | true | 0 | 20 | 29 | closed |
 
