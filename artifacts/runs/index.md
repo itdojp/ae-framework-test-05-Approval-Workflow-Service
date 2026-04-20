@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-04-19T17:12:24.624Z
+GeneratedAt: 2026-04-20T17:23:25.608Z
 
 ## Overview
 
-- totalRuns: 147
-- auditedRuns: 104
-- auditPassedRuns: 104
+- totalRuns: 148
+- auditedRuns: 105
+- auditPassedRuns: 105
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-04-19T17:12:24.624Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 86 | 73 | 73 | 0 | 7 | 2026-04-19-nightly-deep-ci-75 | 2026-04-19T17:12:21.000Z |
+| nightly-deep | 87 | 74 | 74 | 0 | 7 | 2026-04-20-nightly-deep-ci-76 | 2026-04-20T17:23:21.000Z |
 | full | 24 | 11 | 11 | 0 | 0 | 2026-04-13-full-ci-11 | 2026-04-13T18:23:36.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-04-19T17:12:24.624Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-04-20-nightly-deep-ci-76 | nightly-deep | 2026-04-20T17:23:21.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-19-nightly-deep-ci-75 | nightly-deep | 2026-04-19T17:12:21.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-18-nightly-deep-ci-74 | nightly-deep | 2026-04-18T17:12:34.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-17-nightly-deep-ci-73 | nightly-deep | 2026-04-17T17:18:03.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-04-19T17:12:24.624Z
 | 2026-03-09-full-ci-6 | full | 2026-03-09T18:14:58.000Z | true | 0 | 20 | 29 | closed |
 | 2026-03-09-nightly-deep-ci-34 | nightly-deep | 2026-03-09T17:18:36.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-08-nightly-deep-ci-33 | nightly-deep | 2026-03-08T17:06:04.000Z | true | 0 | 8 | 11 | closed |
-| 2026-03-07-nightly-deep-ci-32 | nightly-deep | 2026-03-07T17:05:15.000Z | true | 0 | 8 | 11 | closed |
 
