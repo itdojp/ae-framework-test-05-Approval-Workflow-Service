@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-04-24T17:20:57.264Z
+GeneratedAt: 2026-04-25T17:14:43.220Z
 
 ## Overview
 
-- totalRuns: 153
-- auditedRuns: 110
-- auditPassedRuns: 110
+- totalRuns: 154
+- auditedRuns: 111
+- auditPassedRuns: 111
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-04-24T17:20:57.264Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 91 | 78 | 78 | 0 | 7 | 2026-04-24-nightly-deep-ci-80 | 2026-04-24T17:20:53.000Z |
+| nightly-deep | 92 | 79 | 79 | 0 | 7 | 2026-04-25-nightly-deep-ci-81 | 2026-04-25T17:14:40.000Z |
 | full | 25 | 12 | 12 | 0 | 0 | 2026-04-20-full-ci-12 | 2026-04-20T18:18:58.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-04-24T17:20:57.264Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-04-25-nightly-deep-ci-81 | nightly-deep | 2026-04-25T17:14:40.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-24-nightly-deep-ci-80 | nightly-deep | 2026-04-24T17:20:53.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-23-nightly-deep-ci-79 | nightly-deep | 2026-04-23T17:31:17.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-22-nightly-deep-ci-78 | nightly-deep | 2026-04-22T17:21:30.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-04-24T17:20:57.264Z
 | 2026-03-15-nightly-deep-ci-40 | nightly-deep | 2026-03-15T17:07:14.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-14-nightly-deep-ci-39 | nightly-deep | 2026-03-14T17:07:28.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-13-nightly-deep-ci-38 | nightly-deep | 2026-03-13T17:13:14.000Z | true | 0 | 8 | 11 | closed |
-| 2026-03-12-nightly-deep-ci-37 | nightly-deep | 2026-03-12T17:19:18.000Z | true | 0 | 8 | 11 | closed |
 
