@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-04-29T17:32:49.569Z
+GeneratedAt: 2026-04-30T17:30:54.568Z
 
 ## Overview
 
-- totalRuns: 159
-- auditedRuns: 116
-- auditPassedRuns: 116
+- totalRuns: 160
+- auditedRuns: 117
+- auditPassedRuns: 117
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-04-29T17:32:49.569Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 96 | 83 | 83 | 0 | 7 | 2026-04-29-nightly-deep-ci-85 | 2026-04-29T17:32:46.000Z |
+| nightly-deep | 97 | 84 | 84 | 0 | 7 | 2026-04-30-nightly-deep-ci-86 | 2026-04-30T17:30:51.000Z |
 | full | 26 | 13 | 13 | 0 | 0 | 2026-04-27-full-ci-13 | 2026-04-27T18:25:26.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-04-29T17:32:49.569Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-04-30-nightly-deep-ci-86 | nightly-deep | 2026-04-30T17:30:51.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-29-nightly-deep-ci-85 | nightly-deep | 2026-04-29T17:32:46.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-28-nightly-deep-ci-84 | nightly-deep | 2026-04-28T17:34:09.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-27-full-ci-13 | full | 2026-04-27T18:25:26.000Z | true | 0 | 20 | 29 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-04-29T17:32:49.569Z
 | 2026-03-20-nightly-deep-ci-45 | nightly-deep | 2026-03-20T17:15:09.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-19-nightly-deep-ci-44 | nightly-deep | 2026-03-19T17:21:27.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-18-nightly-deep-ci-43 | nightly-deep | 2026-03-18T17:23:17.000Z | true | 0 | 8 | 11 | closed |
-| 2026-03-17-nightly-deep-ci-42 | nightly-deep | 2026-03-17T17:23:39.000Z | true | 0 | 8 | 11 | closed |
 
