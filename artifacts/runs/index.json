@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-04-30T17:30:54.568Z",
+  "generatedAt": "2026-05-01T17:22:22.990Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 160,
-  "auditedRuns": 117,
-  "auditPassedRuns": 117,
+  "totalRuns": 161,
+  "auditedRuns": 118,
+  "auditPassedRuns": 118,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
     "nightly-deep": {
-      "totalRuns": 97,
-      "auditedRuns": 84,
-      "auditPassedRuns": 84,
+      "totalRuns": 98,
+      "auditedRuns": 85,
+      "auditPassedRuns": 85,
       "auditFailedRuns": 0,
       "loglessRuns": 7,
-      "latestRunId": "2026-04-30-nightly-deep-ci-86",
-      "latestCreatedAt": "2026-04-30T17:30:51.000Z"
+      "latestRunId": "2026-05-01-nightly-deep-ci-87",
+      "latestCreatedAt": "2026-05-01T17:22:19.000Z"
     },
     "full": {
       "totalRuns": 26,
@@ -54,6 +54,18 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-05-01-nightly-deep-ci-87",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-01T17:22:19.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 8,
+      "snapshotFileCount": 11,
+      "runSizeBytes": 80316,
+      "frameworkGapState": "closed"
+    },
     {
       "runId": "2026-04-30-nightly-deep-ci-86",
       "profile": "nightly-deep",
@@ -634,18 +646,6 @@
       "runId": "2026-03-19-nightly-deep-ci-44",
       "profile": "nightly-deep",
       "createdAt": "2026-03-19T17:21:27.000Z",
-      "hasAudit": true,
-      "auditPassed": true,
-      "auditMissingCount": 0,
-      "logFileCount": 8,
-      "snapshotFileCount": 11,
-      "runSizeBytes": 78454,
-      "frameworkGapState": "closed"
-    },
-    {
-      "runId": "2026-03-18-nightly-deep-ci-43",
-      "profile": "nightly-deep",
-      "createdAt": "2026-03-18T17:23:17.000Z",
       "hasAudit": true,
       "auditPassed": true,
       "auditMissingCount": 0,
