@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-05-02T17:16:53.849Z
+GeneratedAt: 2026-05-03T17:17:24.403Z
 
 ## Overview
 
-- totalRuns: 162
-- auditedRuns: 119
-- auditPassedRuns: 119
+- totalRuns: 163
+- auditedRuns: 120
+- auditPassedRuns: 120
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-05-02T17:16:53.849Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 99 | 86 | 86 | 0 | 7 | 2026-05-02-nightly-deep-ci-88 | 2026-05-02T17:16:49.000Z |
+| nightly-deep | 100 | 87 | 87 | 0 | 7 | 2026-05-03-nightly-deep-ci-89 | 2026-05-03T17:17:20.000Z |
 | full | 26 | 13 | 13 | 0 | 0 | 2026-04-27-full-ci-13 | 2026-04-27T18:25:26.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-05-02T17:16:53.849Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-05-03-nightly-deep-ci-89 | nightly-deep | 2026-05-03T17:17:20.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-02-nightly-deep-ci-88 | nightly-deep | 2026-05-02T17:16:49.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-01-nightly-deep-ci-87 | nightly-deep | 2026-05-01T17:22:19.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-30-nightly-deep-ci-86 | nightly-deep | 2026-04-30T17:30:51.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-05-02T17:16:53.849Z
 | 2026-03-23-nightly-deep-ci-48 | nightly-deep | 2026-03-23T17:19:08.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-22-nightly-deep-ci-47 | nightly-deep | 2026-03-22T17:06:30.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-21-nightly-deep-ci-46 | nightly-deep | 2026-03-21T17:07:03.000Z | true | 0 | 8 | 11 | closed |
-| 2026-03-20-nightly-deep-ci-45 | nightly-deep | 2026-03-20T17:15:09.000Z | true | 0 | 8 | 11 | closed |
 
