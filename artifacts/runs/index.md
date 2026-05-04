@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-05-03T17:17:24.403Z
+GeneratedAt: 2026-05-04T17:32:26.837Z
 
 ## Overview
 
-- totalRuns: 163
-- auditedRuns: 120
-- auditPassedRuns: 120
+- totalRuns: 164
+- auditedRuns: 121
+- auditPassedRuns: 121
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-05-03T17:17:24.403Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 100 | 87 | 87 | 0 | 7 | 2026-05-03-nightly-deep-ci-89 | 2026-05-03T17:17:20.000Z |
+| nightly-deep | 101 | 88 | 88 | 0 | 7 | 2026-05-04-nightly-deep-ci-90 | 2026-05-04T17:32:23.000Z |
 | full | 26 | 13 | 13 | 0 | 0 | 2026-04-27-full-ci-13 | 2026-04-27T18:25:26.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-05-03T17:17:24.403Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-05-04-nightly-deep-ci-90 | nightly-deep | 2026-05-04T17:32:23.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-03-nightly-deep-ci-89 | nightly-deep | 2026-05-03T17:17:20.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-02-nightly-deep-ci-88 | nightly-deep | 2026-05-02T17:16:49.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-01-nightly-deep-ci-87 | nightly-deep | 2026-05-01T17:22:19.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-05-03T17:17:24.403Z
 | 2026-03-23-full-ci-8 | full | 2026-03-23T18:15:55.000Z | true | 0 | 20 | 29 |  |
 | 2026-03-23-nightly-deep-ci-48 | nightly-deep | 2026-03-23T17:19:08.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-22-nightly-deep-ci-47 | nightly-deep | 2026-03-22T17:06:30.000Z | true | 0 | 8 | 11 | closed |
-| 2026-03-21-nightly-deep-ci-46 | nightly-deep | 2026-03-21T17:07:03.000Z | true | 0 | 8 | 11 | closed |
 

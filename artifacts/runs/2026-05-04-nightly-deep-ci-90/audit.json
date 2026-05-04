@@ -1,0 +1,10 @@
+{
+  "runId": "2026-05-04-nightly-deep-ci-90",
+  "profile": "nightly-deep",
+  "generatedAt": "2026-05-04T17:32:24.635Z",
+  "runDir": "artifacts/runs/2026-05-04-nightly-deep-ci-90",
+  "requiredCount": 10,
+  "missingCount": 0,
+  "passed": true,
+  "missing": []
+}
