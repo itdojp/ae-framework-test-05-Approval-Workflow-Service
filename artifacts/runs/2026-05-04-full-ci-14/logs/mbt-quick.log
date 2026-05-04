@@ -1,0 +1,5 @@
+
+> approval-workflow-service@0.1.0 test:mbt:quick /home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service
+> node scripts/testing/mbt-quick.mjs
+
+mbt quick summary generated at /home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service/artifacts/mbt/summary.json
