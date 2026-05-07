@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-05-06T17:32:34.880Z
+GeneratedAt: 2026-05-07T17:34:06.007Z
 
 ## Overview
 
-- totalRuns: 167
-- auditedRuns: 124
-- auditPassedRuns: 124
+- totalRuns: 168
+- auditedRuns: 125
+- auditPassedRuns: 125
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-05-06T17:32:34.880Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 103 | 90 | 90 | 0 | 7 | 2026-05-06-nightly-deep-ci-92 | 2026-05-06T17:32:29.000Z |
+| nightly-deep | 104 | 91 | 91 | 0 | 7 | 2026-05-07-nightly-deep-ci-93 | 2026-05-07T17:34:02.000Z |
 | full | 27 | 14 | 14 | 0 | 0 | 2026-05-04-full-ci-14 | 2026-05-04T18:29:55.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-05-06T17:32:34.880Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-05-07-nightly-deep-ci-93 | nightly-deep | 2026-05-07T17:34:02.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-06-nightly-deep-ci-92 | nightly-deep | 2026-05-06T17:32:29.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-05-nightly-deep-ci-91 | nightly-deep | 2026-05-05T17:33:06.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-04-full-ci-14 | full | 2026-05-04T18:29:55.000Z | true | 0 | 20 | 29 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-05-06T17:32:34.880Z
 | 2026-03-27-nightly-deep-ci-52 | nightly-deep | 2026-03-27T17:18:43.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-26-nightly-deep-ci-51 | nightly-deep | 2026-03-26T17:23:58.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-25-nightly-deep-ci-50 | nightly-deep | 2026-03-25T17:22:38.000Z | true | 0 | 8 | 11 | closed |
-| 2026-03-24-nightly-deep-ci-49 | nightly-deep | 2026-03-24T17:21:26.000Z | true | 0 | 8 | 11 | closed |
 
