@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-05-08T17:30:48.357Z
+GeneratedAt: 2026-05-09T17:19:36.031Z
 
 ## Overview
 
-- totalRuns: 169
-- auditedRuns: 126
-- auditPassedRuns: 126
+- totalRuns: 170
+- auditedRuns: 127
+- auditPassedRuns: 127
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-05-08T17:30:48.357Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 105 | 92 | 92 | 0 | 7 | 2026-05-08-nightly-deep-ci-94 | 2026-05-08T17:30:43.000Z |
+| nightly-deep | 106 | 93 | 93 | 0 | 7 | 2026-05-09-nightly-deep-ci-95 | 2026-05-09T17:19:32.000Z |
 | full | 27 | 14 | 14 | 0 | 0 | 2026-05-04-full-ci-14 | 2026-05-04T18:29:55.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-05-08T17:30:48.357Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-05-09-nightly-deep-ci-95 | nightly-deep | 2026-05-09T17:19:32.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-08-nightly-deep-ci-94 | nightly-deep | 2026-05-08T17:30:43.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-07-nightly-deep-ci-93 | nightly-deep | 2026-05-07T17:34:02.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-06-nightly-deep-ci-92 | nightly-deep | 2026-05-06T17:32:29.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-05-08T17:30:48.357Z
 | 2026-03-29-nightly-deep-ci-54 | nightly-deep | 2026-03-29T17:09:00.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-28-nightly-deep-ci-53 | nightly-deep | 2026-03-28T17:08:28.000Z | true | 0 | 8 | 11 | closed |
 | 2026-03-27-nightly-deep-ci-52 | nightly-deep | 2026-03-27T17:18:43.000Z | true | 0 | 8 | 11 | closed |
-| 2026-03-26-nightly-deep-ci-51 | nightly-deep | 2026-03-26T17:23:58.000Z | true | 0 | 8 | 11 | closed |
 
