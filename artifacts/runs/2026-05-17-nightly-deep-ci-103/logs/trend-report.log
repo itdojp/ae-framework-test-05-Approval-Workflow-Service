@@ -1,0 +1,5 @@
+
+> approval-workflow-service@0.1.0 trend:report /home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service
+> node scripts/testing/trend-report.mjs
+
+trend summary generated at /home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service/artifacts/trends/summary.json
