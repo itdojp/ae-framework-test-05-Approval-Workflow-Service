@@ -1,0 +1,1347 @@
+{
+  "generatedAt": "2026-05-18T18:34:39.101Z",
+  "sourceDir": "artifacts/runs",
+  "maxRuns": 200,
+  "totalRunsScanned": 179,
+  "profiles": {
+    "full": {
+      "totalRuns": 29,
+      "runsWithSnapshots": 17,
+      "evaluatedRuns": 17,
+      "passedRuns": 17,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-05-18-full-ci-16",
+        "profile": "full",
+        "createdAt": "2026-05-18T18:34:38.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          },
+          {
+            "name": "conformance",
+            "passed": true
+          },
+          {
+            "name": "conformance-negative",
+            "passed": true
+          },
+          {
+            "name": "mbt",
+            "passed": true
+          },
+          {
+            "name": "property",
+            "passed": true
+          },
+          {
+            "name": "mutation",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": 1,
+          "verifyLiteDurationMs": 3230,
+          "conformanceOverall": "pass",
+          "conformanceNegativePassed": true,
+          "formal": {
+            "tlaStatus": "tool_not_available",
+            "cspStatus": "tool_not_available"
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [
+          {
+            "runId": "2026-05-18-full-ci-16",
+            "createdAt": "2026-05-18T18:34:38.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-11-full-ci-15",
+            "createdAt": "2026-05-11T18:35:24.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-04-full-ci-14",
+            "createdAt": "2026-05-04T18:29:55.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-04-27-full-ci-13",
+            "createdAt": "2026-04-27T18:25:26.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-04-20-full-ci-12",
+            "createdAt": "2026-04-20T18:18:58.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-04-13-full-ci-11",
+            "createdAt": "2026-04-13T18:23:36.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-04-06-full-ci-10",
+            "createdAt": "2026-04-06T18:17:09.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-30-full-ci-9",
+            "createdAt": "2026-03-30T18:17:55.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-23-full-ci-8",
+            "createdAt": "2026-03-23T18:15:55.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-16-full-ci-7",
+            "createdAt": "2026-03-16T18:18:31.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-09-full-ci-6",
+            "createdAt": "2026-03-09T18:14:58.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-03-02-full-ci-5",
+            "createdAt": "2026-03-02T18:12:17.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-23-full-ci-4",
+            "createdAt": "2026-02-23T18:20:37.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-ci-3",
+            "createdAt": "2026-02-16T18:11:26.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-specfit-r1",
+            "createdAt": "2026-02-16T11:11:38.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "mutationScore": 1
+          }
+        ],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-05-18-full-ci-16",
+            "createdAt": "2026-05-18T18:34:38.000Z",
+            "durationMs": 3230
+          },
+          {
+            "runId": "2026-05-11-full-ci-15",
+            "createdAt": "2026-05-11T18:35:24.000Z",
+            "durationMs": 2833
+          },
+          {
+            "runId": "2026-05-04-full-ci-14",
+            "createdAt": "2026-05-04T18:29:55.000Z",
+            "durationMs": 3744
+          },
+          {
+            "runId": "2026-04-27-full-ci-13",
+            "createdAt": "2026-04-27T18:25:26.000Z",
+            "durationMs": 3797
+          },
+          {
+            "runId": "2026-04-20-full-ci-12",
+            "createdAt": "2026-04-20T18:18:58.000Z",
+            "durationMs": 3834
+          },
+          {
+            "runId": "2026-04-13-full-ci-11",
+            "createdAt": "2026-04-13T18:23:36.000Z",
+            "durationMs": 3576
+          },
+          {
+            "runId": "2026-04-06-full-ci-10",
+            "createdAt": "2026-04-06T18:17:09.000Z",
+            "durationMs": 3833
+          },
+          {
+            "runId": "2026-03-30-full-ci-9",
+            "createdAt": "2026-03-30T18:17:55.000Z",
+            "durationMs": 3587
+          },
+          {
+            "runId": "2026-03-23-full-ci-8",
+            "createdAt": "2026-03-23T18:15:55.000Z",
+            "durationMs": 3601
+          },
+          {
+            "runId": "2026-03-16-full-ci-7",
+            "createdAt": "2026-03-16T18:18:31.000Z",
+            "durationMs": 3696
+          },
+          {
+            "runId": "2026-03-09-full-ci-6",
+            "createdAt": "2026-03-09T18:14:58.000Z",
+            "durationMs": 3746
+          },
+          {
+            "runId": "2026-03-02-full-ci-5",
+            "createdAt": "2026-03-02T18:12:17.000Z",
+            "durationMs": 3664
+          },
+          {
+            "runId": "2026-02-23-full-ci-4",
+            "createdAt": "2026-02-23T18:20:37.000Z",
+            "durationMs": 3360
+          },
+          {
+            "runId": "2026-02-16-full-ci-3",
+            "createdAt": "2026-02-16T18:11:26.000Z",
+            "durationMs": 3701
+          },
+          {
+            "runId": "2026-02-16-full-specfit-r1",
+            "createdAt": "2026-02-16T11:11:38.000Z",
+            "durationMs": 4242
+          },
+          {
+            "runId": "2026-02-16-full-ci-2",
+            "createdAt": "2026-02-16T06:42:05.000Z",
+            "durationMs": 3347
+          },
+          {
+            "runId": "2026-02-14-full-r13",
+            "createdAt": "2026-02-14T10:02:07.000Z",
+            "durationMs": 3591
+          }
+        ]
+      }
+    },
+    "nightly-deep": {
+      "totalRuns": 115,
+      "runsWithSnapshots": 106,
+      "evaluatedRuns": 106,
+      "passedRuns": 106,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-05-18-nightly-deep-ci-104",
+        "profile": "nightly-deep",
+        "createdAt": "2026-05-18T17:42:47.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "mutation",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": 1,
+          "verifyLiteDurationMs": null,
+          "conformanceOverall": null,
+          "conformanceNegativePassed": null,
+          "formal": {
+            "tlaStatus": "tool_not_available",
+            "cspStatus": "tool_not_available"
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [
+          {
+            "runId": "2026-05-18-nightly-deep-ci-104",
+            "createdAt": "2026-05-18T17:42:47.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-17-nightly-deep-ci-103",
+            "createdAt": "2026-05-17T17:22:00.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-16-nightly-deep-ci-102",
+            "createdAt": "2026-05-16T17:21:28.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-15-nightly-deep-ci-101",
+            "createdAt": "2026-05-15T17:31:06.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-14-nightly-deep-ci-100",
+            "createdAt": "2026-05-14T17:34:49.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-13-nightly-deep-ci-99",
+            "createdAt": "2026-05-13T17:42:10.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-12-nightly-deep-ci-98",
+            "createdAt": "2026-05-12T17:40:49.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-11-nightly-deep-ci-97",
+            "createdAt": "2026-05-11T17:39:47.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-10-nightly-deep-ci-96",
+            "createdAt": "2026-05-10T17:20:07.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-09-nightly-deep-ci-95",
+            "createdAt": "2026-05-09T17:19:32.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-08-nightly-deep-ci-94",
+            "createdAt": "2026-05-08T17:30:43.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-07-nightly-deep-ci-93",
+            "createdAt": "2026-05-07T17:34:02.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-06-nightly-deep-ci-92",
+            "createdAt": "2026-05-06T17:32:29.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-05-nightly-deep-ci-91",
+            "createdAt": "2026-05-05T17:33:06.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-04-nightly-deep-ci-90",
+            "createdAt": "2026-05-04T17:32:23.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-03-nightly-deep-ci-89",
+            "createdAt": "2026-05-03T17:17:20.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-02-nightly-deep-ci-88",
+            "createdAt": "2026-05-02T17:16:49.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-05-01-nightly-deep-ci-87",
+            "createdAt": "2026-05-01T17:22:19.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-04-30-nightly-deep-ci-86",
+            "createdAt": "2026-04-30T17:30:51.000Z",
+            "mutationScore": 1
+          },
+          {
+            "runId": "2026-04-29-nightly-deep-ci-85",
+            "createdAt": "2026-04-29T17:32:46.000Z",
+            "mutationScore": 1
+          }
+        ],
+        "verifyLiteDurationMs": []
+      }
+    },
+    "pr-gate": {
+      "totalRuns": 26,
+      "runsWithSnapshots": 17,
+      "evaluatedRuns": 17,
+      "passedRuns": 17,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-16-pr-gate-ci-23",
+        "profile": "pr-gate",
+        "createdAt": "2026-02-16T11:18:38.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          },
+          {
+            "name": "conformance",
+            "passed": true
+          },
+          {
+            "name": "conformance-negative",
+            "passed": true
+          },
+          {
+            "name": "mbt",
+            "passed": true
+          },
+          {
+            "name": "property",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": null,
+          "verifyLiteDurationMs": 3656,
+          "conformanceOverall": "pass",
+          "conformanceNegativePassed": true,
+          "formal": {
+            "tlaStatus": null,
+            "cspStatus": null
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-16-pr-gate-ci-23",
+            "createdAt": "2026-02-16T11:18:38.000Z",
+            "durationMs": 3656
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-22",
+            "createdAt": "2026-02-16T08:38:54.000Z",
+            "durationMs": 3796
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-21",
+            "createdAt": "2026-02-16T06:41:55.000Z",
+            "durationMs": 3828
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-20",
+            "createdAt": "2026-02-16T06:36:06.000Z",
+            "durationMs": 3801
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-19",
+            "createdAt": "2026-02-16T03:10:24.000Z",
+            "durationMs": 3660
+          },
+          {
+            "runId": "2026-02-16-pr-gate-ci-17",
+            "createdAt": "2026-02-16T03:02:00.000Z",
+            "durationMs": 3555
+          },
+          {
+            "runId": "2026-02-15-pr-gate-ci-16",
+            "createdAt": "2026-02-15T23:44:19.000Z",
+            "durationMs": 3398
+          },
+          {
+            "runId": "2026-02-15-pr-gate-ci-14",
+            "createdAt": "2026-02-15T08:44:36.000Z",
+            "durationMs": 3611
+          },
+          {
+            "runId": "2026-02-15-pr-gate-ci-13",
+            "createdAt": "2026-02-15T08:36:28.000Z",
+            "durationMs": 3840
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-12",
+            "createdAt": "2026-02-14T15:27:27.000Z",
+            "durationMs": 3686
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-11",
+            "createdAt": "2026-02-14T11:01:12.000Z",
+            "durationMs": 3681
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-10",
+            "createdAt": "2026-02-14T10:53:51.000Z",
+            "durationMs": 3639
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r11",
+            "createdAt": "2026-02-14T10:50:20.000Z",
+            "durationMs": 4847
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-9",
+            "createdAt": "2026-02-14T10:07:31.000Z",
+            "durationMs": 3669
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r10",
+            "createdAt": "2026-02-14T10:04:08.000Z",
+            "durationMs": 4105
+          },
+          {
+            "runId": "2026-02-14-pr-gate-ci-8",
+            "createdAt": "2026-02-14T09:10:52.000Z",
+            "durationMs": 3604
+          },
+          {
+            "runId": "2026-02-14-pr-gate-r9",
+            "createdAt": "2026-02-14T09:07:24.000Z",
+            "durationMs": 3412
+          }
+        ]
+      }
+    },
+    "dev-fast": {
+      "totalRuns": 9,
+      "runsWithSnapshots": 7,
+      "evaluatedRuns": 7,
+      "passedRuns": 7,
+      "passRate": 1,
+      "latestRun": {
+        "runId": "2026-02-16-dev-fast-r13",
+        "profile": "dev-fast",
+        "createdAt": "2026-02-16T03:05:28.000Z",
+        "hasSnapshots": true,
+        "runPassed": true,
+        "checks": [
+          {
+            "name": "verify-lite",
+            "passed": true
+          }
+        ],
+        "highlights": {
+          "mutationScore": null,
+          "verifyLiteDurationMs": 3451,
+          "conformanceOverall": null,
+          "conformanceNegativePassed": null,
+          "formal": {
+            "tlaStatus": null,
+            "cspStatus": null
+          }
+        }
+      },
+      "trends": {
+        "mutationScore": [],
+        "verifyLiteDurationMs": [
+          {
+            "runId": "2026-02-16-dev-fast-r13",
+            "createdAt": "2026-02-16T03:05:28.000Z",
+            "durationMs": 3451
+          },
+          {
+            "runId": "2026-02-16-dev-fast-r12",
+            "createdAt": "2026-02-16T03:04:00.000Z",
+            "durationMs": 3656
+          },
+          {
+            "runId": "2026-02-16-dev-fast-r10",
+            "createdAt": "2026-02-16T02:58:43.000Z",
+            "durationMs": 4143
+          },
+          {
+            "runId": "2026-02-15-dev-fast-r9",
+            "createdAt": "2026-02-15T23:39:39.000Z",
+            "durationMs": 4284
+          },
+          {
+            "runId": "2026-02-14-dev-fast-r7-local",
+            "createdAt": "2026-02-14T15:24:14.000Z",
+            "durationMs": 3576
+          },
+          {
+            "runId": "2026-02-14-dev-fast-r6",
+            "createdAt": "2026-02-14T10:48:25.000Z",
+            "durationMs": 3619
+          },
+          {
+            "runId": "2026-02-14-dev-fast-r5",
+            "createdAt": "2026-02-14T09:05:34.000Z",
+            "durationMs": 3372
+          }
+        ]
+      }
+    }
+  },
+  "latestRuns": [
+    {
+      "runId": "2026-05-18-full-ci-16",
+      "profile": "full",
+      "createdAt": "2026-05-18T18:34:38.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        },
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": 3230,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-18-nightly-deep-ci-104",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-18T17:42:47.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-17-nightly-deep-ci-103",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-17T17:22:00.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-16-nightly-deep-ci-102",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-16T17:21:28.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-15-nightly-deep-ci-101",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-15T17:31:06.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-14-nightly-deep-ci-100",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-14T17:34:49.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-13-nightly-deep-ci-99",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-13T17:42:10.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-12-nightly-deep-ci-98",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-12T17:40:49.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-11-full-ci-15",
+      "profile": "full",
+      "createdAt": "2026-05-11T18:35:24.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        },
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": 2833,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-11-nightly-deep-ci-97",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-11T17:39:47.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-10-nightly-deep-ci-96",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-10T17:20:07.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-09-nightly-deep-ci-95",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-09T17:19:32.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-08-nightly-deep-ci-94",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-08T17:30:43.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-07-nightly-deep-ci-93",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-07T17:34:02.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-06-nightly-deep-ci-92",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-06T17:32:29.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-05-nightly-deep-ci-91",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-05T17:33:06.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-04-full-ci-14",
+      "profile": "full",
+      "createdAt": "2026-05-04T18:29:55.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        },
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": 3744,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-04-nightly-deep-ci-90",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-04T17:32:23.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-03-nightly-deep-ci-89",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-03T17:17:20.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-02-nightly-deep-ci-88",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-02T17:16:49.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-05-01-nightly-deep-ci-87",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-01T17:22:19.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-04-30-nightly-deep-ci-86",
+      "profile": "nightly-deep",
+      "createdAt": "2026-04-30T17:30:51.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-04-29-nightly-deep-ci-85",
+      "profile": "nightly-deep",
+      "createdAt": "2026-04-29T17:32:46.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-04-28-nightly-deep-ci-84",
+      "profile": "nightly-deep",
+      "createdAt": "2026-04-28T17:34:09.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-04-27-full-ci-13",
+      "profile": "full",
+      "createdAt": "2026-04-27T18:25:26.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "verify-lite",
+          "passed": true
+        },
+        {
+          "name": "conformance",
+          "passed": true
+        },
+        {
+          "name": "conformance-negative",
+          "passed": true
+        },
+        {
+          "name": "mbt",
+          "passed": true
+        },
+        {
+          "name": "property",
+          "passed": true
+        },
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": 3797,
+        "conformanceOverall": "pass",
+        "conformanceNegativePassed": true,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-04-27-nightly-deep-ci-83",
+      "profile": "nightly-deep",
+      "createdAt": "2026-04-27T17:31:39.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-04-26-nightly-deep-ci-82",
+      "profile": "nightly-deep",
+      "createdAt": "2026-04-26T17:14:56.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-04-25-nightly-deep-ci-81",
+      "profile": "nightly-deep",
+      "createdAt": "2026-04-25T17:14:40.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-04-24-nightly-deep-ci-80",
+      "profile": "nightly-deep",
+      "createdAt": "2026-04-24T17:20:53.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    },
+    {
+      "runId": "2026-04-23-nightly-deep-ci-79",
+      "profile": "nightly-deep",
+      "createdAt": "2026-04-23T17:31:17.000Z",
+      "hasSnapshots": true,
+      "runPassed": true,
+      "checks": [
+        {
+          "name": "mutation",
+          "passed": true
+        }
+      ],
+      "highlights": {
+        "mutationScore": 1,
+        "verifyLiteDurationMs": null,
+        "conformanceOverall": null,
+        "conformanceNegativePassed": null,
+        "formal": {
+          "tlaStatus": "tool_not_available",
+          "cspStatus": "tool_not_available"
+        }
+      }
+    }
+  ]
+}
