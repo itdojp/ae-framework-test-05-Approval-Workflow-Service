@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-05-17T17:22:05.011Z
+GeneratedAt: 2026-05-18T17:42:51.418Z
 
 ## Overview
 
-- totalRuns: 179
-- auditedRuns: 136
-- auditPassedRuns: 136
+- totalRuns: 180
+- auditedRuns: 137
+- auditPassedRuns: 137
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-05-17T17:22:05.011Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 114 | 101 | 101 | 0 | 7 | 2026-05-17-nightly-deep-ci-103 | 2026-05-17T17:22:00.000Z |
+| nightly-deep | 115 | 102 | 102 | 0 | 7 | 2026-05-18-nightly-deep-ci-104 | 2026-05-18T17:42:47.000Z |
 | full | 28 | 15 | 15 | 0 | 0 | 2026-05-11-full-ci-15 | 2026-05-11T18:35:24.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-05-17T17:22:05.011Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-05-18-nightly-deep-ci-104 | nightly-deep | 2026-05-18T17:42:47.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-17-nightly-deep-ci-103 | nightly-deep | 2026-05-17T17:22:00.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-16-nightly-deep-ci-102 | nightly-deep | 2026-05-16T17:21:28.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-15-nightly-deep-ci-101 | nightly-deep | 2026-05-15T17:31:06.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-05-17T17:22:05.011Z
 | 2026-04-06-full-ci-10 | full | 2026-04-06T18:17:09.000Z | true | 0 | 20 | 29 | closed |
 | 2026-04-06-nightly-deep-ci-62 | nightly-deep | 2026-04-06T17:17:55.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-05-nightly-deep-ci-61 | nightly-deep | 2026-04-05T17:09:37.000Z | true | 0 | 8 | 11 | closed |
-| 2026-04-04-nightly-deep-ci-60 | nightly-deep | 2026-04-04T17:09:43.000Z | true | 0 | 8 | 11 | closed |
 
