@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-05-18T18:34:43.045Z",
+  "generatedAt": "2026-05-19T17:47:07.534Z",
   "sourceDir": "artifacts/runs",
-  "totalRuns": 181,
-  "auditedRuns": 138,
-  "auditPassedRuns": 138,
+  "totalRuns": 182,
+  "auditedRuns": 139,
+  "auditPassedRuns": 139,
   "auditFailedRuns": 0,
   "loglessRuns": 15,
   "profileSummary": {
+    "nightly-deep": {
+      "totalRuns": 116,
+      "auditedRuns": 103,
+      "auditPassedRuns": 103,
+      "auditFailedRuns": 0,
+      "loglessRuns": 7,
+      "latestRunId": "2026-05-19-nightly-deep-ci-105",
+      "latestCreatedAt": "2026-05-19T17:47:02.000Z"
+    },
     "full": {
       "totalRuns": 29,
       "auditedRuns": 16,
@@ -15,15 +24,6 @@
       "loglessRuns": 0,
       "latestRunId": "2026-05-18-full-ci-16",
       "latestCreatedAt": "2026-05-18T18:34:38.000Z"
-    },
-    "nightly-deep": {
-      "totalRuns": 115,
-      "auditedRuns": 102,
-      "auditPassedRuns": 102,
-      "auditFailedRuns": 0,
-      "loglessRuns": 7,
-      "latestRunId": "2026-05-18-nightly-deep-ci-104",
-      "latestCreatedAt": "2026-05-18T17:42:47.000Z"
     },
     "pr-gate": {
       "totalRuns": 26,
@@ -54,6 +54,18 @@
     }
   },
   "latestRuns": [
+    {
+      "runId": "2026-05-19-nightly-deep-ci-105",
+      "profile": "nightly-deep",
+      "createdAt": "2026-05-19T17:47:02.000Z",
+      "hasAudit": true,
+      "auditPassed": true,
+      "auditMissingCount": 0,
+      "logFileCount": 8,
+      "snapshotFileCount": 11,
+      "runSizeBytes": 81272,
+      "frameworkGapState": "closed"
+    },
     {
       "runId": "2026-05-18-full-ci-16",
       "profile": "full",
@@ -640,18 +652,6 @@
       "logFileCount": 20,
       "snapshotFileCount": 29,
       "runSizeBytes": 153856,
-      "frameworkGapState": "closed"
-    },
-    {
-      "runId": "2026-04-06-nightly-deep-ci-62",
-      "profile": "nightly-deep",
-      "createdAt": "2026-04-06T17:17:55.000Z",
-      "hasAudit": true,
-      "auditPassed": true,
-      "auditMissingCount": 0,
-      "logFileCount": 8,
-      "snapshotFileCount": 11,
-      "runSizeBytes": 78690,
       "frameworkGapState": "closed"
     }
   ]
