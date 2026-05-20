@@ -1,12 +1,12 @@
 # Run Index
 
-GeneratedAt: 2026-05-19T17:47:07.534Z
+GeneratedAt: 2026-05-20T17:58:17.838Z
 
 ## Overview
 
-- totalRuns: 182
-- auditedRuns: 139
-- auditPassedRuns: 139
+- totalRuns: 183
+- auditedRuns: 140
+- auditPassedRuns: 140
 - auditFailedRuns: 0
 - loglessRuns: 15
 
@@ -14,7 +14,7 @@ GeneratedAt: 2026-05-19T17:47:07.534Z
 
 | Profile | totalRuns | auditedRuns | auditPassedRuns | auditFailedRuns | loglessRuns | latestRunId | latestCreatedAt |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| nightly-deep | 116 | 103 | 103 | 0 | 7 | 2026-05-19-nightly-deep-ci-105 | 2026-05-19T17:47:02.000Z |
+| nightly-deep | 117 | 104 | 104 | 0 | 7 | 2026-05-20-nightly-deep-ci-106 | 2026-05-20T17:58:13.000Z |
 | full | 29 | 16 | 16 | 0 | 0 | 2026-05-18-full-ci-16 | 2026-05-18T18:34:38.000Z |
 | pr-gate | 26 | 14 | 14 | 0 | 6 | 2026-02-16-pr-gate-ci-23 | 2026-02-16T11:18:38.000Z |
 | dev-fast | 9 | 6 | 6 | 0 | 0 | 2026-02-16-dev-fast-r13 | 2026-02-16T03:05:28.000Z |
@@ -24,6 +24,7 @@ GeneratedAt: 2026-05-19T17:47:07.534Z
 
 | runId | profile | createdAt | auditPassed | auditMissingCount | logFileCount | snapshotFileCount | frameworkGapState |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| 2026-05-20-nightly-deep-ci-106 | nightly-deep | 2026-05-20T17:58:13.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-19-nightly-deep-ci-105 | nightly-deep | 2026-05-19T17:47:02.000Z | true | 0 | 8 | 11 | closed |
 | 2026-05-18-full-ci-16 | full | 2026-05-18T18:34:38.000Z | true | 0 | 20 | 29 | closed |
 | 2026-05-18-nightly-deep-ci-104 | nightly-deep | 2026-05-18T17:42:47.000Z | true | 0 | 8 | 11 | closed |
@@ -73,5 +74,4 @@ GeneratedAt: 2026-05-19T17:47:07.534Z
 | 2026-04-09-nightly-deep-ci-65 | nightly-deep | 2026-04-09T17:25:31.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-08-nightly-deep-ci-64 | nightly-deep | 2026-04-08T17:24:32.000Z | true | 0 | 8 | 11 | closed |
 | 2026-04-07-nightly-deep-ci-63 | nightly-deep | 2026-04-07T17:22:00.000Z | true | 0 | 8 | 11 | closed |
-| 2026-04-06-full-ci-10 | full | 2026-04-06T18:17:09.000Z | true | 0 | 20 | 29 | closed |
 
