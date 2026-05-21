@@ -1,0 +1,5 @@
+
+> approval-workflow-service@0.1.0 test:mutation:quick /home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service
+> node scripts/testing/mutation-quick.mjs
+
+mutation quick summary generated at /home/runner/work/ae-framework-test-05-Approval-Workflow-Service/ae-framework-test-05-Approval-Workflow-Service/artifacts/mutation/summary.json
